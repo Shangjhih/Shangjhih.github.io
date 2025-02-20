@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="大概记录一下红米note9 4G版本刷CrDroid的简单流程 前期准备：   已经解锁的红米note9 4G     TWRP镜像     一台电脑     CrDroid卡刷包（zip格式）            解锁BL的红米note9 Twrp镜像 CrDroid卡刷包   1.在电脑安装ADB驱动 驱动下载直链2.打开手机的开发者模式3.使用adb 命令将TWRP刷入到恢复分区4.刷入卡">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redmi Lime卡刷CrDroid">
+<meta property="og:url" content="http://example.com/2025/02/20/Redmi-Lime%E5%8D%A1%E5%88%B7CrDroid/index.html">
+<meta property="og:site_name" content="就这样&amp;巴">
+<meta property="og:description" content="大概记录一下红米note9 4G版本刷CrDroid的简单流程 前期准备：   已经解锁的红米note9 4G     TWRP镜像     一台电脑     CrDroid卡刷包（zip格式）            解锁BL的红米note9 Twrp镜像 CrDroid卡刷包   1.在电脑安装ADB驱动 驱动下载直链2.打开手机的开发者模式3.使用adb 命令将TWRP刷入到恢复分区4.刷入卡">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2025/02/20/OYupMkNtrKPZT3d.jpg">
+<meta property="og:image" content="https://s2.loli.net/2025/02/20/sk9TcE2w6PgXuhf.png">
+<meta property="og:image" content="https://s2.loli.net/2025/02/20/tHRyWAYfiSP5m2e.png">
+<meta property="og:image" content="https://s2.loli.net/2025/02/20/NwVCncbyJgU2urQ.png">
+<meta property="og:image" content="https://s2.loli.net/2025/02/20/M4srVdavDz92mnW.png">
+<meta property="og:image" content="https://s2.loli.net/2025/02/20/YZWF7odbnMC9RtV.png">
+<meta property="og:image" content="https://s2.loli.net/2025/02/20/i2bAstWlCc1KyOE.png">
+<meta property="og:image" content="https://s2.loli.net/2025/02/20/d5GhbZw2o8RVq6x.png">
+<meta property="og:image" content="https://s2.loli.net/2025/02/20/F2hgOETGNs5v4ZU.png">
+<meta property="og:image" content="https://s2.loli.net/2025/02/20/Hm6FI8fKMnD37ge.png">
+<meta property="og:image" content="https://s2.loli.net/2025/02/20/k5Nc3bivLDzYqIV.png">
+<meta property="og:image" content="https://s2.loli.net/2025/02/20/zCqRXtwIWedZ3ro.png">
+<meta property="og:image" content="https://s2.loli.net/2025/02/20/2EX1KYlsI6rhiZb.png">
+<meta property="og:image" content="https://s2.loli.net/2025/02/20/cn2IyXmvl6RqpUg.png">
+<meta property="og:image" content="https://s2.loli.net/2025/02/20/f6YXgVCqLJ4R8y7.png">
+<meta property="og:image" content="https://s2.loli.net/2025/02/20/v1zhAaDu4w8xGpP.png">
+<meta property="article:published_time" content="2025-02-20T10:36:04.000Z">
+<meta property="article:modified_time" content="2025-02-20T11:58:22.380Z">
+<meta property="article:author" content="赵尚志">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2025/02/20/OYupMkNtrKPZT3d.jpg">
+
+<link rel="canonical" href="http://example.com/2025/02/20/Redmi-Lime%E5%8D%A1%E5%88%B7CrDroid/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Redmi Lime卡刷CrDroid | 就这样&巴</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">就这样&巴</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">生活随想录</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/02/20/Redmi-Lime%E5%8D%A1%E5%88%B7CrDroid/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="赵尚志">
+      <meta itemprop="description" content="闲来无事记录一下">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="就这样&巴">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Redmi Lime卡刷CrDroid
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-02-20 18:36:04 / 修改时间：19:58:22" itemprop="dateCreated datePublished" datetime="2025-02-20T18:36:04+08:00">2025-02-20</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>大概记录一下红米note9 4G版本刷CrDroid的简单流程</p>
+<p>前期准备：</p>
+<hr>
+<blockquote>
+<p>已经解锁的红米note9 4G  </p>
+</blockquote>
+<blockquote>
+<p>TWRP镜像  </p>
+</blockquote>
+<blockquote>
+<p>一台电脑  </p>
+</blockquote>
+<blockquote>
+<p>CrDroid卡刷包（zip格式） </p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center"><img src="https://s2.loli.net/2025/02/20/OYupMkNtrKPZT3d.jpg" alt="红米note9" width="200"/></th>
+<th align="center"><img src="https://s2.loli.net/2025/02/20/sk9TcE2w6PgXuhf.png" alt="Twrp镜像"  width="200"/></th>
+<th align="center"><img src="https://s2.loli.net/2025/02/20/tHRyWAYfiSP5m2e.png" alt="CrDroid卡刷包" width="200"/></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">解锁BL的红米note9</td>
+<td align="center">Twrp镜像</td>
+<td align="center">CrDroid卡刷包</td>
+</tr>
+</tbody></table>
+<p>1.在电脑安装ADB驱动 <a target="_blank" rel="noopener" href="https://dl.google.com/android/repository/platform-tools-latest-windows.zip">驱动下载直链</a><br>2.打开手机的开发者模式<br>3.使用adb 命令将TWRP刷入到恢复分区<br>4.刷入卡刷包</p>
+<h4 id="驱动安装"><a href="#驱动安装" class="headerlink" title="驱动安装"></a>驱动安装</h4><p>下载提供的安装包，双击安装。<br>找到安装位置，找到adb.exe所在的目录，复制目录地址，进入Windows的环境变量，找到PATH，双击进入，添加一个名为adb的新变量，并将adb所在的目录粘贴到路径框<br><img src="https://s2.loli.net/2025/02/20/NwVCncbyJgU2urQ.png" alt="664fa6c2c20c45177b56c332b282141.png"><br>此后你就可以在任意路径下打开powershell使用adb命令了</p>
+<h4 id="打开开发者模式"><a href="#打开开发者模式" class="headerlink" title="打开开发者模式"></a>打开开发者模式</h4><p>打开手机，找到关于手机页面&gt;&gt;&gt;&gt;&gt;找到系统版本号&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;快速点击版本号10次等待提示开发者模式已打开&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;回到手机的设置界面，找到更多或者使用搜索框搜索”开发者模式“，进入开发者模式，点击开关来开启，向下滑，找到<strong>允许USB调试</strong>并打开。<br>在手机已经连接电脑的情况下手机会弹出是否允许调试的通知，点击允许。</p>
+<h4 id="使用adb命令"><a href="#使用adb命令" class="headerlink" title="使用adb命令"></a>使用adb命令</h4><p>使用win+r调出运行窗口，输入powershell然后回车，进入蓝色的命令窗口</p>
+<p>输入<br>                              <code>adb devices</code></p>
+<p>来检测设备设否已经连接，提示手机序列号即代表已经连接至电脑<br>提示如下：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">PS</span> C:\Users\user&gt; adb devices</span><br><span class="line">List of devices attached</span><br><span class="line">* daemon not running; starting now at tcp:<span class="number">5037</span></span><br><span class="line">* daemon started successfully</span><br><span class="line"><span class="number">1</span>c17de221020    device            <span class="comment"># 这里输出的就是手机序列号</span></span><br></pre></td></tr></table></figure>
+
+<p>此时输入命令 </p>
+<pre><code>                  `adb reboot bootloader`
+</code></pre>
+<p>进入到Bootloader模式</p>
+<p>待手机震动后，在窗口输入</p>
+<pre><code>                 `fastboot devices`
+</code></pre>
+<p>输出设备信息即表示已经连接到fastboot端口</p>
+<p>此时使用<code>cd</code>命令将powershell所处的路径切换到你的twrp所在路径</p>
+<p><code>cd C:\user\file\twrp路径</code></p>
+<h4 id="刷机详细流程"><a href="#刷机详细流程" class="headerlink" title="刷机详细流程"></a>刷机详细流程</h4><h5 id="TWRP刷入"><a href="#TWRP刷入" class="headerlink" title="TWRP刷入"></a>TWRP刷入</h5><p>此时查看你的手机是否是动态分区，是的话使用命令一刷入镜像，不是的话使用命令二</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fastboot flash recovery &lt;recovery_name&gt;     <span class="comment">#命令1</span></span><br><span class="line"></span><br><span class="line">fastboot boot &lt;recovery_name&gt;               <span class="comment">#命令2</span></span><br></pre></td></tr></table></figure>
+
+<p>此时同时按住手机的音量+和电源键，待手机进入recovery</p>
+<p>进入recovery后电脑会叮咚一声表示连接到设备，此时将下载好的卡刷包复制到手机根目录<br>找到<code>刷入</code>,再找到已经传入手机的刷机包，选择后刷入，等待刷入的进度条走完后找到<code>清除</code>模块<br>选择恢复出厂双清（双清指的是清除cache和data分区）<br>，双清后即可开机。</p>
+<h5 id="ADB-Sideload-模式刷入"><a href="#ADB-Sideload-模式刷入" class="headerlink" title="ADB Sideload 模式刷入"></a>ADB Sideload 模式刷入</h5><p>进入Twrp后找到<code>高级</code>,找到<code>adb sideload</code>,点击后会直接双清<br>，然后在电脑中使用以下命令刷入</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb sideload &lt;刷机包绝对路径加名字&gt;</span><br></pre></td></tr></table></figure>
+<p>等待进度条走完后会自动重启进入系统。</p>
+<p>成品如下</p>
+<table>
+<thead>
+<tr>
+<th>CrDroid</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="https://s2.loli.net/2025/02/20/M4srVdavDz92mnW.png" alt="Screenshot_20250212-212232_crDroid Home.png"></td>
+<td><img src="https://s2.loli.net/2025/02/20/YZWF7odbnMC9RtV.png" alt="Screenshot_20250212-211440_crDroid Home.png"></td>
+<td><img src="https://s2.loli.net/2025/02/20/i2bAstWlCc1KyOE.png" alt="Screenshot_20250212-211433_crDroid Home.png"></td>
+</tr>
+<tr>
+<td><img src="https://s2.loli.net/2025/02/20/d5GhbZw2o8RVq6x.png" alt="Screenshot_20250125-193919_设置.png"></td>
+<td><img src="https://s2.loli.net/2025/02/20/F2hgOETGNs5v4ZU.png" alt="Screenshot_20250125-194222_设置.png"></td>
+<td><img src="https://s2.loli.net/2025/02/20/Hm6FI8fKMnD37ge.png" alt="Screenshot_20250220-195236_更新工具.png"></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>Infinity</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="https://s2.loli.net/2025/02/20/k5Nc3bivLDzYqIV.png" alt="Screenshot_20250212-164321_Infinity_X_Launcher.png"></td>
+<td><img src="https://s2.loli.net/2025/02/20/zCqRXtwIWedZ3ro.png" alt="Screenshot_20250212-164311_KernelSU.png"></td>
+<td><img src="https://s2.loli.net/2025/02/20/2EX1KYlsI6rhiZb.png" alt="Screenshot_20250212-164443_设置.png"></td>
+</tr>
+<tr>
+<td><img src="https://s2.loli.net/2025/02/20/cn2IyXmvl6RqpUg.png" alt="Screenshot_20250212-164342_系统更新.png"></td>
+<td><img src="https://s2.loli.net/2025/02/20/f6YXgVCqLJ4R8y7.png" alt="Screenshot_20250212-171104_Infinity_X_Launcher.png"></td>
+<td><img src="https://s2.loli.net/2025/02/20/v1zhAaDu4w8xGpP.png" alt="Screenshot_20250212-170922_Shell.png"></td>
+</tr>
+</tbody></table>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2025/02/09/Python%E8%AF%AD%E6%B3%95%E8%AE%B0%E5%BD%95/" rel="prev" title="Python语法记录">
+      <i class="fa fa-chevron-left"></i> Python语法记录
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A9%B1%E5%8A%A8%E5%AE%89%E8%A3%85"><span class="nav-number">1.</span> <span class="nav-text">驱动安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%93%E5%BC%80%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">打开开发者模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8adb%E5%91%BD%E4%BB%A4"><span class="nav-number">3.</span> <span class="nav-text">使用adb命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%B7%E6%9C%BA%E8%AF%A6%E7%BB%86%E6%B5%81%E7%A8%8B"><span class="nav-number">4.</span> <span class="nav-text">刷机详细流程</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#TWRP%E5%88%B7%E5%85%A5"><span class="nav-number">4.1.</span> <span class="nav-text">TWRP刷入</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ADB-Sideload-%E6%A8%A1%E5%BC%8F%E5%88%B7%E5%85%A5"><span class="nav-number">4.2.</span> <span class="nav-text">ADB Sideload 模式刷入</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">赵尚志</p>
+  <div class="site-description" itemprop="description">闲来无事记录一下</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">赵尚志</span>
+</div>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+<span id="busuanzi_container_page_pv">
+  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+</span>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
