@@ -173,7 +173,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2025-02-20 18:36:04 / 修改时间：19:58:22" itemprop="dateCreated datePublished" datetime="2025-02-20T18:36:04+08:00">2025-02-20</time>
+              <time title="创建时间：2025-02-20 18:36:04 / 修改时间：21:19:20" itemprop="dateCreated datePublished" datetime="2025-02-20T18:36:04+08:00">2025-02-20</time>
             </span>
 
           
@@ -219,21 +219,22 @@
 <p>1.在电脑安装ADB驱动 <a target="_blank" rel="noopener" href="https://dl.google.com/android/repository/platform-tools-latest-windows.zip">驱动下载直链</a><br>2.打开手机的开发者模式<br>3.使用adb 命令将TWRP刷入到恢复分区<br>4.刷入卡刷包</p>
 <h4 id="驱动安装"><a href="#驱动安装" class="headerlink" title="驱动安装"></a>驱动安装</h4><p>下载提供的安装包，双击安装。<br>找到安装位置，找到adb.exe所在的目录，复制目录地址，进入Windows的环境变量，找到PATH，双击进入，添加一个名为adb的新变量，并将adb所在的目录粘贴到路径框<br><img src="https://s2.loli.net/2025/02/20/NwVCncbyJgU2urQ.png" alt="664fa6c2c20c45177b56c332b282141.png"><br>此后你就可以在任意路径下打开powershell使用adb命令了</p>
 <h4 id="打开开发者模式"><a href="#打开开发者模式" class="headerlink" title="打开开发者模式"></a>打开开发者模式</h4><p>打开手机，找到关于手机页面&gt;&gt;&gt;&gt;&gt;找到系统版本号&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;快速点击版本号10次等待提示开发者模式已打开&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;回到手机的设置界面，找到更多或者使用搜索框搜索”开发者模式“，进入开发者模式，点击开关来开启，向下滑，找到<strong>允许USB调试</strong>并打开。<br>在手机已经连接电脑的情况下手机会弹出是否允许调试的通知，点击允许。</p>
-<h4 id="使用adb命令"><a href="#使用adb命令" class="headerlink" title="使用adb命令"></a>使用adb命令</h4><p>使用win+r调出运行窗口，输入powershell然后回车，进入蓝色的命令窗口</p>
-<p>输入<br>                              <code>adb devices</code></p>
+<h4 id="使用adb命令"><a href="#使用adb命令" class="headerlink" title="使用adb命令"></a>使用adb命令</h4><p>使用<code>win+r</code>调出运行窗口，输入<code>powershell</code>然后回车，进入蓝色的命令窗口</p>
+<p>输入<br>                              adb devices</p>
 <p>来检测设备设否已经连接，提示手机序列号即代表已经连接至电脑<br>提示如下：</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">PS</span> C:\Users\user&gt; adb devices</span><br><span class="line">List of devices attached</span><br><span class="line">* daemon not running; starting now at tcp:<span class="number">5037</span></span><br><span class="line">* daemon started successfully</span><br><span class="line"><span class="number">1</span>c17de221020    device            <span class="comment"># 这里输出的就是手机序列号</span></span><br></pre></td></tr></table></figure>
 
 <p>此时输入命令 </p>
-<pre><code>                  `adb reboot bootloader`
+<pre><code>                  adb reboot bootloader
 </code></pre>
 <p>进入到Bootloader模式</p>
 <p>待手机震动后，在窗口输入</p>
-<pre><code>                 `fastboot devices`
+<pre><code>                 fastboot devices
 </code></pre>
 <p>输出设备信息即表示已经连接到fastboot端口</p>
 <p>此时使用<code>cd</code>命令将powershell所处的路径切换到你的twrp所在路径</p>
-<p><code>cd C:\user\file\twrp路径</code></p>
+<pre><code>                cd &quot;C:\user\file\twrp路径&quot;
+</code></pre>
 <h4 id="刷机详细流程"><a href="#刷机详细流程" class="headerlink" title="刷机详细流程"></a>刷机详细流程</h4><h5 id="TWRP刷入"><a href="#TWRP刷入" class="headerlink" title="TWRP刷入"></a>TWRP刷入</h5><p>此时查看你的手机是否是动态分区，是的话使用命令一刷入镜像，不是的话使用命令二</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fastboot flash recovery &lt;recovery_name&gt;     <span class="comment">#命令1</span></span><br><span class="line"></span><br><span class="line">fastboot boot &lt;recovery_name&gt;               <span class="comment">#命令2</span></span><br></pre></td></tr></table></figure>
 
@@ -246,39 +247,39 @@
 <table>
 <thead>
 <tr>
-<th>CrDroid</th>
-<th></th>
-<th></th>
+<th align="left">CrDroid</th>
+<th align="center"></th>
+<th align="center"></th>
 </tr>
 </thead>
 <tbody><tr>
-<td><img src="https://s2.loli.net/2025/02/20/M4srVdavDz92mnW.png" alt="Screenshot_20250212-212232_crDroid Home.png"></td>
-<td><img src="https://s2.loli.net/2025/02/20/YZWF7odbnMC9RtV.png" alt="Screenshot_20250212-211440_crDroid Home.png"></td>
-<td><img src="https://s2.loli.net/2025/02/20/i2bAstWlCc1KyOE.png" alt="Screenshot_20250212-211433_crDroid Home.png"></td>
+<td align="left"><img src="https://s2.loli.net/2025/02/20/M4srVdavDz92mnW.png" alt="Screenshot_20250212-212232_crDroid Home.png"></td>
+<td align="center"><img src="https://s2.loli.net/2025/02/20/YZWF7odbnMC9RtV.png" alt="Screenshot_20250212-211440_crDroid Home.png"></td>
+<td align="center"><img src="https://s2.loli.net/2025/02/20/i2bAstWlCc1KyOE.png" alt="Screenshot_20250212-211433_crDroid Home.png"></td>
 </tr>
 <tr>
-<td><img src="https://s2.loli.net/2025/02/20/d5GhbZw2o8RVq6x.png" alt="Screenshot_20250125-193919_设置.png"></td>
-<td><img src="https://s2.loli.net/2025/02/20/F2hgOETGNs5v4ZU.png" alt="Screenshot_20250125-194222_设置.png"></td>
-<td><img src="https://s2.loli.net/2025/02/20/Hm6FI8fKMnD37ge.png" alt="Screenshot_20250220-195236_更新工具.png"></td>
+<td align="left"><img src="https://s2.loli.net/2025/02/20/d5GhbZw2o8RVq6x.png" alt="Screenshot_20250125-193919_设置.png"></td>
+<td align="center"><img src="https://s2.loli.net/2025/02/20/F2hgOETGNs5v4ZU.png" alt="Screenshot_20250125-194222_设置.png"></td>
+<td align="center"><img src="https://s2.loli.net/2025/02/20/Hm6FI8fKMnD37ge.png" alt="Screenshot_20250220-195236_更新工具.png"></td>
 </tr>
 </tbody></table>
 <table>
 <thead>
 <tr>
-<th>Infinity</th>
-<th></th>
-<th></th>
+<th align="center">Infinity</th>
+<th align="center"></th>
+<th align="center"></th>
 </tr>
 </thead>
 <tbody><tr>
-<td><img src="https://s2.loli.net/2025/02/20/k5Nc3bivLDzYqIV.png" alt="Screenshot_20250212-164321_Infinity_X_Launcher.png"></td>
-<td><img src="https://s2.loli.net/2025/02/20/zCqRXtwIWedZ3ro.png" alt="Screenshot_20250212-164311_KernelSU.png"></td>
-<td><img src="https://s2.loli.net/2025/02/20/2EX1KYlsI6rhiZb.png" alt="Screenshot_20250212-164443_设置.png"></td>
+<td align="center"><img src="https://s2.loli.net/2025/02/20/k5Nc3bivLDzYqIV.png" alt="Screenshot_20250212-164321_Infinity_X_Launcher.png"></td>
+<td align="center"><img src="https://s2.loli.net/2025/02/20/zCqRXtwIWedZ3ro.png" alt="Screenshot_20250212-164311_KernelSU.png"></td>
+<td align="center"><img src="https://s2.loli.net/2025/02/20/2EX1KYlsI6rhiZb.png" alt="Screenshot_20250212-164443_设置.png"></td>
 </tr>
 <tr>
-<td><img src="https://s2.loli.net/2025/02/20/cn2IyXmvl6RqpUg.png" alt="Screenshot_20250212-164342_系统更新.png"></td>
-<td><img src="https://s2.loli.net/2025/02/20/f6YXgVCqLJ4R8y7.png" alt="Screenshot_20250212-171104_Infinity_X_Launcher.png"></td>
-<td><img src="https://s2.loli.net/2025/02/20/v1zhAaDu4w8xGpP.png" alt="Screenshot_20250212-170922_Shell.png"></td>
+<td align="center"><img src="https://s2.loli.net/2025/02/20/cn2IyXmvl6RqpUg.png" alt="Screenshot_20250212-164342_系统更新.png"></td>
+<td align="center"><img src="https://s2.loli.net/2025/02/20/f6YXgVCqLJ4R8y7.png" alt="Screenshot_20250212-171104_Infinity_X_Launcher.png"></td>
+<td align="center"><img src="https://s2.loli.net/2025/02/20/v1zhAaDu4w8xGpP.png" alt="Screenshot_20250212-170922_Shell.png"></td>
 </tr>
 </tbody></table>
 
