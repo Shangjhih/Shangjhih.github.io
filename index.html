@@ -171,10 +171,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2025-03-24 17:12:53 / 修改时间：18:49:28" itemprop="dateCreated datePublished" datetime="2025-03-24T17:12:53+08:00">2025-03-24</time>
+              <time title="创建时间：2025-03-24 17:12:53" itemprop="dateCreated datePublished" datetime="2025-03-24T17:12:53+08:00">2025-03-24</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-03-25 12:12:00" itemprop="dateModified" datetime="2025-03-25T12:12:00+08:00">2025-03-25</time>
+              </span>
 
           
 
@@ -203,16 +209,16 @@
 <h4 id="解锁Bootlaoder"><a href="#解锁Bootlaoder" class="headerlink" title="解锁Bootlaoder"></a>解锁Bootlaoder</h4><p>​	鉴于每家厂商的解锁政策都不同，且最近小米收紧了其解锁政策，此次就拿一加（OnePlus）作为参考<br>因其解锁方式极为简便，便以此为案例。</p>
 <p><strong>注意</strong><br>    手机解锁Bootloader的时候会清除手机内所含的所有数据，在进行操作之前请确保您的数据已进行妥善的迁移与保存！！！</p>
 <hr>
-<p>​	进入开发者模式，在系统的【关于手机】界面找到【系统版本号】，快速点击5-7次，桌面会弹出【您已进入开发者模式】<br>  搜索【开发者模式】进入其设置界面，下滑找到【开启OEM解锁】【允许USB调试】，两项都需要打开。<br>  在确认都已经打开后将手机通过USB线连接至电脑，打开你的Powershell，在窗口输入</p>
+<p>​	进入开发者模式，在系统的【关于手机】界面找到【系统版本号】，快速点击5-7次，桌面会弹出【您已进入开发者模式】<br>  搜索【开发者模式】进入其设置界面，下滑找到并开启【OEM解锁】【允许USB调试】，两项都需要打开。<br>  在确认都已经打开后将手机通过USB线连接至电脑，打开你的Powershell，在窗口输入</p>
   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb reboot bootloader</span><br></pre></td></tr></table></figure>
 
-<p>  待手机进入fastboot模式后输入以下命令对其进行解锁（命令来源于<a target="_blank" rel="noopener" href="https://source.android.com/docs/core/architecture/bootloader/locking_unlocking?hl=zh-tw">Android官方</a>）</p>
+<p>  待手机进入fastboot模式后输入以下命令对其进行解锁（命令来源于<a target="_blank" rel="noopener" href="https://source.android.com/docs/core/architecture/bootloader/locking_unlocking?hl=zh-cn">Android官方</a>）</p>
   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fastboot flashing unlock</span><br></pre></td></tr></table></figure>
 
 <pre><code>  待手机提示是否解锁Bootloader，使用音量键移动光标，使用电源键表示确认。选择确认解锁Bootloader，等待手机重启，重启期间系统会清空所有的 数据，这时你再反悔就都来不及了。随后等待进入系统即可。
 </code></pre>
 <p>​	  进入系统后到应用商店下载【Devtools】，查看你的安卓内核版本，如下图所示</p>
-<p><img src="C:\Users\123\Desktop\cccv\Screenshot_20250324-175502_DevCheck.png"></p>
+<p><img src="https://s2.loli.net/2025/03/25/JaKSBWGF15g2Lhk.png"></p>
 <p>​    	图示版本为4.19.157，假如你的内核版本在5.12以上，到此处下载符合你系统版本的内核文件<a target="_blank" rel="noopener" href="https://github.com/tiann/KernelSU/releases">Github地址</a>，Kernel su的管理器地址和以上提供的地址是一个，都在assets中发布，apk文件在列表的下部，请自行翻找。若你的内核版本低于5.12，那就说明你的设备不能通过此方式获取，不符合GKI的内核规范，需要自行编译或者在【酷安】【Telegram】等全平台寻找适合你手机型号的内核（非同型号内核不可互刷！！！），切勿刷入来源不明的zip文件！！！</p>
 <p>​	此处提供的内核版本有三种格式，我不能确认你的系统是哪个版本的文件系统，所以建议你使用以下方式来对其进行临时启动，内核文件和管理器安装包下载地址见此：</p>
 <table>
@@ -222,10 +228,10 @@
 </tr>
 </thead>
 <tbody><tr>
-<td><img src="C:\Users\123\Desktop\cccv\324181437.png"></td>
+<td><img src="https://s2.loli.net/2025/03/25/MAVYRNZPS2QytCb.png"></td>
 </tr>
 <tr>
-<td><img src="C:\Users\123\Desktop\cccv\324182716.png"></td>
+<td><img src="https://s2.loli.net/2025/03/25/y3vWR9nrtd4OuZo.png"></td>
 </tr>
 </tbody></table>
 <p>文件分别为：</p>
@@ -255,7 +261,10 @@
 </tr>
 </thead>
 <tbody><tr>
-<td><img src="C:\Users\123\Desktop\cccv\Screenshot_20250324-154007_KernelSU.png" width="240"  style=" align-items: center ;" /></td>
+<td>&lt;img src&#x3D;”<a target="_blank" rel="noopener" href="https://s2.loli.net/2025/03/25/1j3HMvciIYtfCUJ.png">https://s2.loli.net/2025/03/25/1j3HMvciIYtfCUJ.png</a></td>
+</tr>
+<tr>
+<td>“ width&#x3D;”240”  style&#x3D;” align-items: center ;” &#x2F;&gt;</td>
 </tr>
 </tbody></table>
 <p>如此图显示，则表示已经成功刷入，如不能进系统或此管理器未能识别到内核，则换第二个文件重新执行命令，确认管理器能识别到内核后，进入fastboot模式执行以下命令永久性刷入至系统:</p>
@@ -266,27 +275,40 @@
 <table>
 <thead>
 <tr>
-<th><strong>模块</strong></th>
+<th><strong>Magisk模块</strong></th>
 <th><strong>作用</strong></th>
 </tr>
 </thead>
 <tbody><tr>
-<td></td>
+<td><a target="_blank" rel="noopener" href="https://github.com/Dr-TSNG/ZygiskNext/releases">zygisk-next</a></td>
+<td>Standalone implementation of Zygisk, providing Zygisk API support for KernelSU and a replacement of Magisk’s built-in Zygisk.</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://github.com/mywalkb/LSPosed_mod/releases/download/v1.9.3_mod/LSPosed-v1.9.3_mod-7244-zygisk-release.zip">zygisk-lsposed</a></td>
+<td>LSPosed is a great XPosed Framework, but it has a big problem, only manager can manage scope. LSPosed team don’t accept PR for CLI or API Module, the TODO issues are old more one year and never completed, is more important the GUI changed many times but not CLI or API Module. In my fork API Module and CLI are implemented. CLI require root user because must access files readable only by root.</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://github.com/gloeyisk/universal-gms-doze/releases/download/1.9.2/gms_1.9.2.zip">Universal GMS DOZE</a></td>
+<td>Patches Google Play services app and certain processes&#x2F;services to be able to use battery optimization</td>
+</tr>
+<tr>
+<td>Support API 23 or later</td>
 <td></td>
 </tr>
 <tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
+<td>Support Magisk, KernelSU, and APatch root implementations</td>
 <td></td>
 </tr>
 <tr>
-<td></td>
-<td></td>
+<td><strong>lSPosed模块</strong></td>
+<td><strong>作用</strong></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://github.com/Dr-TSNG/Hide-My-Applist/releases/download/V3.4/HMA-V3.4.r436.d03edf7-release.zip">Hide my applist</a></td>
+<td>Although it’s bad practice to detect the installation of specific apps, not every app using root provides random package name support. In this case, if apps related to root (such as Fake Location and Storage Isolation) are detected, it is tantamount to detecting that the device is rooted.</td>
 </tr>
 </tbody></table>
+<p>Additionally, some apps use various loopholes to acquire your app list, in order to use it as fingerprinting data or for other nefarious purposes. |<br>| <a target="_blank" rel="noopener" href="https://github.com/ReChronoRain/HyperCeiler/releases/download/2.5.154/HyperCeiler_2.5.154_20250101_154_release.apk">HyperCeilier</a> | 修改miui和Hyper os的系统应用，增强其功能<strong>仅适用于小米官方系统和官改！！！</strong> |<br>| <a target="_blank" rel="noopener" href="https://github.com/chiteroman/PlayIntegrityFix/releases/download/v18.8/PlayIntegrityFix_v18.8.zip">Play integrity Fix</a> | This module is not made to hide root, nor to avoid detections in other apps. It only serves to pass Device verdict in the Play Integrity tests and certify your device. All issues created to report a non-Google app not working will be closed without notice. |<br>| <a target="_blank" rel="noopener" href="https://uploadrar.com/s1jzriq9foy0">Thanox</a> | 人称‘灭霸’，可以最大限度管理和调整系统功能 |<br>| <a target="_blank" rel="noopener" href="https://github.com/wanam/YouTubeAdAway">Youtube Adaway</a> | 清除Youtube播放广告，但不能清除首页广告，可以支持后台小窗播放去除视频中穿插的广告 |</p>
 <hr>
 <p>设备已虚焊，拆机中，未写完的下次再写，各位再见。</p>
 
