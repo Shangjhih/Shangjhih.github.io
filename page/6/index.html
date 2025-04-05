@@ -169,7 +169,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/02/06/shell%E8%84%9A%E6%9C%AC%E5%85%A5%E9%97%A8/">
+    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/02/09/Python%E8%AF%AD%E6%B3%95%E8%AE%B0%E5%BD%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -183,7 +183,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2025/02/06/shell%E8%84%9A%E6%9C%AC%E5%85%A5%E9%97%A8/" class="post-title-link" itemprop="url">shell脚本入门</a>
+            <a href="/2025/02/09/Python%E8%AF%AD%E6%B3%95%E8%AE%B0%E5%BD%95/" class="post-title-link" itemprop="url">Python语法记录</a>
         </h2>
 
         <div class="post-meta">
@@ -192,10 +192,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2025-02-06 19:13:24 / 修改时间：19:13:42" itemprop="dateCreated datePublished" datetime="2025-02-06T19:13:24+08:00">2025-02-06</time>
+              <time title="创建时间：2025-02-09 22:32:37" itemprop="dateCreated datePublished" datetime="2025-02-09T22:32:37+08:00">2025-02-09</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-03-28 18:41:10" itemprop="dateModified" datetime="2025-03-28T18:41:10+08:00">2025-03-28</time>
+              </span>
 
           <br>
             <span class="post-meta-item" title="本文字数">
@@ -203,14 +209,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>5.3k</span>
+              <span>7.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>9 分钟</span>
+              <span>12 分钟</span>
             </span>
 
         </div>
@@ -222,223 +228,519 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Shell脚本入门"><a href="#Shell脚本入门" class="headerlink" title="Shell脚本入门"></a>Shell脚本入门</h1><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><table>
-<thead>
-<tr>
-<th align="center">参考命令</th>
-<th align="center"></th>
-<th align="center"></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><code>cd</code></td>
-<td align="center"><code>bash</code></td>
-<td align="center"><code>vim</code></td>
-</tr>
-<tr>
-<td align="center"><code>mkdir</code></td>
-<td align="center"><code>ls</code></td>
-<td align="center"><code>ps</code></td>
-</tr>
-<tr>
-<td align="center"><code>top</code></td>
-<td align="center"><code>lsof</code></td>
-<td align="center">&#96;</td>
-</tr>
-</tbody></table>
+          <h1 id="Python基础指南"><a href="#Python基础指南" class="headerlink" title="Python基础指南"></a>Python基础指南</h1><h4 id="一-：字符串的输入"><a href="#一-：字符串的输入" class="headerlink" title="一 ：字符串的输入"></a>一 ：字符串的输入</h4><p><strong><code>input (&#39;&#39;)</code></strong></p>
+<h5 id="例："><a href="#例：" class="headerlink" title="例："></a>例：</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">input</span>(<span class="string">&#x27;please inout your name: \n&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#输出：</span></span><br><span class="line"></span><br><span class="line">PS D:\Python\Python Project&gt; &amp; D:/Python/Python3<span class="number">.11</span><span class="number">.8</span>/python.exe <span class="string">&quot;d:/Python/Python &lt;br&gt;Project/main.py&quot;</span> </span><br><span class="line"> </span><br><span class="line">please <span class="built_in">input</span> your name: 	</span><br></pre></td></tr></table></figure>
+
 <hr>
-<h2 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h2><hr>
-<h3 id="if判断"><a href="#if判断" class="headerlink" title="if判断"></a>if判断</h3><p>if语法中，句式以<code>if</code>开头以<code>fi</code>结尾。<code>if</code>后使用中括号来引用条件，中括号后使用英文分号   <code>;</code>结尾，并添加字符<code>then</code>承接下一步具体命令。转折使用<code>else</code>或者<code>elif</code>字符，可以引用多个<code>elif</code>添加判断。(中括号在shll中具有换行的作用)</p>
-<h4>单分支句式</h4>
+<h4 id="二：print输出并引用变量"><a href="#二：print输出并引用变量" class="headerlink" title="二：print输出并引用变量"></a>二：print输出并引用变量</h4><h5 id="例：-1"><a href="#例：-1" class="headerlink" title="例："></a>例：</h5><ul>
+<li><h5 id="方法1："><a href="#方法1：" class="headerlink" title="方法1："></a>方法1：</h5></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> name = <span class="string">&#x27;shuqi&#x27;</span></span><br><span class="line"> <span class="built_in">print</span>(<span class="string">&#x27;your name is %s&#x27;</span> % name)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#输出：</span></span><br><span class="line"></span><br><span class="line">PS D:\Python\Python Project&gt; &amp; D:/Python/Python3<span class="number">.11</span><span class="number">.8</span>/python.exe <span class="string">&quot;d:/Python/Python Project/main.py&quot;</span></span><br><span class="line"></span><br><span class="line">your name <span class="keyword">is</span> shuqi</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="方法2："><a href="#方法2：" class="headerlink" title="方法2："></a>方法2：</h5></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">name = <span class="string">&#x27;shuqi&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;your name is <span class="subst">&#123;<span class="built_in">str</span>&#125;</span>&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#输出</span></span><br><span class="line"></span><br><span class="line">PS D:\Python\Python Project&gt; &amp; D:/Python/Python3<span class="number">.11</span><span class="number">.8</span>/python.exe <span class="string">&quot;d:/Python/Python Project/main.py&quot;</span></span><br><span class="line"></span><br><span class="line">your name <span class="keyword">is</span> shuqi	</span><br></pre></td></tr></table></figure>
 
 
 <hr>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if [条件判断式];then</span><br><span class="line">	echo &quot;output&quot;  #执行的代码</span><br><span class="line">else</span><br><span class="line">	echo &quot;outpu2&quot;</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+<h4 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h4><p><em><strong>行内注释</strong></em></p>
+<blockquote>
+<p>使用# 作为一行的注释</p>
+</blockquote>
+<p><em><strong>块注释</strong></em></p>
+<p>#和 前面的代码至少要相隔两个空格 ,#后必须空一格才能开始写注释</p>
+<p>例如</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span> (<span class="string">&#x27;hello word&#x27;</span>)   <span class="comment"># 打印hello word</span></span><br></pre></td></tr></table></figure>
 
-<h4>多分支句式</h4>
-
-<hr>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">if [条件判断式];then</span><br><span class="line">	echo &quot;output&quot;  #执行的代码</span><br><span class="line">elif [条件判断式];then</span><br><span class="line">	echo &quot;output2&quot; #执行的代码2</span><br><span class="line">elif [条件判断式];then</span><br><span class="line">	echo &quot;output2&quot; #执行的代码3</span><br><span class="line">	..........</span><br><span class="line">else</span><br><span class="line">	echo &quot;output#&quot; #执行的代码</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
-<h3 id="case-语句"><a href="#case-语句" class="headerlink" title="case 语句"></a>case 语句</h3><hr>
-<p>使用case句式也可以完成多分支判断.<br>case语句使用case开头esac结尾，变量  in   另开一行加右括号，每次判断都要以两个英文冒号结尾。其中星号指的是“其他条件”，等同于if判断中的else，指的是其他的所有情况。</p>
-<p>case语句示例</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">case $num in</span><br><span class="line">1)</span><br><span class="line">	echo &quot;one&quot;</span><br><span class="line">;;</span><br><span class="line">2)</span><br><span class="line">	echo &quot;two&quot;</span><br><span class="line">;;</span><br><span class="line">*)</span><br><span class="line">	echo &quot;*&quot;</span><br><span class="line">;;</span><br><span class="line">esac</span><br></pre></td></tr></table></figure>
-
-<h3 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h3><hr>
-<p><strong><code>for</code>循环格式为：以<code>for</code>开头，后使用双层小括号或者使用中括来包裹初始条件，循环控制条件以及变量变化。随后在第二行添加字符<code>do</code>重起一行写执行的程序，最后以字符<code>done</code>结尾。（在条件的外围，我们更推荐使用双重小括号来进行包裹而不是中括号，是用中括号来进行包裹的时侯在中括号内部的两侧都要添加一个空格，在双重小括号中则不需要考虑留出空格，直接写条件即可）</strong></p>
-<hr>
-<p><code>（（sum +i））</code><strong>和</strong><code>[ $sum + $i ]</code><strong>是一样的效果</strong></p>
-<hr>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for ((初始值;循环控制条件;变量变化))</span><br><span class="line">do</span><br><span class="line">	echo &quot;output&quot;  # 执行的代码</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
-<hr>
-<p><strong>案例一</strong></p>
-<p>要求使用for循环来打印九九乘法表</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line">for ((i=1; i&lt;=9; i++)); do</span><br><span class="line">    for ((j=1; j&lt;=i; j++)); do</span><br><span class="line">        printf &quot;%d×%d=%-2d &quot; $j $i $((i*j))</span><br><span class="line">    done</span><br><span class="line">    echo</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
-<p><strong>输出</strong></p>
-<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">root@ubuntu:~/shell/if# bash 2.sh </span><br><span class="line">1×1=1  </span><br><span class="line">1×2=2  2×2=4  </span><br><span class="line">1×3=3  2×3=6  3×3=9  </span><br><span class="line">1×4=4  2×4=8  3×4=12 4×4=16 </span><br><span class="line">1×5=5  2×5=10 3×5=15 4×5=20 5×5=25 </span><br><span class="line">1×6=6  2×6=12 3×6=18 4×6=24 5×6=30 6×6=36 </span><br><span class="line">1×7=7  2×7=14 3×7=21 4×7=28 5×7=35 6×7=42 7×7=49 </span><br><span class="line">1×8=8  2×8=16 3×8=24 4×8=32 5×8=40 6×8=48 7×8=56 8×8=64 </span><br><span class="line">1×9=9  2×9=18 3×9=27 4×9=36 5×9=45 6×9=54 7×9=63 8×9=72 9×9=81 </span><br></pre></td></tr></table></figure>
-
-<hr>
-<p><strong>案例二</strong></p>
-<pre><code>题目：要求计算到用户输出数字的累加和
+<p><em><strong>多行注释</strong></em><br>使用<code>  </code>作为多行注释符号</p>
+<pre><code>print (多行注释)
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这里是多行注释</span><br></pre></td></tr></table></figure>
 </code></pre>
+<h4>`print`拓展参数</h4>
+
+<p>print中每一部分的参数都要使用，逗号隔开，字符串使用单引号或双引号引起来</p>
+<p>&#96;sep&#x3D;”” 用于定义分隔符的形式</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">year = <span class="number">2027</span></span><br><span class="line"><span class="built_in">print</span>(year,<span class="string">&quot;和律书琪结婚&quot;</span>,sep=<span class="string">&quot;&quot;</span>)</span><br><span class="line"><span class="comment">#输出</span></span><br><span class="line">D:\Python\Python3<span class="number">.13</span><span class="number">.2</span>\python.exe E:\PythonProject\第<span class="number">1</span>章\<span class="number">1.</span>py </span><br><span class="line"><span class="number">2027</span>年和律书琪结婚</span><br></pre></td></tr></table></figure>
+<p><em><strong>换行</strong></em></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span> (end=<span class="string">&#x27;\n&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p><code>end=&quot;&quot;</code>指的是在之前动作执行后继续执行的操作</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">year = <span class="number">2025</span></span><br><span class="line">month =  <span class="number">2</span></span><br><span class="line">day = <span class="number">7</span></span><br><span class="line">week = <span class="string">&quot;tuesday&quot;</span></span><br><span class="line"></span><br><span class="line">weather = <span class="string">&#x27;sunshine&#x27;</span></span><br><span class="line">temperature = <span class="string">&quot;-1&quot;</span></span><br><span class="line"></span><br><span class="line">	<span class="built_in">print</span>(<span class="string">&quot;今天是&quot;</span>, <span class="string">&#x27;year&#x27;</span>, year, <span class="string">&#x27;month&#x27;</span>, month, <span class="string">&#x27;day&#x27;</span>, day, <span class="string">&#x27;,&#x27;</span>,</span><br><span class="line">     	 <span class="string">&quot;end=&#x27;&#x27;&quot;</span>, <span class="string">&#x27;week&#x27;</span>, week, <span class="string">&#x27;,&#x27;</span>, <span class="string">&quot;today&#x27;s weather:&quot;</span>, weather, <span class="string">&#x27;,&#x27;</span>, 		<span class="string">&#x27;temperature&#x27;</span>, temperature)</span><br><span class="line">     <span class="comment"># 这里是另一种写法</span></span><br><span class="line">      <span class="built_in">print</span>(<span class="string">&quot;today is year%d month%d day%d week%s, weather%s temperature%s&quot;</span></span><br><span class="line">      % (year, month, day, week, weather, temperature))</span><br></pre></td></tr></table></figure>
 <table>
 <thead>
 <tr>
-<th align="left">代码 1</th>
-<th>代码 2</th>
+<th>格式化字符</th>
+<th>含义</th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="left">#! &#x2F;bin&#x2F;bash<br> for ((i&#x3D;1;i&lt;&#x3D;$1;i++))  <br/>  do <br/>  sum&#x3D;$((sum + um))<br>  done<br>  echo $sum<br></td>
-<td>#！ &#x2F;bin&#x2F;bash <br> for ((i&#x3D;1;i&lt;&#x3D;$1;i++) <br/> do <br/>   sum&#x3D;$[ $num + $i ] <br> done <br/> echo $sum <br></td>
+<td>%s</td>
+<td>字符串</td>
+</tr>
+<tr>
+<td>%d</td>
+<td>有符号十进制数，%06d表示输出6位字符，不足低的方式用0补全</td>
+</tr>
+<tr>
+<td>%f</td>
+<td>浮点数，带小数。%.4f表示的是在小数点后保留4位小数</td>
+</tr>
+<tr>
+<td>%%</td>
+<td>输出%</td>
 </tr>
 </tbody></table>
-<p><strong>输出</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@ubuntu:~/shell/if# bash 3.sh 100</span><br><span class="line">5050</span><br></pre></td></tr></table></figure>
+<hr>
+<p><code>input()</code><br><br><br><em><strong>字符串转数字</strong></em></p>
+<p>从input获取的输入信息都是字符串，即使是输入数字，从input接收后也会变成字符串。加入需要</p>
+<p>将从input接收的数字作为实际的数字使用，可以使用以下代码进行转换</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">age = <span class="built_in">input</span>(<span class="string">&quot;please input your age:&quot;</span>)</span><br><span class="line"></span><br><span class="line">age= <span class="built_in">int</span>(age)  <span class="comment"># 使用int加括号来将字符串转换为数字</span></span><br><span class="line"></span><br><span class="line">birth = <span class="number">2025</span>-age</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;your birth year is :&quot;</span>, birth)</span><br></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 运行结果</span></span><br><span class="line">D:\Python\Python3<span class="number">.13</span><span class="number">.2</span>\python.exe E:\PythonProject\第<span class="number">1</span>章\python-<span class="number">1</span>-<span class="number">4</span>-<span class="built_in">input</span>.py </span><br><span class="line"></span><br><span class="line">please <span class="built_in">input</span> your age:<span class="number">45</span></span><br><span class="line"></span><br><span class="line">your birth year <span class="keyword">is</span> : <span class="number">1980</span></span><br></pre></td></tr></table></figure>
 
 <hr>
-<h3 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h3><p>while循环中使用while开头，后使用中括号（中括号内左右都要有一个空格）包裹判断式。随后使用do和done包裹执行的命令</p>
-<hr>
-<p><strong>注意：在[]中只能使用比较符号，例如-le，-gt等。在(())中只能使用数学符号，&lt;&gt;+&#x3D; 等符号</strong></p>
-<hr>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">while [ 条件判断式 ]</span><br><span class="line">do</span><br><span class="line"><span class="meta prompt_">	#</span><span class="language-bash">程序</span></span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+<p><em><strong>变量赋值</strong></em></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 多个变量值相等</span></span><br><span class="line"></span><br><span class="line">num1 = num2 = num3 = <span class="number">10</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 多个变量的值不同，元组赋值</span></span><br><span class="line"></span><br><span class="line">a, b = <span class="number">10</span>, <span class="number">20</span></span><br></pre></td></tr></table></figure>
 
 <hr>
-<p><strong>案例</strong></p>
+<p>练习题：苹果的价格为10.5元每斤，买了7.5斤苹果，计算付款金额</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">price = <span class="number">10.5</span></span><br><span class="line">weight = <span class="number">7.5</span></span><br><span class="line">money = price * weight</span><br><span class="line"><span class="built_in">print</span>()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;您需要付款%d元&#x27;</span> % money)   <span class="comment"># print(&#x27;您需要付款:&#x27;, money, &#x27;元&#x27;)</span></span><br></pre></td></tr></table></figure>
+
 <hr>
-<p>题目：使用while循环，计算1-100整数的累加和</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#! /bin/bash</span></span><br><span class="line"><span class="built_in">sum</span> =0</span><br><span class="line">i=1</span><br><span class="line"><span class="keyword">while</span> [ <span class="variable">$i</span> -le 100 ]  <span class="comment"># while ((i&lt;=100))</span></span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">	<span class="built_in">sum</span>=$[ <span class="variable">$sum</span>+<span class="variable">$i</span> ]  <span class="comment"># let sum+=i</span></span><br><span class="line">	i=$[ <span class="variable">$i</span>+1 ]       <span class="comment"># let i++</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$sum</span></span><br></pre></td></tr></table></figure>
-<h3 id="read读取命令"><a href="#read读取命令" class="headerlink" title="read读取命令"></a>read读取命令</h3><p>使用语法：                     <code> read  (选项)  (参数)</code>  </p>
-<p>例如 </p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">read -t 6 -p &quot;please input your answer&quot;  answer  </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">读取输入的内容并将内容复制给`answer` 6秒无输入则退出执行</span></span><br></pre></td></tr></table></figure>
+<p><em><strong>数据类型</strong></em></p>
 <table>
 <thead>
 <tr>
-<th>选项</th>
-<th>释义</th>
+<th>类型</th>
+<th>解释</th>
+<th>例子</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>-p</td>
-<td>读取输入的内容</td>
+<td>整型（integers）</td>
+<td>正数，不带小数点</td>
+<td>100</td>
 </tr>
 <tr>
-<td>-t</td>
-<td>等待的时间(超时则执行会退出)</td>
+<td>浮点型（Floating point numbers）</td>
+<td>带有小数的数字</td>
+<td>15.20</td>
+</tr>
+<tr>
+<td>复数(Complex Numbers)</td>
+<td>带有实部和虚部的数字</td>
+<td>3.14j</td>
+</tr>
+<tr>
+<td>布尔型(Boolean)</td>
+<td>表示真假</td>
+<td>只有两个值，True、False</td>
+</tr>
+<tr>
+<td>字符串(String)</td>
+<td>一串字符</td>
+<td>”Hello World！“</td>
+</tr>
+<tr>
+<td>列表(List)</td>
+<td>有序的集合，可以包含任何数据类型</td>
+<td>[1,’a’,2.3]</td>
+</tr>
+<tr>
+<td>元组(Tuple)</td>
+<td>类似于列表，但不可变</td>
+<td>(1,’a’,2.3)</td>
+</tr>
+<tr>
+<td>集合(Set)</td>
+<td>无需且不重复的元素集合</td>
+<td>{1,2,3}</td>
+</tr>
+<tr>
+<td>字典(Dictionary)</td>
+<td>键值对的集合</td>
+<td>{‘name’:’john’,’age’:30}</td>
 </tr>
 </tbody></table>
-<hr>
-<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><hr>
-<h3 id="系统函数"><a href="#系统函数" class="headerlink" title="系统函数"></a>系统函数</h3><hr>
-<ul>
-<li>basename</li>
-<li>dirname</li>
-</ul>
-<p><code>basename</code> 用于打印当前文件的名字<br><code>dirname</code>  用于打印当前文件的路径部分</p>
-<h3 id="自定义函数"><a href="#自定义函数" class="headerlink" title="自定义函数"></a>自定义函数</h3><hr>
-<p>基本语法</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function function_name()</span><br><span class="line">&#123;</span><br><span class="line">	Action</span><br><span class="line">	return int; # 可要可不要</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>案例<br>题目:编写一个函数<code>add</code>，接受两个参数，并返回它们的和。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#！/bin/bash</span></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">add</span></span>()</span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">sum</span>=$((<span class="variable">$1</span>+<span class="variable">$2</span>))</span><br><span class="line">	<span class="built_in">echo</span> <span class="string">&quot;和为：<span class="variable">$sum</span>&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">read</span> -p <span class="string">&quot;please input first num&quot;</span> num1</span><br><span class="line"><span class="built_in">read</span> -p <span class="string">&quot;please input second num&quot;</span> num2</span><br><span class="line">add <span class="variable">$num1</span> <span class="variable">$num2</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@ubuntu:~/shell/if# bash 5.sh </span><br><span class="line">please input first num3</span><br><span class="line">please input secone num6</span><br><span class="line">和为：9</span><br></pre></td></tr></table></figure>
-<p>题目：编写一个<code>factorial</code>函数，计算n的阶乘（n!）</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">！/bin/bash</span></span><br><span class="line">function factorial()</span><br><span class="line">&#123;</span><br><span class="line">	n=$1</span><br><span class="line">	result=1</span><br><span class="line">	for ((i=1;i&lt;=n;i++));</span><br><span class="line">	do</span><br><span class="line">		let result*=i    # ((result*=i))</span><br><span class="line">	done</span><br><span class="line">	echo $result</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">read -p &quot;please input a number:&quot; num</span><br><span class="line">fact=$(factorial $num)</span><br><span class="line">echo &quot;n的阶乘为：$fact&quot;</span><br></pre></td></tr></table></figure>
-<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">please input a number:4</span><br><span class="line">n的阶乘为：24</span><br></pre></td></tr></table></figure>
+<p>四舍五入</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">num1 = <span class="number">1.23456</span></span><br><span class="line">num2 = <span class="number">3.23</span></span><br><span class="line">n3= <span class="built_in">round</span>(num1 + num2 , <span class="number">2</span>)</span><br><span class="line"><span class="built_in">print</span>()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;your calculation result is:&quot;</span>, n3)</span><br><span class="line"><span class="comment"># 运行结果</span></span><br><span class="line">D:\Python\Python3<span class="number">.13</span><span class="number">.2</span>\python.exe E:\PythonProject\第<span class="number">1</span>章\python-<span class="number">2</span>-<span class="number">1</span>-init.py </span><br><span class="line"></span><br><span class="line">your calculation result <span class="keyword">is</span>: <span class="number">4.46</span></span><br></pre></td></tr></table></figure>
+<p>使用<code>round</code>函数进行四舍五入</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">num1 = <span class="number">1.23456</span></span><br><span class="line">num2 = <span class="number">3.23</span></span><br><span class="line">n3= <span class="built_in">round</span>(num1 + num2 , <span class="number">2</span>)    <span class="comment"># 使用round函数保留两位小数</span></span><br><span class="line"><span class="built_in">print</span>()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;your calculation result is:&quot;</span>, n3)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 执行结果</span></span><br><span class="line">D:\Python\Python3<span class="number">.13</span><span class="number">.2</span>\python.exe E:\PythonProject\第<span class="number">1</span>章\python-<span class="number">2</span>-<span class="number">1</span>-init.py </span><br><span class="line"></span><br><span class="line">your calculation result <span class="keyword">is</span>: <span class="number">4.46</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="归档文件"><a href="#归档文件" class="headerlink" title="归档文件"></a>归档文件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">! /bin/bash</span></span><br><span class="line">if [ $# -ne 1 ];then</span><br><span class="line">        echo &quot;参数错误，应该输入一个参数&quot;</span><br><span class="line">        exit</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">if [ -d $1 ];then</span><br><span class="line">        echo</span><br><span class="line">else</span><br><span class="line">        echo &quot;目录不存在&quot;</span><br><span class="line">        echo </span><br><span class="line">        exit</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">DIR_NAME=$(basename $1)</span><br><span class="line">DIR_PATH=$(cd $(dirname $1);pwd)</span><br><span class="line"></span><br><span class="line">DATE=$(date +%y%m%d)</span><br><span class="line"></span><br><span class="line">FILE=archive_$&#123;DIR_NAME&#125;_$DATE.tar.gz</span><br><span class="line">DEST=/root/archive/$FILE</span><br><span class="line"></span><br><span class="line">echo &quot;开始archive&quot;</span><br><span class="line">echo</span><br><span class="line"></span><br><span class="line">tar -czf $DEST $DIR_PATH/$DIR_NAME</span><br><span class="line"></span><br><span class="line">if [ $? -eq 0 ];then</span><br><span class="line">        echo &quot;archive successed!&quot;</span><br><span class="line">        echo &quot;archive path is :$DEST&quot;</span><br><span class="line">else</span><br><span class="line">        echo &quot;archive fail&quot;</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">root@ubuntu:~/shell/if# bash 7.sh /root/shell/if</span><br><span class="line"></span><br><span class="line">开始archive</span><br><span class="line"></span><br><span class="line">tar: Removing leading `/&#x27; from member names</span><br><span class="line">archive successed!</span><br><span class="line">archive path is :/root/archive/archive_if_250205.tar.gz</span><br><span class="line">root@ubuntu:~/shell/if# cd /root/archive/ &amp;&amp; ll</span><br><span class="line">total 12</span><br><span class="line">drwxr-xr-x 2 root root 4096 Feb  5 15:49 ./</span><br><span class="line">drwx------ 9 root root 4096 Feb  5 15:49 ../</span><br><span class="line">-rw-r--r-- 1 root root 1042 Feb  5 15:49 archive_if_250205.tar.gz</span><br></pre></td></tr></table></figure>
-<h3 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h3><h4>使用特殊字符</h4>
+<p>使用import调用math库对函数向上取整向下取整</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 向上取整</span></span><br><span class="line">num1 = <span class="number">12.34</span></span><br><span class="line">num2 = <span class="number">3.12</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> math                        <span class="comment"># 此处使用import调用一次math库即可</span></span><br><span class="line">n3 = math.ceil(num1 + num2)        <span class="comment"># math.ceil（）为对括号内的算式向上取整</span></span><br><span class="line"><span class="built_in">print</span>(n3)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 向下取整</span></span><br><span class="line">num4 = math.floor(num1 + num2)     <span class="comment"># math.floor（）为对括号内的算式向下取整</span></span><br><span class="line"><span class="built_in">print</span>(num4)</span><br><span class="line"></span><br><span class="line">              <span class="comment">###### 执行结果#######</span></span><br><span class="line">D:\Python\Python3<span class="number">.13</span><span class="number">.2</span>\python.exe E:\PythonProject\第<span class="number">1</span>章\python-<span class="number">2</span>-<span class="number">1</span>-init.py </span><br><span class="line"><span class="number">16</span></span><br><span class="line"><span class="number">15</span></span><br></pre></td></tr></table></figure>
+<br>
+<br>
+***字符串***
 
-<ul>
-<li><p><code>^</code>   匹配一行的开头字母</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat /root/shell/bash.sh | grep -n ^echo</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">在文件bash.sh中匹配以<span class="built_in">echo</span>字符开头的行，-n为列出所在的行号</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>$</code> 匹配一行的结束</p>
-</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat /root/shell/bash.sh | grep -n echo$</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">在文件bash.sh中匹配以<span class="built_in">echo</span>字符结尾的行，-n为列出所在的行号</span></span><br></pre></td></tr></table></figure>
+<p>使用双引号或单引号引起来的内容叫做 &gt; &gt;&gt;&gt;&gt;&gt;&gt;<code>字符串</code></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 单引号字符串</span></span><br><span class="line">str1 = <span class="string">&#x27;hello&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(str1)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 双引号字符串</span></span><br><span class="line">str2 = <span class="string">&quot;Hello World!&quot;</span></span><br><span class="line"><span class="built_in">print</span>(str2)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 三引号字符串，多行字符串</span></span><br><span class="line">str3 = <span class="string">&#x27;&#x27;&#x27;Hello World, Hello 2026&#x27;&#x27;&#x27;</span>   <span class="comment"># 使用三个单引号</span></span><br><span class="line">str4 = <span class="string">&quot;&quot;&quot;Hello World, Hello 2026&quot;&quot;&quot;</span>   <span class="comment"># 使用三个双引号</span></span><br><span class="line"><span class="built_in">print</span>(str3, str4, sep=<span class="string">&quot;\n&quot;</span>)</span><br><span class="line"></span><br><span class="line">                <span class="comment">########执行结果########</span></span><br><span class="line"></span><br><span class="line">D:\Python\Python3<span class="number">.13</span><span class="number">.2</span>\python.exe E:\PythonProject\第<span class="number">1</span>章\python-<span class="number">2</span>-<span class="number">1</span>-init.py </span><br><span class="line">hello</span><br><span class="line">Hello World!</span><br><span class="line">Hello World, Hello <span class="number">2026</span></span><br><span class="line">Hello World, Hello <span class="number">2026</span></span><br></pre></td></tr></table></figure>
+<br>
+<br>
+***字符串运算***
+字符串拼接
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">str1 = <span class="string">&#x27;python and shell &#x27;</span></span><br><span class="line">str2 = <span class="string">&#x27;are computer languages&#x27;</span></span><br><span class="line"><span class="built_in">str</span> = str1 + str2</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;拼接后的字符串为：&#x27;</span>, <span class="built_in">str</span>)</span><br><span class="line">                <span class="comment">########执行结果########</span></span><br><span class="line">D:\Python\Python3<span class="number">.13</span><span class="number">.2</span>\python.exe E:\PythonProject\第<span class="number">1</span>章\python-<span class="number">2</span>-<span class="number">1</span>-init.py </span><br><span class="line"></span><br><span class="line">拼接后的字符串为： python <span class="keyword">and</span> shell are computer languages</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li><code>.</code>匹配一个字符</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat /root/shell/bash.sh | grep -n r..t</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">在文件bash.sh中匹配含有r..t字符的行，-n为列出所在的行号</span></span><br></pre></td></tr></table></figure>
+<p>重复字符串</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">str1 = <span class="string">&#x27;language|&#x27;</span></span><br><span class="line"><span class="built_in">str</span> = str1 * <span class="number">4</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">str</span>)</span><br><span class="line">                <span class="comment">########执行结果########</span></span><br><span class="line">D:\Python\Python3<span class="number">.13</span><span class="number">.2</span>\python.exe E:\PythonProject\第<span class="number">1</span>章\python-<span class="number">2</span>-<span class="number">1</span>-init.py </span><br><span class="line"></span><br><span class="line">language|language|language|language|</span><br></pre></td></tr></table></figure>
+<br>
+<br>
+***字符串的索引***
 
-<ul>
-<li><code>*</code> 匹配重复字符</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat /root/shell/bash.sh | grep -n ro.t</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">在文件bash.sh中匹配含有root字符或者rooot或者rooooot的行，-n为列出所在的行号</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><code>[]</code>匹配字符&amp;范围<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[a,b] [2,6]</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">用于匹配列表中的字符</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[1-9] 或 [a-z]</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">用于匹配1-9或者a-z之间的一个字符</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[1-9]* [a-z]*</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">用于匹配范围内任意长度的字母或者字符串</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[a-g,h-k]- </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">用于匹配a-g或者h-k间的任意字符</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="文本处理"><a href="#文本处理" class="headerlink" title="文本处理"></a>文本处理</h2><p><code>cut</code></p>
-<p>默认分隔符为制表符，也就是四个空格</p>
-<hr>
-<p>基本用法</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cut [选项参数] filename</span><br></pre></td></tr></table></figure>
 
-<hr>
+<blockquote>
+<p>字符串的截取        str[位数]</p>
+</blockquote>
+<blockquote>
+<p>字符串的切片        str[0:4] 加入范围 （<em><strong>只截取第0到3位的字符</strong></em>）</p>
+</blockquote>
+<p>索引：从字符串中的任何一位或几位获取的单个字符，字符的顺序从0位开始</p>
+<p><strong>备注：在中括号内使用负号来对字符进行排序就是倒着数第多少位，正着数有第0位，倒着数没有倒数第0位,字符串在切片取字符的时候可以使用[1:5:2],该代码对一个冒号并在最后加入了2，这表明在在第2个到第5个字符之间每隔两个字符取一个。</strong></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">str1 = <span class="string">&#x27;hello,world&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;您选择的字符为：&#x27;</span>, str1[<span class="number">2</span>], str1[<span class="number">6</span>])  <span class="comment"># 获取第三个和第七个字符</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;您选择的切片字符为：&#x27;</span>, str1[<span class="number">0</span>:<span class="number">7</span>])      <span class="comment"># 使用切片获取第0到8个范围内的字符</span></span><br><span class="line"></span><br><span class="line">                <span class="comment">########执行结果########</span></span><br><span class="line">                </span><br><span class="line">D:\Python\Python3<span class="number">.13</span><span class="number">.2</span>\python.exe E:\PythonProject\第<span class="number">1</span>章\python-<span class="number">2</span>-<span class="number">1</span>-init.py </span><br><span class="line"></span><br><span class="line">您选择的字符为： l w</span><br><span class="line">您选择的切片字符为： hello,w</span><br></pre></td></tr></table></figure>
+<p>字符串顺序反转</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">str1 = <span class="string">&#x27;123456789&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(str1[::-<span class="number">1</span>])</span><br><span class="line"><span class="built_in">print</span>(str1[-<span class="number">1</span>:-<span class="number">10</span>:-<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">                <span class="comment">########执行结果########</span></span><br><span class="line">                </span><br><span class="line">D:\Python\Python3<span class="number">.13</span><span class="number">.2</span>\python.exe E:\PythonProject\第<span class="number">1</span>章\python-<span class="number">2</span>-<span class="number">1</span>-init.py </span><br><span class="line"></span><br><span class="line"><span class="number">987654321</span></span><br><span class="line"><span class="number">987654321</span></span><br></pre></td></tr></table></figure>
+
+<p><em><strong>数据类型的转换</strong></em></p>
 <table>
 <thead>
 <tr>
-<th align="left">选项参数</th>
-<th align="center">功能</th>
+<th>函数名</th>
+<th>函数值</th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="left"><code>-f</code></td>
-<td align="center">列号，提取第几列</td>
+<td>int(x,[基数])</td>
+<td>将数字或字符串转换为整数，如果x为浮点数，只保整数部分。基数用于转换进制，比如10代表十进制，2代表二进制</td>
 </tr>
 <tr>
-<td align="left"><code>-d</code></td>
-<td align="center">分隔符，按照指定分隔符分割列,默认分隔符为制表符<code>\t</code></td>
+<td>float(x)</td>
+<td>转换为浮点型</td>
 </tr>
 <tr>
-<td align="left"><code>-c</code></td>
-<td align="center">按字符进行切割，后加数字表示取第几列</td>
+<td>bool(x)</td>
+<td>转换为浮点型：True\False</td>
+</tr>
+<tr>
+<td>str(x)</td>
+<td>转换为字符串，方便阅读</td>
+</tr>
+<tr>
+<td>使用type命令来查看转换后变量的数据类型</td>
+<td></td>
+</tr>
+<tr>
+<td>例：int &gt;&gt;&gt;&gt;&gt;bool</td>
+<td></td>
 </tr>
 </tbody></table>
-<hr>
-<p><em><strong>案例解析</strong></em><br>案例1：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cut -d &quot; &quot; -f 2  file_name.txt</span><br><span class="line"></span><br><span class="line">使用`cut`命令，`-d` 指定分隔符为空格，`-f`指定截取的列数为第2列，截取自文件`file_name.txt`</span><br></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="number">12</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(s))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(<span class="built_in">bool</span>(s)))</span><br><span class="line"></span><br><span class="line">                <span class="comment">########执行结果########</span></span><br><span class="line">D:\Python\Python3<span class="number">.13</span><span class="number">.2</span>\python.exe E:\PythonProject\第<span class="number">1</span>章\python-<span class="number">2</span>-<span class="number">1</span>-init.py </span><br><span class="line"></span><br><span class="line">&lt;<span class="keyword">class</span> <span class="string">&#x27;int&#x27;</span>&gt;</span><br><span class="line">&lt;<span class="keyword">class</span> <span class="string">&#x27;bool&#x27;</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>bool &gt;&gt;&gt;&gt;&gt;&gt; int</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="literal">True</span>                   <span class="comment"># 这里的True为布尔值</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(n))             <span class="comment"># 这里检测n的数据类型</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(<span class="built_in">int</span>(n)))        <span class="comment"># 这里将布尔值转换为整型再检测数据类型</span></span><br><span class="line"></span><br><span class="line">                <span class="comment">########执行结果########</span></span><br><span class="line">D:\Python\Python3<span class="number">.13</span><span class="number">.2</span>\python.exe E:\PythonProject\第<span class="number">1</span>章\python-<span class="number">2</span>-<span class="number">1</span>-init.py </span><br><span class="line"></span><br><span class="line">&lt;<span class="keyword">class</span> <span class="string">&#x27;bool&#x27;</span>&gt;</span><br><span class="line">&lt;<span class="keyword">class</span> <span class="string">&#x27;int&#x27;</span>&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
-<p>案例二：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cut</span> -d <span class="string">&quot; &quot;</span> -f 2,3 file_name.txt</span><br></pre></td></tr></table></figure>
-<p>使用<code>cut</code>命令，<code>-d</code>指定分隔符为空格 <code>-f</code>指定截取的列数为第二第三列</p>
-<hr>
-<p>案例三：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span>  /etc /passwd | grep bash$ | <span class="built_in">cut</span> -d <span class="string">&quot;:&quot;</span> -f 1,6,7</span><br><span class="line"><span class="comment">#执行结果如下</span></span><br><span class="line">root@ubuntu:~/shell# <span class="built_in">cat</span> /etc/passwd | grep bash$ | <span class="built_in">cut</span> -d <span class="string">&quot;:&quot;</span> -f 1,6,7</span><br><span class="line">root:/root:/bin/bash</span><br><span class="line">bing:/home/bing:/bin/bash</span><br></pre></td></tr></table></figure>
-<p>截取<code>/etc/passwd</code>目录下以<code>bash</code>结尾的行，并且只截取信息中以<code>:</code>作为分隔符隔开的内容，且只取第<code>1</code>、<code>6</code>、<code>7</code>三行的数据</p>
-<p>案例四</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$PATH</span> | <span class="built_in">cut</span> -d :<span class="string">&quot;&quot;</span> -f 3-    <span class="comment">#执行该代码</span></span><br><span class="line">root@ubuntu:~/shell# <span class="built_in">echo</span> <span class="variable">$PATH</span>   <span class="comment">#打印原信息</span></span><br><span class="line">/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin</span><br><span class="line">root@ubuntu:~/shell# <span class="built_in">echo</span> <span class="variable">$PATH</span> | <span class="built_in">cut</span> -d :<span class="string">&quot;&quot;</span> -f 3-    <span class="comment">#通过命令对原信息截取</span></span><br><span class="line">/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin    <span class="comment">#截取后的信息</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<p><code>awk</code><br>基本用法：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk 参数 ‘/条件/&#123;执行的命令&#125;’ 被处理的文件</span><br></pre></td></tr></table></figure>
-
+<p><em><strong>算术运算符</strong></em></p>
 <table>
 <thead>
 <tr>
-<th>参数</th>
+<th>运算符</th>
+<th>描述</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+</td>
+<td>加</td>
+<td>10+20&#x3D;30</td>
+</tr>
+<tr>
+<td>-</td>
+<td>减</td>
+<td>10-20&#x3D;-10</td>
+</tr>
+<tr>
+<td><code>*</code></td>
+<td>乘</td>
+<td>10*20&#x3D;200</td>
+</tr>
+<tr>
+<td><code>/</code></td>
+<td>除</td>
+<td>20&#x2F;10&#x3D;2</td>
+</tr>
+<tr>
+<td><code>//</code></td>
+<td>取整</td>
+<td>除法结果取整数部分</td>
+</tr>
+<tr>
+<td><code>%</code></td>
+<td>取余</td>
+<td>除法结果部分取小数</td>
+</tr>
+</tbody></table>
+<p><em><strong>算数运算符的优先级</strong></em></p>
+<table>
+<thead>
+<tr>
+<th><code>**</code></th>
+<th>幂</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>*/%//</code></td>
+<td>乘，除，取余数，取整数</td>
+</tr>
+<tr>
+<td><code>+ -</code></td>
+<td>加法，减法</td>
+</tr>
+</tbody></table>
+<p><em><strong>赋值运算符</strong></em></p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>=</code></td>
+<td>赋值运算符</td>
+<td>c &#x3D; a+b将a&#x3D;b的运算结果复制为c</td>
+</tr>
+<tr>
+<td><code>+=</code></td>
+<td>加法赋值运算符</td>
+<td>c +&#x3D; a等效于c &#x3D; c+a</td>
+</tr>
+<tr>
+<td><code>-=</code></td>
+<td>减法赋值运算符</td>
+<td>c-&#x3D;a等效于c &#x3D; c-a</td>
+</tr>
+<tr>
+<td><code>*=</code></td>
+<td>乘法赋值运算符</td>
+<td>c*&#x3D;a等效于c &#x3D; c * a</td>
+</tr>
+<tr>
+<td><code>/=</code></td>
+<td>除法赋值运算符</td>
+<td>c&#x2F;&#x3D;a等效于c &#x3D; c&#x2F;a</td>
+</tr>
+<tr>
+<td><code>//=</code></td>
+<td>取整赋值运算符</td>
+<td>c&#x2F;&#x2F;&#x3D;a等效于c &#x3D; c&#x2F;&#x2F;a</td>
+</tr>
+<tr>
+<td><code>%=</code></td>
+<td>取余赋值运算符</td>
+<td>c%&#x3D;a等效于c &#x3D; c%a</td>
+</tr>
+<tr>
+<td><code>**=</code></td>
+<td>幂赋值运算符</td>
+<td>c**&#x3D;a等效于c &#x3D; c **a</td>
+</tr>
+</tbody></table>
+<p><em><strong>比较运算符</strong></em></p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>==</code></td>
+<td>检查两个操作数的值是否相等，如果是，则条件成立，返回True</td>
+</tr>
+<tr>
+<td><code>!=</code></td>
+<td>检查两个操作数的值是否不相等，如果是，则条件成立，返回True</td>
+</tr>
+<tr>
+<td><code>&gt;</code></td>
+<td>检查左操作数的值是否大于右操作数的值，如果是,则条件成立，返回True</td>
+</tr>
+<tr>
+<td><code>&lt;</code></td>
+<td>检查左操作数的值是否小于右操作数的值，如果是,则条件成立，返回True</td>
+</tr>
+<tr>
+<td><code>&gt;=</code></td>
+<td>检查左操作数的值是否大于或等于右操作数的值，如果是,则条件成立，返回True</td>
+</tr>
+<tr>
+<td><code>&lt;=</code></td>
+<td>检查左操作数的值是否小于等于右操作数的值，如果是,则条件成立，返回True</td>
+</tr>
+</tbody></table>
+<p><strong>逻辑运算符</strong>*</p>
+<br>
+> 运算的优先级||||| not > and > or
+
+<br>
+| 运算符 | 逻辑表达式 | 描述 |
+| ------ | ------ | ------- |
+| `and` | x and y | 只有x和y的值都为True，才会返回True。否则只要x或者y有一个值为False，就会返回False |
+| `or` | x or y | 只要x或者y有一个为True，就返回True，如果x和y都为False才会返回False |
+| `not` | not x | 如果X为True，返回False。如果x为False，返回True |
+
+<p><em><strong>位运算符</strong></em></p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
 <th>功能</th>
+<th align="center">实例</th>
 </tr>
 </thead>
 <tbody><tr>
-<td><code>-F</code></td>
-<td>指定使用的分隔符</td>
+<td><code>&amp;</code></td>
+<td>与</td>
+<td>参与运算的两个值，如果两个相应位都为1，则该位的结果为1否则为0</td>
+<td align="center">5&amp;7</td>
 </tr>
 <tr>
-<td><code>-v</code></td>
-<td>赋值一个用户自定义变量</td>
+<td>&#96;</td>
+<td>&#96;</td>
+<td>或</td>
+<td align="center">参与运算的两个值，如果两个相应位有一个为1时，则该位的结果为1，否则为0</td>
+</tr>
+<tr>
+<td><code>^</code></td>
+<td>异或</td>
+<td>参与运算的两个时，如果两个相应位不同时，则该位的结果为1，否则为0</td>
+<td align="center">5^7</td>
+</tr>
+<tr>
+<td><code>~</code></td>
+<td>取反</td>
+<td>对数据的每个二进位进行取反操作，把1变成0，把0变成1</td>
+<td align="center">~5</td>
+</tr>
+<tr>
+<td><code>&lt;&lt;</code></td>
+<td>左移</td>
+<td>运算术的各二进制位全部向左移动若干位，若符号右侧的数字指定移动的位数，高位丢弃，低位补0</td>
+<td align="center">9&lt;&lt;2</td>
+</tr>
+<tr>
+<td><code>&gt;&gt;</code></td>
+<td>右移</td>
+<td>运算术的各二进制位全部向右移动左边为，若符号右侧的数字指定移动的位数，低位丢弃，高位补丁</td>
+<td align="center">9&gt;&gt;2</td>
 </tr>
 </tbody></table>
-<p>案例一<br>找出root用户工作的目录</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> /etc/passwd | grep ^root | <span class="built_in">cut</span> -d <span class="string">&quot;:&quot;</span> -f 7</span><br><span class="line"><span class="comment"># cat 和cut联合实现</span></span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line">root@ubuntu:~/shell/if# <span class="built_in">cat</span> /etc/passwd | grep ^root | <span class="built_in">cut</span> -d <span class="string">&quot;:&quot;</span> -f 7</span><br><span class="line">/bin/bash</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/passwd | awk -F &quot;:&quot; &#x27;/^root/&#123;print $7&#125;&#x27;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">使用<span class="built_in">cat</span>和awk实现</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">输出</span></span><br><span class="line">root@ubuntu:~/shell/if# cat /etc/passwd | awk -F &quot;:&quot; &#x27;/^root/&#123;print $7&#125;&#x27;</span><br><span class="line">/bin/bash</span><br></pre></td></tr></table></figure>
+<p><em><strong>成员运算符</strong></em></p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>in</code></td>
+<td>如果在指定的序列中找到值返回True，否则返回False</td>
+<td>3 in (1,2,3) 返回True</td>
+</tr>
+<tr>
+<td><code>not in</code></td>
+<td>如果在指定的序列中没有找到返回值返回True，否则返回False</td>
+<td>3 not in (1,2,3) 返回False</td>
+</tr>
+</tbody></table>
+<p><em><strong>身份运算符</strong></em></p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>is</code></td>
+<td>判断两个标识符是否引用同一个对象，是的话返回真，否则返回假</td>
+</tr>
+<tr>
+<td><code>is not</code></td>
+<td>判断两个标识符是否不是引用同一个对象，是的话返回真，否则返回假</td>
+</tr>
+</tbody></table>
+<p><em><strong>运算符的优先级</strong></em></p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>**</code></td>
+<td>幂</td>
+</tr>
+<tr>
+<td><code>~+-</code></td>
+<td>按位取反，一元运算符</td>
+</tr>
+<tr>
+<td><code>*/%//</code></td>
+<td>乘、除、取整数、取余数</td>
+</tr>
+<tr>
+<td><code>+-</code></td>
+<td>加法、减法</td>
+</tr>
+<tr>
+<td><code>&lt;&lt;&gt;&gt;</code></td>
+<td>左移、右移</td>
+</tr>
+<tr>
+<td><code>&amp;</code></td>
+<td>按位与</td>
+</tr>
+<tr>
+<td>&#96;&#96;&#96;</td>
+<td>^&#96;</td>
+</tr>
+<tr>
+<td><code>&gt;&lt; &gt;= &lt;=</code></td>
+<td>比较运算符</td>
+</tr>
+<tr>
+<td><code>== !=</code></td>
+<td>等于运算符</td>
+</tr>
+<tr>
+<td><code>= += -= *= /= %= //= **=</code></td>
+<td>赋值运算符</td>
+</tr>
+<tr>
+<td><code>is 、is not</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>in 、not in</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>not or and</code></td>
+<td>逻辑运算符</td>
+</tr>
+</tbody></table>
+<h3 id="条件判断"><a href="#条件判断" class="headerlink" title="条件判断"></a>条件判断</h3><p><em><strong>if单分支</strong></em></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> 条件：     <span class="comment"># if后直接写条件然后加英文冒号</span></span><br><span class="line">    执行的命令         <span class="comment"># 执行命令的部分要空四格再写命令作为执行命令</span></span><br></pre></td></tr></table></figure>
+<p><em><strong>if else 语句</strong></em></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">if</span> 判断条件：                   <span class="comment"># if句后结尾加英文冒号</span></span><br><span class="line">    条件成立执行的代码</span><br><span class="line"><span class="keyword">else</span>：                         <span class="comment"># else后加英文冒号，和shell命令不同，要区分！！！！</span></span><br><span class="line">    条件不成立执行的代码</span><br></pre></td></tr></table></figure>
 
+<p><em><strong>elif语句</strong></em></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">if</span> 判断条件:           <span class="comment"># 注意此处的冒号</span></span><br><span class="line">    执行的代码</span><br><span class="line"><span class="keyword">elif</span> 条件：             <span class="comment"># 注意此处的冒号</span></span><br><span class="line">    执行的代码</span><br><span class="line"><span class="keyword">else</span>:                  <span class="comment"># 特别注意此处的冒号！！！！</span></span><br><span class="line">    执行的代码</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -457,7 +759,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -523,7 +825,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -564,12 +866,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">23k</span>
+    <span title="站点总字数">24k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">38 分钟</span>
+    <span title="站点阅读时长">41 分钟</span>
 </div>
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
