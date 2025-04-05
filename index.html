@@ -194,7 +194,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2025-04-05 13:30:42 / 修改时间：14:10:55" itemprop="dateCreated datePublished" datetime="2025-04-05T13:30:42+08:00">2025-04-05</time>
+              <time title="创建时间：2025-04-05 13:30:42 / 修改时间：14:18:52" itemprop="dateCreated datePublished" datetime="2025-04-05T13:30:42+08:00">2025-04-05</time>
             </span>
 
           <br>
@@ -203,7 +203,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.4k</span>
+              <span>1.5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -226,7 +226,7 @@
 <p>注意：WARP有很多版本，例如warp-go、warp-wireguad、wgcf-warp之类的魔改版，本文只介绍warp-cli官方版本的使用内容。</p>
 <hr>
 <p><strong>STEP1 WARP-cli的安装</strong><br>warp-cli的安装非常繁琐，中间可能会遇到ssh守护进程被杀只能从VNC控制台登录调起的现象，<br><strong>请做好心理准备，在ssh失效时即刻联想到通过VNC登录重新调起ssh服务的解决方法，不要慌张</strong></p>
-<p>具体安装流程参考文章：<br>(因我参考的文章已经记不清是哪个，所以请您自行寻找，下面我将会给出几个质量还行但我没尝试过的链接。注意：官方安装教程不可行，因为在安装中<br>需要添加一个GPG签名密钥之类的东西，我找不到。所以建议寻找已经写好的脚本来辅助安装！！！)</p>
+<p>具体安装流程参考文章：<br>(因我参考的文章已经记不清是哪个，所以请您自行寻找，下面我将会给出几个质量还行但我没尝试过的链接。注意：官方安装教程不可行，因为在安装中需要添加一个GPG签名密钥之类的东西，所以建议寻找已经写好的脚本来辅助安装！！！)</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://github.com/P3TERX/warp.sh">参考脚本-github</a></li>
 <li><a target="_blank" rel="noopener" href="https://blog.cloudflare.com/zh-cn/announcing-warp-for-linux-and-proxy-mode/">cloudfalre官方文档</a></li>
@@ -260,16 +260,20 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">warp-cli status</span><br></pre></td></tr></table></figure>
 
 <p>设置后即可使用socks模式连接到warp服务了</p>
-<p>&#x3D;&#x3D;&#x3D;</p>
-<p><code>warp-cli set-mode</code>参数解读：<br>warp</p>
-<ul>
-<li>此模式會連接到遠端伺服器，並使用 TUN 進行全域代理。這表示所有網路流量都會透過 WARP 傳輸。<br>doh</li>
-<li>此模式僅啟用 DNS over HTTPS (DoH) 功能，用於加密 DNS 查詢。<br>warp+doh</li>
-<li>此模式同時啟用 WARP 和 DoH 功能，結合兩者的優勢。<br>dot</li>
-<li>此模式僅啟用 DNS over TLS (DoT) 功能，同樣用於加密 DNS 查詢。<br>warp+dot</li>
-<li>此模式同時啟用 WARP 和 DoT 功能。<br>proxy</li>
-<li>此模式會連接到遠端伺服器，並在本地開啟代理連接埠，允許您透過代理伺服器傳輸特定應用程式的流量</li>
-</ul>
+<hr>
+<p><code>warp-cli set-mode</code>参数解读：</p>
+<hr>
+<p><code>warp-cli set-mode warp</code><br>此模式會連接到遠端伺服器，並使用 TUN 進行全域代理。這表示所有網路流量都會透過 WARP 傳輸。</p>
+<hr>
+<p><code>warp-cli set-mode doh</code><br>此模式僅啟用 DNS over HTTPS (DoH) 功能，用於加密 DNS 查詢。</p>
+<hr>
+<p><code>warp-cli set-mode warp+doh</code><br>此模式同時啟用 WARP 和 DoH 功能，結合兩者的優勢。</p>
+<hr>
+<p><code>warp-cli set-mode dot</code><br>此模式僅啟用 DNS over TLS (DoT) 功能，同樣用於加密 DNS 查詢。</p>
+<hr>
+<p><code>warp-cli set-mode warp+dot</code><br>此模式同時啟用 WARP 和 DoT 功能。</p>
+<hr>
+<p><code>warp-cli set-mode proxy</code><br>此模式會連接到遠端伺服器，並在本地開啟代理連接埠，允許您透過代理伺服器傳輸特定應用程式的流量</p>
 <p>请根据个人需求选择合适的参数，x-ui面板解锁Netflix建议使用proxy模式</p>
 
       
