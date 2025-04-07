@@ -169,7 +169,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/04/05/WARP-on-Linux/">
+    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/04/06/Office-%E9%83%A8%E7%BD%B2%E4%B8%8E%E6%BF%80%E6%B4%BB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -183,7 +183,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2025/04/05/WARP-on-Linux/" class="post-title-link" itemprop="url">WARP on Linux</a>
+            <a href="/2025/04/06/Office-%E9%83%A8%E7%BD%B2%E4%B8%8E%E6%BF%80%E6%B4%BB/" class="post-title-link" itemprop="url">Office 部署与激活</a>
         </h2>
 
         <div class="post-meta">
@@ -194,7 +194,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2025-04-05 13:30:42 / 修改时间：15:10:47" itemprop="dateCreated datePublished" datetime="2025-04-05T13:30:42+08:00">2025-04-05</time>
+              <time title="创建时间：2025-04-06 20:32:08 / 修改时间：20:41:43" itemprop="dateCreated datePublished" datetime="2025-04-06T20:32:08+08:00">2025-04-06</time>
             </span>
 
           <br>
@@ -203,7 +203,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.4k</span>
+              <span>920</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -222,53 +222,89 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>本章我们提供WARP-cli官方linux程序的功能解析以及各种命令的使用规范，主要目的为：完全学习warp-cli在使用上的所有潜在功能与应用。</p>
-<p>注意：WARP有很多版本，例如warp-go、warp-wireguad、wgcf-warp之类的魔改版，本文只介绍warp-cli官方版本的使用内容。<br><strong>特别注意</strong>：本章的主要内容围绕xray面板节点搭建中【warp解锁流媒体】中使用warp进行二级代理（路由）技术，此部分为辅助技术。</p>
-<hr>
-<p><strong>STEP1 WARP-cli的安装</strong><br>warp-cli的安装非常繁琐，中间可能会遇到ssh守护进程被杀只能从VNC控制台登录调起的现象，<br><strong>请做好心理准备，在ssh失效时即刻联想到通过VNC登录重新调起ssh服务的解决方法，不要慌张</strong></p>
-<p>具体安装流程参考文章：<br>(因我参考的文章已经记不清是哪个，所以请您自行寻找，下面我将会给出几个质量还行但我没尝试过的链接。注意：官方安装教程不可行，因为在安装中需要添加一个GPG签名密钥之类的东西，所以建议寻找已经写好的脚本来辅助安装！！！)</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/P3TERX/warp.sh">参考脚本-github</a></li>
-<li><a target="_blank" rel="noopener" href="https://blog.cloudflare.com/zh-cn/announcing-warp-for-linux-and-proxy-mode/">cloudfalre官方文档</a></li>
-<li><a target="_blank" rel="noopener" href="https://jeam.org/40352f0">签名密钥教程</a></li>
+          <h1 id="Office部署"><a href="#Office部署" class="headerlink" title="Office部署"></a>Office部署</h1><h2 id="准备材料"><a href="#准备材料" class="headerlink" title="准备材料"></a>准备材料</h2><ul>
+<li><p>官方Office安装包<a target="_blank" rel="noopener" href="https://www.microsoft.com/en-us/download/details.aspx">setup.exe</a></p>
+</li>
+<li><p>应答文件<a target="_blank" rel="noopener" href="https://config.office.com/deploymentsettings">config.xml</a></p>
+</li>
 </ul>
+<p><em><strong>☝点击文件名即可跳转到该文件的下载网页</strong></em><span style="color:red">   安装新版本前请自行卸载原有的office</span></p>
 <hr>
-<p><strong>STEP2 基本命令</strong></p>
+<h2 id="安装包文件"><a href="#安装包文件" class="headerlink" title="安装包文件"></a>安装包文件</h2><p>​       <em><strong>点击<a target="_blank" rel="noopener" href="https://www.microsoft.com/en-us/download/details.aspx">此处</a>获取文件下载链接(材料准备中也有提到)</strong></em></p>
+<ol>
+<li>点击<strong>Download</strong>按钮下载安装包</li>
+</ol>
+<p><img src="https://s2.loli.net/2025/04/06/KNImZip4aCteT9V.png" alt="image.png"></p>
+<p>此后你将会得到一个setup.exe文件，双击文件，他将询问你安装（解压）到哪个位置，此时在桌面右键新建一个非中文的文件夹（建议名字为<code>office</code>），然后将文件解压到此位置。<span style="color:red;"> 虽然是exe文件，但它是一个压缩包，运行后会得到 <span style="color:blue"> configure.xml </span>和带有office 365标志的<span style="color:blue"> setup.exe </span>部署器。</span></p>
+<p>如下图所示：☟</p>
+<hr>
+<p><img src="https://s2.loli.net/2025/04/06/aLlKC15eJ4tqjms.png" alt="image.png"></p>
+<p><img src="https://s2.loli.net/2025/04/06/D5S7RJbK9H6MzLB.png" alt="image.png"></p>
+<hr>
+<p>文件列表☟</p>
 <ul>
-<li><code>warp-cli</code>  列出warp的命令列表类似于–help命令</li>
-<li><code>warp-cli register</code>或<code>warp-cli registration new</code> 注册warp账户，可多次注册使用（前面不行的话使用后面的命令即可）</li>
-<li><code>warp-cli connect</code> 连接到warp网络</li>
-<li><code>warp-cli disconnect</code> 断开warp的网络连接</li>
-<li><code>curl https://www.cloudflare.com/cdn-cgi/trace/</code>  检查连接后分配的IP地址</li>
-<li><code>warp-cli set-licence &lt;your key&gt;</code>  设定warp的key，可以从telegram机器人获取</li>
-<li><code>warp-cli set-mode proxy</code> 设置模式为proxy，默认开启40000端口的socks服务（系统内开启端口，不需要在防火墙放行）</li>
-<li><code>warp-cli status</code> 查看warp服务的状态和分配的IP</li>
-<li><code>warp-cli set-proxy-port &lt;port&gt;</code>  自定义端口号</li>
-<li><code>curl -4 ip.gs -x socks5://127.0.0.1:40000</code>  查看分配到的ipv4地址</li>
+<li>configuration-Office365-x64</li>
+<li>setup.exe</li>
 </ul>
-<hr>
-<p>在使用中选择命令即可，以下为开启socks端口的流程</p>
-<p><strong>注册</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">warp-cli registration new</span><br></pre></td></tr></table></figure>
-<p><strong>连接</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">warp-cli connect</span><br></pre></td></tr></table></figure>
-<p><strong>设置proxy模式</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">warp-cli set-mode proxy</span><br></pre></td></tr></table></figure>
-<p><strong>打印分配到的IP</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -4 ip.gs -x socks5://127.0.0.1:40000</span><br></pre></td></tr></table></figure>
-<p><strong>查看warp状态及IP</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">warp-cli status</span><br></pre></td></tr></table></figure>
+<p style="color:red;font-weight:bold"> xml文件是带有完整office套件的应答文件，使用此文件安装office会将全家桶一个不落安装完，但我们根本不需要这么多文件，所以建议将此文件删除，我们下一步配置自己需要的应答文件</p>
 
-<p>设置后即可使用socks模式连接到warp服务了</p>
 <hr>
-<p><code>warp-cli set-mode</code>参数解读：</p>
-<p><code>warp</code><br>此模式會連接到遠端伺服器，並使用 TUN 進行全域代理。這表示所有網路流量都會透過 WARP 傳輸。</p>
-<p><code>doh</code><br>此模式僅啟用 DNS over HTTPS (DoH) 功能，用於加密 DNS 查詢。</p>
-<p><code>warp+doh</code><br>此模式同時啟用 WARP 和 DoH 功能，結合兩者的優勢。</p>
-<p><code>dot</code><br>此模式僅啟用 DNS over TLS (DoT) 功能，同樣用於加密 DNS 查詢。</p>
-<p><code>warp+dot</code><br>此模式同時啟用 WARP 和 DoT 功能。</p>
-<p><code>proxy</code><br>此模式會連接到遠端伺服器，並在本地開啟代理連接埠，允許您透過代理伺服器傳輸特定應用程式的流量</p>
-<p>请根据个人需求选择合适的参数，x-ui面板解锁Netflix建议使用proxy模式</p>
+<h2 id="下载config-xml应答文件"><a href="#下载config-xml应答文件" class="headerlink" title="下载config.xml应答文件"></a>下载config.xml应答文件</h2><p><strong><a target="_blank" rel="noopener" href="https://config.office.com/deploymentsettings">点此</a>进入文件的下载网站</strong></p>
+<hr>
+<p><img src="https://s2.loli.net/2025/04/06/DjSoJPAYKBOT39v.png" alt="image.png"></p>
+<p><img src="https://s2.loli.net/2025/04/06/yh61PJrCTlqFBnu.png" alt="image.png"></p>
+<hr>
+<p><strong>左侧会有文件的配置列表，按下图的标记进行修改</strong></p>
+<hr>
+<p><img src="https://s2.loli.net/2025/04/06/yFT4IBP6xm9Mhi1.png" alt="image.png"></p>
+<p><img src="https://s2.loli.net/2025/04/06/b8xrLYugRf9zZyt.png" alt="下载选项"></p>
+<p><img src="https://s2.loli.net/2025/04/06/2pyqu1ON8chdFVA.png" alt="image.png"></p>
+<p><img src="https://s2.loli.net/2025/04/06/fc4jadku5HSBi1r.png" alt="image.png"></p>
+<p><img src="https://s2.loli.net/2025/04/06/Oa4To1IwG5RgF8z.png" alt="image.png"></p>
+<p><img src="https://s2.loli.net/2025/04/06/8U56ZTiBVJu2zNw.png" alt="image.png"></p>
+<p><img src="https://s2.loli.net/2025/04/06/51G8znlHYKmkNMO.png" alt="image.png"></p>
+<p><img src="https://s2.loli.net/2025/04/06/HjbwshySXVkxKQ3.png" alt="image.png"></p>
+<hr>
+<p>导出后你将会得到一个包含你选择的xml文件，将此文件复制到你桌面的<code>office</code>文件夹，将其与<code>setup.exe</code>文件放在一起☟☟☟</p>
+<hr>
+<p><img src="https://s2.loli.net/2025/04/06/IUdFCRYEjoaxQhX.png" alt="image.png"></p>
+<hr>
+<p>此时到电脑左下角搜索<code>powershell</code>,然后以管理员身份运行☟☟☟</p>
+<hr>
+<p><img src="https://s2.loli.net/2025/04/06/Wm1RgqAeNMPU5H4.png" alt="image.png"></p>
+<p><img src="https://s2.loli.net/2025/04/06/pb78nVBysaH4JcK.png" alt="image.png"></p>
+<hr>
+<p>** 在powershell中输入<code>cd</code>然后加个空格，再点击鼠标右键即可将地址复制到命令框内**</p>
+<p>参见下图☟☟☟</p>
+<hr>
+<p><img src="https://s2.loli.net/2025/04/06/yqxgFdLeAmtRJDl.png" alt="image.png"></p>
+<p>点击回车，即可弹出office的下载框，等待即可。</p>
+<p style="color:red;font-weight:bold">屏幕右下角展开小箭头，就可以看到下载进度，假如下载进度很久都未更新，等待即可，需要一段时间。安装成功后会提示已经部署。开始进行激活步骤</p>
+
+<hr>
+<h2 id="激活"><a href="#激活" class="headerlink" title="激活"></a>激活</h2><p>1.复制命令</p>
+<p>不要关闭powershell窗口，在此复制以下命令，然后右键粘贴到powershell中，点击回车，允许运行，等待激活窗口。命令如下☟☟☟</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">irm</span> https://get.activated.win | <span class="built_in">iex</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<ol start="2">
+<li>选择激活方式<p style="color:red;font-weight:bold">输入数字`2`</p></li>
+</ol>
+<hr>
+<p><img src="https://s2.loli.net/2025/04/06/hznLyCWr1xPOHpw.png" alt="image.png"></p>
+<hr>
+<p style="color:red;font-weight:bold">输入2后回车</p>
+
+<hr>
+<p style="color:red;font-weight:bold">等待提示第二个窗口，再输入`1`,回车</p>
+
+
+<p><img src="https://s2.loli.net/2025/04/06/atISuJedZPf9vUQ.png" alt="image.png"></p>
+<hr>
+<p style="color:red;font-weight:bold"> 等待提示绿色的 </p>
+<span style="color:green;font-weight:bold">successfull!</span>
+
+<p>**到此即安装并激活完成！！！Enjoy your paper writting **</p>
 
       
     </div>
@@ -287,7 +323,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -353,7 +389,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -394,12 +430,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">27k</span>
+    <span title="站点总字数">28k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">44 分钟</span>
+    <span title="站点阅读时长">47 分钟</span>
 </div>
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
