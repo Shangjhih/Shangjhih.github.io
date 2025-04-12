@@ -169,7 +169,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/04/05/Cloudflare-WARP-%E5%87%BA%E5%8F%A3%E4%BB%A3%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/04/05/WARP-on-Linux/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -183,7 +183,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2025/04/05/Cloudflare-WARP-%E5%87%BA%E5%8F%A3%E4%BB%A3%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">Cloudflare WARP 出口代理学习笔记</a>
+            <a href="/2025/04/05/WARP-on-Linux/" class="post-title-link" itemprop="url">WARP on Linux</a>
         </h2>
 
         <div class="post-meta">
@@ -194,7 +194,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2025-04-05 13:16:57 / 修改时间：13:20:42" itemprop="dateCreated datePublished" datetime="2025-04-05T13:16:57+08:00">2025-04-05</time>
+              <time title="创建时间：2025-04-05 13:30:42 / 修改时间：15:10:47" itemprop="dateCreated datePublished" datetime="2025-04-05T13:30:42+08:00">2025-04-05</time>
             </span>
 
           <br>
@@ -203,14 +203,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.7k</span>
+              <span>1.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -222,189 +222,53 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <hr>
-<h3 id="🧠-项目名称：Cloudflare-WARP-出口代理方案学习笔记"><a href="#🧠-项目名称：Cloudflare-WARP-出口代理方案学习笔记" class="headerlink" title="🧠 项目名称：Cloudflare WARP 出口代理方案学习笔记"></a>🧠 项目名称：Cloudflare WARP 出口代理方案学习笔记</h3><hr>
-<h4 id="🧩-一、应用场景描述"><a href="#🧩-一、应用场景描述" class="headerlink" title="🧩 一、应用场景描述"></a>🧩 一、应用场景描述</h4><ul>
-<li>操作系统：Linux</li>
-<li>出口工具：Cloudflare warp-cli &#x2F; warp-go &#x2F; wgcf</li>
-<li>搭配面板：3x-ui（Xray）</li>
-<li>应用目标：<ul>
-<li><input disabled="" type="checkbox"> 为特定网站流量提供 WARP 代理出口</li>
-<li><input disabled="" type="checkbox"> 切换出口 IP 以绕封锁或解除限速</li>
-<li><input disabled="" type="checkbox"> 实现按地区出站（如日本&#x2F;美国）</li>
-<li><input disabled="" type="checkbox"> 避免 DNS 泄漏、增强隐私</li>
-</ul>
-</li>
-</ul>
+          <p>本章我们提供WARP-cli官方linux程序的功能解析以及各种命令的使用规范，主要目的为：完全学习warp-cli在使用上的所有潜在功能与应用。</p>
+<p>注意：WARP有很多版本，例如warp-go、warp-wireguad、wgcf-warp之类的魔改版，本文只介绍warp-cli官方版本的使用内容。<br><strong>特别注意</strong>：本章的主要内容围绕xray面板节点搭建中【warp解锁流媒体】中使用warp进行二级代理（路由）技术，此部分为辅助技术。</p>
 <hr>
-<h4 id="🔧-二、方案架构与组件职责"><a href="#🔧-二、方案架构与组件职责" class="headerlink" title="🔧 二、方案架构与组件职责"></a>🔧 二、方案架构与组件职责</h4><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[客户端] → [Xray 3x-ui 入站] → [出站策略选择] → [WARP 本地监听端口 (40000)] → [Cloudflare Anycast IP 出口]</span><br></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th>组件</th>
-<th>功能描述</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>warp-cli &#x2F; warp-go</td>
-<td>本地透明代理出口</td>
-<td>建议用 warp-go 控制更多</td>
-</tr>
-<tr>
-<td>3x-ui 出站</td>
-<td>管理所有流量出口策略</td>
-<td>可绑定到特定域名&#x2F;IP规则</td>
-</tr>
-<tr>
-<td>3x-ui 路由规则</td>
-<td>流量匹配判断（按域名&#x2F;IP&#x2F;端口）</td>
-<td>规则顺序决定优先级</td>
-</tr>
-<tr>
-<td>入站设置</td>
-<td>定义哪些客户端请求进入 Xray</td>
-<td>配合透明代理、SOCKS、端口映射等</td>
-</tr>
-</tbody></table>
-<hr>
-<h4 id="🔄-三、常用操作记录"><a href="#🔄-三、常用操作记录" class="headerlink" title="🔄 三、常用操作记录"></a>🔄 三、常用操作记录</h4><h5 id="1-更换-WARP-IP（warp-cli）"><a href="#1-更换-WARP-IP（warp-cli）" class="headerlink" title="1. 更换 WARP IP（warp-cli）"></a>1. 更换 WARP IP（warp-cli）</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">warp-cli disconnect &amp;&amp; warp-cli connect</span><br><span class="line">curl ipinfo.io</span><br></pre></td></tr></table></figure>
-
-<h5 id="2-warp-go-启动监听端口（替代-warp-cli）"><a href="#2-warp-go-启动监听端口（替代-warp-cli）" class="headerlink" title="2. warp-go 启动监听端口（替代 warp-cli）"></a>2. warp-go 启动监听端口（替代 warp-cli）</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./warp-go --mode=proxy --proxy-port=40000</span><br><span class="line"><span class="comment"># 可加 --gateway= 指定地区入口，如：162.159.192.1 (美国)</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="3-配合-3x-ui-添加出站配置："><a href="#3-配合-3x-ui-添加出站配置：" class="headerlink" title="3. 配合 3x-ui 添加出站配置："></a>3. 配合 3x-ui 添加出站配置：</h5><ul>
-<li>类型：SOCKS &#x2F; HTTP</li>
-<li>地址：127.0.0.1</li>
-<li>端口：40000</li>
-<li>可选：开启 UDP 支持</li>
-</ul>
-<hr>
-<h4 id="🌐-四、推荐-Cloudflare-接入点-IP（用于控制地区偏向）"><a href="#🌐-四、推荐-Cloudflare-接入点-IP（用于控制地区偏向）" class="headerlink" title="🌐 四、推荐 Cloudflare 接入点 IP（用于控制地区偏向）"></a>🌐 四、推荐 Cloudflare 接入点 IP（用于控制地区偏向）</h4><table>
-<thead>
-<tr>
-<th>地区</th>
-<th>接入 IP 示例</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>美国</td>
-<td><code>162.159.192.1</code></td>
-</tr>
-<tr>
-<td>日本</td>
-<td><code>162.159.193.1</code></td>
-</tr>
-<tr>
-<td>香港</td>
-<td><code>162.159.195.1</code></td>
-</tr>
-<tr>
-<td>台湾</td>
-<td><code>162.159.196.1</code></td>
-</tr>
-</tbody></table>
-<blockquote>
-<p>这些可用于 warp-go 的 <code>--gateway</code> 参数</p>
-</blockquote>
-<hr>
-<h4 id="📈-五、验证出口-IP-方法"><a href="#📈-五、验证出口-IP-方法" class="headerlink" title="📈 五、验证出口 IP 方法"></a>📈 五、验证出口 IP 方法</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl https://www.cloudflare.com/cdn-cgi/trace</span><br><span class="line">curl ipinfo.io</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h4 id="🧪-六、已发现问题及解决记录"><a href="#🧪-六、已发现问题及解决记录" class="headerlink" title="🧪 六、已发现问题及解决记录"></a>🧪 六、已发现问题及解决记录</h4><table>
-<thead>
-<tr>
-<th>问题描述</th>
-<th>原因分析</th>
-<th>解决方式</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>WARP IP 切换后不立即生效</td>
-<td>可能是 Xray 出站连接复用、DNS 缓存未更新</td>
-<td>重启 Xray 核心或断开重连</td>
-</tr>
-<tr>
-<td>WARP 对指定站点不生效</td>
-<td>出站规则未匹配成功 &#x2F; 顺序不对</td>
-<td>检查路由顺序和优先级，提升规则匹配顺位</td>
-</tr>
-<tr>
-<td>DNS 泄漏问题</td>
-<td>系统 DNS 未跟随代理</td>
-<td>使用 DNS-over-HTTPS 或 TUN 模式解决</td>
-</tr>
-</tbody></table>
-<hr>
-<h4 id="🧰-七、后续探索方向"><a href="#🧰-七、后续探索方向" class="headerlink" title="🧰 七、后续探索方向"></a>🧰 七、后续探索方向</h4><ul>
-<li><input disabled="" type="checkbox"> 配合 iptables 透明代理全部系统流量</li>
-<li><input disabled="" type="checkbox"> warp-go + 自动换 IP 脚本</li>
-<li><input disabled="" type="checkbox"> 建立多出口策略：部分走 WARP，部分走直连&#x2F;VPS</li>
-<li><input disabled="" type="checkbox"> 引入 GeoIP、ASN 策略匹配优化</li>
-</ul>
-<hr>
-<h2 id="🧾-第二部分：3x-ui-中路由规则与出站优先级解析"><a href="#🧾-第二部分：3x-ui-中路由规则与出站优先级解析" class="headerlink" title="🧾 第二部分：3x-ui 中路由规则与出站优先级解析"></a>🧾 第二部分：3x-ui 中路由规则与出站优先级解析</h2><hr>
-<h3 id="📘-1-路由规则作用顺序（从上往下，先匹配先执行）"><a href="#📘-1-路由规则作用顺序（从上往下，先匹配先执行）" class="headerlink" title="📘 1. 路由规则作用顺序（从上往下，先匹配先执行）"></a>📘 1. 路由规则作用顺序（从上往下，先匹配先执行）</h3><p>在 Xray 的路由系统中（3x-ui 图形化封装）：</p>
+<p><strong>STEP1 WARP-cli的安装</strong><br>warp-cli的安装非常繁琐，中间可能会遇到ssh守护进程被杀只能从VNC控制台登录调起的现象，<br><strong>请做好心理准备，在ssh失效时即刻联想到通过VNC登录重新调起ssh服务的解决方法，不要慌张</strong></p>
+<p>具体安装流程参考文章：<br>(因我参考的文章已经记不清是哪个，所以请您自行寻找，下面我将会给出几个质量还行但我没尝试过的链接。注意：官方安装教程不可行，因为在安装中需要添加一个GPG签名密钥之类的东西，所以建议寻找已经写好的脚本来辅助安装！！！)</p>
 <ul>
-<li>路由规则按 <strong>配置顺序</strong> 匹配执行</li>
-<li>一旦某条规则匹配成功，<strong>不会继续匹配下一个</strong></li>
-</ul>
-<blockquote>
-<p>✅ 例如：</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">规则1：域名包含 youtube.com → 出站：WARP</span><br><span class="line">规则2：IP 属于 CN → 出站：直连</span><br></pre></td></tr></table></figure>
-
-<p>如果访问 <code>www.youtube.com</code>，会走第一条 WARP，不会再判断是否是中国 IP。</p>
-<hr>
-<h3 id="📘-2-出站策略规则优先级建议"><a href="#📘-2-出站策略规则优先级建议" class="headerlink" title="📘 2. 出站策略规则优先级建议"></a>📘 2. 出站策略规则优先级建议</h3><ul>
-<li>将 <strong>需要特殊代理的站点</strong>（如被封锁的国际服务）放在前面</li>
-<li>将 <strong>默认直连或大多数站点走的出口</strong> 放在最后（作为兜底）</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/P3TERX/warp.sh">参考脚本-github</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.cloudflare.com/zh-cn/announcing-warp-for-linux-and-proxy-mode/">cloudfalre官方文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://jeam.org/40352f0">签名密钥教程</a></li>
 </ul>
 <hr>
-<h3 id="📘-3-DNS-与路由匹配的联动逻辑"><a href="#📘-3-DNS-与路由匹配的联动逻辑" class="headerlink" title="📘 3. DNS 与路由匹配的联动逻辑"></a>📘 3. DNS 与路由匹配的联动逻辑</h3><ul>
-<li>如果你的域名解析走的是系统 DNS（非 Xray 处理），则：<ul>
-<li>有可能 <strong>先匹配 IP，再决定出站</strong></li>
-<li>这样会出现 DNS 泄漏 或 路由不生效</li>
-</ul>
-</li>
-</ul>
-<p>🔧 建议：</p>
+<p><strong>STEP2 基本命令</strong></p>
 <ul>
-<li>启用 Xray 内置 DNS（如使用 DoH）</li>
-<li>在 3x-ui 面板中开启 DNS 分流配置</li>
-<li>设置 DNS 查询优先走 WARP 出站，避免泄漏</li>
+<li><code>warp-cli</code>  列出warp的命令列表类似于–help命令</li>
+<li><code>warp-cli register</code>或<code>warp-cli registration new</code> 注册warp账户，可多次注册使用（前面不行的话使用后面的命令即可）</li>
+<li><code>warp-cli connect</code> 连接到warp网络</li>
+<li><code>warp-cli disconnect</code> 断开warp的网络连接</li>
+<li><code>curl https://www.cloudflare.com/cdn-cgi/trace/</code>  检查连接后分配的IP地址</li>
+<li><code>warp-cli set-licence &lt;your key&gt;</code>  设定warp的key，可以从telegram机器人获取</li>
+<li><code>warp-cli set-mode proxy</code> 设置模式为proxy，默认开启40000端口的socks服务（系统内开启端口，不需要在防火墙放行）</li>
+<li><code>warp-cli status</code> 查看warp服务的状态和分配的IP</li>
+<li><code>warp-cli set-proxy-port &lt;port&gt;</code>  自定义端口号</li>
+<li><code>curl -4 ip.gs -x socks5://127.0.0.1:40000</code>  查看分配到的ipv4地址</li>
 </ul>
 <hr>
-<h3 id="📘-4-为什么-WARP-二级代理生效延迟明显？"><a href="#📘-4-为什么-WARP-二级代理生效延迟明显？" class="headerlink" title="📘 4. 为什么 WARP 二级代理生效延迟明显？"></a>📘 4. 为什么 WARP 二级代理生效延迟明显？</h3><p>常见原因：</p>
-<table>
-<thead>
-<tr>
-<th>原因</th>
-<th>说明</th>
-<th>建议</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>出站连接复用</td>
-<td>Xray 默认复用连接，可能仍在使用旧 IP</td>
-<td>重启 WARP 或切换节点</td>
-</tr>
-<tr>
-<td>DNS 缓存</td>
-<td>域名解析未及时刷新，仍走旧出口</td>
-<td>使用 <code>xray</code> 内置 DNS 配置强制刷新</td>
-</tr>
-<tr>
-<td>规则未生效</td>
-<td>路由顺序未正确命中</td>
-<td>提升对应规则顺位或写精确规则（如 full domain）</td>
-</tr>
-<tr>
-<td>代理协议缓冲延迟</td>
-<td>比如 HTTP vs SOCKS vs TUN 模式差异</td>
-<td>使用 warp-go 的 TUN 代理可提升反应</td>
-</tr>
-</tbody></table>
+<p>在使用中选择命令即可，以下为开启socks端口的流程</p>
+<p><strong>注册</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">warp-cli registration new</span><br></pre></td></tr></table></figure>
+<p><strong>连接</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">warp-cli connect</span><br></pre></td></tr></table></figure>
+<p><strong>设置proxy模式</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">warp-cli set-mode proxy</span><br></pre></td></tr></table></figure>
+<p><strong>打印分配到的IP</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -4 ip.gs -x socks5://127.0.0.1:40000</span><br></pre></td></tr></table></figure>
+<p><strong>查看warp状态及IP</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">warp-cli status</span><br></pre></td></tr></table></figure>
+
+<p>设置后即可使用socks模式连接到warp服务了</p>
+<hr>
+<p><code>warp-cli set-mode</code>参数解读：</p>
+<p><code>warp</code><br>此模式會連接到遠端伺服器，並使用 TUN 進行全域代理。這表示所有網路流量都會透過 WARP 傳輸。</p>
+<p><code>doh</code><br>此模式僅啟用 DNS over HTTPS (DoH) 功能，用於加密 DNS 查詢。</p>
+<p><code>warp+doh</code><br>此模式同時啟用 WARP 和 DoH 功能，結合兩者的優勢。</p>
+<p><code>dot</code><br>此模式僅啟用 DNS over TLS (DoT) 功能，同樣用於加密 DNS 查詢。</p>
+<p><code>warp+dot</code><br>此模式同時啟用 WARP 和 DoT 功能。</p>
+<p><code>proxy</code><br>此模式會連接到遠端伺服器，並在本地開啟代理連接埠，允許您透過代理伺服器傳輸特定應用程式的流量</p>
+<p>请根据个人需求选择合适的参数，x-ui面板解锁Netflix建议使用proxy模式</p>
 
       
     </div>
@@ -423,7 +287,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -489,12 +353,12 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
@@ -535,7 +399,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">58 分钟</span>
+    <span title="站点阅读时长">59 分钟</span>
 </div>
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
