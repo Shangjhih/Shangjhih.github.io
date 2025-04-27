@@ -169,7 +169,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/02/02/%E5%AE%89%E5%8D%93%E5%88%B7%E6%9C%BA%E8%AE%B0%E5%BD%95/">
+    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/02/20/Redmi-Lime%E5%8D%A1%E5%88%B7CrDroid/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -183,7 +183,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2025/02/02/%E5%AE%89%E5%8D%93%E5%88%B7%E6%9C%BA%E8%AE%B0%E5%BD%95/" class="post-title-link" itemprop="url">安卓刷机基本常识</a>
+            <a href="/2025/02/20/Redmi-Lime%E5%8D%A1%E5%88%B7CrDroid/" class="post-title-link" itemprop="url">Redmi Lime卡刷CrDroid</a>
         </h2>
 
         <div class="post-meta">
@@ -193,14 +193,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2025-02-02 22:15:35" itemprop="dateCreated datePublished" datetime="2025-02-02T22:15:35+08:00">2025-02-02</time>
+              <time title="创建时间：2025-02-20 18:36:04" itemprop="dateCreated datePublished" datetime="2025-02-20T18:36:04+08:00">2025-02-20</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-04-12 15:17:42" itemprop="dateModified" datetime="2025-04-12T15:17:42+08:00">2025-04-12</time>
+                <time title="修改时间：2025-04-12 15:07:51" itemprop="dateModified" datetime="2025-04-12T15:07:51+08:00">2025-04-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -208,19 +208,23 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
+                  <a href="/categories/TWRP/" itemprop="url" rel="index"><span itemprop="name">TWRP</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/Root/" itemprop="url" rel="index"><span itemprop="name">Root</span></a>
+                  <a href="/categories/TWRP/%E5%88%B7%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">刷机</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/Root/Magisk/" itemprop="url" rel="index"><span itemprop="name">Magisk</span></a>
+                  <a href="/categories/TWRP/%E5%88%B7%E6%9C%BA/%E6%95%91%E7%A0%96/" itemprop="url" rel="index"><span itemprop="name">救砖</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/Root/Magisk/%E5%88%B7%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">刷机</span></a>
+                  <a href="/categories/TWRP/%E5%88%B7%E6%9C%BA/%E6%95%91%E7%A0%96/Crdroid/" itemprop="url" rel="index"><span itemprop="name">Crdroid</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TWRP/%E5%88%B7%E6%9C%BA/%E6%95%91%E7%A0%96/Crdroid/%E7%B1%BB%E5%8E%9F%E7%94%9F/" itemprop="url" rel="index"><span itemprop="name">类原生</span></a>
                 </span>
             </span>
 
@@ -230,7 +234,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>979</span>
+              <span>1.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -249,71 +253,104 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="安卓刷机基本常识"><a href="#安卓刷机基本常识" class="headerlink" title="安卓刷机基本常识"></a>安卓刷机基本常识</h3><hr>
-<p style="color:red;">在进行刷机前,请确保您的电脑已经安装adb环境</p>
-<p style="color:red;">并且您可以熟练使用adb命令切换系统所处的模式</p>
-<p style="color:red;">此外,在刷机前必须保证您的手机已经解锁BL锁!!!</p>
-<p style="color:red;">以下所有内容均基于BL解锁后可以使用的参考信息</p>
-
+          <p>大概记录一下红米note9 4G版本刷CrDroid的简单流程</p>
+<p>前期准备：</p>
 <hr>
-<h4 id="常用模式"><a href="#常用模式" class="headerlink" title="常用模式"></a>常用模式</h4><hr>
-<p>1.<span style="color:blue;">Fastboot模式 </p>
-<p>2.<span style="color:blue;">Bootloader模式</span></p>
-<p>3.<span style="color:blue;">Recovery模式</span></p>
-
+<blockquote>
+<p>已经解锁的红米note9 4G  </p>
+</blockquote>
+<blockquote>
+<p>TWRP镜像  </p>
+</blockquote>
+<blockquote>
+<p>一台电脑  </p>
+</blockquote>
+<blockquote>
+<p>CrDroid卡刷包（zip格式） </p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center"><img src="https://s2.loli.net/2025/02/20/OYupMkNtrKPZT3d.jpg" alt="红米note9" width="200"/></th>
+<th align="center"><img src="https://s2.loli.net/2025/02/20/sk9TcE2w6PgXuhf.png" alt="Twrp镜像"  width="200"/></th>
+<th align="center"><img src="https://s2.loli.net/2025/02/20/tHRyWAYfiSP5m2e.png" alt="CrDroid卡刷包" width="200"/></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">解锁BL的红米note9</td>
+<td align="center">Twrp镜像</td>
+<td align="center">CrDroid卡刷包</td>
+</tr>
+</tbody></table>
 <hr>
-<h4 id="Fastboot"><a href="#Fastboot" class="headerlink" title="Fastboot"></a><em>Fastboot</em></h4><hr>
-<p>fastboot模式是一种底层的刷机模式,在此模式下可以通过<code>fastboot flash &lt;path&gt; &lt;img&gt;</code>的形式<br>对分区进行刷写。一般需要变动的系统分区为<code>boot</code>和<code>recovery</code>两个分区。命令参考如下</p>
-<pre><code>fastboot flash boot C:\\user\boot.img
-</code></pre>
-<p>该命令意思为：将电脑路径<code>C:\\user\boot.img</code> 下的 <code>boot.img</code>文件刷入到<code>boot</code>分区</p>
-<pre><code>fastboot flash recovery c:\\user\recovery.img
-</code></pre>
-<p>该命令意思为：将电脑路径<code>C:\\user\recovery.img</code> 下的 <code>recovery.img</code>文件刷入到<code>recovery</code>分区</p>
-<pre><code>fastboot boot &lt;rec path&gt;
-</code></pre>
-<p>该命令用于临时启动位于<code>rec path</code>路径的第三方Rec,并在本次重启后生效,但不会永久刷入Rec</p>
-<pre><code>fastboot reboot
-</code></pre>
-<p>用于从fastboot模式启动进入系统</p>
-<pre><code>fastboot reboot recovery
-</code></pre>
-<p>用于从fastboot模式启动至<code>recovery</code>模式</p>
+<p>1.在电脑安装ADB驱动 <a target="_blank" rel="noopener" href="https://dl.google.com/android/repository/platform-tools-latest-windows.zip">驱动下载直链</a><br>2.打开手机的开发者模式<br>3.使用adb 命令将TWRP刷入到恢复分区<br>4.刷入卡刷包</p>
 <hr>
-<h4 id="Bootloader"><a href="#Bootloader" class="headerlink" title="Bootloader"></a><em>Bootloader</em></h4><hr>
-<p>bootloader模式是一种更加底层的模式,至今我还未弄明白该模式与fastboot模式的区别,暂时就不说了<br></p>
-<p><strong>但是目前可以通过手机屏幕显示的'Fastboot'字母颜色区分这两种模式。</strong></p>
+<h4 id="驱动安装"><a href="#驱动安装" class="headerlink" title="驱动安装"></a>驱动安装</h4><p>下载提供的安装包，双击安装。<br>找到安装位置，找到adb.exe所在的目录，复制目录地址，进入Windows的环境变量，找到PATH，双击进入，添加一个名为adb的新变量，并将adb所在的目录粘贴到路径框<br><img src="https://s2.loli.net/2025/02/20/NwVCncbyJgU2urQ.png" alt="664fa6c2c20c45177b56c332b282141.png"><br>此后你就可以在任意路径下打开powershell使用adb命令了</p>
+<h4 id="打开开发者模式"><a href="#打开开发者模式" class="headerlink" title="打开开发者模式"></a>打开开发者模式</h4><p>打开手机，找到关于手机页面&gt;&gt;&gt;&gt;&gt;找到系统版本号&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;快速点击版本号10次等待提示开发者模式已打开&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;回到手机的设置界面，找到更多或者使用搜索框搜索”开发者模式“，进入开发者模式，点击开关来开启，向下滑，找到<strong>允许USB调试</strong>并打开。<br>在手机已经连接电脑的情况下手机会弹出是否允许调试的通知，点击允许。</p>
+<h4 id="使用adb命令"><a href="#使用adb命令" class="headerlink" title="使用adb命令"></a>使用adb命令</h4><p>使用<code>win+r</code>调出运行窗口，输入<code>powershell</code>然后回车，进入蓝色的命令窗口</p>
+<p>输入<br>                              adb devices</p>
+<p>来检测设备设否已经连接，提示手机序列号即代表已经连接至电脑<br>提示如下：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">PS</span> C:\Users\user&gt; adb devices</span><br><span class="line">List of devices attached</span><br><span class="line">* daemon not running; starting now at tcp:<span class="number">5037</span></span><br><span class="line">* daemon started successfully</span><br><span class="line"><span class="number">1</span>c17de221020    device            <span class="comment"># 这里输出的就是手机序列号</span></span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p>蓝色的Fastboot为fastboot模式</p>
-</blockquote>
-<blockquote>
-<p>橙色的Fastboot为bootloader模式</p>
-</blockquote>
-<p style="color:red;">bootloader下可以使用fastboot提及的所有命令</p>
+<p>此时输入命令 </p>
+<pre><code>                  adb reboot bootloader
+</code></pre>
+<p>进入到Bootloader模式</p>
+<p>待手机震动后，在窗口输入</p>
+<pre><code>                 fastboot devices
+</code></pre>
+<p>输出设备信息即表示已经连接到fastboot端口</p>
+<p>此时使用<code>cd</code>命令将powershell所处的路径切换到你的twrp所在路径</p>
+<pre><code>                cd &quot;C:\user\file\twrp路径&quot;
+</code></pre>
+<h4 id="刷机详细流程"><a href="#刷机详细流程" class="headerlink" title="刷机详细流程"></a>刷机详细流程</h4><h5 id="TWRP刷入"><a href="#TWRP刷入" class="headerlink" title="TWRP刷入"></a>TWRP刷入</h5><p>此时查看你的手机是否是动态分区，是的话使用命令一刷入镜像，不是的话使用命令二</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fastboot flash recovery &lt;recovery_name&gt;     <span class="comment">#命令1</span></span><br><span class="line"></span><br><span class="line">fastboot boot &lt;recovery_name&gt;               <span class="comment">#命令2</span></span><br></pre></td></tr></table></figure>
 
-<hr>
-<h4 id="Recovery"><a href="#Recovery" class="headerlink" title="Recovery"></a><em>Recovery</em></h4><hr>
-<p>Recovery模式常用于进入第三方Rec,例如TWRP和Orangefox。</p>
-<p><strong>第三方Rec功能如下</strong></p>
+<p>此时同时按住手机的音量+和电源键，待手机进入recovery</p>
+<p>进入recovery后电脑会叮咚一声表示连接到设备，此时将下载好的卡刷包复制到手机根目录<br>找到<code>刷入</code>,再找到已经传入手机的刷机包，选择后刷入，等待刷入的进度条走完后找到<code>清除</code>模块<br>选择恢复出厂双清（双清指的是清除cache和data分区）<br>，双清后即可开机。</p>
+<h5 id="ADB-Sideload-模式刷入"><a href="#ADB-Sideload-模式刷入" class="headerlink" title="ADB Sideload 模式刷入"></a>ADB Sideload 模式刷入</h5><p>进入Twrp后找到<code>高级</code>,找到<code>adb sideload</code>,点击后会直接双清<br>，然后在电脑中使用以下命令刷入</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb sideload &lt;刷机包绝对路径加名字&gt;</span><br></pre></td></tr></table></figure>
+<p>等待进度条走完后会自动重启进入系统。</p>
+<p>成品如下</p>
+<table>
+<thead>
+<tr>
+<th align="left">CrDroid</th>
+<th align="center"></th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><img src="https://s2.loli.net/2025/02/20/M4srVdavDz92mnW.png" alt="Screenshot_20250212-212232_crDroid Home.png"></td>
+<td align="center"><img src="https://s2.loli.net/2025/02/20/YZWF7odbnMC9RtV.png" alt="Screenshot_20250212-211440_crDroid Home.png"></td>
+<td align="center"><img src="https://s2.loli.net/2025/02/20/i2bAstWlCc1KyOE.png" alt="Screenshot_20250212-211433_crDroid Home.png"></td>
+</tr>
+<tr>
+<td align="left"><img src="https://s2.loli.net/2025/02/20/d5GhbZw2o8RVq6x.png" alt="Screenshot_20250125-193919_设置.png"></td>
+<td align="center"><img src="https://s2.loli.net/2025/02/20/F2hgOETGNs5v4ZU.png" alt="Screenshot_20250125-194222_设置.png"></td>
+<td align="center"><img src="https://s2.loli.net/2025/02/20/Hm6FI8fKMnD37ge.png" alt="Screenshot_20250220-195236_更新工具.png"></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center">Infinity</th>
+<th align="center"></th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://s2.loli.net/2025/02/20/k5Nc3bivLDzYqIV.png" alt="Screenshot_20250212-164321_Infinity_X_Launcher.png"></td>
+<td align="center"><img src="https://s2.loli.net/2025/02/20/zCqRXtwIWedZ3ro.png" alt="Screenshot_20250212-164311_KernelSU.png"></td>
+<td align="center"><img src="https://s2.loli.net/2025/02/20/2EX1KYlsI6rhiZb.png" alt="Screenshot_20250212-164443_设置.png"></td>
+</tr>
+<tr>
+<td align="center"><img src="https://s2.loli.net/2025/02/20/cn2IyXmvl6RqpUg.png" alt="Screenshot_20250212-164342_系统更新.png"></td>
+<td align="center"><img src="https://s2.loli.net/2025/02/20/f6YXgVCqLJ4R8y7.png" alt="Screenshot_20250212-171104_Infinity_X_Launcher.png"></td>
+<td align="center"><img src="https://s2.loli.net/2025/02/20/v1zhAaDu4w8xGpP.png" alt="Screenshot_20250212-170922_Shell.png"></td>
+</tr>
+</tbody></table>
 
-<blockquote>
-<p>刷入第三方卡刷包(系统包)</p>
-</blockquote>
-<blockquote>
-<p>刷入修补好的boot镜像</p>
-</blockquote>
-<blockquote>
-<p>刷入Magisk</p>
-</blockquote>
-<blockquote>
-<p>刷入Gapps(Google框架)</p>
-</blockquote>
-<blockquote>
-<p>三清(格式化Dalvik分区、Cache分区、Data分区)</p>
-</blockquote>
-<p style="color:red; font-weight:blod;">刷入第三方系统后切勿直接进入系统，一定要在刷入系统且无误后`format data`双清！！！</p>
-其它功能请自行探索
       
     </div>
 
@@ -331,7 +368,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/14/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><span class="page-number current">15</span><a class="page-number" href="/page/16/">16</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/16/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/14/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><span class="page-number current">15</span><a class="page-number" href="/page/16/">16</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/16/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -397,20 +434,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-count">21</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">58</span>
+        <span class="site-state-item-count">63</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">45</span>
+        <span class="site-state-item-count">50</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -446,12 +483,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">40k</span>
+    <span title="站点总字数">42k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:07</span>
+    <span title="站点阅读时长">1:11</span>
 </div>
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">

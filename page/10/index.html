@@ -169,7 +169,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/03/28/Windows-KMS%E6%BF%80%E6%B4%BB/">
+    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/04/06/WARP-on-Linux/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -183,7 +183,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2025/03/28/Windows-KMS%E6%BF%80%E6%B4%BB/" class="post-title-link" itemprop="url">Windows KMS激活</a>
+            <a href="/2025/04/06/WARP-on-Linux/" class="post-title-link" itemprop="url">WARP on Linux</a>
         </h2>
 
         <div class="post-meta">
@@ -193,14 +193,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2025-03-28 16:13:27" itemprop="dateCreated datePublished" datetime="2025-03-28T16:13:27+08:00">2025-03-28</time>
+              <time title="创建时间：2025-04-06 13:30:42" itemprop="dateCreated datePublished" datetime="2025-04-06T13:30:42+08:00">2025-04-06</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-04-12 15:00:13" itemprop="dateModified" datetime="2025-04-12T15:00:13+08:00">2025-04-12</time>
+                <time title="修改时间：2025-04-12 16:22:02" itemprop="dateModified" datetime="2025-04-12T16:22:02+08:00">2025-04-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -208,19 +208,19 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%BF%80%E6%B4%BB/" itemprop="url" rel="index"><span itemprop="name">激活</span></a>
+                  <a href="/categories/WARP/" itemprop="url" rel="index"><span itemprop="name">WARP</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%BF%80%E6%B4%BB/office/" itemprop="url" rel="index"><span itemprop="name">office</span></a>
+                  <a href="/categories/WARP/%E4%BB%A3%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">代理</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%BF%80%E6%B4%BB/office/KMS/" itemprop="url" rel="index"><span itemprop="name">KMS</span></a>
+                  <a href="/categories/WARP/%E4%BB%A3%E7%90%86/Proxy/" itemprop="url" rel="index"><span itemprop="name">Proxy</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%BF%80%E6%B4%BB/office/KMS/Windows/" itemprop="url" rel="index"><span itemprop="name">Windows</span></a>
+                  <a href="/categories/WARP/%E4%BB%A3%E7%90%86/Proxy/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
                 </span>
             </span>
 
@@ -249,62 +249,57 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>​      Windows的激活方式有很多，也有很多的激活工具，本次我们将会程序性地讲一下KMS激活Windows的基本流程。（按此套路进行即可正确激活）</p>
-<p style="color:red;font-weight:bold">尽量使用powershell来运行提到的代码</p>
-
-<p style="color:red; font-weight:700"> 家庭版不可使用此教程进行激活！！!</p>
-
-<p>​     此次我们背景为：为一台没有激活凭证的新系统进行KMS激活，一般你所购买的笔记本都会有一个永久密钥附带在设备的主板，也就是你的永久激活凭证。即使你重装系统,只要你重装的系统和设备购买时的系统版本一致，你的系统就会自动激活。<br>假如你购买设备时附带的系统版本为<strong>家庭版</strong>，重装系统的版本为<strong>专业版</strong>或者<strong>专业工作站版</strong>，此时你的主板激活密就无法激活现有系统，此时便符合此教程的参考环境。自己组装的台式机装系统，也符合此教程的背景。</p>
+          <p>本章我们提供WARP-cli官方linux程序的功能解析以及各种命令的使用规范，主要目的为：完全学习warp-cli在使用上的所有潜在功能与应用。</p>
+<p>注意：WARP有很多版本，例如warp-go、warp-wireguad、wgcf-warp之类的魔改版，本文只介绍warp-cli官方版本的使用内容。<br><strong>特别注意</strong>：本章的主要内容围绕xray面板节点搭建中【warp解锁流媒体】中使用warp进行二级代理（路由）技术，此部分为辅助技术。</p>
 <hr>
-<h3 id="STPE-1-卸载系统原有密钥"><a href="#STPE-1-卸载系统原有密钥" class="headerlink" title="STPE 1  卸载系统原有密钥"></a><strong>STPE 1</strong>  卸载系统原有密钥</h3><p>​       不管当前系统有没有密钥，都建议执行该命令</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">slmgr.vbs /upk</span><br></pre></td></tr></table></figure>
+<p><strong>STEP1 WARP-cli的安装</strong><br>warp-cli的安装非常繁琐，中间可能会遇到ssh守护进程被杀只能从VNC控制台登录调起的现象，<br><strong>请做好心理准备，在ssh失效时即刻联想到通过VNC登录重新调起ssh服务的解决方法，不要慌张</strong></p>
+<p>具体安装流程参考文章：<br>(因我参考的文章已经记不清是哪个，所以请您自行寻找，下面我将会给出几个质量还行但我没尝试过的链接。注意：官方安装教程不可行，因为在安装中需要添加一个GPG签名密钥之类的东西，所以建议寻找已经写好的脚本来辅助安装！！！)</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/P3TERX/warp.sh">参考脚本-github</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.cloudflare.com/zh-cn/announcing-warp-for-linux-and-proxy-mode/">cloudfalre官方文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://jeam.org/40352f0">签名密钥教程</a></li>
+</ul>
+<hr>
+<p><strong>STEP2 基本命令</strong></p>
+<ul>
+<li><code>warp-cli</code>  列出warp的命令列表类似于–help命令</li>
+<li><code>warp-cli register</code>或<code>warp-cli registration new</code> 注册warp账户，可多次注册使用（前面不行的话使用后面的命令即可）</li>
+<li><code>warp-cli connect</code> 连接到warp网络</li>
+<li><code>warp-cli disconnect</code> 断开warp的网络连接</li>
+<li><code>curl https://www.cloudflare.com/cdn-cgi/trace/</code>  检查连接后分配的IP地址</li>
+<li><code>warp-cli set-licence &lt;your key&gt;</code>  设定warp的key，可以从telegram机器人获取</li>
+<li><code>warp-cli set-mode proxy</code> 设置模式为proxy，默认开启40000端口的socks服务（系统内开启端口，不需要在防火墙放行）</li>
+<li><code>warp-cli status</code> 查看warp服务的状态和分配的IP</li>
+<li><code>warp-cli set-proxy-port &lt;port&gt;</code>  自定义端口号</li>
+<li><code>curl -4 ip.gs -x socks5://127.0.0.1:40000</code>  查看分配到的ipv4地址</li>
+</ul>
+<hr>
+<p>在使用中选择命令即可，以下为开启socks端口的流程</p>
+<p><strong>注册</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">warp-cli registration new</span><br></pre></td></tr></table></figure>
 
-<hr>
-<h3 id="STEP-2-安装密钥"><a href="#STEP-2-安装密钥" class="headerlink" title="STEP 2  安装密钥"></a><strong>STEP 2</strong>  安装密钥</h3><p>   安装Windows提供的官方kms密钥（文末会有提供），该密钥是KMS密钥，需要匹配系统版本。<br>不知道自己系统版本请使用<code>win</code>+<code>r</code>调起运行框，输入<code>winver</code>回车后即可查看你当前的系统版本（家庭版、专业版、教育版、LTSC版、IOT版、专业工作站版）。然后到文末找到符合你系统版本的密钥，复制替换以下命令中的密钥。（下面命令使用的是专业版密钥）</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">slmgr.vbs /ipk W269N<span class="literal">-WFGWX-YVC9B-4J6C9-T83GX</span></span><br></pre></td></tr></table></figure>
+<p><strong>连接</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">warp-cli connect</span><br></pre></td></tr></table></figure>
 
-<hr>
-<h3 id="STEP-3-指定KMS服务器"><a href="#STEP-3-指定KMS服务器" class="headerlink" title="STEP 3  指定KMS服务器"></a><strong>STEP 3</strong>  指定KMS服务器</h3><p>​    KMS服务器可以提供激活验证，可自行部署，此处会提供几个服务器地址，请自行替换使用。KMS激活有一定的周期，每180天都需要访问一次你指定的KMS服务器，服务器停止服务的话你的激活也会失效，本次我们会提供几个长久性的服务器地址。</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">slmgr.vbs /skms kms.micaesoft.com</span><br></pre></td></tr></table></figure>
-<p>​     代码中的<code>kms.micaesoft.com</code>可替换为以下地址(推荐使用前三个)</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">fsu-kms-03.fsu.edu</span><br><span class="line">kms.ghxi.com</span><br><span class="line">kms.micaesoft.com</span><br><span class="line">kms.digiboy.ir</span><br><span class="line">hq1.chinancce.com</span><br><span class="line">54.223.212.31</span><br><span class="line">kms.cnlic.com</span><br><span class="line">kms.chinancce.com</span><br><span class="line">kms.ddns.net</span><br><span class="line">franklv.ddns.net</span><br><span class="line"></span><br><span class="line">zh.us.to</span><br><span class="line">toxykz.f3322.org</span><br><span class="line">192.168.2.81.2.7.0</span><br><span class="line">kms.guowaifuli.com</span><br><span class="line">106.186.25.2393</span><br><span class="line">rss.vicp.net:20439</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>设置proxy模式</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">warp-cli set-mode proxy</span><br></pre></td></tr></table></figure>
 
+<p><strong>打印分配到的IP</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -4 ip.gs -x socks5://127.0.0.1:40000</span><br></pre></td></tr></table></figure>
+
+<p><strong>查看warp状态及IP</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">warp-cli status</span><br></pre></td></tr></table></figure>
+
+<p>设置后即可使用socks模式连接到warp服务了</p>
 <hr>
-<h3 id="STEP4-执行激活命令"><a href="#STEP4-执行激活命令" class="headerlink" title="STEP4  执行激活命令"></a><strong>STEP4</strong>  执行激活命令</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">slmgr.vbs /ato</span><br></pre></td></tr></table></figure>
-<p>回车等待激活成功提示</p>
-<hr>
-<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><table>
-<thead>
-<tr>
-<th align="left">Microsoft官方激活密钥列表</th>
-<th align="center"></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">系统版本</td>
-<td align="center">密钥</td>
-</tr>
-<tr>
-<td align="left">Windows 10&#x2F;11 专业版</td>
-<td align="center">W269N-WFGWX-YVC9B-4J6C9-T83GX</td>
-</tr>
-<tr>
-<td align="left">Windows 11&#x2F;10 Pro N</td>
-<td align="center">MH37W-N47XK-V7XM9-C7227-GCQG9</td>
-</tr>
-<tr>
-<td align="left">Windows 10&#x2F;11 专业工作站版</td>
-<td align="center">NRG8B-VKK3Q-CXVCJ-9G2XF-6Q84J</td>
-</tr>
-<tr>
-<td align="left">Windows 10&#x2F;11 教育专业版</td>
-<td align="center">6TP4R-GNPTD-KYYHQ-7B7DP-J447Y</td>
-</tr>
-<tr>
-<td align="left">Windows 10&#x2F;11 企业版</td>
-<td align="center">NPPR9-FWDCX-D2C8J-H872K-2YT43</td>
-</tr>
-</tbody></table>
+<p><code>warp-cli set-mode</code>参数解读：</p>
+<p><code>warp</code><br>此模式會連接到遠端伺服器，並使用 TUN 進行全域代理。這表示所有網路流量都會透過 WARP 傳輸。</p>
+<p><code>doh</code><br>此模式僅啟用 DNS over HTTPS (DoH) 功能，用於加密 DNS 查詢。</p>
+<p><code>warp+doh</code><br>此模式同時啟用 WARP 和 DoH 功能，結合兩者的優勢。</p>
+<p><code>dot</code><br>此模式僅啟用 DNS over TLS (DoT) 功能，同樣用於加密 DNS 查詢。</p>
+<p><code>warp+dot</code><br>此模式同時啟用 WARP 和 DoT 功能。</p>
+<p><code>proxy</code><br>此模式會連接到遠端伺服器，並在本地開啟代理連接埠，允許您透過代理伺服器傳輸特定應用程式的流量</p>
+<p>请根据个人需求选择合适的参数，x-ui面板解锁Netflix建议使用proxy模式</p>
 
       
     </div>
@@ -323,7 +318,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/11/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/11/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -389,20 +384,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-count">21</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">58</span>
+        <span class="site-state-item-count">63</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">45</span>
+        <span class="site-state-item-count">50</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -438,12 +433,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">40k</span>
+    <span title="站点总字数">42k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:07</span>
+    <span title="站点阅读时长">1:11</span>
 </div>
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
