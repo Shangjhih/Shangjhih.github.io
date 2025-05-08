@@ -169,7 +169,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/04/27/Git%E7%9A%84%E5%AE%89%E8%A3%85/">
+    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/04/27/Git%E8%BF%9E%E6%8E%A5Github%E8%B4%A6%E6%88%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -183,7 +183,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2025/04/27/Git%E7%9A%84%E5%AE%89%E8%A3%85/" class="post-title-link" itemprop="url">Git的安装</a>
+            <a href="/2025/04/27/Git%E8%BF%9E%E6%8E%A5Github%E8%B4%A6%E6%88%B7/" class="post-title-link" itemprop="url">Git连接Github账户</a>
         </h2>
 
         <div class="post-meta">
@@ -194,7 +194,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2025-04-27 20:28:40 / 修改时间：21:11:10" itemprop="dateCreated datePublished" datetime="2025-04-27T20:28:40+08:00">2025-04-27</time>
+              <time title="创建时间：2025-04-27 20:30:06 / 修改时间：21:26:25" itemprop="dateCreated datePublished" datetime="2025-04-27T20:30:06+08:00">2025-04-27</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -202,7 +202,11 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
+                  <a href="/categories/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Git/Github/" itemprop="url" rel="index"><span itemprop="name">Github</span></a>
                 </span>
             </span>
 
@@ -212,14 +216,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>554</span>
+              <span>1.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -231,22 +235,41 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Git的安装"><a href="#Git的安装" class="headerlink" title="Git的安装"></a>Git的安装</h1><h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>下载地址：</p>
-<p><a target="_blank" rel="noopener" href="https://git-scm.com/downloads/win">https://git-scm.com/downloads/win</a></p>
-<p>下载<code>[64-bit Git for Windows Setup</code> 这个版本</p>
-<p><img src="C:\Users\zhao\AppData\Roaming\Typora\typora-user-images\image-20250427200856750.png" alt="image-20250427200856750"></p>
-<p>下载到本地后开始安装</p>
-<p><img src="C:\Users\zhao\AppData\Roaming\Typora\typora-user-images\image-20250427201039859.png" alt="image-20250427201039859"></p>
-<p>从这里开始各种选项都不需要改动，直接Next直到最后一步安装完毕。</p>
+          <h2 id="Git连接Github账户"><a href="#Git连接Github账户" class="headerlink" title="Git连接Github账户"></a>Git连接Github账户</h2><p>在本地安装Git之后需要连接至Github账户才能更好更方便的使用Git来向自己的Github仓库推送代码。</p>
+<p>Git是一个简单git仓库管理工具，它可以连接至你的Github账户以接管云端代码仓库的管理权，在git中设置好需要的配置项之后，你就可以通过一句简单的命令将自己本地写好的代码通过<code>git push</code> 命令迅速推送至位于Github的仓库。简单快捷。</p>
 <hr>
-<p>随后打开你的powershell，输入<code>git -v</code>来确认你的git版本，如下所示</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Windows PowerShell</span><br><span class="line">版权所有（C） Microsoft Corporation。保留所有权利。</span><br><span class="line"></span><br><span class="line">安装最新的 PowerShell，了解新功能和改进！https://aka.ms/PSWindows</span><br><span class="line"></span><br><span class="line"><span class="built_in">PS</span> C:\Users\root&gt; git <span class="literal">-v</span></span><br><span class="line">git version <span class="number">2.49</span>.<span class="number">0</span>.windows.<span class="number">1</span></span><br><span class="line"><span class="built_in">PS</span> C:\Users\root&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>通过以下指令生成用于认证的key</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh <span class="literal">-keygen</span> <span class="literal">-t</span> rsa <span class="literal">-C</span> <span class="string">&quot;github邮件地址&quot;</span></span><br></pre></td></tr></table></figure>
 
-<p>看到显示git版本即代表已经安装完成，在git安装过程中会自动将git这个命令添加到PATH目录中，这样可以保证你在任何的一个文件夹打开命令行都可以直接使用git命令来进行操作。</p>
+<p>请将冒号内的github邮件地址替换为你自己的实际邮件地址。</p>
+<hr>
+<h3 id="确认密钥保存位置"><a href="#确认密钥保存位置" class="headerlink" title="确认密钥保存位置"></a>确认密钥保存位置</h3><p>随后git会提示以下内容</p>
+<p><img src="https://s2.loli.net/2025/04/27/c4t5RQ7hUT8rNpI.png" alt="image.png"></p>
+<p>首先他会让你设置一个密码，也可以不设置。然后让你重复密码，同样的，不设置就直接回车。</p>
+<p>在完成初始化后，git会在本地的<code>C://Users/用户/.ssh</code> 文件夹下新建两个文件，如下图</p>
+<p><img src="https://s2.loli.net/2025/04/27/IzuDkadAshZNXMi.png" alt="image.png"></p>
+<p>名为<code>id_rsa.pub</code> 文件就是写入了rsa密钥的文件，可以使用记事本打开并将其内容全部复制下来。</p>
+<hr>
+<h3 id="Github添加密钥"><a href="#Github添加密钥" class="headerlink" title="Github添加密钥"></a>Github添加密钥</h3><hr>
+<p>进入你的Github账户设置界面，打开【seetings】-【SSH and GPG keys】，在<em><strong>SSH keys</strong></em>后面有一个【New SSH key】按钮，点击进入，在【title】处添加一个名字，在下面的【key】框内填入你复制的<code>id_rsa.pub</code> 文件内容，随后点击【Add SSH key】按钮即可。</p>
+<p><img src="https://s2.loli.net/2025/04/27/qMfr8Txs9R1yQPV.png" alt="image.png"></p>
+<p><img src="https://s2.loli.net/2025/04/27/vwiC9fprXGhE8nS.png" alt="image.png"></p>
+<p><img src="https://s2.loli.net/2025/04/27/d6nrSPYpMblUOtV.png" alt="image.png"></p>
+<p><img src="https://s2.loli.net/2025/04/27/GsDZzE6N3iU2JaB.png" alt="image.png"></p>
+<hr>
+<h3 id="测试添加结果"><a href="#测试添加结果" class="headerlink" title="测试添加结果"></a>测试添加结果</h3><p>在powershell中输入以下命令看是否提示连接到你的账户</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh <span class="literal">-T</span> git@github.com</span><br></pre></td></tr></table></figure>
+
+<p>第一次会提示</p>
+<blockquote>
+<p>The authenticity of host ‘github.com (20.205.243.166)’ can’t be established.<br>ED25519 key fingerprint is HA256:+DiYvrgtwbyhrbntm4UvCOqU.<br>This key is not known by any other names.<br>Are you sure you want to continue connecting (yes&#x2F;no&#x2F;[fingerprint])? yes<br>Warning: Permanently added ‘github.com’ (E44519) to the list of known hosts.<br>Hi Your name! You’ve successfully authenticated, but GitHub does not provide shell access.</p>
+</blockquote>
+<p>在看到该提示后输入<code>a</code> 随后根据提示完成认证即可。完成后即提示欢迎，已完成认证。</p>
 <h3 id="登入账户"><a href="#登入账户" class="headerlink" title="登入账户"></a>登入账户</h3><p>使用以下命令来确认用户名和邮箱</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;your name&quot;</span><br></pre></td></tr></table></figure>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.email &quot;your github email&quot;</span><br></pre></td></tr></table></figure>
 <p>配置后即完成</p>
+<p><em><strong>认证后即完成所有的配置项，可以正常使用ssh工具了！！！</strong></em></p>
 
       
     </div>
@@ -265,7 +288,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -331,7 +354,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

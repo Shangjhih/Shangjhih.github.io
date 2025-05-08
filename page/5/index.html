@@ -169,7 +169,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/04/27/powershell%E7%A6%81%E6%AD%A2%E6%89%A7%E8%A1%8Cnpm%E8%84%9A%E6%9C%AC/">
+    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/04/27/Git%E7%9A%84%E5%AE%89%E8%A3%85/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -183,7 +183,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2025/04/27/powershell%E7%A6%81%E6%AD%A2%E6%89%A7%E8%A1%8Cnpm%E8%84%9A%E6%9C%AC/" class="post-title-link" itemprop="url">powershell禁止执行npm脚本</a>
+            <a href="/2025/04/27/Git%E7%9A%84%E5%AE%89%E8%A3%85/" class="post-title-link" itemprop="url">Git的安装</a>
         </h2>
 
         <div class="post-meta">
@@ -194,7 +194,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2025-04-27 20:21:43 / 修改时间：20:28:16" itemprop="dateCreated datePublished" datetime="2025-04-27T20:21:43+08:00">2025-04-27</time>
+              <time title="创建时间：2025-04-27 20:28:40 / 修改时间：21:11:10" itemprop="dateCreated datePublished" datetime="2025-04-27T20:28:40+08:00">2025-04-27</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -202,11 +202,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/powershell/" itemprop="url" rel="index"><span itemprop="name">powershell</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/powershell/npm/" itemprop="url" rel="index"><span itemprop="name">npm</span></a>
+                  <a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
                 </span>
             </span>
 
@@ -216,7 +212,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>795</span>
+              <span>554</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -235,51 +231,23 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p style="color:red; font-weight:bold; text-align: center"> 该内容由Claude Sonnet 3.7生成，且测试通过</p>
----
+          <h1 id="Git的安装"><a href="#Git的安装" class="headerlink" title="Git的安装"></a>Git的安装</h1><h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>下载地址：</p>
+<p><a target="_blank" rel="noopener" href="https://git-scm.com/downloads/win">https://git-scm.com/downloads/win</a></p>
+<p>下载<code>[64-bit Git for Windows Setup</code> 这个版本</p>
+<p><img src="C:\Users\zhao\AppData\Roaming\Typora\typora-user-images\image-20250427200856750.png" alt="image-20250427200856750"></p>
+<p>下载到本地后开始安装</p>
+<p><img src="C:\Users\zhao\AppData\Roaming\Typora\typora-user-images\image-20250427201039859.png" alt="image-20250427201039859"></p>
+<p>从这里开始各种选项都不需要改动，直接Next直到最后一步安装完毕。</p>
+<hr>
+<p>随后打开你的powershell，输入<code>git -v</code>来确认你的git版本，如下所示</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Windows PowerShell</span><br><span class="line">版权所有（C） Microsoft Corporation。保留所有权利。</span><br><span class="line"></span><br><span class="line">安装最新的 PowerShell，了解新功能和改进！https://aka.ms/PSWindows</span><br><span class="line"></span><br><span class="line"><span class="built_in">PS</span> C:\Users\root&gt; git <span class="literal">-v</span></span><br><span class="line">git version <span class="number">2.49</span>.<span class="number">0</span>.windows.<span class="number">1</span></span><br><span class="line"><span class="built_in">PS</span> C:\Users\root&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p>这个错误是由于 PowerShell 的执行策略限制导致的。PowerShell 默认不允许运行脚本，包括 npm 脚本。以下是解决此问题的步骤：</p>
-<h2 id="临时解决方案"><a href="#临时解决方案" class="headerlink" title="临时解决方案"></a>临时解决方案</h2><p>在当前 PowerShell 会话中临时更改执行策略：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Set-ExecutionPolicy</span> <span class="literal">-Scope</span> <span class="keyword">Process</span> <span class="literal">-ExecutionPolicy</span> Bypass</span><br></pre></td></tr></table></figure>
+<p>看到显示git版本即代表已经安装完成，在git安装过程中会自动将git这个命令添加到PATH目录中，这样可以保证你在任何的一个文件夹打开命令行都可以直接使用git命令来进行操作。</p>
+<h3 id="登入账户"><a href="#登入账户" class="headerlink" title="登入账户"></a>登入账户</h3><p>使用以下命令来确认用户名和邮箱</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;your name&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.email &quot;your github email&quot;</span><br></pre></td></tr></table></figure>
+<p>配置后即完成</p>
 
-<p>然后再尝试安装 hexo-cli：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install <span class="literal">-g</span> hexo<span class="literal">-cli</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="永久解决方案"><a href="#永久解决方案" class="headerlink" title="永久解决方案"></a>永久解决方案</h2><ol>
-<li><p>以管理员身份运行 PowerShell（右键点击 PowerShell，选择”以管理员身份运行”）</p>
-</li>
-<li><p>执行以下命令，永久更改执行策略：</p>
-</li>
-</ol>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Set-ExecutionPolicy</span> <span class="literal">-Scope</span> CurrentUser <span class="literal">-ExecutionPolicy</span> RemoteSigned</span><br></pre></td></tr></table></figure>
-
-<p>或者更宽松的策略：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Set-ExecutionPolicy</span> <span class="literal">-Scope</span> CurrentUser <span class="literal">-ExecutionPolicy</span> Bypass</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li><p>当提示确认时，输入 “Y” 并按回车</p>
-</li>
-<li><p>现在您可以关闭管理员 PowerShell 窗口，在普通 PowerShell 中运行：</p>
-</li>
-</ol>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install <span class="literal">-g</span> hexo<span class="literal">-cli</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="执行策略说明"><a href="#执行策略说明" class="headerlink" title="执行策略说明"></a>执行策略说明</h2><ul>
-<li><strong>Restricted</strong>：默认设置，不允许运行任何脚本</li>
-<li><strong>RemoteSigned</strong>：允许运行本地脚本，但从网络下载的脚本需要签名</li>
-<li><strong>Bypass</strong>：允许运行所有脚本（最不安全，但最方便）</li>
-<li><strong>AllSigned</strong>：所有脚本都需要数字签名才能运行</li>
-</ul>
-<p>建议使用 <strong>RemoteSigned</strong> 策略，这样可以运行大多数本地脚本，同时保持一定的安全性。</p>
-<h2 id="另一种替代方法"><a href="#另一种替代方法" class="headerlink" title="另一种替代方法"></a>另一种替代方法</h2><p>如果您不想更改执行策略，也可以使用 CMD 命令提示符，而不是 PowerShell：</p>
-<ol>
-<li>按 Win+R，输入 cmd，回车打开命令提示符</li>
-<li>然后在 CMD 中执行：</li>
-</ol>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-
-<p>这样就不会受到 PowerShell 执行策略的限制。</p>
-<p style="color:red; font-weight:bold; text-align: center"> Goog Job 👍</p>
       
     </div>
 
@@ -297,7 +265,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -363,7 +331,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

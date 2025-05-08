@@ -169,7 +169,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/04/27/Git%E8%BF%9E%E6%8E%A5Github%E8%B4%A6%E6%88%B7/">
+    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/04/27/%E5%90%88%E7%BE%A4-%E6%96%87%E5%8C%96-%E4%BB%B7%E5%80%BC%E8%A7%82/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -183,7 +183,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2025/04/27/Git%E8%BF%9E%E6%8E%A5Github%E8%B4%A6%E6%88%B7/" class="post-title-link" itemprop="url">Git连接Github账户</a>
+            <a href="/2025/04/27/%E5%90%88%E7%BE%A4-%E6%96%87%E5%8C%96-%E4%BB%B7%E5%80%BC%E8%A7%82/" class="post-title-link" itemprop="url">合群&文化&价值观</a>
         </h2>
 
         <div class="post-meta">
@@ -194,20 +194,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2025-04-27 20:30:06 / 修改时间：21:26:25" itemprop="dateCreated datePublished" datetime="2025-04-27T20:30:06+08:00">2025-04-27</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Git/Github/" itemprop="url" rel="index"><span itemprop="name">Github</span></a>
-                </span>
+              <time title="创建时间：2025-04-27 21:31:15 / 修改时间：22:08:32" itemprop="dateCreated datePublished" datetime="2025-04-27T21:31:15+08:00">2025-04-27</time>
             </span>
 
           <br>
@@ -216,14 +203,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.2k</span>
+              <span>670</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -235,41 +222,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="Git连接Github账户"><a href="#Git连接Github账户" class="headerlink" title="Git连接Github账户"></a>Git连接Github账户</h2><p>在本地安装Git之后需要连接至Github账户才能更好更方便的使用Git来向自己的Github仓库推送代码。</p>
-<p>Git是一个简单git仓库管理工具，它可以连接至你的Github账户以接管云端代码仓库的管理权，在git中设置好需要的配置项之后，你就可以通过一句简单的命令将自己本地写好的代码通过<code>git push</code> 命令迅速推送至位于Github的仓库。简单快捷。</p>
-<hr>
-<p>通过以下指令生成用于认证的key</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh <span class="literal">-keygen</span> <span class="literal">-t</span> rsa <span class="literal">-C</span> <span class="string">&quot;github邮件地址&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>请将冒号内的github邮件地址替换为你自己的实际邮件地址。</p>
-<hr>
-<h3 id="确认密钥保存位置"><a href="#确认密钥保存位置" class="headerlink" title="确认密钥保存位置"></a>确认密钥保存位置</h3><p>随后git会提示以下内容</p>
-<p><img src="https://s2.loli.net/2025/04/27/c4t5RQ7hUT8rNpI.png" alt="image.png"></p>
-<p>首先他会让你设置一个密码，也可以不设置。然后让你重复密码，同样的，不设置就直接回车。</p>
-<p>在完成初始化后，git会在本地的<code>C://Users/用户/.ssh</code> 文件夹下新建两个文件，如下图</p>
-<p><img src="https://s2.loli.net/2025/04/27/IzuDkadAshZNXMi.png" alt="image.png"></p>
-<p>名为<code>id_rsa.pub</code> 文件就是写入了rsa密钥的文件，可以使用记事本打开并将其内容全部复制下来。</p>
-<hr>
-<h3 id="Github添加密钥"><a href="#Github添加密钥" class="headerlink" title="Github添加密钥"></a>Github添加密钥</h3><hr>
-<p>进入你的Github账户设置界面，打开【seetings】-【SSH and GPG keys】，在<em><strong>SSH keys</strong></em>后面有一个【New SSH key】按钮，点击进入，在【title】处添加一个名字，在下面的【key】框内填入你复制的<code>id_rsa.pub</code> 文件内容，随后点击【Add SSH key】按钮即可。</p>
-<p><img src="https://s2.loli.net/2025/04/27/qMfr8Txs9R1yQPV.png" alt="image.png"></p>
-<p><img src="https://s2.loli.net/2025/04/27/vwiC9fprXGhE8nS.png" alt="image.png"></p>
-<p><img src="https://s2.loli.net/2025/04/27/d6nrSPYpMblUOtV.png" alt="image.png"></p>
-<p><img src="https://s2.loli.net/2025/04/27/GsDZzE6N3iU2JaB.png" alt="image.png"></p>
-<hr>
-<h3 id="测试添加结果"><a href="#测试添加结果" class="headerlink" title="测试添加结果"></a>测试添加结果</h3><p>在powershell中输入以下命令看是否提示连接到你的账户</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh <span class="literal">-T</span> git@github.com</span><br></pre></td></tr></table></figure>
-
-<p>第一次会提示</p>
-<blockquote>
-<p>The authenticity of host ‘github.com (20.205.243.166)’ can’t be established.<br>ED25519 key fingerprint is HA256:+DiYvrgtwbyhrbntm4UvCOqU.<br>This key is not known by any other names.<br>Are you sure you want to continue connecting (yes&#x2F;no&#x2F;[fingerprint])? yes<br>Warning: Permanently added ‘github.com’ (E44519) to the list of known hosts.<br>Hi Your name! You’ve successfully authenticated, but GitHub does not provide shell access.</p>
+          <blockquote>
+<p>此内容涉及的知识面较广，且这是我与chatgpt的谈话内容，不知是何缘故，在我查看的时候显示被封存了，遂文终。</p>
 </blockquote>
-<p>在看到该提示后输入<code>a</code> 随后根据提示完成认证即可。完成后即提示欢迎，已完成认证。</p>
-<h3 id="登入账户"><a href="#登入账户" class="headerlink" title="登入账户"></a>登入账户</h3><p>使用以下命令来确认用户名和邮箱</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;your name&quot;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.email &quot;your github email&quot;</span><br></pre></td></tr></table></figure>
-<p>配置后即完成</p>
-<p><em><strong>认证后即完成所有的配置项，可以正常使用ssh工具了！！！</strong></em></p>
+<p>大概内容是我与chatgpt探讨有关合群的益处与不良影响，从该话题延伸到整个文化背景。包括后面的个人价值与价值观的定义。我们探讨了实现多种“理想状态”的方式。最终它<br>敲定了价值观决定于个人经历，主要的实现逻辑就是由物质层面开始升华，直到所谓的“共产主义”实现。不过这都属于是理想主义的延申，并没有任何实际的参考价值。</p>
+<p>合群、文化、价值观，这些抽象的东西皆由个人塑造。取决于个人的生活经历，无法评判是与非。<br>举个例子吧。你觉得1+1&#x3D;2对，我觉得1+1&#x3D;3对。或者我觉得1+1&#x3D;2对，你觉得1+1&#x3D;3对。这两种情况都是一个既定的事实，只要你去执行，你说什么对，那什么就对。<br>在你无任何能力干预某件事的运行时，它便不在可量化的范围内。即使是意识形态中既定的是非与对错，都是可以被随意解释的，人可以拿社会契约论中的典范作为是非的评价标准<br>同样可以跳出契约论自己拟定新的标准。你可以认为当街殴打要饭的是对的，是的，因为你想。</p>
+<p>社会契约是一个大多数人所遵守的“标准”，但是越来越多的人在尝试构建自己的独立的“价值与规范”，独立于社会契约的规范。</p>
+<p>对于个体来说，好也不好。总之，倘若趋势越来越明显，社会契约流派分化严重。最终的价值体现就是有关个人利益的取舍。社会不再是定义中的集体，而是各种个体的集合，是数量的集体而不是意识形态的集体。<br>此时的善恶观与是非观即可被“辩证思维”随意解释，“辩证”成了“辨证”，谁辩谁正。</p>
 
       
     </div>
@@ -288,7 +247,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -354,7 +313,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
