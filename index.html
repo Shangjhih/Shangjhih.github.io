@@ -183,7 +183,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2025/05/10/MathType/" class="post-title-link" itemprop="url">MathType</a>
+            <a href="/2025/05/10/MathType/" class="post-title-link" itemprop="url">MathType 运行时错误 错误代码53 文件未找到</a>
         </h2>
 
         <div class="post-meta">
@@ -195,6 +195,22 @@
 
               <time title="创建时间：2025-05-10 17:16:25" itemprop="dateCreated datePublished" datetime="2025-05-10T17:16:25+08:00">2025-05-10</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-05-17 09:59:00" itemprop="dateModified" datetime="2025-05-17T09:59:00+08:00">2025-05-17</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MathType/" itemprop="url" rel="index"><span itemprop="name">MathType</span></a>
+                </span>
+            </span>
 
           <br>
             <span class="post-meta-item" title="本文字数">
@@ -202,7 +218,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>0</span>
+              <span>295</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -221,7 +237,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
+          <p>在安装 MathType 之后，打开 Word 时出现以下错误：</p>
+<p><img src="https://s2.loli.net/2025/05/17/LXsJrGa1WemfAg9.png" alt="483921321e5b5a0ecb29c4b94b45f0c.png"></p>
+<p><img src="https://s2.loli.net/2025/05/17/Wk5zjgKqtcQ6E1P.png" alt="c73cc140ac77970a92161e049326783.png"></p>
+<p>这可能是由于之前多次安装过 MathType，导致MathType.wll文件的路径出现在不符合当前word版本的路径中。导致的无法识别，进而出现这种让你重启word重新配置的错误。也可能是多次安装Office导致的。</p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>进入MathType的安装目录，进入安装目录下的MathPage文件夹，进入其下面的<code>64</code> 文件夹，找到<code>MathPage.wll</code>文件，复制该文件。随后在桌面右键Word图标，点击进入文件的安装位置。<br>在安装位置下粘贴<code>MathPage.wll</code>文件，点击替换文件。随后重新打开Word，MathType就不会弹出错误了。</p>
+
       
     </div>
 
@@ -312,13 +333,13 @@
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">58</span>
+        <span class="site-state-item-count">59</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">45</span>
+        <span class="site-state-item-count">46</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
