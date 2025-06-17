@@ -194,7 +194,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2025-06-17 15:28:27 / 修改时间：16:01:21" itemprop="dateCreated datePublished" datetime="2025-06-17T15:28:27+08:00">2025-06-17</time>
+              <time title="创建时间：2025-06-17 15:28:27 / 修改时间：16:17:13" itemprop="dateCreated datePublished" datetime="2025-06-17T15:28:27+08:00">2025-06-17</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -220,7 +220,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.4k</span>
+              <span>2.5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -262,11 +262,14 @@
 <p>直接在空白处输入该命令，就会进入到编辑状态：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">config interface &#x27;loopback&#x27;</span><br><span class="line">        option device &#x27;lo&#x27;</span><br><span class="line">        option proto &#x27;static&#x27;</span><br><span class="line">        option ipaddr &#x27;127.0.0.1&#x27;</span><br><span class="line">        option netmask &#x27;255.0.0.0&#x27;</span><br><span class="line"></span><br><span class="line">config globals &#x27;globals&#x27;</span><br><span class="line">        option ula_prefix &#x27;fdbf:cc1f:7685::/48&#x27;</span><br><span class="line">        option packet_steering &#x27;1&#x27;</span><br><span class="line"></span><br><span class="line">config device</span><br><span class="line">        option name &#x27;br-lan&#x27;</span><br><span class="line">        option type &#x27;bridge&#x27;</span><br><span class="line">        list ports &#x27;eth0&#x27;</span><br><span class="line"></span><br><span class="line">config interface &#x27;lan&#x27;</span><br><span class="line">        option device &#x27;eth0&#x27;</span><br><span class="line">        option proto &#x27;static&#x27;</span><br><span class="line">        option ip6assign &#x27;60&#x27;</span><br><span class="line">        option gateway &#x27;192.168.1.1&#x27;         # 网关地址   192.168.1.1/192.168.0.1/192.168.31.1等常规地址</span><br><span class="line">        option ipaddr &#x27;192.168.1.66&#x27;         # 静态IP    可自由设置（与网关地址保持一致）</span><br><span class="line">        option netmask &#x27;255.255.255.0&#x27;</span><br><span class="line">        list dns &#x27;223.5.5.5&#x27;</span><br><span class="line"></span><br><span class="line">config interface &#x27;docker&#x27;</span><br><span class="line">        option device &#x27;docker0&#x27;</span><br><span class="line">        option proto &#x27;none&#x27;</span><br><span class="line">        option auto &#x27;0&#x27;</span><br><span class="line"></span><br><span class="line">config device</span><br><span class="line">        option type &#x27;bridge&#x27;</span><br><span class="line">        option name &#x27;docker0&#x27;</span><br><span class="line"></span><br><span class="line">~</span><br><span class="line">~</span><br><span class="line">~</span><br><span class="line">~</span><br><span class="line">~</span><br><span class="line">~</span><br><span class="line">~</span><br><span class="line">~</span><br><span class="line">- /etc/config/network 1/34 2%</span><br></pre></td></tr></table></figure>
 
-<p>此时使用方向键将光标移至<code>option gateway</code>所在行，按下按键<code>i</code>进入编辑模式（vim使用特性），进入编辑模式后及可对地址进行修改，修改后对<code>option ipaddr</code>的参数也进行修改，修改为与网关同网段的地址，可以根据自己的想法及逆行设置，保证最后一位的数字为2-225中的任何一位，且要保证不能与已分配的地址相同。</p>
+<p>此时使用方向键将光标移至<code>option gateway</code>所在行，按下按键<code>i</code>进入编辑模式（vim使用特性），进入编辑模式后及可对地址进行修改，修改后对<code>option ipaddr</code>的参数也进行修改，修改为与网关同网段的地址，可以根据自己的想法及逆行设置，保证最后一位的数字为2-225中的任何一位，且要保证不能与已分配的地址相同。（内网地址不可冲突！！！）</p>
 <p>在地址修改完成后按<code>esc</code>退出vim的编辑模式</p>
 <p>输入英文冒号<code>:</code>进入vim的命令模式，随后输入<code>wq</code>按回车保存并退出。（该输入会显示在屏幕的左下角，可以看到输入状态，在输入错后直接按删除键删除即可，可继续输入）。如下所示：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:wq                      # 保存并退出</span><br></pre></td></tr></table></figure>
 
+<p>随后使用以下命令出重启network服务使修改生效：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/network restart</span><br></pre></td></tr></table></figure>
+<p>执行该命令后，系统会提示重启network服务，随后会显示<code>done</code>，表示服务已重启成功。</p>
 <p>完成，修改后的配置即刻生效。可以进入新设置的后台登陆测试。</p>
 
       
