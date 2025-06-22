@@ -169,7 +169,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/01/22/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E9%97%AE%E9%A2%98%E5%B0%8F%E7%BB%93/">
+    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/02/02/%E5%AE%89%E5%8D%93%E5%88%B7%E6%9C%BA%E8%AE%B0%E5%BD%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
@@ -183,7 +183,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2025/01/22/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E9%97%AE%E9%A2%98%E5%B0%8F%E7%BB%93/" class="post-title-link" itemprop="url">博客搭建问题小结</a>
+            <a href="/2025/02/02/%E5%AE%89%E5%8D%93%E5%88%B7%E6%9C%BA%E8%AE%B0%E5%BD%95/" class="post-title-link" itemprop="url">安卓刷机基本常识</a>
         </h2>
 
         <div class="post-meta">
@@ -193,15 +193,36 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2025-01-22 15:09:03" itemprop="dateCreated datePublished" datetime="2025-01-22T15:09:03+08:00">2025-01-22</time>
+              <time title="创建时间：2025-02-02 22:15:35" itemprop="dateCreated datePublished" datetime="2025-02-02T22:15:35+08:00">2025-02-02</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-04-12 14:53:02" itemprop="dateModified" datetime="2025-04-12T14:53:02+08:00">2025-04-12</time>
+                <time title="修改时间：2025-04-12 15:17:42" itemprop="dateModified" datetime="2025-04-12T15:17:42+08:00">2025-04-12</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/Root/" itemprop="url" rel="index"><span itemprop="name">Root</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/Root/Magisk/" itemprop="url" rel="index"><span itemprop="name">Magisk</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/Root/Magisk/%E5%88%B7%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">刷机</span></a>
+                </span>
+            </span>
 
           <br>
             <span class="post-meta-item" title="本文字数">
@@ -209,14 +230,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>710</span>
+              <span>979</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -228,19 +249,71 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h4 id="小问题合集"><a href="#小问题合集" class="headerlink" title="小问题合集"></a>小问题合集</h4><blockquote>
-<p>config 配置文件的错误  </p>
+          <h3 id="安卓刷机基本常识"><a href="#安卓刷机基本常识" class="headerlink" title="安卓刷机基本常识"></a>安卓刷机基本常识</h3><hr>
+<p style="color:red;">在进行刷机前,请确保您的电脑已经安装adb环境</p>
+<p style="color:red;">并且您可以熟练使用adb命令切换系统所处的模式</p>
+<p style="color:red;">此外,在刷机前必须保证您的手机已经解锁BL锁!!!</p>
+<p style="color:red;">以下所有内容均基于BL解锁后可以使用的参考信息</p>
+
+<hr>
+<h4 id="常用模式"><a href="#常用模式" class="headerlink" title="常用模式"></a>常用模式</h4><hr>
+<p>1.<span style="color:blue;">Fastboot模式 </p>
+<p>2.<span style="color:blue;">Bootloader模式</span></p>
+<p>3.<span style="color:blue;">Recovery模式</span></p>
+
+<hr>
+<h4 id="Fastboot"><a href="#Fastboot" class="headerlink" title="Fastboot"></a><em>Fastboot</em></h4><hr>
+<p>fastboot模式是一种底层的刷机模式,在此模式下可以通过<code>fastboot flash &lt;path&gt; &lt;img&gt;</code>的形式<br>对分区进行刷写。一般需要变动的系统分区为<code>boot</code>和<code>recovery</code>两个分区。命令参考如下</p>
+<pre><code>fastboot flash boot C:\\user\boot.img
+</code></pre>
+<p>该命令意思为：将电脑路径<code>C:\\user\boot.img</code> 下的 <code>boot.img</code>文件刷入到<code>boot</code>分区</p>
+<pre><code>fastboot flash recovery c:\\user\recovery.img
+</code></pre>
+<p>该命令意思为：将电脑路径<code>C:\\user\recovery.img</code> 下的 <code>recovery.img</code>文件刷入到<code>recovery</code>分区</p>
+<pre><code>fastboot boot &lt;rec path&gt;
+</code></pre>
+<p>该命令用于临时启动位于<code>rec path</code>路径的第三方Rec,并在本次重启后生效,但不会永久刷入Rec</p>
+<pre><code>fastboot reboot
+</code></pre>
+<p>用于从fastboot模式启动进入系统</p>
+<pre><code>fastboot reboot recovery
+</code></pre>
+<p>用于从fastboot模式启动至<code>recovery</code>模式</p>
+<hr>
+<h4 id="Bootloader"><a href="#Bootloader" class="headerlink" title="Bootloader"></a><em>Bootloader</em></h4><hr>
+<p>bootloader模式是一种更加底层的模式,至今我还未弄明白该模式与fastboot模式的区别,暂时就不说了<br></p>
+<p><strong>但是目前可以通过手机屏幕显示的'Fastboot'字母颜色区分这两种模式。</strong></p>
+
+<blockquote>
+<p>蓝色的Fastboot为fastboot模式</p>
 </blockquote>
 <blockquote>
-<p>手动添加md文档出现的错误  </p>
+<p>橙色的Fastboot为bootloader模式</p>
+</blockquote>
+<p style="color:red;">bootloader下可以使用fastboot提及的所有命令</p>
+
+<hr>
+<h4 id="Recovery"><a href="#Recovery" class="headerlink" title="Recovery"></a><em>Recovery</em></h4><hr>
+<p>Recovery模式常用于进入第三方Rec,例如TWRP和Orangefox。</p>
+<p><strong>第三方Rec功能如下</strong></p>
+
+<blockquote>
+<p>刷入第三方卡刷包(系统包)</p>
 </blockquote>
 <blockquote>
-<p>错误代码5050（未知错误代码）</p>
+<p>刷入修补好的boot镜像</p>
 </blockquote>
 <blockquote>
-<p>还有一段莫名其妙的报错</p>
+<p>刷入Magisk</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    YAMLException: end of the stream or a document separator is expected (7:1)</span><br><span class="line"></span><br><span class="line">    4 |</span><br><span class="line">     5 | # Site</span><br><span class="line">    6 |</span><br><span class="line">    7 | title: &quot;XXX&#x27;s Blog&quot;</span><br><span class="line">-----^</span><br><span class="line">    8 | subtitle:</span><br><span class="line">    9 | description: &quot;a blog to record&quot;</span><br><span class="line">    at generateError (F:\Hexo\halo\node_modules\js-yaml\lib\loader.js:183:10)</span><br><span class="line">    at throwError (F:\Hexo\halo\node_modules\js-yaml\lib\loader.js:187:9)</span><br><span class="line">    at readDocument (F:\Hexo\halo\node_modules\js-yaml\lib\loader.js:1645:5)</span><br><span class="line">    at loadDocuments (F:\Hexo\halo\node_modules\js-yaml\lib\loader.js:1688:5)</span><br><span class="line">    at Object.load (F:\Hexo\halo\node_modules\js-yaml\lib\loader.js:1714:19)</span><br><span class="line">    at Hexo.yamlHelper (F:\Hexo\halo\node_modules\hexo\dist\plugins\renderer\yaml.js:22:30)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>刷入Gapps(Google框架)</p>
+</blockquote>
+<blockquote>
+<p>三清(格式化Dalvik分区、Cache分区、Data分区)</p>
+</blockquote>
+<p style="color:red; font-weight:blod;">刷入第三方系统后切勿直接进入系统，一定要在刷入系统且无误后`format data`双清！！！</p>
+其它功能请自行探索
       
     </div>
 
@@ -258,7 +331,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/22/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><span class="page-number current">23</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/24/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/22/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><span class="page-number current">23</span><a class="page-number" href="/page/24/">24</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><a class="extend next" rel="next" href="/page/24/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -326,7 +399,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">26</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -375,12 +448,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">88k</span>
+    <span title="站点总字数">90k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:27</span>
+    <span title="站点阅读时长">2:31</span>
 </div>
 <!-- 网站运行时间的设置 -->
 <span id="timeDate">载入天数...</span>

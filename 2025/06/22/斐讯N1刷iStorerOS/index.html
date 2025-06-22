@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"lvshuqi.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":300,"display":"hide","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="斐讯N1刷入iStoreOS的流程较为简单，但是对于一个从未接触过网络架构的人来说还是有一点难度的（特别是系统的设置与调试，也就是旁路由模式），本文将通过文字以及图片的形式来对N1设备刷入iStoreOS的流程进行详细的讲解。     材料准备：      -	1台斐讯N1设备      -	1块U盘（8Gb以上）      -	iStore OS刷机包     启动器制作 想要给斐讯N1刷入系">
+<meta property="og:type" content="article">
+<meta property="og:title" content="斐讯N1刷iStorerOS">
+<meta property="og:url" content="https://lvshuqi.top/2025/06/22/%E6%96%90%E8%AE%AFN1%E5%88%B7iStorerOS/index.html">
+<meta property="og:site_name" content="就这样&amp;巴">
+<meta property="og:description" content="斐讯N1刷入iStoreOS的流程较为简单，但是对于一个从未接触过网络架构的人来说还是有一点难度的（特别是系统的设置与调试，也就是旁路由模式），本文将通过文字以及图片的形式来对N1设备刷入iStoreOS的流程进行详细的讲解。     材料准备：      -	1台斐讯N1设备      -	1块U盘（8Gb以上）      -	iStore OS刷机包     启动器制作 想要给斐讯N1刷入系">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2025/06/22/E13HWOatBIedTZo.png">
+<meta property="og:image" content="https://s2.loli.net/2025/06/22/w8WGsSPlXJArvbk.png">
+<meta property="og:image" content="https://s2.loli.net/2025/06/22/UtT9wDYCPdA68MB.png">
+<meta property="og:image" content="https://s2.loli.net/2025/06/22/zF6J27kiasUIXY3.png">
+<meta property="og:image" content="https://s2.loli.net/2025/06/22/4OHxrI9ih5vnfE1.png">
+<meta property="og:image" content="https://s2.loli.net/2025/06/22/7bsrmOvWdohEDe9.png">
+<meta property="og:image" content="https://s2.loli.net/2025/06/22/cY6ePTp9BElhj3n.png">
+<meta property="og:image" content="https://s2.loli.net/2025/06/22/MhPQaSBqDbOxTiH.png">
+<meta property="og:image" content="https://s2.loli.net/2025/06/22/kK5y8J4H9AflSEj.png">
+<meta property="og:image" content="https://s2.loli.net/2025/06/22/BeWSxQgRF6ALvEK.png">
+<meta property="og:image" content="https://s2.loli.net/2025/06/22/WoU6yRh38BeSJA7.png">
+<meta property="og:image" content="https://s2.loli.net/2025/06/22/yRMozSCV5itgUc8.png">
+<meta property="og:image" content="https://s2.loli.net/2025/06/22/bjCUkhOwTmSBMqN.png">
+<meta property="article:published_time" content="2025-06-22T06:52:55.000Z">
+<meta property="article:modified_time" content="2025-06-22T07:40:08.158Z">
+<meta property="article:author" content="Shangjhih Jhao">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="博客">
+<meta property="article:tag" content="技术">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="随想">
+<meta property="article:tag" content="编程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2025/06/22/E13HWOatBIedTZo.png">
+
+<link rel="canonical" href="https://lvshuqi.top/2025/06/22/%E6%96%90%E8%AE%AFN1%E5%88%B7iStorerOS/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>斐讯N1刷iStorerOS | 就这样&巴</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">就这样&巴</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">个人网志</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/06/22/%E6%96%90%E8%AE%AFN1%E5%88%B7iStorerOS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
+      <meta itemprop="name" content="Shangjhih Jhao">
+      <meta itemprop="description" content="该博客在我大学期间创建，通过Hexo搭建，部署于Github Action。博客记录了大学期间遇到的一些技术性问题的解决方法等。没什么深度，仅作为个人的学习和记录使用。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="就这样&巴">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          斐讯N1刷iStorerOS
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-06-22 14:52:55 / 修改时间：15:40:08" itemprop="dateCreated datePublished" datetime="2025-06-22T14:52:55+08:00">2025-06-22</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p style="font-size:18px; line-height: 2">
+斐讯N1刷入iStoreOS的流程较为简单，但是对于一个从未接触过网络架构的人来说还是有一点难度的（特别是系统的设置与调试，也就是旁路由模式），本文将通过文字以及图片的形式来对N1设备刷入iStoreOS的流程进行详细的讲解。
+</p>
+
+
+<hr>
+<p style="font-weight:bold">材料准备：</p>
+<p style="font-size:18px; line-height: 2">
+    -	1台斐讯N1设备 <br>
+    -	1块U盘（8Gb以上） <br>
+    -	iStore OS刷机包 <br>
+</p>
+
+<hr>
+<h2 id="启动器制作"><a href="#启动器制作" class="headerlink" title="启动器制作"></a>启动器制作</h2><p style="font-size:18px; line-height: 2">
+想要给斐讯N1刷入系统，首先需要写盘工具为U盘刷入一个引导程序，这将会在设备启动时作为第一引导，引导系统进入U盘内的系统。用户可以通过U盘内的系统来对设备的EMMC进行刷写，也就是将系统永久写入到设备的内存中。
+写入镜像推荐使用以下两个软件：（任选其一）
+</p>
+|                                                              |                                                        |
+| :------------------------------------------------------------: | :------------------------------------------------------: |
+| ![8c5b0835451528c7475c9cfe9a826bb.png](https://s2.loli.net/2025/06/22/q1BgyISxHhvYeKQ.png) | [https://etcher.balena.io/](https://etcher.balena.io/) |
+| ![ce4a3e2b9951739204f479bd9f97f9d.png](https://s2.loli.net/2025/06/22/cuaNMFpgAboeQPT.png) | [https://rufus.ie/zh/](https://rufus.ie/zh/) |
+
+<hr>
+<p style="font-size:26px; font-weight:bold">iStoreOS镜像下载地址:</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="https://s2.loli.net/2025/06/22/E13HWOatBIedTZo.png" alt="image.png"></td>
+<td>(<a target="_blank" rel="noopener" href="https://fw.koolcenter.com/iStoreOS/alpha/n1/">https://fw.koolcenter.com/iStoreOS/alpha/n1/</a>)</td>
+</tr>
+</tbody></table>
+<p><img src="https://s2.loli.net/2025/06/22/w8WGsSPlXJArvbk.png" alt="image.png"></p>
+<p style="font-size:18px; line-height: 2">
+下载使用红色方框圈起来的文件，直接下载，下载后不要解压。
+</p>
+
+<p>下载【<strong>BalenaEtcher</strong>】或者【<strong>rufus</strong>】任意一个，插入你的U盘，选择需要写入的U盘，选择需要刷入的镜像文件（该文件就是图中所示的<span style="color:green; font-size:16px">istoreos-22.03.6-2024043010-phicomm_n1-squashfs.img.gz</span>，U盘和镜像选好后点击开始，等待进度条跑到100%后点击关闭，点击关闭后即可拔掉U盘，切记不可直接拔。</p>
+<img src="https://s2.loli.net/2025/06/22/UtT9wDYCPdA68MB.png" alt="914e9e83235e8ef8a87cdb1d916c967.png" style="zoom: 67%;" />
+
+<p style="font-size:18px; line-height: 2">
+随后将写好镜像的U盘插入到N1盒子靠近HDMI接口的USB接口，注意：一定是靠近HDMI接口的USB接口。插入U盘后再插入电源，使用网线将盒子与路由器连接。一定要先插U盘再插电源线！！！否则可能进不去系统。
+</p>
+
+
+<img src="https://s2.loli.net/2025/06/22/zF6J27kiasUIXY3.png" alt="image.png" style="zoom: 25%;" />
+
+<p style="font-size:18px; line-height: 2">
+在一切都完成后，进入你插入的路由器的后台监测这台设备的上线情况，在后台显示的接入设备里有一个叫做iStore OS的新设备，点开该设备，记下它的内网IP地址。
+注意：可能需要等待两分钟左右才能看到后台有新设备接入，不要着急
+</p>
+
+
+<img src="https://s2.loli.net/2025/06/22/4OHxrI9ih5vnfE1.png" alt="image.png" style="zoom: 50%;" />
+
+<p style="font-size:18px; line-height: 2;">
+保证你的电脑已经连接到这个路由器的WiFi，不然无法进入到路由器的后台。在确认已经连接完成并且找到该设备后，浏览器新建一个页面，输入这个IP地址然后回车，即可看到登陆界面。路由器给我的设备分配的IP为<span style="color:green">192.168.1.66</span>，我就在路由器输入192.168.1.66回车，即可看到系统的登录页面。
+</p>
+
+
+<p><img src="https://s2.loli.net/2025/06/22/7bsrmOvWdohEDe9.png" alt="image.png"></p>
+<p style="color:purple; text-align: center; font-size:18px">
+++++++++++++++++++++++++++++++++++++++++<br>
+默认的用户名为root，默认密码password。<br>
+++++++++++++++++++++++++++++++++++++++++<br>
+</p><br>
+
+<p style="font-size:18px; line-height: 2">
+输入密码并点击登录，即可进入系统后台。
+</p>
+
+<p><img src="https://s2.loli.net/2025/06/22/cY6ePTp9BElhj3n.png" alt="image.png"></p>
+<p style="font-size:18px; line-height: 2.8; text-weight: bold">
+依次点击左侧菜单栏的【服务】-【终端】，进入到输入命令的界面，根据终端的提示
+输入用户名
+root以及密码password，（<span style="color:red">在输入密码的过程中，输入的密码不会显示在屏幕上，输完密码直接回车进入即可</span>）。待看到系统信息后就代表已经登陆进入后台，随后输入install,然后按tab键，这将会补全命令，待看到它将命令补全并且是以.sh结尾的命令，这时可以按回车执行命令，随后命令行提示你将使用mtd命令刷写某个分区，接下来会提示你输入y或者n，代表同意与否，你输入y并回车，命令将会继续执行，将系统写入到EMMC内存中，随后它将会自启。
+</p>
+
+<p><img src="https://s2.loli.net/2025/06/22/MhPQaSBqDbOxTiH.png" alt="image.png"></p>
+<p><img src="https://s2.loli.net/2025/06/22/kK5y8J4H9AflSEj.png" alt="image.png"></p>
+<p><img src="https://s2.loli.net/2025/06/22/BeWSxQgRF6ALvEK.png" alt="image.png"></p>
+<p style="color:red; font-size:18px; line-height: 2.8; text-indent: 2em">  在系统再次启动前，请将U盘拔掉，以防再次进入U盘中的引导程序。因系统已经写入进设备的EMMC，直接插电就能进入系统。网线不要拔，在浏览器输入192.168.100.1即可进入到新系统的控制台，账号和密码不变，依旧是root和password，输入进入系统。</p><br>
+
+<p style="font-size:18px; line-height: 2.8; text-indent: 2em">
+  在后台的【网络向导】中选择【旁路由】模式，进入后选择【手动配置】，在IP地址中填入你选好的地址（假如你自己的路由器，也就是盒子通过网线连接的路由器后台地址是192.168.1.1，那就在IP地址栏位填入192.168.1.X,其中的X可以填2-254中的任何一个数字，要求该数字只有一台设备使用，我填的是66，假如你的路由器入口是192.168.31.1，那就填192.168.31.X,其中的X也是要求为2-254中的任何一个数字。也是根据路由器地址来填，只要求最后一串数字和路由器不一样。）.子网掩码填入255.255.255.0 ，网关地址可以不用填。随后点击【保存配置】。此时你就可以使用你填的IP地址来访问系统后台了。
+</p>
+
+
+<p><img src="https://s2.loli.net/2025/06/22/WoU6yRh38BeSJA7.png" alt="image.png"></p>
+<p><img src="https://s2.loli.net/2025/06/22/yRMozSCV5itgUc8.png" alt="image.png"></p>
+<p style="font-size:18px; line-height: 2.8">
+在一切都做好之后，就可以在【服务】模块中找到你需要的代理功能对其进行设置。该N1设备可以通过【iStoreOS】模块导入【.run】格式的软件包来安装【passwall2】【passwall】【Shadwsocks Plus】等插件了。插件地址为：
+</p>
+https://github.com/bcseputetto/Are-u-ok/releases/tag/iStoreOS
+可以到该网页下载对应的文件
+
+<p><img src="https://s2.loli.net/2025/06/22/bjCUkhOwTmSBMqN.png" alt="image.png"></p>
+<p style="font-size:18px; line-height: 2">
+图中标出的是适合该设备的软件包，下载后直接通过iStore OS软件包管理的上传界面从本地上传至设备安装即可。
+</p>
+![image.png](https://s2.loli.net/2025/06/22/TDHq3f4XPSYUJuW.png)
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2025/06/22/Gmail-%E6%B3%A8%E5%86%8C/" rel="prev" title="Gmail 注册">
+      <i class="fa fa-chevron-left"></i> Gmail 注册
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2025/06/22/%E7%8E%A9%E5%AE%A2%E4%BA%91%E5%88%B7OpenWrt/" rel="next" title="玩客云刷OpenWrt">
+      玩客云刷OpenWrt <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E5%99%A8%E5%88%B6%E4%BD%9C"><span class="nav-number">1.</span> <span class="nav-text">启动器制作</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Shangjhih Jhao"
+      src="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
+  <p class="site-author-name" itemprop="name">Shangjhih Jhao</p>
+  <div class="site-description" itemprop="description">该博客在我大学期间创建，通过Hexo搭建，部署于Github Action。博客记录了大学期间遇到的一些技术性问题的解决方法等。没什么深度，仅作为个人的学习和记录使用。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">71</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">57</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shangjhih Jhao</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">90k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">2:31</span>
+</div>
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("09/29/2024 11:04:00"); //此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已建立 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒.";
+    }
+setInterval("createtime()",250);
+</script>
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
