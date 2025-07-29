@@ -194,7 +194,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2025-07-29 14:41:37 / 修改时间：20:28:08" itemprop="dateCreated datePublished" datetime="2025-07-29T14:41:37+08:00">2025-07-29</time>
+              <time title="创建时间：2025-07-29 14:41:37 / 修改时间：20:53:52" itemprop="dateCreated datePublished" datetime="2025-07-29T14:41:37+08:00">2025-07-29</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -216,7 +216,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.5k</span>
+              <span>1.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -271,14 +271,21 @@
 <p>   完整的配置文件如下所示：</p>
    <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">   #</span><span class="language-bash">!/bin/sh</span></span><br><span class="line"><span class="meta prompt_">   # </span><span class="language-bash">xrdp X session start script (c) 2015, 2017, 2021 mirabilos</span></span><br><span class="line"><span class="meta prompt_">   # </span><span class="language-bash">published under The MirOS Licence</span></span><br><span class="line">   </span><br><span class="line"><span class="meta prompt_">   # </span><span class="language-bash">Rely on /etc/pam.d/xrdp-sesman using pam_env to load both</span></span><br><span class="line"><span class="meta prompt_">   # </span><span class="language-bash">/etc/environment and /etc/default/locale to initialise the</span></span><br><span class="line"><span class="meta prompt_">   # </span><span class="language-bash">locale and the user environment properly.</span></span><br><span class="line">   </span><br><span class="line">   </span><br><span class="line">   export GNOME_SHELL_SESSION_MODE=ubuntu                # 修改点1</span><br><span class="line">   export XDG_CURRENT_DESKTOP=ubuntu:GNOME               # 修改点1</span><br><span class="line"></span><br><span class="line">   </span><br><span class="line">   </span><br><span class="line">   </span><br><span class="line">   if test -r /etc/profile; then</span><br><span class="line">           . /etc/profile</span><br><span class="line">   fi</span><br><span class="line">   </span><br><span class="line">export $(dbus-launch)                                    # 修改点2</span><br><span class="line"></span><br><span class="line">   test -x /etc/X11/Xsession &amp;&amp; exec /etc/X11/Xsession</span><br><span class="line">   exec /bin/sh /etc/X11/Xsession</span><br></pre></td></tr></table></figure>
 
-<p>确认修改无误后安装<code>dbus-launch</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt install dbus-x11</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="安装dbus-launch"><a href="#安装dbus-launch" class="headerlink" title="安装dbus-launch"></a>安装dbus-launch</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt install dbus-launch               #安装dbus-launch</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p>然后启动dbus-launch</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dbus-launch</span><br></pre></td></tr></table></figure>
 
-<p>重启xrdp</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart xrdp</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dbus-launch                            #然后启动dbus-launch</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart xrdp                #重启xrdp</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dbus-launch                            # 启动dbus-launch</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart xrdp                 # 重启xrdp服务</span><br></pre></td></tr></table></figure>
+
 
 <h2 id="远程桌面连接"><a href="#远程桌面连接" class="headerlink" title="远程桌面连接"></a>远程桌面连接</h2><p>这里说的远程桌面连接指的是Windows的功能<code>远程桌面</code>，使用该服务即可连接到局域网的Ubuntu服务器，假如你的服务器在海外或者国内云服务运营商的机房，同时你又安装了桌面版的Ubuntu，这时捏也可以使用这个服务器来远程连接你的服务器。</p>
 <h4 id="账密配置"><a href="#账密配置" class="headerlink" title="账密配置"></a>账密配置</h4><p>账号就是Ubuntu的ip地址，你可以使用下面的命令获取本机的IP地址</p>
