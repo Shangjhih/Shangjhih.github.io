@@ -29,8 +29,9 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s2.loli.net/2025/07/29/kcdG3Tv2WJqLKMA.png">
 <meta property="og:image" content="https://s2.loli.net/2025/07/29/IT5tQAgO1wR39db.png">
+<meta property="og:image" content="https://s2.loli.net/2025/07/29/WGLO5hsxdDoteTl.png">
 <meta property="article:published_time" content="2025-07-29T06:41:37.000Z">
-<meta property="article:modified_time" content="2025-07-29T10:41:23.985Z">
+<meta property="article:modified_time" content="2025-07-29T12:28:08.103Z">
 <meta property="article:author" content="Shangjhih Jhao">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="Ubuntu">
@@ -195,7 +196,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2025-07-29 14:41:37 / 修改时间：18:41:23" itemprop="dateCreated datePublished" datetime="2025-07-29T14:41:37+08:00">2025-07-29</time>
+              <time title="创建时间：2025-07-29 14:41:37 / 修改时间：20:28:08" itemprop="dateCreated datePublished" datetime="2025-07-29T14:41:37+08:00">2025-07-29</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -224,7 +225,7 @@
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -253,7 +254,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reboot                                                 # 测试不可连接的话就重启以生效</span><br></pre></td></tr></table></figure>
 
 
-<p>远程桌面在安装后无法连接使用的话再重启系统，假如重启系统后依旧无法使用，请按以下流程修改xrdp的配置文件</p>
+<p>远程桌面在安装后无法连接使用或者在来凝结后出现桌面异常没有Dock栏的话请按以下流程修改xrdp的配置文件</p>
 <ol>
 <li><p>找到位于<code>/etc/xrdp/</code>目录下名叫<code>startwm.sh</code>的文件</p>
 </li>
@@ -261,12 +262,26 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">if test -r /etc/profile; then</span><br><span class="line">        . /etc/profile</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">test -x /etc/X11/Xsession &amp;&amp; exec /etc/X11/Xsession</span><br><span class="line">exec /bin/sh /etc/X11/Xsession</span><br></pre></td></tr></table></figure>
 
 <p>之前加上配置文件：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export GNOME_SHELL_SESSION_MODE=ubuntu</span><br><span class="line">export XDG_CURRENT_DESKTOP=ubuntu:GNOME</span><br><span class="line">startx /usr/bin/gnome-session --session=ubuntu</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export GNOME_SHELL_SESSION_MODE=ubuntu</span><br><span class="line">export XDG_CURRENT_DESKTOP=ubuntu:GNOME</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p>完整的配置文件如下所示：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/sh</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">xrdp X session start script (c) 2015, 2017, 2021 mirabilos</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">published under The MirOS Licence</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Rely on /etc/pam.d/xrdp-sesman using pam_env to load both</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">/etc/environment and /etc/default/locale to initialise the</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">locale and the user environment properly.</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">export GNOME_SHELL_SESSION_MODE=ubuntu</span><br><span class="line">export XDG_CURRENT_DESKTOP=ubuntu:GNOME</span><br><span class="line">startx /usr/bin/gnome-session --session=ubuntu</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if test -r /etc/profile; then</span><br><span class="line">        . /etc/profile</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">test -x /etc/X11/Xsession &amp;&amp; exec /etc/X11/Xsession</span><br><span class="line">exec /bin/sh /etc/X11/Xsession</span><br></pre></td></tr></table></figure></li>
+<p>在第一个if循环之后加上</p>
+</li>
 </ol>
-<p>确认修改无误后重启系统再测试。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export $(dbus-launch)</span><br></pre></td></tr></table></figure>
+
+
+<p>   完整的配置文件如下所示：</p>
+   <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">   #</span><span class="language-bash">!/bin/sh</span></span><br><span class="line"><span class="meta prompt_">   # </span><span class="language-bash">xrdp X session start script (c) 2015, 2017, 2021 mirabilos</span></span><br><span class="line"><span class="meta prompt_">   # </span><span class="language-bash">published under The MirOS Licence</span></span><br><span class="line">   </span><br><span class="line"><span class="meta prompt_">   # </span><span class="language-bash">Rely on /etc/pam.d/xrdp-sesman using pam_env to load both</span></span><br><span class="line"><span class="meta prompt_">   # </span><span class="language-bash">/etc/environment and /etc/default/locale to initialise the</span></span><br><span class="line"><span class="meta prompt_">   # </span><span class="language-bash">locale and the user environment properly.</span></span><br><span class="line">   </span><br><span class="line">   </span><br><span class="line">   export GNOME_SHELL_SESSION_MODE=ubuntu                # 修改点1</span><br><span class="line">   export XDG_CURRENT_DESKTOP=ubuntu:GNOME               # 修改点1</span><br><span class="line"></span><br><span class="line">   </span><br><span class="line">   </span><br><span class="line">   </span><br><span class="line">   if test -r /etc/profile; then</span><br><span class="line">           . /etc/profile</span><br><span class="line">   fi</span><br><span class="line">   </span><br><span class="line">export $(dbus-launch)                                    # 修改点2</span><br><span class="line"></span><br><span class="line">   test -x /etc/X11/Xsession &amp;&amp; exec /etc/X11/Xsession</span><br><span class="line">   exec /bin/sh /etc/X11/Xsession</span><br></pre></td></tr></table></figure>
+
+<p>确认修改无误后安装<code>dbus-launch</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt install dbus-x11</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>然后启动dbus-launch</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dbus-launch</span><br></pre></td></tr></table></figure>
+
+<p>重启xrdp</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart xrdp</span><br></pre></td></tr></table></figure>
+
 <h2 id="远程桌面连接"><a href="#远程桌面连接" class="headerlink" title="远程桌面连接"></a>远程桌面连接</h2><p>这里说的远程桌面连接指的是Windows的功能<code>远程桌面</code>，使用该服务即可连接到局域网的Ubuntu服务器，假如你的服务器在海外或者国内云服务运营商的机房，同时你又安装了桌面版的Ubuntu，这时捏也可以使用这个服务器来远程连接你的服务器。</p>
 <h4 id="账密配置"><a href="#账密配置" class="headerlink" title="账密配置"></a>账密配置</h4><p>账号就是Ubuntu的ip地址，你可以使用下面的命令获取本机的IP地址</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip addr</span><br></pre></td></tr></table></figure>
@@ -276,6 +291,7 @@
 <p>账号和密码都是你在装系统时自己设置的。</p>
 <p><img src="https://s2.loli.net/2025/07/29/kcdG3Tv2WJqLKMA.png" alt="image.png"></p>
 <p><img src="https://s2.loli.net/2025/07/29/IT5tQAgO1wR39db.png" alt="image.png"></p>
+<p><img src="https://s2.loli.net/2025/07/29/WGLO5hsxdDoteTl.png" alt="712f43ebfe3f2a66a46b6fbd2c6d0fc.png"></p>
 
     </div>
 
