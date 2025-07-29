@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"lvshuqi.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"hide","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="本次我们要讲的内容是使用U盘为物理机安装Ubuntu操作系统，本次我们使用的镜像版本为22.04 LTSC版本。之前我已经产生过安装使用较新版本的Ubuntu 24.04版本，但是在安装后我发现这个版本的系统没有左侧的Dock栏（Desktop版本，非Server）。这个22.04版本的安装一切顺利，所以本次就以该版本的安装作为示范。  在安装之前你需要准备一个容量大于8Gb的U盘，还需要下载Ub">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu安装指南">
+<meta property="og:url" content="https://lvshuqi.top/2025/07/29/Ubuntu%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/index.html">
+<meta property="og:site_name" content="就这样&amp;巴">
+<meta property="og:description" content="本次我们要讲的内容是使用U盘为物理机安装Ubuntu操作系统，本次我们使用的镜像版本为22.04 LTSC版本。之前我已经产生过安装使用较新版本的Ubuntu 24.04版本，但是在安装后我发现这个版本的系统没有左侧的Dock栏（Desktop版本，非Server）。这个22.04版本的安装一切顺利，所以本次就以该版本的安装作为示范。  在安装之前你需要准备一个容量大于8Gb的U盘，还需要下载Ub">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2025/07/29/hUHGYoWisRa3gyf.png">
+<meta property="og:image" content="https://s2.loli.net/2025/07/29/He9sNOxoTjD3nWv.jpg">
+<meta property="og:image" content="https://s2.loli.net/2025/07/29/gLpVM9tH1JI3siz.jpg">
+<meta property="article:published_time" content="2025-07-29T06:41:17.000Z">
+<meta property="article:modified_time" content="2025-07-29T11:13:53.145Z">
+<meta property="article:author" content="Shangjhih Jhao">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Ubuntu">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2025/07/29/hUHGYoWisRa3gyf.png">
+
+<link rel="canonical" href="https://lvshuqi.top/2025/07/29/Ubuntu%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Ubuntu安装指南 | 就这样&巴</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">就这样&巴</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">个人网志</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/07/29/Ubuntu%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
+      <meta itemprop="name" content="Shangjhih Jhao">
+      <meta itemprop="description" content="该博客在作者读大学本科期间创建，通过Hexo搭建，部署于Github Action。博客建立之初是为了防止作者遗忘已经学过的东西，将一些可以被记录的东西写下来一定程度上会减少遗忘。因为本科考研失败 ，在进行二战，目前并不会经常更新。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="就这样&巴">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Ubuntu安装指南
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-07-29 14:41:17 / 修改时间：19:13:53" itemprop="dateCreated datePublished" datetime="2025-07-29T14:41:17+08:00">2025-07-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Ubuntu/" itemprop="url" rel="index"><span itemprop="name">Ubuntu</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Ubuntu/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>本次我们要讲的内容是使用U盘为物理机安装Ubuntu操作系统，本次我们使用的镜像版本为22.04 LTSC版本。之前我已经产生过安装使用较新版本的Ubuntu 24.04版本，但是在安装后我发现这个版本的系统没有左侧的Dock栏（Desktop版本，非Server）。这个22.04版本的安装一切顺利，所以本次就以该版本的安装作为示范。</p>
+<hr>
+<p>在安装之前你需要准备一个容量大于8Gb的U盘，还需要下载Ubuntu的ISO镜像，以及一个烧录软件。</p>
+<p>注意：Ubuntu桌面端是带有GUI界面的操作系统，也就是可以使用鼠标点击进行操作，界面类似于Windows的版本。</p>
+<p>​       server版本是只有黑框的终端版本，不能使用鼠标进行图形操作，建议新手从桌面端开始使用。U盘在制作过程中会被格式化，如有重要数据请注意提前备份！！！</p>
+<table>
+<thead>
+<tr>
+<th align="left">**Ubuntu iSO:    **</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://releases.ubuntu.com/">https://releases.ubuntu.com/</a></td>
+<td>（桌面端和服务器端旧版本）</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://ubuntu.com/download/desktop">https://ubuntu.com/download/desktop</a></td>
+<td>（桌面端新版本（近两代））</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://ubuntu.com/download/server">https://ubuntu.com/download/server</a></td>
+<td>（服务器端新版本）</td>
+</tr>
+</tbody></table>
+<hr>
+<ul>
+<li>**Rufus：      **</li>
+</ul>
+<p>​     <a target="_blank" rel="noopener" href="https://rufus.ie/zh/">https://rufus.ie/zh/</a>     （推荐下载便携版（portable））</p>
+<hr>
+<h2 id="启动盘制作"><a href="#启动盘制作" class="headerlink" title="启动盘制作"></a>启动盘制作</h2><ol>
+<li>在另一台电脑下载安装Rufus下载Ubuntu的ISO镜像文件，打开Rufus，烧录镜像</li>
+</ol>
+<p><img src="https://s2.loli.net/2025/07/29/hUHGYoWisRa3gyf.png" alt="image.png"></p>
+<hr>
+<p>  1.1 <strong>首先查看识别到的U盘是不是你要制作引导的U盘</strong></p>
+<p>  1.2 ** 选择导入之前已经下载好的Ubuntu iSO镜像文件**</p>
+<p>  1.3 <strong>将分区类型修改为GPT</strong></p>
+<p>  1.4 <strong>点击开始即可进行烧录</strong></p>
+<p>  1.5 <strong>等待进度条走完之后，点击关闭按钮</strong></p>
+<p>  1.6 <strong>弹出U盘备用</strong></p>
+<hr>
+<h2 id="代理地址"><a href="#代理地址" class="headerlink" title="代理地址"></a>代理地址</h2><p>此项可以直接跳过，按enter继续</p>
+<hr>
+<h2 id="软件源设置"><a href="#软件源设置" class="headerlink" title="软件源设置"></a>软件源设置</h2><h4 id="可选软件源"><a href="#可选软件源" class="headerlink" title="可选软件源"></a>可选软件源</h4><p>在安装过程中系统会推荐合适的软件源，当然，你也可以执行设置。推荐的地址如下：</p>
+<p>中科大软件源：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">https://mirrors.ustc.edu.cn/ubuntu/</span></span><br></pre></td></tr></table></figure>
+
+<p>清华源</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">https://mirrors.tuna.tsinghua.edu.cn/ubuntu/</span></span><br></pre></td></tr></table></figure>
+
+<p>阿里源</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">https://mirrors.aliyun.com/ubuntu/</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>#####################################################################</p>
+<h4 id="sources-list文件修改"><a href="#sources-list文件修改" class="headerlink" title="sources.list文件修改"></a>sources.list文件修改</h4><p>假如后面因为软件源的原因无法正常使用<code>apt</code>安装软件，请修改以下位置的文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+
+<p>使用<code>Vim</code>或其它编辑器修改这个文件为上面推荐的某一个（Vim编辑器可能在系统刚安装后没有内置，这时候你可以使用命令<code>apt install vim</code>来安装，或者使用<code>Vi</code>或者<code>nano</code>等进行修改替换），需要修改的对象为：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">http://cn.archive.ubuntu.com/ubuntu/</span></span><br></pre></td></tr></table></figure>
+
+<p>这个东西。</p>
+<p>在旧版的Ubuntu中，需要修改很多处，但是在24版及以后的新版本中，只有一项是需要修改的，根据实际情况修改替换</p>
+<p>我的旧版本内容如下：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">deb http:<span class="comment">//cn.archive.ubuntu.com/ubuntu/ jammy main restricted</span></span><br><span class="line"># deb<span class="operator">-</span>src http:<span class="comment">//cn.archive.ubuntu.com/ubuntu/ jammy main restricted</span></span><br><span class="line"></span><br><span class="line">## <span class="type">Major</span> bug fix updates produced after the <span class="keyword">final</span> release of the</span><br><span class="line">## distribution.</span><br><span class="line">deb http:<span class="comment">//cn.archive.ubuntu.com/ubuntu/ jammy-updates main restricted</span></span><br><span class="line"># deb<span class="operator">-</span>src http:<span class="comment">//cn.archive.ubuntu.com/ubuntu/ jammy-updates main restricted</span></span><br><span class="line"></span><br><span class="line">## <span class="type">N</span>.<span class="type">B</span>. software from this repository <span class="keyword">is</span> <span class="type">ENTIRELY</span> <span class="type">UNSUPPORTED</span> by the <span class="type">Ubuntu</span></span><br><span class="line">## team. <span class="type">Also</span>, please note that software <span class="keyword">in</span> universe <span class="type">WILL</span> <span class="type">NOT</span> receive <span class="keyword">any</span></span><br><span class="line">## review or updates from the <span class="type">Ubuntu</span> security team.</span><br><span class="line">deb http:<span class="comment">//cn.archive.ubuntu.com/ubuntu/ jammy universe</span></span><br><span class="line"># deb<span class="operator">-</span>src http:<span class="comment">//cn.archive.ubuntu.com/ubuntu/ jammy universe</span></span><br><span class="line">deb http:<span class="comment">//cn.archive.ubuntu.com/ubuntu/ jammy-updates universe</span></span><br><span class="line"># deb<span class="operator">-</span>src http:<span class="comment">//cn.archive.ubuntu.com/ubuntu/ jammy-updates universe</span></span><br><span class="line"></span><br><span class="line">## <span class="type">N</span>.<span class="type">B</span>. software from this repository <span class="keyword">is</span> <span class="type">ENTIRELY</span> <span class="type">UNSUPPORTED</span> by the <span class="type">Ubuntu</span> </span><br><span class="line">## team, and may not be under a free licence. <span class="type">Please</span> satisfy yourself <span class="keyword">as</span> to </span><br><span class="line">## your rights to use the software. <span class="type">Also</span>, please note that software <span class="keyword">in</span> </span><br><span class="line">## multiverse <span class="type">WILL</span> <span class="type">NOT</span> receive <span class="keyword">any</span> review or updates from the <span class="type">Ubuntu</span></span><br><span class="line">## security team.</span><br><span class="line">deb http:<span class="comment">//cn.archive.ubuntu.com/ubuntu/ jammy multiverse</span></span><br><span class="line"># deb<span class="operator">-</span>src http:<span class="comment">//cn.archive.ubuntu.com/ubuntu/ jammy multiverse</span></span><br><span class="line">deb http:<span class="comment">//cn.archive.ubuntu.com/ubuntu/ jammy-updates multiverse</span></span><br><span class="line"># deb<span class="operator">-</span>src http:<span class="comment">//cn.archive.ubuntu.com/ubuntu/ jammy-updates multiverse</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>此时需要对此处<code>http://cn.archive.ubuntu.com/ubuntu/</code>进行替换，将其修改为适合自己的源。</p>
+<hr>
+<h2 id="进入引导界面"><a href="#进入引导界面" class="headerlink" title="进入引导界面"></a>进入引导界面</h2><p>在启动盘已经做好的前提下，插入需要安装Ubuntu的电脑USB口，准备启动电脑。在电脑未完全启动之前，也就是还未开机之前，请根据提示进入BIOS（我这里使用的是技嘉的服务器，按del进入BIOS，按F10进入高级启动），你可以在BIOS中修改第一启动项为U盘，随后即可进入到安装界面。</p>
+<p>根据提示输入自己的用户名，计算机名以及密码，在进行安装位置设置的时候要注意：</p>
+<p>安装时不要使用前两项安装选择，不能使用整块磁盘安装，选择使用<code>Custom</code>或者<code>自定义安装</code>，在此处可以自行设置安装位置，且，格式化磁盘时必须选择使用<code>ext4</code>格式进行格式化，在选择挂载位置的时候，选择挂载<code>/</code>,也就是根目录。</p>
+<p><img src="https://s2.loli.net/2025/07/29/He9sNOxoTjD3nWv.jpg" alt="58c6508a9e5ff994fc635a0f3965f53.jpg"></p>
+<p>其他分区将会同意挂载在同一个分区，可以避免多个分区设置的麻烦。坏处是，系统坏了无法自救，请斟酌考虑。</p>
+<h2 id="进入系统"><a href="#进入系统" class="headerlink" title="进入系统"></a>进入系统</h2><p><img src="https://s2.loli.net/2025/07/29/gLpVM9tH1JI3siz.jpg" alt="8bf6236de952e3720836f104cf09a8f.jpg"></p>
+<p>如图所示，你的Dock栏大概率在左侧，这个是可以调的</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
+              <a href="/tags/Ubuntu/" rel="tag"># Ubuntu</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2025/07/21/%E9%80%9A%E7%94%A8Ai%E9%80%89%E5%88%99%E6%8C%87%E5%8D%97/" rel="prev" title="通用Ai选择指南">
+      <i class="fa fa-chevron-left"></i> 通用Ai选择指南
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2025/07/29/Ubuntu%E6%96%B0%E6%89%8B%E9%85%8D%E7%BD%AE/" rel="next" title="Ubuntu新手配置">
+      Ubuntu新手配置 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E7%9B%98%E5%88%B6%E4%BD%9C"><span class="nav-number">1.</span> <span class="nav-text">启动盘制作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%90%86%E5%9C%B0%E5%9D%80"><span class="nav-number">2.</span> <span class="nav-text">代理地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E6%BA%90%E8%AE%BE%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">软件源设置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%AF%E9%80%89%E8%BD%AF%E4%BB%B6%E6%BA%90"><span class="nav-number">3.0.1.</span> <span class="nav-text">可选软件源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sources-list%E6%96%87%E4%BB%B6%E4%BF%AE%E6%94%B9"><span class="nav-number">3.0.2.</span> <span class="nav-text">sources.list文件修改</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9B%E5%85%A5%E5%BC%95%E5%AF%BC%E7%95%8C%E9%9D%A2"><span class="nav-number">4.</span> <span class="nav-text">进入引导界面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9B%E5%85%A5%E7%B3%BB%E7%BB%9F"><span class="nav-number">5.</span> <span class="nav-text">进入系统</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Shangjhih Jhao"
+      src="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
+  <p class="site-author-name" itemprop="name">Shangjhih Jhao</p>
+  <div class="site-description" itemprop="description">该博客在作者读大学本科期间创建，通过Hexo搭建，部署于Github Action。博客建立之初是为了防止作者遗忘已经学过的东西，将一些可以被记录的东西写下来一定程度上会减少遗忘。因为本科考研失败 ，在进行二战，目前并不会经常更新。</div>
+</div>
+
+
+<div class="spotify-player motion-element">
+  <div class="spotify-player-title">
+    <i class="fab fa-spotify"></i>
+    <span>今日推荐</span>
+  </div>
+  <iframe style="border-radius:12px" 
+          src="https://open.spotify.com/embed/track/0Qhg0dRDbKQoOYBkb55XIZ?utm_source=generator" 
+          width="100%" 
+          height="152" 
+          frameBorder="0" 
+          allowfullscreen="" 
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+          loading="lazy">
+  </iframe>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">34</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">75</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">61</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shangjhih Jhao</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">112k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:06</span>
+</div>
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("09/29/2024 11:04:00"); //此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已建立 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒.";
+    }
+setInterval("createtime()",250);
+</script>
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
