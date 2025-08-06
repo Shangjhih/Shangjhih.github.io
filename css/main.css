@@ -1186,7 +1186,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #30ffd2;
+  background: #ffb5ff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2604,11 +2604,21 @@ ul.breadcrumb li + li:last-child {
 @media (max-width: 767px) {
   .site-meta {
     background: #fff !important;
-    padding: 15px 0;
+    padding: 5px 0;
   }
   .site-title {
-    font-size: 22px;
+    font-size: 16px;
     color: #333 !important;
+    margin: 0;
+    line-height: 1.1;
+  }
+  .site-subtitle {
+    font-size: 12px;
+    margin: 0;
+    line-height: 1;
+  }
+  .header-inner {
+    padding: 3px 0;
   }
   .post-body {
     font-size: 15px;
@@ -2824,26 +2834,29 @@ ul.breadcrumb li + li:last-child {
 }
 .sidebar {
   background: #fff !important;
+  border-left: 1px solid #eee;
+  box-shadow: none;
 }
 .sidebar-inner {
   background: #fff !important;
+  padding: 20px;
 }
 .site-overview,
 .site-state-wrap,
 .links-of-author,
 .links-of-blogroll {
   background: #fff;
-  margin-bottom: 0;
-  padding: 0;
-  border-bottom: none;
+  margin-bottom: 20px;
+  padding: 10px 0;
+  border-bottom: 1px solid #f5f5f5;
 }
 .site-state {
   background: #fff;
 }
 .site-state-item {
   background: #fff;
-  padding: 0;
-  border: none;
-  margin: 0;
-  text-align: inherit;
+  padding: 10px;
+  border: 1px solid #eee;
+  margin: 5px;
+  text-align: center;
 }
