@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"lvshuqi.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":330,"display":"hide","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null,"line_number":false},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":0},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="在之前的一篇文章我们有提到Ai模型的选择，本章我们将就GPT-5以及Grok-4的推出做一篇新的推荐，同时本次我们还将重点推荐我已经使用很久的国产模型Qwen-3.  在对大模型语言模型进行能力评测时需要对多我i都来进行评测以确保其合理性与可信度。评测中需要测试模型的基础能力（譬如数学能力、代码编写能力、指令遵守能力、多轮对话能力、文字写作能力、复杂问题解答能力、复杂问题解答能力（英文语境）、外语">
+<meta property="og:type" content="article">
+<meta property="og:title" content="通用Ai选择与推荐-新版">
+<meta property="og:url" content="https://lvshuqi.top/2025/08/10/%E9%80%9A%E7%94%A8Ai%E9%80%89%E6%8B%A9%E4%B8%8E%E6%8E%A8%E8%8D%90-%E6%96%B0%E7%89%88/index.html">
+<meta property="og:site_name" content="就这样&amp;巴">
+<meta property="og:description" content="在之前的一篇文章我们有提到Ai模型的选择，本章我们将就GPT-5以及Grok-4的推出做一篇新的推荐，同时本次我们还将重点推荐我已经使用很久的国产模型Qwen-3.  在对大模型语言模型进行能力评测时需要对多我i都来进行评测以确保其合理性与可信度。评测中需要测试模型的基础能力（譬如数学能力、代码编写能力、指令遵守能力、多轮对话能力、文字写作能力、复杂问题解答能力、复杂问题解答能力（英文语境）、外语">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2025/08/10/woEedTZSgXVfDyY.png">
+<meta property="og:image" content="https://s2.loli.net/2025/08/10/2ORMmU9lZBaNczr.png">
+<meta property="og:image" content="https://s2.loli.net/2025/08/10/peMOlHwUz8Tn74V.png">
+<meta property="og:image" content="https://s2.loli.net/2025/08/10/sXzWftiyjuw7JcQ.png">
+<meta property="og:image" content="https://s2.loli.net/2025/08/10/tgLHSrPNUmqo6Gs.png">
+<meta property="og:image" content="https://s2.loli.net/2025/08/10/dD3RzYf8IOSXaFT.png">
+<meta property="og:image" content="https://s2.loli.net/2025/08/10/EroxLYDdj1p4IyX.png">
+<meta property="og:image" content="https://s2.loli.net/2025/08/10/QOYjcoXq4AbLefp.png">
+<meta property="og:image" content="https://s2.loli.net/2025/08/10/i1gZmYohd5LzcGe.png">
+<meta property="og:image" content="https://s2.loli.net/2025/08/10/DpnaYlU14N2o6Xm.png">
+<meta property="article:published_time" content="2025-08-10T08:14:10.000Z">
+<meta property="article:modified_time" content="2025-08-10T09:17:56.634Z">
+<meta property="article:author" content="Shangjhih Jhao">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="博客">
+<meta property="article:tag" content="技术">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="随想">
+<meta property="article:tag" content="编程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2025/08/10/woEedTZSgXVfDyY.png">
+
+<link rel="canonical" href="https://lvshuqi.top/2025/08/10/%E9%80%9A%E7%94%A8Ai%E9%80%89%E6%8B%A9%E4%B8%8E%E6%8E%A8%E8%8D%90-%E6%96%B0%E7%89%88/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>通用Ai选择与推荐-新版 | 就这样&巴</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">就这样&巴</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">个人网志</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/08/10/%E9%80%9A%E7%94%A8Ai%E9%80%89%E6%8B%A9%E4%B8%8E%E6%8E%A8%E8%8D%90-%E6%96%B0%E7%89%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
+      <meta itemprop="name" content="Shangjhih Jhao">
+      <meta itemprop="description" content="该博客在作者读大学本科期间创建，通过Hexo搭建，部署于Github Action。博客建立之初是为了防止作者遗忘已经学过的东西，将一些可以被记录的东西写下来一定程度上会减少遗忘。因为本科考研失败 ，在进行二战，目前并不会经常更新。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="就这样&巴">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          通用Ai选择与推荐-新版
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-08-10 16:14:10 / 修改时间：17:17:56" itemprop="dateCreated datePublished" datetime="2025-08-10T16:14:10+08:00">2025-08-10</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>在之前的一篇文章我们有提到Ai模型的选择，本章我们将就<code>GPT-5</code>以及<code>Grok-4</code>的推出做一篇新的推荐，同时本次我们还将重点推荐我已经使用很久的国产模型<code>Qwen-3</code>.</p>
+<hr>
+<p>在对大模型语言模型进行能力评测时需要对多我i都来进行评测以确保其合理性与可信度。评测中需要测试模型的基础能力（譬如<code>数学能力</code>、<code>代码编写能力</code>、<code>指令遵守能力</code>、<code>多轮对话能力</code>、<code>文字写作能力</code>、<code>复杂问题解答能力</code>、<code>复杂问题解答能力（英文语境）</code>、<code>外语能力</code>），这些测试项几乎包含了日常使用的所有场景，足以聚焦实际并给出可参考数据。</p>
+<p>该文章将会你们提供来自于<code>LMArena</code>对各家新模型进行的多项功能测试排名（数据来源于Hugging face社区、Discord社区以及官方和第三方评测 ），在此排名中我会截取前几名的数据，完整的数据请移步至<a target="_blank" rel="noopener" href="https://lmarena.ai/leaderboard/text/overall">LMArena</a>自行观阅。</p>
+<h3 id="综合排名"><a href="#综合排名" class="headerlink" title="### 综合排名"></a>### 综合排名</h3><blockquote>
+<p>综合能力通常使用跨学科、跨任务的数据集进行评测，目的是：</p>
+<p><strong>评估模型的通用性</strong>：检验模型能否在不同领域（如常识问答、推理判断、阅读理解等）都表现稳定。</p>
+<p><strong>揭示能力瓶颈</strong>：通过汇总各子任务得分，发现模型在概念理解、逻辑推理、语义匹配等方面的薄弱环节。</p>
+<p><strong>指导迁移学习与迭代优化</strong>：综合分数能帮助研发团队判断下一步是加强预训练规模，还是优化微调策略。</p>
+</blockquote>
+<p><img src="https://s2.loli.net/2025/08/10/woEedTZSgXVfDyY.png" alt="08fbbc65651fc4f9adbed9d7d24cf4e.png"></p>
+<h3 id="单项排名"><a href="#单项排名" class="headerlink" title="单项排名"></a>单项排名</h3><hr>
+<h3 id="数学"><a href="#数学" class="headerlink" title="### 数学"></a>### 数学</h3><blockquote>
+<p>测评内容通常包括算术运算、代数推导、几何判断和概率统计题目，原因在于：</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><strong>验证模型的逻辑推理与符号化处理</strong>：数学问题要求精确计算和严密推导，能体现模型的“符号运算”能力。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><strong>保障应用安全性</strong>：在财务分析、科学研究等场景中，错误的数学计算会带来严重后果，必须确保模型结果准确。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><strong>推动“算术思维”研究</strong>：通过分析错误类型（如漏项、进位错误、概念混淆），促进更高效的算法设计。</p>
+</blockquote>
+</blockquote>
+<p><img src="https://s2.loli.net/2025/08/10/2ORMmU9lZBaNczr.png" alt="98256ff9db4c77782f19b98edda6232.png"></p>
+<h4 id="代码"><a href="#代码" class="headerlink" title="### 代码"></a>### 代码</h4><blockquote>
+<p>通常评测从多种编程语言（Python、JavaScript、C++等）和不同难度级别的编程题目入手，理由包括：</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><strong>衡量模型执行具体任务的实用性</strong>：代码生成能力是AI在软件开发、数据处理、自动化运维等场景中的核心指标。<br><strong>评估语法理解与逻辑构造</strong>：编程题要求模型不仅要理解语言语法，还要嵌套控制流、调用库函数，以及处理异常。<br><strong>促进人机协作</strong>：高水平的代码建议可以帮助开发者提升开发效率，降低出错率。</p>
+</blockquote>
+</blockquote>
+<p><img src="https://s2.loli.net/2025/08/10/peMOlHwUz8Tn74V.png" alt="5e3d4ef6af4ef61df2fa79a54d3258f.png"></p>
+<h4 id="指令遵守"><a href="#指令遵守" class="headerlink" title="### 指令遵守"></a>### 指令遵守</h4><blockquote>
+<p>此维度测试模型对用户指令的准确响应性，包括“格式要求”、“风格约束”、“禁止某些话题”等，测评意义在于：</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>保障输出安全与合规：在敏感性话题、商业机密、隐私信息等场景，模型必须严格遵守约束。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>提升用户体验：良好的指令执行力让模型行为可预测、稳定，满足用户个性化需求。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>支持可控生成研究：通过测评进一步优化Prompt设计和强化学习调优（RLHF）策略，从而增强模型可控性。<br><img src="https://s2.loli.net/2025/08/10/sXzWftiyjuw7JcQ.png" alt="3e45768ffc712093482f60ec4056800.png"></p>
+</blockquote>
+</blockquote>
+<h4 id="多轮对话"><a href="#多轮对话" class="headerlink" title="### 多轮对话"></a>### 多轮对话</h4><blockquote>
+<p>侧重模型在上下文连贯、话题跟踪、参考先前信息等方面的表现，其重要性体现在：</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>模拟真实人机交互场景：客服、咨询、陪聊等应用要求模型在多轮对话中保持一致性与连贯性。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>检测记忆与上下文利用：评估模型能否“记住”前文要点，并在后续响应中引用、校正或扩展。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>防止“上下文丢失”：在长对话或复杂任务中，若模型频繁丢失信息，会导致用户体验下降或任务失败。<br><img src="https://s2.loli.net/2025/08/10/tgLHSrPNUmqo6Gs.png" alt="14e724b82a81b2271f5ca6abbd40083.png"></p>
+</blockquote>
+</blockquote>
+<h4 id="文字书写"><a href="#文字书写" class="headerlink" title="### 文字书写"></a>### 文字书写</h4><blockquote>
+<p>包括议论文、说明文、创意写作等多种文体，测评原因如下：</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>衡量模型的语言组织与风格掌控：写作能力体现了模型对篇章结构、逻辑衔接、修辞手法的综合运用水平。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>评估可读性与吸引力：高质量文本不仅要内容正确，还要易读、有说服力，符合目标读者的审美与需求。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>应用于内容创作场景：新闻撰写、营销文案、学术论文初稿等领域，对写作质量要求极高。</p>
+</blockquote>
+</blockquote>
+<p><img src="https://s2.loli.net/2025/08/10/dD3RzYf8IOSXaFT.png" alt="d72d7900ce68c753559440683f6bf76.png"></p>
+<h4 id="复杂问题解答"><a href="#复杂问题解答" class="headerlink" title="### 复杂问题解答"></a>### 复杂问题解答</h4><blockquote>
+<p>重点在于多步骤推理、跨领域知识融合以及解决开放性问题，测评意义包括：</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>验证模型的综合推理与决策能力：面对非结构化问题，需要模型检索、筛选并组合多种知识。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>揭示弱项与知识空洞：通过开放问题反馈，研发者能够识别并补齐知识盲区。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>支持高级应用场景：法律咨询、战略规划、科研假设验证等场景都依赖于模型的复杂问题解答能力。</p>
+</blockquote>
+</blockquote>
+<p><img src="https://s2.loli.net/2025/08/10/EroxLYDdj1p4IyX.png" alt="890927ea33857a27dd05c8d9a0c1a6a.png"></p>
+<h4 id="复杂问题解答（英文语境）"><a href="#复杂问题解答（英文语境）" class="headerlink" title="### 复杂问题解答（英文语境）"></a>### 复杂问题解答（英文语境）</h4><blockquote>
+<p>尽管与前一项类似，但在英语语境下测试，目的是：</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>消除语言迁移偏差：模型在多语言训练后，往往在非母语环境下表现略逊，需专门测评。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>确保跨语言一致性：在国际化部署时，模型应在英文环境下提供与母语相当的推理深度与表达准确性。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>检测文化与语境理解：很多开放性问题涉及西方文化、法律体系、习俗背景，仅在中文环境中难以发现偏差。</p>
+</blockquote>
+</blockquote>
+<p><img src="https://s2.loli.net/2025/08/10/QOYjcoXq4AbLefp.png" alt="158cfb4d01654cbfeebb2517f285864.png"></p>
+<h4 id="中文能力-本土化"><a href="#中文能力-本土化" class="headerlink" title="### 中文能力(本土化)"></a>### 中文能力(本土化)</h4><blockquote>
+<p>包括词汇量、语法理解、成语典故、文言文等评测，原因在于：</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>满足中文母语用户需求：中文表达习惯、文化底蕴与英文有本质差异，需专门测试。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>避免翻译腔与语义误解：直接生成中文文本比翻译更自然流畅，降低歧义。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>支持本土化应用：在中国市场的智能客服、教育辅导、内容创作等场景，中文能力是核心竞争力。</p>
+</blockquote>
+</blockquote>
+<p><img src="https://s2.loli.net/2025/08/10/i1gZmYohd5LzcGe.png" alt="debec678626c6ae75a11b76820f57ae.png"></p>
+<hr>
+<h3 id="选型推荐"><a href="#选型推荐" class="headerlink" title="选型推荐"></a>选型推荐</h3><p><strong>对Ai了解不多且无任何了解欲望：</strong></p>
+<ul>
+<li><p>国产：<code>Qwen3</code>,                       <a target="_blank" rel="noopener" href="https://chat.qwen.ai/">Qwen3</a>(非<code>通义千问</code>)</p>
+</li>
+<li><p>国外：<code>ChatGPT</code></p>
+</li>
+</ul>
+<p><strong>有能力使用海外服务但需求不明确且没了解欲望：</strong></p>
+<ul>
+<li><p>ChatGPT</p>
+</li>
+<li><p>Gemini</p>
+</li>
+<li><p>Qwen</p>
+</li>
+</ul>
+<p><strong>可以自由使用海外服务且需求复杂：</strong></p>
+<ul>
+<li>文字撰写：**<code>ChatGPT</code> &gt; <code>Grok</code> &gt; <code>Gemini</code>**</li>
+<li>代码编写：<code>Claude</code> &gt; <code>ChatGPT</code> &gt; <code>Gemini</code></li>
+<li>数学及推理：<code>Gemini</code> &gt; <code>Qwen3</code></li>
+<li>中文可选：<code>ChatGTP</code> &gt; <code>Qwen3</code> &gt; <code>Grok</code></li>
+<li>实时网络信息获取：<code>Grok</code> &gt;<code> Gemini</code></li>
+</ul>
+<hr>
+<p>在此我们将要特殊说明<code>Perplexity</code>的不同，<code>Perplexity</code>是一个集成多模型性的服务，完全可以根据需求实时选择既有模型及服务：</p>
+<img src="https://s2.loli.net/2025/08/10/DpnaYlU14N2o6Xm.png" alt="image.png" style="zoom:50%;" />
+
+<p>Perplexity为集成服务，各位用户在使用时可参考上面的推荐选择合适的模型，或者是选择默认的模型，Perplexity将会根据你的问题难度自动选择合适的Ai模型。需要进行深度思考时你可以在提示词中提出，直接告知本轮对话需要进行深度思考，随后便会自动调用思考模型。</p>
+<hr>
+<p>各家模型可能存在的问题：</p>
+<ul>
+<li><p><code>ChatGPT</code>在多轮对话后有降智的表现，有时候会难以联系上下文。</p>
+</li>
+<li><p><code>Perplexity</code>也会出现与GPT类似的问题，可能与调用的模型有关，适时观察并切换。</p>
+</li>
+<li><p><code>Gemini</code>的线性代数和高等数学的数学公式会有渲染问题（仅仅是<code>Flash模型</code>，<code>Pro模型</code>不会有这种问题）。</p>
+</li>
+<li><p><code>Qwen3</code>有较多的关键词检测，好的提示词可以一定程度上绕过检测，但依旧有风险系数较高的提示词（比如政治人物的名字和历史事件），此外<code>Qwen3</code>的OCR识图能力稍弱，发送图片时尽量保证图片清晰没有变形。</p>
+</li>
+<li><p><code>Claude</code>只建议用于代码编写以及深入研究某课题时使用，其基础能力较差，但是写作能力也是可以的</p>
+</li>
+</ul>
+<hr>
+<p>每个人的做事和问答习惯均不同，具体的使用效果请参考实际，本文仅提供个人见解，不对任何使用问题负责人。请各位读者能在选择中融入自己的见解。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2025/08/09/%E6%96%B0%E4%B8%AD%E5%BC%8F%E7%90%86%E6%83%B3%E5%9B%BD/" rel="prev" title="新中式理想国">
+      <i class="fa fa-chevron-left"></i> 新中式理想国
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%BC%E5%90%88%E6%8E%92%E5%90%8D"><span class="nav-number">1.</span> <span class="nav-text">### 综合排名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95%E9%A1%B9%E6%8E%92%E5%90%8D"><span class="nav-number">2.</span> <span class="nav-text">单项排名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E5%AD%A6"><span class="nav-number">3.</span> <span class="nav-text">### 数学</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">3.1.</span> <span class="nav-text">### 代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8C%87%E4%BB%A4%E9%81%B5%E5%AE%88"><span class="nav-number">3.2.</span> <span class="nav-text">### 指令遵守</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%9A%E8%BD%AE%E5%AF%B9%E8%AF%9D"><span class="nav-number">3.3.</span> <span class="nav-text">### 多轮对话</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%87%E5%AD%97%E4%B9%A6%E5%86%99"><span class="nav-number">3.4.</span> <span class="nav-text">### 文字书写</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%8D%E6%9D%82%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94"><span class="nav-number">3.5.</span> <span class="nav-text">### 复杂问题解答</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%8D%E6%9D%82%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94%EF%BC%88%E8%8B%B1%E6%96%87%E8%AF%AD%E5%A2%83%EF%BC%89"><span class="nav-number">3.6.</span> <span class="nav-text">### 复杂问题解答（英文语境）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%AD%E6%96%87%E8%83%BD%E5%8A%9B-%E6%9C%AC%E5%9C%9F%E5%8C%96"><span class="nav-number">3.7.</span> <span class="nav-text">### 中文能力(本土化)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%89%E5%9E%8B%E6%8E%A8%E8%8D%90"><span class="nav-number">4.</span> <span class="nav-text">选型推荐</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Shangjhih Jhao"
+      src="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
+  <p class="site-author-name" itemprop="name">Shangjhih Jhao</p>
+  <div class="site-description" itemprop="description">该博客在作者读大学本科期间创建，通过Hexo搭建，部署于Github Action。博客建立之初是为了防止作者遗忘已经学过的东西，将一些可以被记录的东西写下来一定程度上会减少遗忘。因为本科考研失败 ，在进行二战，目前并不会经常更新。</div>
+</div>
+
+
+<div class="spotify-player-independent motion-element">
+  <div class="spotify-player-header">
+    <i class="fab fa-spotify"></i>
+    <span>音乐推荐</span>
+  </div>
+  <div class="spotify-player-content">
+    <iframe style="border-radius:8px" 
+            src="https://open.spotify.com/embed/track/65v882Kg1Qc8dBtf1qJHj3?utm_source=generator" 
+            width="100%" 
+            height="152" 
+            frameBorder="0" 
+            allowfullscreen="" 
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+            loading="lazy">
+    </iframe>
+  </div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">82</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">67</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shangjhih Jhao</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">152k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">4:13</span>
+</div>
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("09/29/2024 11:04:00"); //此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已建立 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒.";
+    }
+setInterval("createtime()",250);
+</script>
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
