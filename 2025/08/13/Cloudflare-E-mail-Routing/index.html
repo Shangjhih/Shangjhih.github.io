@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"lvshuqi.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":330,"display":"hide","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null,"line_number":false},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":0},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="What is email routing?Email routing is the process of ensuring that the right messages get to the right recipients. It allows users to send different types of emails to separate accounts based on crit">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cloudflare E-mail Routing">
+<meta property="og:url" content="https://lvshuqi.top/2025/08/13/Cloudflare-E-mail-Routing/index.html">
+<meta property="og:site_name" content="就这样&amp;巴">
+<meta property="og:description" content="What is email routing?Email routing is the process of ensuring that the right messages get to the right recipients. It allows users to send different types of emails to separate accounts based on crit">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2025/08/13/wy7KWAIMR5Brfj9.png">
+<meta property="og:image" content="https://s2.loli.net/2025/08/13/lrMADvBKsS32Ojd.png">
+<meta property="og:image" content="https://s2.loli.net/2025/08/13/G6ecMyBRgrmhljX.png">
+<meta property="og:image" content="https://s2.loli.net/2025/08/13/c1lWy2QpGX39dLk.png">
+<meta property="article:published_time" content="2025-08-13T07:13:25.000Z">
+<meta property="article:modified_time" content="2025-08-13T07:52:59.220Z">
+<meta property="article:author" content="Shangjhih Jhao">
+<meta property="article:tag" content="cloudflare">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2025/08/13/wy7KWAIMR5Brfj9.png">
+
+<link rel="canonical" href="https://lvshuqi.top/2025/08/13/Cloudflare-E-mail-Routing/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Cloudflare E-mail Routing | 就这样&巴</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">就这样&巴</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">个人网志</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/08/13/Cloudflare-E-mail-Routing/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
+      <meta itemprop="name" content="Shangjhih Jhao">
+      <meta itemprop="description" content="该博客在作者读大学本科期间创建，通过Hexo搭建，部署于Github Action。博客建立之初是为了防止作者遗忘已经学过的东西，将一些可以被记录的东西写下来一定程度上会减少遗忘。因为本科考研失败 ，在进行二战，目前并不会经常更新。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="就这样&巴">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Cloudflare E-mail Routing
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-08-13 15:13:25 / 修改时间：15:52:59" itemprop="dateCreated datePublished" datetime="2025-08-13T15:13:25+08:00">2025-08-13</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/cloudflare/" itemprop="url" rel="index"><span itemprop="name">cloudflare</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>6 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h4 id="What-is-email-routing"><a href="#What-is-email-routing" class="headerlink" title="What is email routing?"></a>What is email routing?</h4><p>Email routing is the process of ensuring that the right messages get to the right recipients. It allows users to send different types of emails to separate accounts based on criteria such as the recipient’s address or department.</p>
+<h4 id="How-does-email-routing-work"><a href="#How-does-email-routing-work" class="headerlink" title="How does email routing work?"></a>How does email routing work?</h4><p>Email routing is a process that helps send email messages from one inbox to another. Email essentially operates like a digital post office — he sender mails a letter, it goes into a series of trucks, and then arrives at the recipient’s mailbox. In a real-world postal context, individuals and businesses can set up various guidelines to determine which letters are routed or redirected to which people. Email routing works in the same way.</p>
+<p>The first element of email routing is the relationship between the sender and the recipient. Sender-based routing assigns an email address to individual user accounts, and emails sent from within that account are routed accordingly. This type of system is usually used when one department within an organization uses its own domain (for example, @SalesTeam-CompanyName.com) for sending internal messages, but other departments (such as @companyname.com) use their company’s primary domain name.</p>
+<p>Meanwhile, receiver-based routing relies on filters to determine which addresses should receive which type of message based on certain criteria (such as contact information). When a message is received by a filter server, it compares the sender’s IP address with the list of known recipients stored in memory or in a database. If it matches someone who should receive that kind of message, then the message is filtered and forwarded to them.</p>
+<p>The second element of email routing is the pathway an email may take. Email routing can use inline, deferred, or transport-level forwarding pathways. Inline routing ties together individual mailboxes within a domain into an “inline flow.” An “inline flow” is the system that touches that email from the sender to the recipient. Deferred routing sends all incoming messages directly to a mailbox specified by the sender or contact, bypassing any other mailboxes in between and transport-level forwarding routes all emails sent through a specific transport server instead of going out through the general delivery system on the network.</p>
+<p>How to set up E-mail Routing on Cloudflare</p>
+<h4 id="step1-Domain"><a href="#step1-Domain" class="headerlink" title="step1: Domain"></a>step1: Domain</h4><p>You should buy a domain (which can be resolved by Cloudflare) and add it to your Cloudfalre account like picture below :<br><img src="https://s2.loli.net/2025/08/13/wy7KWAIMR5Brfj9.png" alt="image.png"></p>
+<p>before adding your domain here ,you should purchase a domain from domain name register. for me ,i choosed <code>nameesilo</code> as my dimain name register ,beacuse it is cheap.also you can buy from another ,if you have any choise , be your mind .</p>
+<h4 id="srep2-DNS-server-name-change"><a href="#srep2-DNS-server-name-change" class="headerlink" title="srep2 DNS server name change"></a>srep2 DNS server name change</h4><h2 id="after-adding-your-purchased-domain-name-to-cloudflare-it-will-detect-your-current-dimain-name-server-and-remaind-to-change-it-to-CF-name-server-name-like"><a href="#after-adding-your-purchased-domain-name-to-cloudflare-it-will-detect-your-current-dimain-name-server-and-remaind-to-change-it-to-CF-name-server-name-like" class="headerlink" title="after adding your purchased domain name to cloudflare , it will detect your current dimain name server and remaind to change it to CF name server name like :"></a>after adding your purchased domain name to cloudflare , it will detect your current dimain name server and remaind to change it to CF name server name like :<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">aaden.ns.cloudflare.com	</span><br><span class="line">dayana.ns.cloudflare.com</span><br><span class="line">kareem.ns.cloudflare.com</span><br><span class="line">paris.ns.cloudflare.com</span><br><span class="line">aarav.ns.cloudflare.com</span><br><span class="line">dean.ns.cloudflare.com</span><br><span class="line">karina.ns.cloudflare.com</span><br><span class="line">pat.ns.cloudflare.com</span><br><span class="line">aaron.ns.cloudflare.com</span><br></pre></td></tr></table></figure></h2><p>after change your name server on your domain purchase platform , your domain should be active on Cloudflare.and you can now setup your email routing.<br><img src="https://s2.loli.net/2025/08/13/lrMADvBKsS32Ojd.png" alt="image.png"></p>
+<h4 id="step3-setup-domain-routing"><a href="#step3-setup-domain-routing" class="headerlink" title="step3 setup domain routing"></a>step3 setup domain routing</h4><p>back up to your CF homepage ,click your registed domain on the left .you will be in the domain manage page<br><img src="https://s2.loli.net/2025/08/13/G6ecMyBRgrmhljX.png" alt="image.png"></p>
+<p>in the left function list ,you should select and click <code>e-mail routing</code>  buton ,it will direct to setting page<br>you can see an <code>add</code> buton on the right.clicl it and follow the prompts to add your new email routing rules.</p>
+<p><img src="https://s2.loli.net/2025/08/13/c1lWy2QpGX39dLk.png" alt="image.png"></p>
+<p><code>custom address</code> that is your custom information , you can fill it with any alphabet and mix with number or mixed . The follwing is your first-level donmain name which i sthe domain name you purchased .</p>
+<p><code>Destination</code> you should fill it with your normal useing e-mail like Gmail or outlook mail address.</p>
+<p>fill all information and click save.</p>
+<p><strong>it may prompt you the process is not finished , you should turn the prompted block on .</strong></p>
+<p>it may prompt you to verify your email address before the changes take effect. open your vertified mail and check out your inbox ,you will find a email sent by Cloudflare ,click it and follow the prompts to complete the verification process.</p>
+<p>that’s it!</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/cloudflare/" rel="tag"># cloudflare</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2025/08/10/%E5%AE%8C%E7%BE%8E%E4%B8%96%E7%95%8C/" rel="prev" title="完美世界">
+      <i class="fa fa-chevron-left"></i> 完美世界
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#What-is-email-routing"><span class="nav-number">1.</span> <span class="nav-text">What is email routing?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#How-does-email-routing-work"><span class="nav-number">2.</span> <span class="nav-text">How does email routing work?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#step1-Domain"><span class="nav-number">3.</span> <span class="nav-text">step1: Domain</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#srep2-DNS-server-name-change"><span class="nav-number">4.</span> <span class="nav-text">srep2 DNS server name change</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#after-adding-your-purchased-domain-name-to-cloudflare-it-will-detect-your-current-dimain-name-server-and-remaind-to-change-it-to-CF-name-server-name-like"><span class="nav-number"></span> <span class="nav-text">after adding your purchased domain name to cloudflare , it will detect your current dimain name server and remaind to change it to CF name server name like :123456789aaden.ns.cloudflare.com	dayana.ns.cloudflare.comkareem.ns.cloudflare.comparis.ns.cloudflare.comaarav.ns.cloudflare.comdean.ns.cloudflare.comkarina.ns.cloudflare.compat.ns.cloudflare.comaaron.ns.cloudflare.com</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#step3-setup-domain-routing"><span class="nav-number">1.</span> <span class="nav-text">step3 setup domain routing</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Shangjhih Jhao"
+      src="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
+  <p class="site-author-name" itemprop="name">Shangjhih Jhao</p>
+  <div class="site-description" itemprop="description">该博客在作者读大学本科期间创建，通过Hexo搭建，部署于Github Action。博客建立之初是为了防止作者遗忘已经学过的东西，将一些可以被记录的东西写下来一定程度上会减少遗忘。因为本科考研失败 ，在进行二战，目前并不会经常更新。</div>
+</div>
+
+
+<div class="spotify-player-independent motion-element">
+  <div class="spotify-player-header">
+    <i class="fab fa-spotify"></i>
+    <span>音乐推荐</span>
+  </div>
+  <div class="spotify-player-content">
+    <iframe style="border-radius:8px" 
+            src="https://open.spotify.com/embed/track/65v882Kg1Qc8dBtf1qJHj3?utm_source=generator" 
+            width="100%" 
+            height="152" 
+            frameBorder="0" 
+            allowfullscreen="" 
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+            loading="lazy">
+    </iframe>
+  </div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">42</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">83</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">68</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shangjhih Jhao</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">169k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">4:42</span>
+</div>
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("09/29/2024 11:04:00"); //此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已建立 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒.";
+    }
+setInterval("createtime()",250);
+</script>
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
