@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"lvshuqi.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":330,"display":"hide","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null,"line_number":false},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":0},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="预定制的Windows系统？什么是预定制？和Windows操作系统又有什么关系？  首先要明确的是，预定制Windows完全基于官方的系统，官方系统的来源无非就是购买设备时已经灌装的OEM系统，也就是商家预置的系统，另一种是你自己使用PE或微软官方提供的iSO镜像自行安装的系统。  OEM和微软官方系统有什么区别？  OEM:各家电脑品牌方都会购买Windows的授权并基于其硬件对微软官方的系">
+  <meta name="description" content="前情提要本内容主要涉及AME Wizard软件的下载和Playbook配置文件的下载,以及文件下载后的使用方法。核心在于Playbook文件的选择（下载链接已经贴出）和配置文件的修改项目选择。   预定制的Windows系统？什么是预定制？和Windows操作系统又有什么关系？  首先要明确的是，预定制Windows完全基于官方的系统，官方系统的来源无非就是购买设备时已经灌装的OEM系统，也就">
 <meta property="og:type" content="article">
 <meta property="og:title" content="预定制Windows系统-AME wizard&amp;Playbook">
 <meta property="og:url" content="https://lvshuqi.top/2025/08/14/%E9%A2%84%E5%AE%9A%E5%88%B6Windows%E7%B3%BB%E7%BB%9F-Playbook/index.html">
 <meta property="og:site_name" content="就这样&amp;巴">
-<meta property="og:description" content="预定制的Windows系统？什么是预定制？和Windows操作系统又有什么关系？  首先要明确的是，预定制Windows完全基于官方的系统，官方系统的来源无非就是购买设备时已经灌装的OEM系统，也就是商家预置的系统，另一种是你自己使用PE或微软官方提供的iSO镜像自行安装的系统。  OEM和微软官方系统有什么区别？  OEM:各家电脑品牌方都会购买Windows的授权并基于其硬件对微软官方的系">
+<meta property="og:description" content="前情提要本内容主要涉及AME Wizard软件的下载和Playbook配置文件的下载,以及文件下载后的使用方法。核心在于Playbook文件的选择（下载链接已经贴出）和配置文件的修改项目选择。   预定制的Windows系统？什么是预定制？和Windows操作系统又有什么关系？  首先要明确的是，预定制Windows完全基于官方的系统，官方系统的来源无非就是购买设备时已经灌装的OEM系统，也就">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s2.loli.net/2025/08/14/WxTfqbSjBmicyGO.png">
 <meta property="og:image" content="https://s2.loli.net/2025/08/14/yoZz9RDJqVBOvuc.png">
@@ -45,7 +45,7 @@
 <meta property="og:image" content="https://s2.loli.net/2025/08/14/bpmL5BlGThUfEPw.png">
 <meta property="og:image" content="https://s2.loli.net/2025/08/14/pINgoORy92swAGu.jpg">
 <meta property="article:published_time" content="2025-08-14T04:24:57.000Z">
-<meta property="article:modified_time" content="2025-08-14T07:26:20.455Z">
+<meta property="article:modified_time" content="2025-08-14T07:32:18.390Z">
 <meta property="article:author" content="Shangjhih Jhao">
 <meta property="article:tag" content="Windows">
 <meta property="article:tag" content="playbook">
@@ -210,7 +210,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2025-08-14 12:24:57 / 修改时间：15:26:20" itemprop="dateCreated datePublished" datetime="2025-08-14T12:24:57+08:00">2025-08-14</time>
+              <time title="创建时间：2025-08-14 12:24:57 / 修改时间：15:32:18" itemprop="dateCreated datePublished" datetime="2025-08-14T12:24:57+08:00">2025-08-14</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -232,14 +232,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.3k</span>
+              <span>3.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>5 分钟</span>
+              <span>6 分钟</span>
             </span>
 
         </div>
@@ -252,6 +252,9 @@
 
       
         <br>
+
+<h1 id="前情提要"><a href="#前情提要" class="headerlink" title="前情提要"></a>前情提要</h1><p>本内容主要涉及<code>AME Wizard</code>软件的下载和<code>Playbook</code>配置文件的下载,以及文件下载后的使用方法。<br>核心在于Playbook文件的选择（下载链接已经贴出）和配置文件的修改项目选择。</p>
+<br>
 
 <p>预定制的Windows系统？什么是预定制？和Windows操作系统又有什么关系？</p>
 <blockquote>
@@ -559,7 +562,7 @@ Warning!!! 通过本文件执行的所有操作都是不可逆的，如不确定
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">功能介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E8%BF%98%E5%8E%9F%E7%82%B9"><span class="nav-number">1.1.</span> <span class="nav-text">创建还原点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E5%BF%85%E9%A1%BB%E7%9A%84%E6%96%87%E4%BB%B6"><span class="nav-number">1.1.1.</span> <span class="nav-text">准备必须的文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%84%E7%89%88%E6%9C%AC%E5%8C%BA%E5%88%AB"><span class="nav-number">1.1.2.</span> <span class="nav-text">各版本区别</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Revi-OS"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">Revi OS :</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Atlas-OS"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">Atlas OS:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AME-Official"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">AME Official:</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD%EF%BC%9A"><span class="nav-number">2.</span> <span class="nav-text">软件下载：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Playbook%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD"><span class="nav-number">3.</span> <span class="nav-text">Playbook配置文件下载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E6%B5%81%E7%A8%8B"><span class="nav-number">4.</span> <span class="nav-text">安装流程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%93%E5%BC%80%E4%B8%8B%E8%BD%BD%E5%A5%BD%E7%9A%84AME-Wizard"><span class="nav-number">4.1.</span> <span class="nav-text">打开下载好的AME Wizard</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B9%E6%8D%AE%E6%8F%90%E7%A4%BA%E5%85%B3%E9%97%AD%E6%89%80%E6%9C%89%E7%9A%84Windows-Defender%E9%98%B2%E6%8A%A4"><span class="nav-number">4.2.</span> <span class="nav-text">根据提示关闭所有的Windows Defender防护</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD%E9%80%89%E6%8B%A9"><span class="nav-number">4.3.</span> <span class="nav-text">功能选择</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%9B%BF%E6%8D%A2"><span class="nav-number">4.3.1.</span> <span class="nav-text">浏览器替换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Defender%E7%A7%BB%E9%99%A4"><span class="nav-number">4.3.2.</span> <span class="nav-text">Defender移除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD%E7%A7%BB%E9%99%A4"><span class="nav-number">4.3.3.</span> <span class="nav-text">功能移除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UWP%E8%BD%AF%E4%BB%B6%E7%A7%BB%E9%99%A4"><span class="nav-number">4.3.4.</span> <span class="nav-text">UWP软件移除</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E8%A7%84%E4%BF%AE%E6%94%B9"><span class="nav-number">4.4.</span> <span class="nav-text">常规修改</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AD%89%E5%BE%85%E9%87%8D%E5%90%AF"><span class="nav-number">5.</span> <span class="nav-text">等待重启</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E6%83%85%E6%8F%90%E8%A6%81"><span class="nav-number">1.</span> <span class="nav-text">前情提要</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D"><span class="nav-number">2.</span> <span class="nav-text">功能介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E8%BF%98%E5%8E%9F%E7%82%B9"><span class="nav-number">2.1.</span> <span class="nav-text">创建还原点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E5%BF%85%E9%A1%BB%E7%9A%84%E6%96%87%E4%BB%B6"><span class="nav-number">2.1.1.</span> <span class="nav-text">准备必须的文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%84%E7%89%88%E6%9C%AC%E5%8C%BA%E5%88%AB"><span class="nav-number">2.1.2.</span> <span class="nav-text">各版本区别</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Revi-OS"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">Revi OS :</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Atlas-OS"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">Atlas OS:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AME-Official"><span class="nav-number">2.1.2.3.</span> <span class="nav-text">AME Official:</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD%EF%BC%9A"><span class="nav-number">3.</span> <span class="nav-text">软件下载：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Playbook%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD"><span class="nav-number">4.</span> <span class="nav-text">Playbook配置文件下载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E6%B5%81%E7%A8%8B"><span class="nav-number">5.</span> <span class="nav-text">安装流程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%93%E5%BC%80%E4%B8%8B%E8%BD%BD%E5%A5%BD%E7%9A%84AME-Wizard"><span class="nav-number">5.1.</span> <span class="nav-text">打开下载好的AME Wizard</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B9%E6%8D%AE%E6%8F%90%E7%A4%BA%E5%85%B3%E9%97%AD%E6%89%80%E6%9C%89%E7%9A%84Windows-Defender%E9%98%B2%E6%8A%A4"><span class="nav-number">5.2.</span> <span class="nav-text">根据提示关闭所有的Windows Defender防护</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD%E9%80%89%E6%8B%A9"><span class="nav-number">5.3.</span> <span class="nav-text">功能选择</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%9B%BF%E6%8D%A2"><span class="nav-number">5.3.1.</span> <span class="nav-text">浏览器替换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Defender%E7%A7%BB%E9%99%A4"><span class="nav-number">5.3.2.</span> <span class="nav-text">Defender移除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD%E7%A7%BB%E9%99%A4"><span class="nav-number">5.3.3.</span> <span class="nav-text">功能移除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UWP%E8%BD%AF%E4%BB%B6%E7%A7%BB%E9%99%A4"><span class="nav-number">5.3.4.</span> <span class="nav-text">UWP软件移除</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E8%A7%84%E4%BF%AE%E6%94%B9"><span class="nav-number">5.4.</span> <span class="nav-text">常规修改</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AD%89%E5%BE%85%E9%87%8D%E5%90%AF"><span class="nav-number">6.</span> <span class="nav-text">等待重启</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
