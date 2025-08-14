@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"lvshuqi.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":330,"display":"hide","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null,"line_number":false},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":0},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="预定制的Windows系统？什么是预定制？和Windows操作系统又有什么关系？  首先要明确的是，预定制Windows完全基于官方的系统，官方系统的来源无非就是购买设备时已经灌装的OEM系统，也就是商家预置的系统，另一种是你自己使用PE或微软官方提供的iSO镜像自行安装的系统。  OEM和微软官方系统有什么区别？  OEM:各家电脑品牌方都会购买Windows的授权并基于其硬件对微软官方的系">
+<meta property="og:type" content="article">
+<meta property="og:title" content="预定制Windows系统-Playbook">
+<meta property="og:url" content="https://lvshuqi.top/2025/08/14/%E9%A2%84%E5%AE%9A%E5%88%B6Windows%E7%B3%BB%E7%BB%9F-Playbook/index.html">
+<meta property="og:site_name" content="就这样&amp;巴">
+<meta property="og:description" content="预定制的Windows系统？什么是预定制？和Windows操作系统又有什么关系？  首先要明确的是，预定制Windows完全基于官方的系统，官方系统的来源无非就是购买设备时已经灌装的OEM系统，也就是商家预置的系统，另一种是你自己使用PE或微软官方提供的iSO镜像自行安装的系统。  OEM和微软官方系统有什么区别？  OEM:各家电脑品牌方都会购买Windows的授权并基于其硬件对微软官方的系">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2025/08/14/WxTfqbSjBmicyGO.png">
+<meta property="og:image" content="https://s2.loli.net/2025/08/14/yoZz9RDJqVBOvuc.png">
+<meta property="og:image" content="https://s2.loli.net/2025/08/14/xc4CXarTG9iWkE1.png">
+<meta property="og:image" content="https://s2.loli.net/2025/08/14/32whelaXNoMsmzn.png">
+<meta property="og:image" content="https://s2.loli.net/2025/08/14/tHcFR7AZTX93s4P.png">
+<meta property="og:image" content="https://s2.loli.net/2025/08/14/bZ4TamwA8vM7cgx.png">
+<meta property="og:image" content="https://s2.loli.net/2025/08/14/qLTKYgOWUyES8hp.png">
+<meta property="og:image" content="https://s2.loli.net/2025/08/14/URMaY6olAKpvCSu.png">
+<meta property="og:image" content="https://s2.loli.net/2025/08/14/or3fGPm2YZRpd4a.png">
+<meta property="og:image" content="https://s2.loli.net/2025/08/14/sIeE5qdZFgf4nuW.png">
+<meta property="og:image" content="https://s2.loli.net/2025/08/14/mJ2VSzkr6QyNpos.png">
+<meta property="og:image" content="https://s2.loli.net/2025/08/14/N9R6XqhzEDmIvpO.png">
+<meta property="og:image" content="https://s2.loli.net/2025/08/14/MTApnaHCQqXzo3s.png">
+<meta property="og:image" content="https://s2.loli.net/2025/08/14/rKedgnYDaOSAF7M.png">
+<meta property="og:image" content="https://s2.loli.net/2025/08/14/ctYQA7rkjwmXVJs.png">
+<meta property="og:image" content="https://s2.loli.net/2025/08/14/bpmL5BlGThUfEPw.png">
+<meta property="og:image" content="https://s2.loli.net/2025/08/14/pINgoORy92swAGu.jpg">
+<meta property="article:published_time" content="2025-08-14T04:24:57.000Z">
+<meta property="article:modified_time" content="2025-08-14T06:20:42.652Z">
+<meta property="article:author" content="Shangjhih Jhao">
+<meta property="article:tag" content="Windows">
+<meta property="article:tag" content="playbook">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2025/08/14/WxTfqbSjBmicyGO.png">
+
+<link rel="canonical" href="https://lvshuqi.top/2025/08/14/%E9%A2%84%E5%AE%9A%E5%88%B6Windows%E7%B3%BB%E7%BB%9F-Playbook/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>预定制Windows系统-Playbook | 就这样&巴</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">就这样&巴</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">个人网志</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/08/14/%E9%A2%84%E5%AE%9A%E5%88%B6Windows%E7%B3%BB%E7%BB%9F-Playbook/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
+      <meta itemprop="name" content="Shangjhih Jhao">
+      <meta itemprop="description" content="该博客在作者读大学本科期间创建，通过Hexo搭建，部署于Github Action。博客建立之初是为了防止作者遗忘已经学过的东西，将一些可以被记录的东西写下来一定程度上会减少遗忘。因为本科考研失败 ，在进行二战，目前并不会经常更新。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="就这样&巴">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          预定制Windows系统-Playbook
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-08-14 12:24:57 / 修改时间：14:20:42" itemprop="dateCreated datePublished" datetime="2025-08-14T12:24:57+08:00">2025-08-14</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Windows/" itemprop="url" rel="index"><span itemprop="name">Windows</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Windows/playbook/" itemprop="url" rel="index"><span itemprop="name">playbook</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <br>
+
+<p>预定制的Windows系统？什么是预定制？和Windows操作系统又有什么关系？</p>
+<blockquote>
+<p>首先要明确的是，预定制Windows完全基于官方的系统，官方系统的来源无非就是购买设备时已经灌装的OEM系统，也就是商家预置的系统，另一种是你自己使用PE或微软官方提供的iSO镜像自行安装的系统。</p>
+</blockquote>
+<p>OEM和微软官方系统有什么区别？</p>
+<blockquote>
+<p>OEM:各家电脑品牌方都会购买Windows的授权并基于其硬件对微软官方的系统进小规模或大规模的修改，以满足自己的硬件或品牌需求。比如联想电脑会在OEM预装的系统中安<code>装联想电脑管家</code>以及各种控制中心。</p>
+<p>微软官方：由微软官方提供的操作系统镜像，是最基础的Windows版本，没有任何第三方的软件按与定制文件。</p>
+</blockquote>
+<p>什么是Playbook？</p>
+<blockquote>
+<p>Playbook 是一个包含一系列系统修改的小文件。此 Playbook 中的更改由开源<a target="_blank" rel="noopener" href="https://ameliorated.io/">AME Wizard</a>应用，该工具可以修改<strong>正在运行的 Windows 系统</strong>。这允许您将当前安装<strong>转换</strong>为 ReviOS，而无需删除系统并重新安装。</p>
+<p>与之前的 ISO 版本一样，ReviOS Playbook 删除了过多的软件和不必要的系统组件，提升了隐私保护和系统性能，同时保持了兼容性。完整的更新列表可<a target="_blank" rel="noopener" href="https://revi.cc/docs/faq/before/features">在此处</a>查看。</p>
+<p>Playbook 兼容 Windows 10 版本<code>21H2 (19044)</code>和<code>22H2 (19045)</code>（仅限 X64）以及 Windows 11 版本<code>23H2 (22631)</code>和<code>24H2 (26100)</code>（X64 和 ARM64）。</p>
+<p>这涵盖标准 Windows 10、11 和 LTSC。它也适用于任何 Windows 版本，这意味着无论哪个版本，您都可以使用现有的 Windows 许可证密钥。</p>
+<p>Playbook 通常与<strong>Windows 版本无关</strong>，这意味着 Playbook 可以在任何受支持的 Windows 版本上运行（<a target="_blank" rel="noopener" href="https://github.com/meetrevision/playbook#-system-requirements">请参阅此列表</a>）。这意味着您无需担心 Playbook 版本与 Windows 版本的匹配问题。您也不必等待新的 Playbook 版本发布后再<a target="_blank" rel="noopener" href="https://revi.cc/docs/playbook/install#update">更新 Windows 安装</a>。</p>
+<p>根据经验法则，无论您想在哪个 Windows 版本上使用它，都应该始终使用最新的可用 Playbook 版本。</p>
+<p><br><br></p>
+<p><span style="text-align: right">摘自<a target="_blank" rel="noopener" href="https://revi.cc/docs/playbook/general">ReviOS</a></span></p>
+</blockquote>
+<hr>
+<h1 id="功能介绍"><a href="#功能介绍" class="headerlink" title="功能介绍"></a>功能介绍</h1><p>Playbook文件是一个yaml文档，该文档中写的是对Windows系统修改的自定义参数，也就是说这个文件可以定义Windows中的功能，可以添加额外的功能（Windows11右键菜单取消多级列表、禁止自动更新…）以及删减掉不必要的功能（比如微软的遥测功能以及信息收集功能…）,Playbook文件需要搭配执行该配置的软件使用——<a target="_blank" rel="noopener" href="https://ameliorated.io/?ref=kallemarjokorpi.fi#top">AME Wizard</a></p>
+<p>AME Wizard是一个用于修改Windows系统的一个开源工具，该工具可以执行Playbook文件的配置来根据预设的功能来对Windows的功能进行修改。但是有一个前提：</p>
+<p style="color: red; font-weight: bold">
+要将 AME 向导与指定的 Playbook 配合使用，您必须安装该 Playbook 支持的 Windows 版本。目前，AME 11支持所有稳定的 Windows 11 版本，AME 10支持 Windows 10 21H2 和 22H2。
+</p>
+
+<p>在进行安装使用前请检查您的系统版本。如何检查？</p>
+<blockquote>
+<p><code>win+r</code>打开运行框，输入<code>winver</code>回车，检查自己的系统版本是否为以上提到的版本（win11全版本支持，win10仅支持<code>21H2</code>及更新版本）</p>
+</blockquote>
+<p>++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
+<p style="color: red; font-weight: bold; fonnt-size: 26px; text-align: center">
+Warning!!! 通过本文件执行的所有操作都是不可逆的，如不确定是否使用，请预先创建还原点以做后悔药！！！
+</p>
+
+
+
+<p>++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
+<h2 id="创建还原点"><a href="#创建还原点" class="headerlink" title="创建还原点"></a>创建还原点</h2><p>在屏幕的左下角有一个搜索框，在搜索框中输入<code>还原点</code>找到图示程序，打开进入：</p>
+<table>
+<thead>
+<tr>
+<th><img src="https://s2.loli.net/2025/08/14/WxTfqbSjBmicyGO.png" alt="image.png" style="zoom: 50%;" /></th>
+<th><img src="https://s2.loli.net/2025/08/14/yoZz9RDJqVBOvuc.png" alt="image.png" style="zoom: 50%;" /></th>
+</tr>
+</thead>
+</table>
+<hr>
+<h3 id="准备必须的文件"><a href="#准备必须的文件" class="headerlink" title="准备必须的文件"></a>准备必须的文件</h3><h3 id="各版本区别"><a href="#各版本区别" class="headerlink" title="各版本区别"></a>各版本区别</h3><h4 id="Revi-OS"><a href="#Revi-OS" class="headerlink" title="Revi OS :"></a>Revi OS :</h4><blockquote>
+<ul>
+<li><strong>类型</strong>：带预做优化的 Windows ISO（也有 Playbook 格式的配置）</li>
+<li><strong>核心特点</strong>：<ul>
+<li><strong>内置禁用遥测、广告推送、自动更新调度器</strong></li>
+<li><strong>删除部分 UWP 应用，但保留核心功能（微软商店可选）</strong></li>
+<li>调整服务启动类型（多数服务延迟启动，提升空闲性能）</li>
+<li>启用更多高级性能参数（TCP 优化、低延迟模式）</li>
+</ul>
+</li>
+<li><strong>安装后主要变化</strong>：<ul>
+<li>系统占用较低，但比 Atlas 更日常化（注重稳定性）</li>
+<li>更适合长期桌面使用 + 游戏混合</li>
+<li>更新服务可选保留或精简，不像 AME 那么激进</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h4 id="Atlas-OS"><a href="#Atlas-OS" class="headerlink" title="Atlas OS:"></a>Atlas OS:</h4><blockquote>
+<ul>
+<li><strong>类型</strong>：偏向游戏调优的安装后执行脚本（Playbook）</li>
+<li><strong>核心特点</strong>：<ul>
+<li><strong>禁用 Windows Telemetry、广告服务、OneDrive、Xbox Game Bar</strong></li>
+<li>优化 GPU&#x2F;CPU 电源策略，减少 DPC 延迟</li>
+<li><strong>关闭动画、特效以降低输入延迟</strong></li>
+<li>精简后台进程（网络发现、打印服务等）</li>
+</ul>
+</li>
+<li><strong>安装后主要变化</strong>：<ul>
+<li>系统功能较完整（微软商店、部分 UWP 可用）</li>
+<li>明显减少后台 CPU 占用</li>
+<li>游戏响应更快，但日常办公功能保留</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h4 id="AME-Official"><a href="#AME-Official" class="headerlink" title="AME Official:"></a>AME Official:</h4><blockquote>
+<ul>
+<li><strong>类型</strong>：极端去微软化配置 + 安装向导（Playbook 脚本是执行方案的一部分）</li>
+<li><strong>核心特点</strong>：<ul>
+<li><strong>删除 Microsoft Store、Xbox、Cortana、Edge、OneDrive 等所有在线依赖</strong></li>
+<li><strong>阻断 Microsoft 登录体系（只支持本地账户）</strong></li>
+<li><strong>完全关闭 Windows Update（需要手动更新补丁）</strong></li>
+<li>删除遥测、DRM 相关组件，替换部分 DLL 以绕过依赖</li>
+</ul>
+</li>
+<li><strong>安装后主要变化</strong>：<ul>
+<li>系统极度干净、后台进程非常少（免打扰）</li>
+<li><strong>丧失部分 Windows 生态功能（不能直接使用商店 &#x2F; Xbox Game Pass &#x2F; MSA 同步）</strong></li>
+<li>非常适合隐私优先的专用机或嵌入式用途，但不适合普通用户</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p><strong>软件下载：</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://ameliorated.io/?ref=kallemarjokorpi.fi#top">AME Wizard</a></li>
+</ul>
+<p><strong>Playbook配置文件下载</strong></p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://revi.cc/revios/download">Revi OS</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://atlasos.dev/">Atlas OS</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://ameliorated.io/?ref=kallemarjokorpi.fi#top">AME Official</a></p>
+<blockquote>
+<p>AME 11 : for Windows 11</p>
+<p>AME 10 : for Windows 10</p>
+</blockquote>
+</li>
+</ul>
+<p style="color: red; fot-size: 24px; line-height: 2; text-align: center">
+    确定在你已经阅读并知悉以上所有加粗内容之后再选取适合你的配置文件，在此我及不推荐日用电脑安装`AME`和`Atlas OS`,因为新手根本不知道有些功能和配件的丢失意味着什么，<span style="font-weight: bold; font-size: 26px">一切都是无法重来的，除非你按照之前的提示已经创建了还原点!!!</span>
+</p>
+
+
+<hr>
+<table>
+<thead>
+<tr>
+<th><img src="https://s2.loli.net/2025/08/14/xc4CXarTG9iWkE1.png" alt="image.png"></th>
+<th><img src="https://s2.loli.net/2025/08/14/32whelaXNoMsmzn.png" alt="image.png"></th>
+</tr>
+</thead>
+</table>
+<table>
+<thead>
+<tr>
+<th><img src="https://s2.loli.net/2025/08/14/tHcFR7AZTX93s4P.png" alt="image.png"></th>
+<th><img src="https://s2.loli.net/2025/08/14/bZ4TamwA8vM7cgx.png" alt="image.png"></th>
+</tr>
+</thead>
+</table>
+<h1 id="安装流程"><a href="#安装流程" class="headerlink" title="安装流程"></a>安装流程</h1><h2 id="打开下载好的AME-Wizard"><a href="#打开下载好的AME-Wizard" class="headerlink" title="打开下载好的AME Wizard"></a>打开下载好的AME Wizard</h2><img src="https://s2.loli.net/2025/08/14/qLTKYgOWUyES8hp.png" alt="image.png" style="zoom: 67%;" />
+
+
+
+<p>首先需要将你已经下载好的<code>Playbook</code>文件拖进左上角的虚线框中才会出现<code>Revi OS</code>的标志，入上图所示。</p>
+<hr>
+<h2 id="根据提示关闭所有的Windows-Defender防护"><a href="#根据提示关闭所有的Windows-Defender防护" class="headerlink" title="根据提示关闭所有的Windows Defender防护"></a>根据提示关闭所有的<code>Windows Defender</code>防护</h2><img src="https://s2.loli.net/2025/08/14/URMaY6olAKpvCSu.png" alt="image.png" style="zoom: 50%;" />
+
+<h2 id="功能选择"><a href="#功能选择" class="headerlink" title="功能选择"></a>功能选择</h2><h3 id="浏览器替换"><a href="#浏览器替换" class="headerlink" title="浏览器替换"></a>浏览器替换</h3><p>可以选择不替换原有的浏览器</p>
+<img src="https://s2.loli.net/2025/08/14/or3fGPm2YZRpd4a.png" alt="image.png" style="zoom:50%;" />
+
+<h3 id="Defender移除"><a href="#Defender移除" class="headerlink" title="Defender移除"></a>Defender移除</h3><p>这里选择不移除</p>
+<img src="https://s2.loli.net/2025/08/14/sIeE5qdZFgf4nuW.png" alt="image.png" style="zoom:50%;" />
+
+<h3 id="功能移除"><a href="#功能移除" class="headerlink" title="功能移除"></a>功能移除</h3><blockquote>
+<p>1.移除Edge浏览器</p>
+<p>2.移除OneDrive</p>
+<p>3.移除Recall AI (仅在Windows 11有提供)</p>
+</blockquote>
+<p>此处根据自己需要选择，本人建议一个都不要动，你要明白，这里没有后悔药（除非你创建了还原点）</p>
+<img src="https://s2.loli.net/2025/08/14/mJ2VSzkr6QyNpos.png" alt="image.png" style="zoom:50%;" />
+
+
+
+<h3 id="UWP软件移除"><a href="#UWP软件移除" class="headerlink" title="UWP软件移除"></a>UWP软件移除</h3><blockquote>
+<p>1.移除<code>照片</code>程序   （建议保留）</p>
+<p>2.移除<code>Dev home</code>   (推荐移除)</p>
+<p>3.移除<code>Xbox</code>    （建议保留）</p>
+<p>4.移除<code>手机连接</code>  （推荐移除，基本上用不到）</p>
+</blockquote>
+<img src="https://s2.loli.net/2025/08/14/N9R6XqhzEDmIvpO.png" alt="image.png" style="zoom:50%;" />
+
+
+
+<h2 id="常规修改"><a href="#常规修改" class="headerlink" title="常规修改"></a>常规修改</h2><blockquote>
+<p>1.应用<code>Revi OS</code>官方壁纸                                   （随意）</p>
+<p>2.开启暗色模式                                               （随意）</p>
+<p>3.将<code>Windows 11右键菜单</code>修改为<code>Windows 10</code>样式   （后面可再次修改）</p>
+<p>4.启用旧版本的照片查看器                                 （不建议开启）</p>
+</blockquote>
+<img src="https://s2.loli.net/2025/08/14/MTApnaHCQqXzo3s.png" alt="image.png" style="zoom:50%;" />
+
+<blockquote>
+<ol>
+<li>修改资源管理器的图标                （不建议小白开启）</li>
+<li>移除开始菜单的九宫格快捷方式    （不建议移除）</li>
+<li>修复<code>Revi OS </code>设置                      (建议开启)</li>
+<li>关闭<code>Windows自动更新</code>                   （根据个人情况开启）</li>
+</ol>
+</blockquote>
+<img src="https://s2.loli.net/2025/08/14/rKedgnYDaOSAF7M.png" alt="image.png" style="zoom:50%;" />
+
+
+
+
+
+<hr>
+<h1 id="等待重启"><a href="#等待重启" class="headerlink" title="等待重启"></a>等待重启</h1><p><img src="https://s2.loli.net/2025/08/14/ctYQA7rkjwmXVJs.png" alt="bac548e5d59ef14bccbaee66ba88703.png"><br><img src="https://s2.loli.net/2025/08/14/bpmL5BlGThUfEPw.png" alt="3daaa41bdd59d953b152aee6b4f5885.png"><br><img src="https://s2.loli.net/2025/08/14/pINgoORy92swAGu.jpg" alt="deb7a9ac3b2de0bb7a513015258c2f4.jpg"></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Windows/" rel="tag"># Windows</a>
+              <a href="/tags/playbook/" rel="tag"># playbook</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2025/08/13/Cloudflare-E-mail-Routing/" rel="prev" title="Cloudflare E-mail Routing">
+      <i class="fa fa-chevron-left"></i> Cloudflare E-mail Routing
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">功能介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E8%BF%98%E5%8E%9F%E7%82%B9"><span class="nav-number">1.1.</span> <span class="nav-text">创建还原点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E5%BF%85%E9%A1%BB%E7%9A%84%E6%96%87%E4%BB%B6"><span class="nav-number">1.1.1.</span> <span class="nav-text">准备必须的文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%84%E7%89%88%E6%9C%AC%E5%8C%BA%E5%88%AB"><span class="nav-number">1.1.2.</span> <span class="nav-text">各版本区别</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Revi-OS"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">Revi OS :</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Atlas-OS"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">Atlas OS:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AME-Official"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">AME Official:</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E6%B5%81%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">安装流程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%93%E5%BC%80%E4%B8%8B%E8%BD%BD%E5%A5%BD%E7%9A%84AME-Wizard"><span class="nav-number">2.1.</span> <span class="nav-text">打开下载好的AME Wizard</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B9%E6%8D%AE%E6%8F%90%E7%A4%BA%E5%85%B3%E9%97%AD%E6%89%80%E6%9C%89%E7%9A%84Windows-Defender%E9%98%B2%E6%8A%A4"><span class="nav-number">2.2.</span> <span class="nav-text">根据提示关闭所有的Windows Defender防护</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD%E9%80%89%E6%8B%A9"><span class="nav-number">2.3.</span> <span class="nav-text">功能选择</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%9B%BF%E6%8D%A2"><span class="nav-number">2.3.1.</span> <span class="nav-text">浏览器替换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Defender%E7%A7%BB%E9%99%A4"><span class="nav-number">2.3.2.</span> <span class="nav-text">Defender移除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD%E7%A7%BB%E9%99%A4"><span class="nav-number">2.3.3.</span> <span class="nav-text">功能移除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UWP%E8%BD%AF%E4%BB%B6%E7%A7%BB%E9%99%A4"><span class="nav-number">2.3.4.</span> <span class="nav-text">UWP软件移除</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E8%A7%84%E4%BF%AE%E6%94%B9"><span class="nav-number">2.4.</span> <span class="nav-text">常规修改</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AD%89%E5%BE%85%E9%87%8D%E5%90%AF"><span class="nav-number">3.</span> <span class="nav-text">等待重启</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Shangjhih Jhao"
+      src="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
+  <p class="site-author-name" itemprop="name">Shangjhih Jhao</p>
+  <div class="site-description" itemprop="description">该博客在作者读大学本科期间创建，通过Hexo搭建，部署于Github Action。博客建立之初是为了防止作者遗忘已经学过的东西，将一些可以被记录的东西写下来一定程度上会减少遗忘。因为本科考研失败 ，在进行二战，目前并不会经常更新。</div>
+</div>
+
+
+<div class="spotify-player-independent motion-element">
+  <div class="spotify-player-header">
+    <i class="fab fa-spotify"></i>
+    <span>音乐推荐</span>
+  </div>
+  <div class="spotify-player-content">
+    <iframe style="border-radius:8px" 
+            src="https://open.spotify.com/embed/track/65v882Kg1Qc8dBtf1qJHj3?utm_source=generator" 
+            width="100%" 
+            height="152" 
+            frameBorder="0" 
+            allowfullscreen="" 
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+            loading="lazy">
+    </iframe>
+  </div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">43</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">85</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">69</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shangjhih Jhao</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">172k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">4:47</span>
+</div>
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("09/29/2024 11:04:00"); //此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已建立 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒.";
+    }
+setInterval("createtime()",250);
+</script>
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
