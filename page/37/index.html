@@ -169,7 +169,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/02/20/Redmi-Lime%E5%8D%A1%E5%88%B7CrDroid/">
+    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/03/24/KernelSU-%E5%88%B7%E5%85%A5%E6%95%99%E7%A8%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
@@ -183,7 +183,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2025/02/20/Redmi-Lime%E5%8D%A1%E5%88%B7CrDroid/" class="post-title-link" itemprop="url">Redmi Lime卡刷CrDroid</a>
+            <a href="/2025/03/24/KernelSU-%E5%88%B7%E5%85%A5%E6%95%99%E7%A8%8B/" class="post-title-link" itemprop="url">KernelSU 刷入教程</a>
         </h2>
 
         <div class="post-meta">
@@ -193,14 +193,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2025-02-20 18:36:04" itemprop="dateCreated datePublished" datetime="2025-02-20T18:36:04+08:00">2025-02-20</time>
+              <time title="创建时间：2025-03-24 17:12:53" itemprop="dateCreated datePublished" datetime="2025-03-24T17:12:53+08:00">2025-03-24</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-04-12 15:07:51" itemprop="dateModified" datetime="2025-04-12T15:07:51+08:00">2025-04-12</time>
+                <time title="修改时间：2025-04-12 15:05:34" itemprop="dateModified" datetime="2025-04-12T15:05:34+08:00">2025-04-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -208,23 +208,15 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/TWRP/" itemprop="url" rel="index"><span itemprop="name">TWRP</span></a>
+                  <a href="/categories/%E5%88%B7%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">刷机</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/TWRP/%E5%88%B7%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">刷机</span></a>
+                  <a href="/categories/%E5%88%B7%E6%9C%BA/ROOT/" itemprop="url" rel="index"><span itemprop="name">ROOT</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/TWRP/%E5%88%B7%E6%9C%BA/%E6%95%91%E7%A0%96/" itemprop="url" rel="index"><span itemprop="name">救砖</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/TWRP/%E5%88%B7%E6%9C%BA/%E6%95%91%E7%A0%96/Crdroid/" itemprop="url" rel="index"><span itemprop="name">Crdroid</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/TWRP/%E5%88%B7%E6%9C%BA/%E6%95%91%E7%A0%96/Crdroid/%E7%B1%BB%E5%8E%9F%E7%94%9F/" itemprop="url" rel="index"><span itemprop="name">类原生</span></a>
+                  <a href="/categories/%E5%88%B7%E6%9C%BA/ROOT/Kernel-SU/" itemprop="url" rel="index"><span itemprop="name">Kernel SU</span></a>
                 </span>
             </span>
 
@@ -234,14 +226,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.4k</span>
+              <span>4.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>7 分钟</span>
             </span>
 
         </div>
@@ -253,103 +245,124 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>大概记录一下红米note9 4G版本刷CrDroid的简单流程</p>
-<p>前期准备：</p>
+          <h4 id="Kernel-SU刷入教程"><a href="#Kernel-SU刷入教程" class="headerlink" title="Kernel SU刷入教程"></a>Kernel SU刷入教程</h4><blockquote>
+<p>Kernel su 是一个基于内核的root方案，是Magisk、Apach、Kitsuni等项目的同类解决方案<br>但是Kernel su是基于内核的root方式，Magisk是基于systemless实现的，在原理上来说KSU的隐藏能里是要高于Magisk的<br>此文以官方版本的Kernel su作为案例分析其刷入方式。</p>
+</blockquote>
 <hr>
-<blockquote>
-<p>已经解锁的红米note9 4G  </p>
-</blockquote>
-<blockquote>
-<p>TWRP镜像  </p>
-</blockquote>
-<blockquote>
-<p>一台电脑  </p>
-</blockquote>
-<blockquote>
-<p>CrDroid卡刷包（zip格式） </p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th align="center"><img src="https://s2.loli.net/2025/02/20/OYupMkNtrKPZT3d.jpg" alt="红米note9" width="200"/></th>
-<th align="center"><img src="https://s2.loli.net/2025/02/20/sk9TcE2w6PgXuhf.png" alt="Twrp镜像"  width="200"/></th>
-<th align="center"><img src="https://s2.loli.net/2025/02/20/tHRyWAYfiSP5m2e.png" alt="CrDroid卡刷包" width="200"/></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">解锁BL的红米note9</td>
-<td align="center">Twrp镜像</td>
-<td align="center">CrDroid卡刷包</td>
-</tr>
-</tbody></table>
+<p>以下为Kernel su官方的<a target="_blank" rel="noopener" href="https://kernelsu.org/"><em><strong>介绍文档</strong></em></a>和<a target="_blank" rel="noopener" href="https://github.com/tiann/KernelSU"><em><strong>Github项目地址</strong></em></a></p>
 <hr>
-<p>1.在电脑安装ADB驱动 <a target="_blank" rel="noopener" href="https://dl.google.com/android/repository/platform-tools-latest-windows.zip">驱动下载直链</a><br>2.打开手机的开发者模式<br>3.使用adb 命令将TWRP刷入到恢复分区<br>4.刷入卡刷包</p>
+<p><em><strong>What is KernelSU?</strong></em><br>    KernelSU is a root solution for Android GKI devices, it works in kernel mode and grants root permission to userspace appsdirectly in kernel space.</p>
+<p><em><strong>Features</strong></em><br>    The main feature of KernelSU is that it’s kernel-based. KernelSU works in kernel mode, enabling it to provide a kernel interface that we never had before. For example, it’s possible to add hardware breakpoints to any process in kernel mode, access the physical memory of any process invisibly, intercept any system call (syscall) within the kernel space, among other functionalities.</p>
+<p>​	Additionally, KernelSU provides a module system via OverlayFS, which allows you to load your custom plugin into system. It also provides a mechanism to modify files in &#x2F;system partition.</p>
 <hr>
-<h4 id="驱动安装"><a href="#驱动安装" class="headerlink" title="驱动安装"></a>驱动安装</h4><p>下载提供的安装包，双击安装。<br>找到安装位置，找到adb.exe所在的目录，复制目录地址，进入Windows的环境变量，找到PATH，双击进入，添加一个名为adb的新变量，并将adb所在的目录粘贴到路径框<br><img src="https://s2.loli.net/2025/02/20/NwVCncbyJgU2urQ.png" alt="664fa6c2c20c45177b56c332b282141.png"><br>此后你就可以在任意路径下打开powershell使用adb命令了</p>
-<h4 id="打开开发者模式"><a href="#打开开发者模式" class="headerlink" title="打开开发者模式"></a>打开开发者模式</h4><p>打开手机，找到关于手机页面&gt;&gt;&gt;&gt;&gt;找到系统版本号&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;快速点击版本号10次等待提示开发者模式已打开&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;回到手机的设置界面，找到更多或者使用搜索框搜索”开发者模式“，进入开发者模式，点击开关来开启，向下滑，找到<strong>允许USB调试</strong>并打开。<br>在手机已经连接电脑的情况下手机会弹出是否允许调试的通知，点击允许。</p>
-<h4 id="使用adb命令"><a href="#使用adb命令" class="headerlink" title="使用adb命令"></a>使用adb命令</h4><p>使用<code>win+r</code>调出运行窗口，输入<code>powershell</code>然后回车，进入蓝色的命令窗口</p>
-<p>输入<br>                              adb devices</p>
-<p>来检测设备设否已经连接，提示手机序列号即代表已经连接至电脑<br>提示如下：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">PS</span> C:\Users\user&gt; adb devices</span><br><span class="line">List of devices attached</span><br><span class="line">* daemon not running; starting now at tcp:<span class="number">5037</span></span><br><span class="line">* daemon started successfully</span><br><span class="line"><span class="number">1</span>c17de221020    device            <span class="comment"># 这里输出的就是手机序列号</span></span><br></pre></td></tr></table></figure>
+<p><strong>刷入步骤</strong></p>
+<p>​	1.安装adb环境和<a target="_blank" rel="noopener" href="https://lsdy.top/azqd/">安卓通用驱动</a>（adb环境的安装看前文，有提到文件的下载的地址与安装方式）<br>​	2.解锁手机的Bootloader<br>​	3.获取适合当前系统的内核文件<br>​	4.刷入内核文件并安装管理器和相关模块</p>
+<hr>
+<h4 id="解锁Bootlaoder"><a href="#解锁Bootlaoder" class="headerlink" title="解锁Bootlaoder"></a>解锁Bootlaoder</h4><p>​	鉴于每家厂商的解锁政策都不同，且最近小米收紧了其解锁政策，此次就拿一加（OnePlus）作为参考<br>因其解锁方式极为简便，便以此为案例。</p>
+<p><strong>注意</strong><br>    手机解锁Bootloader的时候会清除手机内所含的所有数据，在进行操作之前请确保您的数据已进行妥善的迁移与保存！！！</p>
+<hr>
+<p>​	进入开发者模式，在系统的<p style="color:red" >【关于手机】</p>界面找到【系统版本号】，快速点击5-7次，桌面会弹出【您已进入开发者模式】<br>  搜索【开发者模式】进入其设置界面，下滑找到并开启【OEM解锁】【允许USB调试】，两项都需要打开。<br>  在确认都已经打开后将手机通过USB线连接至电脑，打开你的Powershell，在窗口输入</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb reboot bootloader</span><br></pre></td></tr></table></figure>
 
-<p>此时输入命令 </p>
-<pre><code>                  adb reboot bootloader
-</code></pre>
-<p>进入到Bootloader模式</p>
-<p>待手机震动后，在窗口输入</p>
-<pre><code>                 fastboot devices
-</code></pre>
-<p>输出设备信息即表示已经连接到fastboot端口</p>
-<p>此时使用<code>cd</code>命令将powershell所处的路径切换到你的twrp所在路径</p>
-<pre><code>                cd &quot;C:\user\file\twrp路径&quot;
-</code></pre>
-<h4 id="刷机详细流程"><a href="#刷机详细流程" class="headerlink" title="刷机详细流程"></a>刷机详细流程</h4><h5 id="TWRP刷入"><a href="#TWRP刷入" class="headerlink" title="TWRP刷入"></a>TWRP刷入</h5><p>此时查看你的手机是否是动态分区，是的话使用命令一刷入镜像，不是的话使用命令二</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fastboot flash recovery &lt;recovery_name&gt;     <span class="comment">#命令1</span></span><br><span class="line"></span><br><span class="line">fastboot boot &lt;recovery_name&gt;               <span class="comment">#命令2</span></span><br></pre></td></tr></table></figure>
+<p>  待手机进入fastboot模式后输入以下命令对其进行解锁（命令来源于<a target="_blank" rel="noopener" href="https://source.android.com/docs/core/architecture/bootloader/locking_unlocking?hl=zh-cn">Android官方</a>）</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fastboot flashing unlock</span><br></pre></td></tr></table></figure>
 
-<p>此时同时按住手机的音量+和电源键，待手机进入recovery</p>
-<p>进入recovery后电脑会叮咚一声表示连接到设备，此时将下载好的卡刷包复制到手机根目录<br>找到<code>刷入</code>,再找到已经传入手机的刷机包，选择后刷入，等待刷入的进度条走完后找到<code>清除</code>模块<br>选择恢复出厂双清（双清指的是清除cache和data分区）<br>，双清后即可开机。</p>
-<h5 id="ADB-Sideload-模式刷入"><a href="#ADB-Sideload-模式刷入" class="headerlink" title="ADB Sideload 模式刷入"></a>ADB Sideload 模式刷入</h5><p>进入Twrp后找到<code>高级</code>,找到<code>adb sideload</code>,点击后会直接双清<br>，然后在电脑中使用以下命令刷入</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb sideload &lt;刷机包绝对路径加名字&gt;</span><br></pre></td></tr></table></figure>
-<p>等待进度条走完后会自动重启进入系统。</p>
-<p>成品如下</p>
+<p> 待手机提示是否解锁Bootloader，使用音量键移动光标，使用电源键表示确认。选择确认解锁Bootloader，等待手机重启，重启期间系统会清空所有的 数据，这时你再反悔就都来不及了。随后等待进入系统即可。</p>
+<hr>
+<p>​	  进入系统后到应用商店下载【Devtools】，查看你的安卓内核版本，如下图所示</p>
+<p><img src="https://s2.loli.net/2025/03/25/JaKSBWGF15g2Lhk.png"></p>
+<p>​    	图示版本为4.19.157，假如你的内核版本在5.12以上，到此处下载符合你系统版本的内核文件<a target="_blank" rel="noopener" href="https://github.com/tiann/KernelSU/releases">Github地址</a>，Kernel su的管理器地址和以上提供的地址是一个，都在assets中发布，apk文件在列表的下部，请自行翻找。若你的内核版本低于5.12，那就说明你的设备不能通过此方式获取，不符合GKI的内核规范，需要自行编译或者在【酷安】【Telegram】等全平台寻找适合你手机型号的内核（非同型号内核不可互刷！！！），切勿刷入来源不明的zip文件！！！</p>
+<p>​	此处提供的内核版本有三种格式，我不能确认你的系统是哪个版本的文件系统，所以建议你使用以下方式来对其进行临时启动，内核文件和管理器安装包下载地址见此：</p>
 <table>
 <thead>
 <tr>
-<th align="left">CrDroid</th>
-<th align="center"></th>
-<th align="center"></th>
+<th></th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="left"><img src="https://s2.loli.net/2025/02/20/M4srVdavDz92mnW.png" alt="Screenshot_20250212-212232_crDroid Home.png"></td>
-<td align="center"><img src="https://s2.loli.net/2025/02/20/YZWF7odbnMC9RtV.png" alt="Screenshot_20250212-211440_crDroid Home.png"></td>
-<td align="center"><img src="https://s2.loli.net/2025/02/20/i2bAstWlCc1KyOE.png" alt="Screenshot_20250212-211433_crDroid Home.png"></td>
+<td><img src="https://s2.loli.net/2025/03/25/MAVYRNZPS2QytCb.png"></td>
 </tr>
 <tr>
-<td align="left"><img src="https://s2.loli.net/2025/02/20/d5GhbZw2o8RVq6x.png" alt="Screenshot_20250125-193919_设置.png"></td>
-<td align="center"><img src="https://s2.loli.net/2025/02/20/F2hgOETGNs5v4ZU.png" alt="Screenshot_20250125-194222_设置.png"></td>
-<td align="center"><img src="https://s2.loli.net/2025/02/20/Hm6FI8fKMnD37ge.png" alt="Screenshot_20250220-195236_更新工具.png"></td>
+<td><img src="https://s2.loli.net/2025/03/25/y3vWR9nrtd4OuZo.png"></td>
+</tr>
+</tbody></table>
+<p>文件分别为：</p>
+<ul>
+<li><p>andoid14-6.1.84_2024-07-boot-gz.img.gz</p>
+</li>
+<li><p>andoid14-6.1.84_2024-07-boot-lz4.img.gz</p>
+</li>
+<li><p>andoid14-6.1.84_2024-07-boot.img.gz</p>
+</li>
+<li><p>KernelSU_V1.0.3_12018-release.apk</p>
+</li>
+</ul>
+<p>​     下载文件后将其解压，得到以<code>img</code>结尾的镜像文件。其中的<code>gz</code>  <code>lz4</code>都表示系统使用的文件格式，第三个为通用格式，此时建议您使用临时刷入的方式来尝试（有些案例表示一加手机使用的是<code>gz</code>格式的文件系统），因不确定，在无准确信息的情况下建议临时启动，确保无问题后再将其刷入。在此之前请安装【Kernel su manager】，用于在开机进系统后判断刷入是否有效。最后一个apk文件问管理器的安装包，需提前安装。</p>
+<h4 id="进入fastboot模式"><a href="#进入fastboot模式" class="headerlink" title="进入fastboot模式"></a>进入fastboot模式</h4><figure class="highlight plaintext"><figcaption><span>reboot bootlaoder</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb reboot bootlaoder</span><br></pre></td></tr></table></figure>
+
+
+
+<p>输入命令临时刷入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fastboot boot &lt;文件的绝对路径&gt;</span><br><span class="line"></span><br><span class="line">例</span><br><span class="line">fastboot boot C://USER/NAME/Desktop/123/kernel-version-boot.img</span><br></pre></td></tr></table></figure>
+
+<p>进系统后查看管理器是否识别出内核</p>
+<img src ="https://s2.loli.net/2025/03/25/1j3HMvciIYtfCUJ.png" width="200" />
+
+<p>如此图显示，则表示已经成功刷入，如不能进系统或此管理器未能识别到内核，则换第二个文件重新执行命令，确认管理器能识别到内核后，进入fastboot模式执行以下命令永久性刷入至系统:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fastboot flash boot &lt;文件的绝对路径&gt;</span><br><span class="line"></span><br><span class="line">例</span><br><span class="line">########################################################################</span><br><span class="line">fastboot flash boot C://USER/NAME/Desktop/123/kernel-version-boot.img</span><br><span class="line">(使用fastboot，通过flash命令将位于`C://USER/NAME/Desktop/123/kernel-version-boot.img`的文件输入到`boot`分区)</span><br></pre></td></tr></table></figure>
+
+<p>刷入后便可以永久使用。</p>
+<h4 id="推荐的模块："><a href="#推荐的模块：" class="headerlink" title="推荐的模块："></a>推荐的模块：</h4><hr>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>Magisk模块</strong></th>
+<th align="center"><strong>作用</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><a target="_blank" rel="noopener" href="https://github.com/Dr-TSNG/ZygiskNext/releases">zygisk-next</a></td>
+<td align="center">Standalone implementation of Zygisk, providing Zygisk API support for KernelSU and a replacement of Magisk’s built-in Zygisk.</td>
+</tr>
+<tr>
+<td align="center"><a target="_blank" rel="noopener" href="https://github.com/mywalkb/LSPosed_mod/releases/download/v1.9.3_mod/LSPosed-v1.9.3_mod-7244-zygisk-release.zip">zygisk-lsposed</a></td>
+<td align="center">LSPosed is a great XPosed Framework, but it has a big problem, only manager can manage scope. LSPosed team don’t accept PR for CLI or API Module, the TODO issues are old more one year and never completed, is more important the GUI changed many times but not CLI or API Module. In my fork API Module and CLI are implemented. CLI require root user because must access files readable only by root.</td>
+</tr>
+<tr>
+<td align="center"><a target="_blank" rel="noopener" href="https://github.com/gloeyisk/universal-gms-doze/releases/download/1.9.2/gms_1.9.2.zip">Universal GMS DOZE</a></td>
+<td align="center">Patches Google Play services app and certain processes&#x2F;services to be able to use battery optimization Support API 23 or later Support Magisk ernelSU, and APatch root implementations</td>
 </tr>
 </tbody></table>
 <table>
 <thead>
 <tr>
-<th align="center">Infinity</th>
-<th align="center"></th>
-<th align="center"></th>
+<th align="center"><strong>lSPosed模块</strong></th>
+<th align="center"><strong>作用</strong></th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="center"><img src="https://s2.loli.net/2025/02/20/k5Nc3bivLDzYqIV.png" alt="Screenshot_20250212-164321_Infinity_X_Launcher.png"></td>
-<td align="center"><img src="https://s2.loli.net/2025/02/20/zCqRXtwIWedZ3ro.png" alt="Screenshot_20250212-164311_KernelSU.png"></td>
-<td align="center"><img src="https://s2.loli.net/2025/02/20/2EX1KYlsI6rhiZb.png" alt="Screenshot_20250212-164443_设置.png"></td>
+<td align="center"><a target="_blank" rel="noopener" href="https://github.com/Dr-TSNG/Hide-My-Applist/releases/download/V3.4/HMA-V3.4.r436.d03edf7-release.zip">Hide my applist</a></td>
+<td align="center">Although it’s bad practice to detect the installation of specific apps, not every app using root provides random package name support. In this case, if apps related to root (such as Fake Location and Storage Isolation) are detected, it is tantamount to detecting that the device is rooted.Additionally, some apps use various loopholes to acquire your app list, in order to use it as fingerprinting data or for other nefarious purposes.</td>
 </tr>
 <tr>
-<td align="center"><img src="https://s2.loli.net/2025/02/20/cn2IyXmvl6RqpUg.png" alt="Screenshot_20250212-164342_系统更新.png"></td>
-<td align="center"><img src="https://s2.loli.net/2025/02/20/f6YXgVCqLJ4R8y7.png" alt="Screenshot_20250212-171104_Infinity_X_Launcher.png"></td>
-<td align="center"><img src="https://s2.loli.net/2025/02/20/v1zhAaDu4w8xGpP.png" alt="Screenshot_20250212-170922_Shell.png"></td>
+<td align="center"><a target="_blank" rel="noopener" href="https://github.com/ReChronoRain/HyperCeiler/releases/download/2.5.154/HyperCeiler_2.5.154_20250101_154_release.apk">HyperCeilier</a></td>
+<td align="center">修改miui和Hyper os的系统应用，增强其功能,  <strong>仅适用于小米官方系统和官改！！！</strong></td>
+</tr>
+<tr>
+<td align="center"><a target="_blank" rel="noopener" href="https://github.com/chiteroman/PlayIntegrityFix/releases/download/v18.8/PlayIntegrityFix_v18.8.zip">Play integrity Fix</a></td>
+<td align="center">This module is not made to hide root, nor to avoid detections in other apps. It only serves to pass Device verdict in the Play Integrity tests and certify your device. All issues created to report a non-Google app not working will be closed without notice.</td>
+</tr>
+<tr>
+<td align="center"><a target="_blank" rel="noopener" href="https://uploadrar.com/s1jzriq9foy0">Thanox</a></td>
+<td align="center">人称‘灭霸’，可以最大限度管理和调整系统功能</td>
+</tr>
+<tr>
+<td align="center"><a target="_blank" rel="noopener" href="https://github.com/wanam/YouTubeAdAway">Youtube Adaway</a></td>
+<td align="center">清除Youtube播放广告，但不能清除首页广告，可以支持后台小窗播放去除视频中穿插的广告</td>
 </tr>
 </tbody></table>
+<hr>
+<p>设备已虚焊，拆机中，未写完的下次再写，各位再见。</p>
 
       
     </div>
@@ -368,7 +381,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/36/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/36/">36</a><span class="page-number current">37</span><a class="page-number" href="/page/38/">38</a><span class="space">&hellip;</span><a class="page-number" href="/page/43/">43</a><a class="extend next" rel="next" href="/page/38/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/36/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/36/">36</a><span class="page-number current">37</span><a class="page-number" href="/page/38/">38</a><span class="space">&hellip;</span><a class="page-number" href="/page/44/">44</a><a class="extend next" rel="next" href="/page/38/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -455,7 +468,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">43</span>
+          <span class="site-state-item-count">44</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -504,12 +517,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">173k</span>
+    <span title="站点总字数">181k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:48</span>
+    <span title="站点阅读时长">5:02</span>
 </div>
 <!-- 网站运行时间的设置 -->
 <span id="timeDate">载入天数...</span>
