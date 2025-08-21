@@ -169,7 +169,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/02/09/Python%E8%AF%AD%E6%B3%95%E8%AE%B0%E5%BD%95/">
+    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/03/24/KernelSU-%E5%88%B7%E5%85%A5%E6%95%99%E7%A8%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
@@ -183,7 +183,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2025/02/09/Python%E8%AF%AD%E6%B3%95%E8%AE%B0%E5%BD%95/" class="post-title-link" itemprop="url">Python语法记录</a>
+            <a href="/2025/03/24/KernelSU-%E5%88%B7%E5%85%A5%E6%95%99%E7%A8%8B/" class="post-title-link" itemprop="url">KernelSU 刷入教程</a>
         </h2>
 
         <div class="post-meta">
@@ -193,14 +193,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2025-02-09 22:32:37" itemprop="dateCreated datePublished" datetime="2025-02-09T22:32:37+08:00">2025-02-09</time>
+              <time title="创建时间：2025-03-24 17:12:53" itemprop="dateCreated datePublished" datetime="2025-03-24T17:12:53+08:00">2025-03-24</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-08-14 10:57:29" itemprop="dateModified" datetime="2025-08-14T10:57:29+08:00">2025-08-14</time>
+                <time title="修改时间：2025-04-12 15:05:34" itemprop="dateModified" datetime="2025-04-12T15:05:34+08:00">2025-04-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -208,7 +208,15 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python%E8%AF%AD%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">Python语法</span></a>
+                  <a href="/categories/%E5%88%B7%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">刷机</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%88%B7%E6%9C%BA/ROOT/" itemprop="url" rel="index"><span itemprop="name">ROOT</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%88%B7%E6%9C%BA/ROOT/Kernel-SU/" itemprop="url" rel="index"><span itemprop="name">Kernel SU</span></a>
                 </span>
             </span>
 
@@ -218,14 +226,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>7.4k</span>
+              <span>4.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>12 分钟</span>
+              <span>7 分钟</span>
             </span>
 
         </div>
@@ -237,519 +245,124 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Python基础指南"><a href="#Python基础指南" class="headerlink" title="Python基础指南"></a>Python基础指南</h1><h4 id="一-：字符串的输入"><a href="#一-：字符串的输入" class="headerlink" title="一 ：字符串的输入"></a>一 ：字符串的输入</h4><p><strong><code>input (&#39;&#39;)</code></strong></p>
-<h5 id="例："><a href="#例：" class="headerlink" title="例："></a>例：</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">input</span>(<span class="string">&#x27;please inout your name: \n&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#输出：</span></span><br><span class="line"></span><br><span class="line">PS D:\Python\Python Project&gt; &amp; D:/Python/Python3<span class="number">.11</span><span class="number">.8</span>/python.exe <span class="string">&quot;d:/Python/Python &lt;br&gt;Project/main.py&quot;</span> </span><br><span class="line"> </span><br><span class="line">please <span class="built_in">input</span> your name: 	</span><br></pre></td></tr></table></figure>
-
+          <h4 id="Kernel-SU刷入教程"><a href="#Kernel-SU刷入教程" class="headerlink" title="Kernel SU刷入教程"></a>Kernel SU刷入教程</h4><blockquote>
+<p>Kernel su 是一个基于内核的root方案，是Magisk、Apach、Kitsuni等项目的同类解决方案<br>但是Kernel su是基于内核的root方式，Magisk是基于systemless实现的，在原理上来说KSU的隐藏能里是要高于Magisk的<br>此文以官方版本的Kernel su作为案例分析其刷入方式。</p>
+</blockquote>
 <hr>
-<h4 id="二：print输出并引用变量"><a href="#二：print输出并引用变量" class="headerlink" title="二：print输出并引用变量"></a>二：print输出并引用变量</h4><h5 id="例：-1"><a href="#例：-1" class="headerlink" title="例："></a>例：</h5><ul>
-<li><h5 id="方法1："><a href="#方法1：" class="headerlink" title="方法1："></a>方法1：</h5></li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> name = <span class="string">&#x27;shuqi&#x27;</span></span><br><span class="line"> <span class="built_in">print</span>(<span class="string">&#x27;your name is %s&#x27;</span> % name)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#输出：</span></span><br><span class="line"></span><br><span class="line">PS D:\Python\Python Project&gt; &amp; D:/Python/Python3<span class="number">.11</span><span class="number">.8</span>/python.exe <span class="string">&quot;d:/Python/Python Project/main.py&quot;</span></span><br><span class="line"></span><br><span class="line">your name <span class="keyword">is</span> shuqi</span><br></pre></td></tr></table></figure>
+<p>以下为Kernel su官方的<a target="_blank" rel="noopener" href="https://kernelsu.org/"><em><strong>介绍文档</strong></em></a>和<a target="_blank" rel="noopener" href="https://github.com/tiann/KernelSU"><em><strong>Github项目地址</strong></em></a></p>
+<hr>
+<p><em><strong>What is KernelSU?</strong></em><br>    KernelSU is a root solution for Android GKI devices, it works in kernel mode and grants root permission to userspace appsdirectly in kernel space.</p>
+<p><em><strong>Features</strong></em><br>    The main feature of KernelSU is that it’s kernel-based. KernelSU works in kernel mode, enabling it to provide a kernel interface that we never had before. For example, it’s possible to add hardware breakpoints to any process in kernel mode, access the physical memory of any process invisibly, intercept any system call (syscall) within the kernel space, among other functionalities.</p>
+<p>​	Additionally, KernelSU provides a module system via OverlayFS, which allows you to load your custom plugin into system. It also provides a mechanism to modify files in &#x2F;system partition.</p>
+<hr>
+<p><strong>刷入步骤</strong></p>
+<p>​	1.安装adb环境和<a target="_blank" rel="noopener" href="https://lsdy.top/azqd/">安卓通用驱动</a>（adb环境的安装看前文，有提到文件的下载的地址与安装方式）<br>​	2.解锁手机的Bootloader<br>​	3.获取适合当前系统的内核文件<br>​	4.刷入内核文件并安装管理器和相关模块</p>
+<hr>
+<h4 id="解锁Bootlaoder"><a href="#解锁Bootlaoder" class="headerlink" title="解锁Bootlaoder"></a>解锁Bootlaoder</h4><p>​	鉴于每家厂商的解锁政策都不同，且最近小米收紧了其解锁政策，此次就拿一加（OnePlus）作为参考<br>因其解锁方式极为简便，便以此为案例。</p>
+<p><strong>注意</strong><br>    手机解锁Bootloader的时候会清除手机内所含的所有数据，在进行操作之前请确保您的数据已进行妥善的迁移与保存！！！</p>
+<hr>
+<p>​	进入开发者模式，在系统的<p style="color:red" >【关于手机】</p>界面找到【系统版本号】，快速点击5-7次，桌面会弹出【您已进入开发者模式】<br>  搜索【开发者模式】进入其设置界面，下滑找到并开启【OEM解锁】【允许USB调试】，两项都需要打开。<br>  在确认都已经打开后将手机通过USB线连接至电脑，打开你的Powershell，在窗口输入</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb reboot bootloader</span><br></pre></td></tr></table></figure>
 
+<p>  待手机进入fastboot模式后输入以下命令对其进行解锁（命令来源于<a target="_blank" rel="noopener" href="https://source.android.com/docs/core/architecture/bootloader/locking_unlocking?hl=zh-cn">Android官方</a>）</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fastboot flashing unlock</span><br></pre></td></tr></table></figure>
+
+<p> 待手机提示是否解锁Bootloader，使用音量键移动光标，使用电源键表示确认。选择确认解锁Bootloader，等待手机重启，重启期间系统会清空所有的 数据，这时你再反悔就都来不及了。随后等待进入系统即可。</p>
+<hr>
+<p>​	  进入系统后到应用商店下载【Devtools】，查看你的安卓内核版本，如下图所示</p>
+<p><img src="https://s2.loli.net/2025/03/25/JaKSBWGF15g2Lhk.png"></p>
+<p>​    	图示版本为4.19.157，假如你的内核版本在5.12以上，到此处下载符合你系统版本的内核文件<a target="_blank" rel="noopener" href="https://github.com/tiann/KernelSU/releases">Github地址</a>，Kernel su的管理器地址和以上提供的地址是一个，都在assets中发布，apk文件在列表的下部，请自行翻找。若你的内核版本低于5.12，那就说明你的设备不能通过此方式获取，不符合GKI的内核规范，需要自行编译或者在【酷安】【Telegram】等全平台寻找适合你手机型号的内核（非同型号内核不可互刷！！！），切勿刷入来源不明的zip文件！！！</p>
+<p>​	此处提供的内核版本有三种格式，我不能确认你的系统是哪个版本的文件系统，所以建议你使用以下方式来对其进行临时启动，内核文件和管理器安装包下载地址见此：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="https://s2.loli.net/2025/03/25/MAVYRNZPS2QytCb.png"></td>
+</tr>
+<tr>
+<td><img src="https://s2.loli.net/2025/03/25/y3vWR9nrtd4OuZo.png"></td>
+</tr>
+</tbody></table>
+<p>文件分别为：</p>
 <ul>
-<li><h5 id="方法2："><a href="#方法2：" class="headerlink" title="方法2："></a>方法2：</h5></li>
+<li><p>andoid14-6.1.84_2024-07-boot-gz.img.gz</p>
+</li>
+<li><p>andoid14-6.1.84_2024-07-boot-lz4.img.gz</p>
+</li>
+<li><p>andoid14-6.1.84_2024-07-boot.img.gz</p>
+</li>
+<li><p>KernelSU_V1.0.3_12018-release.apk</p>
+</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">name = <span class="string">&#x27;shuqi&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;your name is <span class="subst">&#123;<span class="built_in">str</span>&#125;</span>&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#输出</span></span><br><span class="line"></span><br><span class="line">PS D:\Python\Python Project&gt; &amp; D:/Python/Python3<span class="number">.11</span><span class="number">.8</span>/python.exe <span class="string">&quot;d:/Python/Python Project/main.py&quot;</span></span><br><span class="line"></span><br><span class="line">your name <span class="keyword">is</span> shuqi	</span><br></pre></td></tr></table></figure>
+<p>​     下载文件后将其解压，得到以<code>img</code>结尾的镜像文件。其中的<code>gz</code>  <code>lz4</code>都表示系统使用的文件格式，第三个为通用格式，此时建议您使用临时刷入的方式来尝试（有些案例表示一加手机使用的是<code>gz</code>格式的文件系统），因不确定，在无准确信息的情况下建议临时启动，确保无问题后再将其刷入。在此之前请安装【Kernel su manager】，用于在开机进系统后判断刷入是否有效。最后一个apk文件问管理器的安装包，需提前安装。</p>
+<h4 id="进入fastboot模式"><a href="#进入fastboot模式" class="headerlink" title="进入fastboot模式"></a>进入fastboot模式</h4><figure class="highlight plaintext"><figcaption><span>reboot bootlaoder</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb reboot bootlaoder</span><br></pre></td></tr></table></figure>
 
 
-<hr>
-<h4 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h4><p><em><strong>行内注释</strong></em></p>
-<blockquote>
-<p>使用# 作为一行的注释</p>
-</blockquote>
-<p><em><strong>块注释</strong></em></p>
-<p>#和 前面的代码至少要相隔两个空格 ,#后必须空一格才能开始写注释</p>
-<p>例如</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span> (<span class="string">&#x27;hello word&#x27;</span>)   <span class="comment"># 打印hello word</span></span><br></pre></td></tr></table></figure>
 
-<p><em><strong>多行注释</strong></em><br>使用<code>  </code>作为多行注释符号</p>
-<pre><code>print (多行注释)
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这里是多行注释</span><br></pre></td></tr></table></figure>
-</code></pre>
-<h4>`print`拓展参数</h4>
+<p>输入命令临时刷入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fastboot boot &lt;文件的绝对路径&gt;</span><br><span class="line"></span><br><span class="line">例</span><br><span class="line">fastboot boot C://USER/NAME/Desktop/123/kernel-version-boot.img</span><br></pre></td></tr></table></figure>
 
-<p>print中每一部分的参数都要使用，逗号隔开，字符串使用单引号或双引号引起来</p>
-<p>&#96;sep&#x3D;”” 用于定义分隔符的形式</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">year = <span class="number">2027</span></span><br><span class="line"><span class="built_in">print</span>(year,<span class="string">&quot;和律书琪结婚&quot;</span>,sep=<span class="string">&quot;&quot;</span>)</span><br><span class="line"><span class="comment">#输出</span></span><br><span class="line">D:\Python\Python3<span class="number">.13</span><span class="number">.2</span>\python.exe E:\PythonProject\第<span class="number">1</span>章\<span class="number">1.</span>py </span><br><span class="line"><span class="number">2027</span>年和律书琪结婚</span><br></pre></td></tr></table></figure>
-<p><em><strong>换行</strong></em></p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span> (end=<span class="string">&#x27;\n&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<p><code>end=&quot;&quot;</code>指的是在之前动作执行后继续执行的操作</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">year = <span class="number">2025</span></span><br><span class="line">month =  <span class="number">2</span></span><br><span class="line">day = <span class="number">7</span></span><br><span class="line">week = <span class="string">&quot;tuesday&quot;</span></span><br><span class="line"></span><br><span class="line">weather = <span class="string">&#x27;sunshine&#x27;</span></span><br><span class="line">temperature = <span class="string">&quot;-1&quot;</span></span><br><span class="line"></span><br><span class="line">	<span class="built_in">print</span>(<span class="string">&quot;今天是&quot;</span>, <span class="string">&#x27;year&#x27;</span>, year, <span class="string">&#x27;month&#x27;</span>, month, <span class="string">&#x27;day&#x27;</span>, day, <span class="string">&#x27;,&#x27;</span>,</span><br><span class="line">     	 <span class="string">&quot;end=&#x27;&#x27;&quot;</span>, <span class="string">&#x27;week&#x27;</span>, week, <span class="string">&#x27;,&#x27;</span>, <span class="string">&quot;today&#x27;s weather:&quot;</span>, weather, <span class="string">&#x27;,&#x27;</span>, 		<span class="string">&#x27;temperature&#x27;</span>, temperature)</span><br><span class="line">     <span class="comment"># 这里是另一种写法</span></span><br><span class="line">      <span class="built_in">print</span>(<span class="string">&quot;today is year%d month%d day%d week%s, weather%s temperature%s&quot;</span></span><br><span class="line">      % (year, month, day, week, weather, temperature))</span><br></pre></td></tr></table></figure>
+<p>进系统后查看管理器是否识别出内核</p>
+<img src ="https://s2.loli.net/2025/03/25/1j3HMvciIYtfCUJ.png" width="200" />
+
+<p>如此图显示，则表示已经成功刷入，如不能进系统或此管理器未能识别到内核，则换第二个文件重新执行命令，确认管理器能识别到内核后，进入fastboot模式执行以下命令永久性刷入至系统:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fastboot flash boot &lt;文件的绝对路径&gt;</span><br><span class="line"></span><br><span class="line">例</span><br><span class="line">########################################################################</span><br><span class="line">fastboot flash boot C://USER/NAME/Desktop/123/kernel-version-boot.img</span><br><span class="line">(使用fastboot，通过flash命令将位于`C://USER/NAME/Desktop/123/kernel-version-boot.img`的文件输入到`boot`分区)</span><br></pre></td></tr></table></figure>
+
+<p>刷入后便可以永久使用。</p>
+<h4 id="推荐的模块："><a href="#推荐的模块：" class="headerlink" title="推荐的模块："></a>推荐的模块：</h4><hr>
 <table>
 <thead>
 <tr>
-<th>格式化字符</th>
-<th>含义</th>
+<th align="center"><strong>Magisk模块</strong></th>
+<th align="center"><strong>作用</strong></th>
 </tr>
 </thead>
 <tbody><tr>
-<td>%s</td>
-<td>字符串</td>
+<td align="center"><a target="_blank" rel="noopener" href="https://github.com/Dr-TSNG/ZygiskNext/releases">zygisk-next</a></td>
+<td align="center">Standalone implementation of Zygisk, providing Zygisk API support for KernelSU and a replacement of Magisk’s built-in Zygisk.</td>
 </tr>
 <tr>
-<td>%d</td>
-<td>有符号十进制数，%06d表示输出6位字符，不足低的方式用0补全</td>
+<td align="center"><a target="_blank" rel="noopener" href="https://github.com/mywalkb/LSPosed_mod/releases/download/v1.9.3_mod/LSPosed-v1.9.3_mod-7244-zygisk-release.zip">zygisk-lsposed</a></td>
+<td align="center">LSPosed is a great XPosed Framework, but it has a big problem, only manager can manage scope. LSPosed team don’t accept PR for CLI or API Module, the TODO issues are old more one year and never completed, is more important the GUI changed many times but not CLI or API Module. In my fork API Module and CLI are implemented. CLI require root user because must access files readable only by root.</td>
 </tr>
 <tr>
-<td>%f</td>
-<td>浮点数，带小数。%.4f表示的是在小数点后保留4位小数</td>
+<td align="center"><a target="_blank" rel="noopener" href="https://github.com/gloeyisk/universal-gms-doze/releases/download/1.9.2/gms_1.9.2.zip">Universal GMS DOZE</a></td>
+<td align="center">Patches Google Play services app and certain processes&#x2F;services to be able to use battery optimization Support API 23 or later Support Magisk ernelSU, and APatch root implementations</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>lSPosed模块</strong></th>
+<th align="center"><strong>作用</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><a target="_blank" rel="noopener" href="https://github.com/Dr-TSNG/Hide-My-Applist/releases/download/V3.4/HMA-V3.4.r436.d03edf7-release.zip">Hide my applist</a></td>
+<td align="center">Although it’s bad practice to detect the installation of specific apps, not every app using root provides random package name support. In this case, if apps related to root (such as Fake Location and Storage Isolation) are detected, it is tantamount to detecting that the device is rooted.Additionally, some apps use various loopholes to acquire your app list, in order to use it as fingerprinting data or for other nefarious purposes.</td>
 </tr>
 <tr>
-<td>%%</td>
-<td>输出%</td>
+<td align="center"><a target="_blank" rel="noopener" href="https://github.com/ReChronoRain/HyperCeiler/releases/download/2.5.154/HyperCeiler_2.5.154_20250101_154_release.apk">HyperCeilier</a></td>
+<td align="center">修改miui和Hyper os的系统应用，增强其功能,  <strong>仅适用于小米官方系统和官改！！！</strong></td>
+</tr>
+<tr>
+<td align="center"><a target="_blank" rel="noopener" href="https://github.com/chiteroman/PlayIntegrityFix/releases/download/v18.8/PlayIntegrityFix_v18.8.zip">Play integrity Fix</a></td>
+<td align="center">This module is not made to hide root, nor to avoid detections in other apps. It only serves to pass Device verdict in the Play Integrity tests and certify your device. All issues created to report a non-Google app not working will be closed without notice.</td>
+</tr>
+<tr>
+<td align="center"><a target="_blank" rel="noopener" href="https://uploadrar.com/s1jzriq9foy0">Thanox</a></td>
+<td align="center">人称‘灭霸’，可以最大限度管理和调整系统功能</td>
+</tr>
+<tr>
+<td align="center"><a target="_blank" rel="noopener" href="https://github.com/wanam/YouTubeAdAway">Youtube Adaway</a></td>
+<td align="center">清除Youtube播放广告，但不能清除首页广告，可以支持后台小窗播放去除视频中穿插的广告</td>
 </tr>
 </tbody></table>
 <hr>
-<p><code>input()</code><br><br><br><em><strong>字符串转数字</strong></em></p>
-<p>从input获取的输入信息都是字符串，即使是输入数字，从input接收后也会变成字符串。加入需要</p>
-<p>将从input接收的数字作为实际的数字使用，可以使用以下代码进行转换</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">age = <span class="built_in">input</span>(<span class="string">&quot;please input your age:&quot;</span>)</span><br><span class="line"></span><br><span class="line">age= <span class="built_in">int</span>(age)  <span class="comment"># 使用int加括号来将字符串转换为数字</span></span><br><span class="line"></span><br><span class="line">birth = <span class="number">2025</span>-age</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;your birth year is :&quot;</span>, birth)</span><br></pre></td></tr></table></figure>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 运行结果</span></span><br><span class="line">D:\Python\Python3<span class="number">.13</span><span class="number">.2</span>\python.exe E:\PythonProject\第<span class="number">1</span>章\python-<span class="number">1</span>-<span class="number">4</span>-<span class="built_in">input</span>.py </span><br><span class="line"></span><br><span class="line">please <span class="built_in">input</span> your age:<span class="number">45</span></span><br><span class="line"></span><br><span class="line">your birth year <span class="keyword">is</span> : <span class="number">1980</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<p><em><strong>变量赋值</strong></em></p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 多个变量值相等</span></span><br><span class="line"></span><br><span class="line">num1 = num2 = num3 = <span class="number">10</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 多个变量的值不同，元组赋值</span></span><br><span class="line"></span><br><span class="line">a, b = <span class="number">10</span>, <span class="number">20</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<p>练习题：苹果的价格为10.5元每斤，买了7.5斤苹果，计算付款金额</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">price = <span class="number">10.5</span></span><br><span class="line">weight = <span class="number">7.5</span></span><br><span class="line">money = price * weight</span><br><span class="line"><span class="built_in">print</span>()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;您需要付款%d元&#x27;</span> % money)   <span class="comment"># print(&#x27;您需要付款:&#x27;, money, &#x27;元&#x27;)</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<p><em><strong>数据类型</strong></em></p>
-<table>
-<thead>
-<tr>
-<th>类型</th>
-<th>解释</th>
-<th>例子</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>整型（integers）</td>
-<td>正数，不带小数点</td>
-<td>100</td>
-</tr>
-<tr>
-<td>浮点型（Floating point numbers）</td>
-<td>带有小数的数字</td>
-<td>15.20</td>
-</tr>
-<tr>
-<td>复数(Complex Numbers)</td>
-<td>带有实部和虚部的数字</td>
-<td>3.14j</td>
-</tr>
-<tr>
-<td>布尔型(Boolean)</td>
-<td>表示真假</td>
-<td>只有两个值，True、False</td>
-</tr>
-<tr>
-<td>字符串(String)</td>
-<td>一串字符</td>
-<td>”Hello World！“</td>
-</tr>
-<tr>
-<td>列表(List)</td>
-<td>有序的集合，可以包含任何数据类型</td>
-<td>[1,’a’,2.3]</td>
-</tr>
-<tr>
-<td>元组(Tuple)</td>
-<td>类似于列表，但不可变</td>
-<td>(1,’a’,2.3)</td>
-</tr>
-<tr>
-<td>集合(Set)</td>
-<td>无需且不重复的元素集合</td>
-<td>{1,2,3}</td>
-</tr>
-<tr>
-<td>字典(Dictionary)</td>
-<td>键值对的集合</td>
-<td>{‘name’:’john’,’age’:30}</td>
-</tr>
-</tbody></table>
-<p>四舍五入</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">num1 = <span class="number">1.23456</span></span><br><span class="line">num2 = <span class="number">3.23</span></span><br><span class="line">n3= <span class="built_in">round</span>(num1 + num2 , <span class="number">2</span>)</span><br><span class="line"><span class="built_in">print</span>()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;your calculation result is:&quot;</span>, n3)</span><br><span class="line"><span class="comment"># 运行结果</span></span><br><span class="line">D:\Python\Python3<span class="number">.13</span><span class="number">.2</span>\python.exe E:\PythonProject\第<span class="number">1</span>章\python-<span class="number">2</span>-<span class="number">1</span>-init.py </span><br><span class="line"></span><br><span class="line">your calculation result <span class="keyword">is</span>: <span class="number">4.46</span></span><br></pre></td></tr></table></figure>
-<p>使用<code>round</code>函数进行四舍五入</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">num1 = <span class="number">1.23456</span></span><br><span class="line">num2 = <span class="number">3.23</span></span><br><span class="line">n3= <span class="built_in">round</span>(num1 + num2 , <span class="number">2</span>)    <span class="comment"># 使用round函数保留两位小数</span></span><br><span class="line"><span class="built_in">print</span>()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;your calculation result is:&quot;</span>, n3)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 执行结果</span></span><br><span class="line">D:\Python\Python3<span class="number">.13</span><span class="number">.2</span>\python.exe E:\PythonProject\第<span class="number">1</span>章\python-<span class="number">2</span>-<span class="number">1</span>-init.py </span><br><span class="line"></span><br><span class="line">your calculation result <span class="keyword">is</span>: <span class="number">4.46</span></span><br></pre></td></tr></table></figure>
-
-<p>使用import调用math库对函数向上取整向下取整</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 向上取整</span></span><br><span class="line">num1 = <span class="number">12.34</span></span><br><span class="line">num2 = <span class="number">3.12</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> math                        <span class="comment"># 此处使用import调用一次math库即可</span></span><br><span class="line">n3 = math.ceil(num1 + num2)        <span class="comment"># math.ceil（）为对括号内的算式向上取整</span></span><br><span class="line"><span class="built_in">print</span>(n3)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 向下取整</span></span><br><span class="line">num4 = math.floor(num1 + num2)     <span class="comment"># math.floor（）为对括号内的算式向下取整</span></span><br><span class="line"><span class="built_in">print</span>(num4)</span><br><span class="line"></span><br><span class="line">              <span class="comment">###### 执行结果#######</span></span><br><span class="line">D:\Python\Python3<span class="number">.13</span><span class="number">.2</span>\python.exe E:\PythonProject\第<span class="number">1</span>章\python-<span class="number">2</span>-<span class="number">1</span>-init.py </span><br><span class="line"><span class="number">16</span></span><br><span class="line"><span class="number">15</span></span><br></pre></td></tr></table></figure>
-<br>
-<br>
-***字符串***
-
-<p>使用双引号或单引号引起来的内容叫做 &gt; &gt;&gt;&gt;&gt;&gt;&gt;<code>字符串</code></p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 单引号字符串</span></span><br><span class="line">str1 = <span class="string">&#x27;hello&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(str1)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 双引号字符串</span></span><br><span class="line">str2 = <span class="string">&quot;Hello World!&quot;</span></span><br><span class="line"><span class="built_in">print</span>(str2)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 三引号字符串，多行字符串</span></span><br><span class="line">str3 = <span class="string">&#x27;&#x27;&#x27;Hello World, Hello 2026&#x27;&#x27;&#x27;</span>   <span class="comment"># 使用三个单引号</span></span><br><span class="line">str4 = <span class="string">&quot;&quot;&quot;Hello World, Hello 2026&quot;&quot;&quot;</span>   <span class="comment"># 使用三个双引号</span></span><br><span class="line"><span class="built_in">print</span>(str3, str4, sep=<span class="string">&quot;\n&quot;</span>)</span><br><span class="line"></span><br><span class="line">                <span class="comment">########执行结果########</span></span><br><span class="line"></span><br><span class="line">D:\Python\Python3<span class="number">.13</span><span class="number">.2</span>\python.exe E:\PythonProject\第<span class="number">1</span>章\python-<span class="number">2</span>-<span class="number">1</span>-init.py </span><br><span class="line">hello</span><br><span class="line">Hello World!</span><br><span class="line">Hello World, Hello <span class="number">2026</span></span><br><span class="line">Hello World, Hello <span class="number">2026</span></span><br></pre></td></tr></table></figure>
-<br>
-<br>
-***字符串运算***
-字符串拼接
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">str1 = <span class="string">&#x27;python and shell &#x27;</span></span><br><span class="line">str2 = <span class="string">&#x27;are computer languages&#x27;</span></span><br><span class="line"><span class="built_in">str</span> = str1 + str2</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;拼接后的字符串为：&#x27;</span>, <span class="built_in">str</span>)</span><br><span class="line">                <span class="comment">########执行结果########</span></span><br><span class="line">D:\Python\Python3<span class="number">.13</span><span class="number">.2</span>\python.exe E:\PythonProject\第<span class="number">1</span>章\python-<span class="number">2</span>-<span class="number">1</span>-init.py </span><br><span class="line"></span><br><span class="line">拼接后的字符串为： python <span class="keyword">and</span> shell are computer languages</span><br></pre></td></tr></table></figure>
-
-<p>重复字符串</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">str1 = <span class="string">&#x27;language|&#x27;</span></span><br><span class="line"><span class="built_in">str</span> = str1 * <span class="number">4</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">str</span>)</span><br><span class="line">                <span class="comment">########执行结果########</span></span><br><span class="line">D:\Python\Python3<span class="number">.13</span><span class="number">.2</span>\python.exe E:\PythonProject\第<span class="number">1</span>章\python-<span class="number">2</span>-<span class="number">1</span>-init.py </span><br><span class="line"></span><br><span class="line">language|language|language|language|</span><br></pre></td></tr></table></figure>
-<br>
-<br>
-***字符串的索引***
-
-
-<blockquote>
-<p>字符串的截取        str[位数]</p>
-</blockquote>
-<blockquote>
-<p>字符串的切片        str[0:4] 加入范围 （<em><strong>只截取第0到3位的字符</strong></em>）</p>
-</blockquote>
-<p>索引：从字符串中的任何一位或几位获取的单个字符，字符的顺序从0位开始</p>
-<p><strong>备注：在中括号内使用负号来对字符进行排序就是倒着数第多少位，正着数有第0位，倒着数没有倒数第0位,字符串在切片取字符的时候可以使用[1:5:2],该代码对一个冒号并在最后加入了2，这表明在在第2个到第5个字符之间每隔两个字符取一个。</strong></p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">str1 = <span class="string">&#x27;hello,world&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;您选择的字符为：&#x27;</span>, str1[<span class="number">2</span>], str1[<span class="number">6</span>])  <span class="comment"># 获取第三个和第七个字符</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;您选择的切片字符为：&#x27;</span>, str1[<span class="number">0</span>:<span class="number">7</span>])      <span class="comment"># 使用切片获取第0到8个范围内的字符</span></span><br><span class="line"></span><br><span class="line">                <span class="comment">########执行结果########</span></span><br><span class="line">                </span><br><span class="line">D:\Python\Python3<span class="number">.13</span><span class="number">.2</span>\python.exe E:\PythonProject\第<span class="number">1</span>章\python-<span class="number">2</span>-<span class="number">1</span>-init.py </span><br><span class="line"></span><br><span class="line">您选择的字符为： l w</span><br><span class="line">您选择的切片字符为： hello,w</span><br></pre></td></tr></table></figure>
-<p>字符串顺序反转</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">str1 = <span class="string">&#x27;123456789&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(str1[::-<span class="number">1</span>])</span><br><span class="line"><span class="built_in">print</span>(str1[-<span class="number">1</span>:-<span class="number">10</span>:-<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">                <span class="comment">########执行结果########</span></span><br><span class="line">                </span><br><span class="line">D:\Python\Python3<span class="number">.13</span><span class="number">.2</span>\python.exe E:\PythonProject\第<span class="number">1</span>章\python-<span class="number">2</span>-<span class="number">1</span>-init.py </span><br><span class="line"></span><br><span class="line"><span class="number">987654321</span></span><br><span class="line"><span class="number">987654321</span></span><br></pre></td></tr></table></figure>
-
-<p><em><strong>数据类型的转换</strong></em></p>
-<table>
-<thead>
-<tr>
-<th>函数名</th>
-<th>函数值</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>int(x,[基数])</td>
-<td>将数字或字符串转换为整数，如果x为浮点数，只保整数部分。基数用于转换进制，比如10代表十进制，2代表二进制</td>
-</tr>
-<tr>
-<td>float(x)</td>
-<td>转换为浮点型</td>
-</tr>
-<tr>
-<td>bool(x)</td>
-<td>转换为浮点型：True\False</td>
-</tr>
-<tr>
-<td>str(x)</td>
-<td>转换为字符串，方便阅读</td>
-</tr>
-<tr>
-<td>使用type命令来查看转换后变量的数据类型</td>
-<td></td>
-</tr>
-<tr>
-<td>例：int &gt;&gt;&gt;&gt;&gt;bool</td>
-<td></td>
-</tr>
-</tbody></table>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="number">12</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(s))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(<span class="built_in">bool</span>(s)))</span><br><span class="line"></span><br><span class="line">                <span class="comment">########执行结果########</span></span><br><span class="line">D:\Python\Python3<span class="number">.13</span><span class="number">.2</span>\python.exe E:\PythonProject\第<span class="number">1</span>章\python-<span class="number">2</span>-<span class="number">1</span>-init.py </span><br><span class="line"></span><br><span class="line">&lt;<span class="keyword">class</span> <span class="string">&#x27;int&#x27;</span>&gt;</span><br><span class="line">&lt;<span class="keyword">class</span> <span class="string">&#x27;bool&#x27;</span>&gt;</span><br></pre></td></tr></table></figure>
-<p>bool &gt;&gt;&gt;&gt;&gt;&gt; int</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="literal">True</span>                   <span class="comment"># 这里的True为布尔值</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(n))             <span class="comment"># 这里检测n的数据类型</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(<span class="built_in">int</span>(n)))        <span class="comment"># 这里将布尔值转换为整型再检测数据类型</span></span><br><span class="line"></span><br><span class="line">                <span class="comment">########执行结果########</span></span><br><span class="line">D:\Python\Python3<span class="number">.13</span><span class="number">.2</span>\python.exe E:\PythonProject\第<span class="number">1</span>章\python-<span class="number">2</span>-<span class="number">1</span>-init.py </span><br><span class="line"></span><br><span class="line">&lt;<span class="keyword">class</span> <span class="string">&#x27;bool&#x27;</span>&gt;</span><br><span class="line">&lt;<span class="keyword">class</span> <span class="string">&#x27;int&#x27;</span>&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<p><em><strong>算术运算符</strong></em></p>
-<table>
-<thead>
-<tr>
-<th>运算符</th>
-<th>描述</th>
-<th>实例</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>+</td>
-<td>加</td>
-<td>10+20&#x3D;30</td>
-</tr>
-<tr>
-<td>-</td>
-<td>减</td>
-<td>10-20&#x3D;-10</td>
-</tr>
-<tr>
-<td><code>*</code></td>
-<td>乘</td>
-<td>10*20&#x3D;200</td>
-</tr>
-<tr>
-<td><code>/</code></td>
-<td>除</td>
-<td>20&#x2F;10&#x3D;2</td>
-</tr>
-<tr>
-<td><code>//</code></td>
-<td>取整</td>
-<td>除法结果取整数部分</td>
-</tr>
-<tr>
-<td><code>%</code></td>
-<td>取余</td>
-<td>除法结果部分取小数</td>
-</tr>
-</tbody></table>
-<p><em><strong>算数运算符的优先级</strong></em></p>
-<table>
-<thead>
-<tr>
-<th><code>**</code></th>
-<th>幂</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>*/%//</code></td>
-<td>乘，除，取余数，取整数</td>
-</tr>
-<tr>
-<td><code>+ -</code></td>
-<td>加法，减法</td>
-</tr>
-</tbody></table>
-<p><em><strong>赋值运算符</strong></em></p>
-<table>
-<thead>
-<tr>
-<th>运算符</th>
-<th>描述</th>
-<th>实例</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>=</code></td>
-<td>赋值运算符</td>
-<td>c &#x3D; a+b将a&#x3D;b的运算结果复制为c</td>
-</tr>
-<tr>
-<td><code>+=</code></td>
-<td>加法赋值运算符</td>
-<td>c +&#x3D; a等效于c &#x3D; c+a</td>
-</tr>
-<tr>
-<td><code>-=</code></td>
-<td>减法赋值运算符</td>
-<td>c-&#x3D;a等效于c &#x3D; c-a</td>
-</tr>
-<tr>
-<td><code>*=</code></td>
-<td>乘法赋值运算符</td>
-<td>c*&#x3D;a等效于c &#x3D; c * a</td>
-</tr>
-<tr>
-<td><code>/=</code></td>
-<td>除法赋值运算符</td>
-<td>c&#x2F;&#x3D;a等效于c &#x3D; c&#x2F;a</td>
-</tr>
-<tr>
-<td><code>//=</code></td>
-<td>取整赋值运算符</td>
-<td>c&#x2F;&#x2F;&#x3D;a等效于c &#x3D; c&#x2F;&#x2F;a</td>
-</tr>
-<tr>
-<td><code>%=</code></td>
-<td>取余赋值运算符</td>
-<td>c%&#x3D;a等效于c &#x3D; c%a</td>
-</tr>
-<tr>
-<td><code>**=</code></td>
-<td>幂赋值运算符</td>
-<td>c**&#x3D;a等效于c &#x3D; c **a</td>
-</tr>
-</tbody></table>
-<p><em><strong>比较运算符</strong></em></p>
-<table>
-<thead>
-<tr>
-<th>运算符</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>==</code></td>
-<td>检查两个操作数的值是否相等，如果是，则条件成立，返回True</td>
-</tr>
-<tr>
-<td><code>!=</code></td>
-<td>检查两个操作数的值是否不相等，如果是，则条件成立，返回True</td>
-</tr>
-<tr>
-<td><code>&gt;</code></td>
-<td>检查左操作数的值是否大于右操作数的值，如果是,则条件成立，返回True</td>
-</tr>
-<tr>
-<td><code>&lt;</code></td>
-<td>检查左操作数的值是否小于右操作数的值，如果是,则条件成立，返回True</td>
-</tr>
-<tr>
-<td><code>&gt;=</code></td>
-<td>检查左操作数的值是否大于或等于右操作数的值，如果是,则条件成立，返回True</td>
-</tr>
-<tr>
-<td><code>&lt;=</code></td>
-<td>检查左操作数的值是否小于等于右操作数的值，如果是,则条件成立，返回True</td>
-</tr>
-</tbody></table>
-<p><strong>逻辑运算符</strong>*</p>
-<br>
-> 运算的优先级||||| not > and > or
-
-<br>
-| 运算符 | 逻辑表达式 | 描述 |
-| ------ | ------ | ------- |
-| `and` | x and y | 只有x和y的值都为True，才会返回True。否则只要x或者y有一个值为False，就会返回False |
-| `or` | x or y | 只要x或者y有一个为True，就返回True，如果x和y都为False才会返回False |
-| `not` | not x | 如果X为True，返回False。如果x为False，返回True |
-
-<p><em><strong>位运算符</strong></em></p>
-<table>
-<thead>
-<tr>
-<th>运算符</th>
-<th>描述</th>
-<th>功能</th>
-<th align="center">实例</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>&amp;</code></td>
-<td>与</td>
-<td>参与运算的两个值，如果两个相应位都为1，则该位的结果为1否则为0</td>
-<td align="center">5&amp;7</td>
-</tr>
-<tr>
-<td>&#96;</td>
-<td>&#96;</td>
-<td>或</td>
-<td align="center">参与运算的两个值，如果两个相应位有一个为1时，则该位的结果为1，否则为0</td>
-</tr>
-<tr>
-<td><code>^</code></td>
-<td>异或</td>
-<td>参与运算的两个时，如果两个相应位不同时，则该位的结果为1，否则为0</td>
-<td align="center">5^7</td>
-</tr>
-<tr>
-<td><code>~</code></td>
-<td>取反</td>
-<td>对数据的每个二进位进行取反操作，把1变成0，把0变成1</td>
-<td align="center">~5</td>
-</tr>
-<tr>
-<td><code>&lt;&lt;</code></td>
-<td>左移</td>
-<td>运算术的各二进制位全部向左移动若干位，若符号右侧的数字指定移动的位数，高位丢弃，低位补0</td>
-<td align="center">9&lt;&lt;2</td>
-</tr>
-<tr>
-<td><code>&gt;&gt;</code></td>
-<td>右移</td>
-<td>运算术的各二进制位全部向右移动左边为，若符号右侧的数字指定移动的位数，低位丢弃，高位补丁</td>
-<td align="center">9&gt;&gt;2</td>
-</tr>
-</tbody></table>
-<p><em><strong>成员运算符</strong></em></p>
-<table>
-<thead>
-<tr>
-<th>运算符</th>
-<th>描述</th>
-<th>实例</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>in</code></td>
-<td>如果在指定的序列中找到值返回True，否则返回False</td>
-<td>3 in (1,2,3) 返回True</td>
-</tr>
-<tr>
-<td><code>not in</code></td>
-<td>如果在指定的序列中没有找到返回值返回True，否则返回False</td>
-<td>3 not in (1,2,3) 返回False</td>
-</tr>
-</tbody></table>
-<p><em><strong>身份运算符</strong></em></p>
-<table>
-<thead>
-<tr>
-<th>运算符</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>is</code></td>
-<td>判断两个标识符是否引用同一个对象，是的话返回真，否则返回假</td>
-</tr>
-<tr>
-<td><code>is not</code></td>
-<td>判断两个标识符是否不是引用同一个对象，是的话返回真，否则返回假</td>
-</tr>
-</tbody></table>
-<p><em><strong>运算符的优先级</strong></em></p>
-<table>
-<thead>
-<tr>
-<th>运算符</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>**</code></td>
-<td>幂</td>
-</tr>
-<tr>
-<td><code>~+-</code></td>
-<td>按位取反，一元运算符</td>
-</tr>
-<tr>
-<td><code>*/%//</code></td>
-<td>乘、除、取整数、取余数</td>
-</tr>
-<tr>
-<td><code>+-</code></td>
-<td>加法、减法</td>
-</tr>
-<tr>
-<td><code>&lt;&lt;&gt;&gt;</code></td>
-<td>左移、右移</td>
-</tr>
-<tr>
-<td><code>&amp;</code></td>
-<td>按位与</td>
-</tr>
-<tr>
-<td>&#96;&#96;&#96;</td>
-<td>^&#96;</td>
-</tr>
-<tr>
-<td><code>&gt;&lt; &gt;= &lt;=</code></td>
-<td>比较运算符</td>
-</tr>
-<tr>
-<td><code>== !=</code></td>
-<td>等于运算符</td>
-</tr>
-<tr>
-<td><code>= += -= *= /= %= //= **=</code></td>
-<td>赋值运算符</td>
-</tr>
-<tr>
-<td><code>is 、is not</code></td>
-<td></td>
-</tr>
-<tr>
-<td><code>in 、not in</code></td>
-<td></td>
-</tr>
-<tr>
-<td><code>not or and</code></td>
-<td>逻辑运算符</td>
-</tr>
-</tbody></table>
-<h3 id="条件判断"><a href="#条件判断" class="headerlink" title="条件判断"></a>条件判断</h3><p><em><strong>if单分支</strong></em></p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> 条件：     <span class="comment"># if后直接写条件然后加英文冒号</span></span><br><span class="line">    执行的命令         <span class="comment"># 执行命令的部分要空四格再写命令作为执行命令</span></span><br></pre></td></tr></table></figure>
-<p><em><strong>if else 语句</strong></em></p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">if</span> 判断条件：                   <span class="comment"># if句后结尾加英文冒号</span></span><br><span class="line">    条件成立执行的代码</span><br><span class="line"><span class="keyword">else</span>：                         <span class="comment"># else后加英文冒号，和shell命令不同，要区分！！！！</span></span><br><span class="line">    条件不成立执行的代码</span><br></pre></td></tr></table></figure>
-
-<p><em><strong>elif语句</strong></em></p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">if</span> 判断条件:           <span class="comment"># 注意此处的冒号</span></span><br><span class="line">    执行的代码</span><br><span class="line"><span class="keyword">elif</span> 条件：             <span class="comment"># 注意此处的冒号</span></span><br><span class="line">    执行的代码</span><br><span class="line"><span class="keyword">else</span>:                  <span class="comment"># 特别注意此处的冒号！！！！</span></span><br><span class="line">    执行的代码</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+<p>设备已虚焊，拆机中，未写完的下次再写，各位再见。</p>
 
       
     </div>
@@ -768,7 +381,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/38/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/38/">38</a><span class="page-number current">39</span><a class="page-number" href="/page/40/">40</a><span class="space">&hellip;</span><a class="page-number" href="/page/44/">44</a><a class="extend next" rel="next" href="/page/40/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/38/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/38/">38</a><span class="page-number current">39</span><a class="page-number" href="/page/40/">40</a><span class="space">&hellip;</span><a class="page-number" href="/page/46/">46</a><a class="extend next" rel="next" href="/page/40/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -855,7 +468,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-count">46</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -904,12 +517,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">181k</span>
+    <span title="站点总字数">187k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">5:02</span>
+    <span title="站点阅读时长">5:11</span>
 </div>
 <!-- 网站运行时间的设置 -->
 <span id="timeDate">载入天数...</span>
