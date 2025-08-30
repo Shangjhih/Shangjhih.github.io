@@ -169,7 +169,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/07/20/FL-Studio-Unlock/">
+    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/07/29/Ubuntu%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
@@ -183,7 +183,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2025/07/20/FL-Studio-Unlock/" class="post-title-link" itemprop="url">FL Studio Unlock</a>
+            <a href="/2025/07/29/Ubuntu%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/" class="post-title-link" itemprop="url">Ubuntu安装指南</a>
         </h2>
 
         <div class="post-meta">
@@ -194,7 +194,20 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2025-07-20 21:49:47 / 修改时间：22:23:06" itemprop="dateCreated datePublished" datetime="2025-07-20T21:49:47+08:00">2025-07-20</time>
+              <time title="创建时间：2025-07-29 14:41:17 / 修改时间：19:13:53" itemprop="dateCreated datePublished" datetime="2025-07-29T14:41:17+08:00">2025-07-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Ubuntu/" itemprop="url" rel="index"><span itemprop="name">Ubuntu</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Ubuntu/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
             </span>
 
           <br>
@@ -203,14 +216,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>668</span>
+              <span>3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>5 分钟</span>
             </span>
 
         </div>
@@ -222,46 +235,86 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>本次记录内容:FL Studio解锁</p>
-<blockquote>
-<p><strong>FL Studio</strong>（前身为 <strong>FruityLoops</strong>）是一款由 <strong>Image-Line</strong> 公司开发的 <strong>数字音频工作站（DAW）</strong>，主要用于 <strong>音乐制作、编曲、混音和录音</strong>。它被广泛用于 <strong>电子音乐、嘻哈、流行音乐</strong> 等风格的创作，因其 <strong>直观的操作界面</strong> 和 <strong>强大的功能</strong> 而深受音乐制作人喜爱。</p>
-</blockquote>
-<h3 id="资源获取"><a href="#资源获取" class="headerlink" title="资源获取"></a>资源获取</h3><p><a target="_blank" rel="noopener" href="https://t.me/flstudioc">Telegram群组</a></p>
-<p>在整个解锁流程中，我们需要用FL Studio的官方程序（可以在群组中下载），还需要群组中提供的解锁文件，一共是两个文件。</p>
-<img src="https://s2.loli.net/2025/07/20/Iu3szPWpQCc15nm.png" alt="image.png" style="zoom:84%;" />
+          <p>本次我们要讲的内容是使用U盘为物理机安装Ubuntu操作系统，本次我们使用的镜像版本为22.04 LTSC版本。之前我已经产生过安装使用较新版本的Ubuntu 24.04版本，但是在安装后我发现这个版本的系统没有左侧的Dock栏（Desktop版本，非Server）。这个22.04版本的安装一切顺利，所以本次就以该版本的安装作为示范。</p>
+<hr>
+<p>在安装之前你需要准备一个容量大于8Gb的U盘，还需要下载Ubuntu的ISO镜像，以及一个烧录软件。</p>
+<p>注意：Ubuntu桌面端是带有GUI界面的操作系统，也就是可以使用鼠标点击进行操作，界面类似于Windows的版本。</p>
+<p>​       server版本是只有黑框的终端版本，不能使用鼠标进行图形操作，建议新手从桌面端开始使用。U盘在制作过程中会被格式化，如有重要数据请注意提前备份！！！</p>
+<table>
+<thead>
+<tr>
+<th align="left">**Ubuntu iSO:    **</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://releases.ubuntu.com/">https://releases.ubuntu.com/</a></td>
+<td>（桌面端和服务器端旧版本）</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://ubuntu.com/download/desktop">https://ubuntu.com/download/desktop</a></td>
+<td>（桌面端新版本（近两代））</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://ubuntu.com/download/server">https://ubuntu.com/download/server</a></td>
+<td>（服务器端新版本）</td>
+</tr>
+</tbody></table>
+<hr>
+<ul>
+<li>**Rufus：      **</li>
+</ul>
+<p>​     <a target="_blank" rel="noopener" href="https://rufus.ie/zh/">https://rufus.ie/zh/</a>     （推荐下载便携版（portable））</p>
+<hr>
+<h2 id="启动盘制作"><a href="#启动盘制作" class="headerlink" title="启动盘制作"></a>启动盘制作</h2><ol>
+<li>在另一台电脑下载安装Rufus下载Ubuntu的ISO镜像文件，打开Rufus，烧录镜像</li>
+</ol>
+<p><img src="https://s2.loli.net/2025/07/29/hUHGYoWisRa3gyf.png" alt="image.png"></p>
+<hr>
+<p>  1.1 <strong>首先查看识别到的U盘是不是你要制作引导的U盘</strong></p>
+<p>  1.2 ** 选择导入之前已经下载好的Ubuntu iSO镜像文件**</p>
+<p>  1.3 <strong>将分区类型修改为GPT</strong></p>
+<p>  1.4 <strong>点击开始即可进行烧录</strong></p>
+<p>  1.5 <strong>等待进度条走完之后，点击关闭按钮</strong></p>
+<p>  1.6 <strong>弹出U盘备用</strong></p>
+<hr>
+<h2 id="代理地址"><a href="#代理地址" class="headerlink" title="代理地址"></a>代理地址</h2><p>此项可以直接跳过，按enter继续</p>
+<hr>
+<h2 id="软件源设置"><a href="#软件源设置" class="headerlink" title="软件源设置"></a>软件源设置</h2><h4 id="可选软件源"><a href="#可选软件源" class="headerlink" title="可选软件源"></a>可选软件源</h4><p>在安装过程中系统会推荐合适的软件源，当然，你也可以执行设置。推荐的地址如下：</p>
+<p>中科大软件源：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">https://mirrors.ustc.edu.cn/ubuntu/</span></span><br></pre></td></tr></table></figure>
+
+<p>清华源</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">https://mirrors.tuna.tsinghua.edu.cn/ubuntu/</span></span><br></pre></td></tr></table></figure>
+
+<p>阿里源</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">https://mirrors.aliyun.com/ubuntu/</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>#####################################################################</p>
+<h4 id="sources-list文件修改"><a href="#sources-list文件修改" class="headerlink" title="sources.list文件修改"></a>sources.list文件修改</h4><p>假如后面因为软件源的原因无法正常使用<code>apt</code>安装软件，请修改以下位置的文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+
+<p>使用<code>Vim</code>或其它编辑器修改这个文件为上面推荐的某一个（Vim编辑器可能在系统刚安装后没有内置，这时候你可以使用命令<code>apt install vim</code>来安装，或者使用<code>Vi</code>或者<code>nano</code>等进行修改替换），需要修改的对象为：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">http://cn.archive.ubuntu.com/ubuntu/</span></span><br></pre></td></tr></table></figure>
+
+<p>这个东西。</p>
+<p>在旧版的Ubuntu中，需要修改很多处，但是在24版及以后的新版本中，只有一项是需要修改的，根据实际情况修改替换</p>
+<p>我的旧版本内容如下：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">deb http:<span class="comment">//cn.archive.ubuntu.com/ubuntu/ jammy main restricted</span></span><br><span class="line"># deb<span class="operator">-</span>src http:<span class="comment">//cn.archive.ubuntu.com/ubuntu/ jammy main restricted</span></span><br><span class="line"></span><br><span class="line">## <span class="type">Major</span> bug fix updates produced after the <span class="keyword">final</span> release of the</span><br><span class="line">## distribution.</span><br><span class="line">deb http:<span class="comment">//cn.archive.ubuntu.com/ubuntu/ jammy-updates main restricted</span></span><br><span class="line"># deb<span class="operator">-</span>src http:<span class="comment">//cn.archive.ubuntu.com/ubuntu/ jammy-updates main restricted</span></span><br><span class="line"></span><br><span class="line">## <span class="type">N</span>.<span class="type">B</span>. software from this repository <span class="keyword">is</span> <span class="type">ENTIRELY</span> <span class="type">UNSUPPORTED</span> by the <span class="type">Ubuntu</span></span><br><span class="line">## team. <span class="type">Also</span>, please note that software <span class="keyword">in</span> universe <span class="type">WILL</span> <span class="type">NOT</span> receive <span class="keyword">any</span></span><br><span class="line">## review or updates from the <span class="type">Ubuntu</span> security team.</span><br><span class="line">deb http:<span class="comment">//cn.archive.ubuntu.com/ubuntu/ jammy universe</span></span><br><span class="line"># deb<span class="operator">-</span>src http:<span class="comment">//cn.archive.ubuntu.com/ubuntu/ jammy universe</span></span><br><span class="line">deb http:<span class="comment">//cn.archive.ubuntu.com/ubuntu/ jammy-updates universe</span></span><br><span class="line"># deb<span class="operator">-</span>src http:<span class="comment">//cn.archive.ubuntu.com/ubuntu/ jammy-updates universe</span></span><br><span class="line"></span><br><span class="line">## <span class="type">N</span>.<span class="type">B</span>. software from this repository <span class="keyword">is</span> <span class="type">ENTIRELY</span> <span class="type">UNSUPPORTED</span> by the <span class="type">Ubuntu</span> </span><br><span class="line">## team, and may not be under a free licence. <span class="type">Please</span> satisfy yourself <span class="keyword">as</span> to </span><br><span class="line">## your rights to use the software. <span class="type">Also</span>, please note that software <span class="keyword">in</span> </span><br><span class="line">## multiverse <span class="type">WILL</span> <span class="type">NOT</span> receive <span class="keyword">any</span> review or updates from the <span class="type">Ubuntu</span></span><br><span class="line">## security team.</span><br><span class="line">deb http:<span class="comment">//cn.archive.ubuntu.com/ubuntu/ jammy multiverse</span></span><br><span class="line"># deb<span class="operator">-</span>src http:<span class="comment">//cn.archive.ubuntu.com/ubuntu/ jammy multiverse</span></span><br><span class="line">deb http:<span class="comment">//cn.archive.ubuntu.com/ubuntu/ jammy-updates multiverse</span></span><br><span class="line"># deb<span class="operator">-</span>src http:<span class="comment">//cn.archive.ubuntu.com/ubuntu/ jammy-updates multiverse</span></span><br></pre></td></tr></table></figure>
 
 
 
-<img src="https://s2.loli.net/2025/07/20/CrAuyHBStQ7vDF9.png" alt="image.png" style="zoom:80%;" />
+<p>此时需要对此处<code>http://cn.archive.ubuntu.com/ubuntu/</code>进行替换，将其修改为适合自己的源。</p>
+<hr>
+<h2 id="进入引导界面"><a href="#进入引导界面" class="headerlink" title="进入引导界面"></a>进入引导界面</h2><p>在启动盘已经做好的前提下，插入需要安装Ubuntu的电脑USB口，准备启动电脑。在电脑未完全启动之前，也就是还未开机之前，请根据提示进入BIOS（我这里使用的是技嘉的服务器，按del进入BIOS，按F10进入高级启动），你可以在BIOS中修改第一启动项为U盘，随后即可进入到安装界面。</p>
+<p>根据提示输入自己的用户名，计算机名以及密码，在进行安装位置设置的时候要注意：</p>
+<p>安装时不要使用前两项安装选择，不能使用整块磁盘安装，选择使用<code>Custom</code>或者<code>自定义安装</code>，在此处可以自行设置安装位置，且，格式化磁盘时必须选择使用<code>ext4</code>格式进行格式化，在选择挂载位置的时候，选择挂载<code>/</code>,也就是根目录。</p>
+<p><img src="https://s2.loli.net/2025/07/29/He9sNOxoTjD3nWv.jpg" alt="58c6508a9e5ff994fc635a0f3965f53.jpg"></p>
+<p>其他分区将会同意挂载在同一个分区，可以避免多个分区设置的麻烦。坏处是，系统坏了无法自救，请斟酌考虑。</p>
+<h2 id="进入系统"><a href="#进入系统" class="headerlink" title="进入系统"></a>进入系统</h2><p><img src="https://s2.loli.net/2025/07/29/gLpVM9tH1JI3siz.jpg" alt="8bf6236de952e3720836f104cf09a8f.jpg"></p>
+<p>如图所示，你的Dock栏大概率在左侧，这个是可以调的</p>
 
-
-<p>在解锁文件中我们可以看到以下文件：</p>
-<img src="https://s2.loli.net/2025/07/20/U9NgPtQaduwWoBk.png" alt="image.png" style="zoom:67%;" />
-
-
-<h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><h4 id="获取ID"><a href="#获取ID" class="headerlink" title="获取ID"></a>获取ID</h4><p>首先按照流程安装<code>FL Studio主程序</code>和<code>VS2</code>,共需新建两个文件夹。安装后打开软件，初次打开将会弹出欢迎和试用界面。</p>
-<blockquote>
-<p> 依次找到并点击【<code>更多解锁选择</code> 】–【more】 –【Unlock with file】–【Save validation file】</p>
-</blockquote>
-<p>将文件保存到任意可找到的位置，然后打开文件复制文件内容，解压解锁文件，到文件目录找到名为【<code>ID Patcher.exe</code>】的文件，打开并将复制的ID信息粘贴到软件的提示框，并点击【<code>Patch</code>】</p>
-<img src="https://s2.loli.net/2025/07/20/83ECZdTxnMIgPUj.png" alt="image.png" style="zoom: 67%;" />
-
-
-<h4 id="替换文件"><a href="#替换文件" class="headerlink" title="替换文件"></a>替换文件</h4><p>将解锁文件中除破解文件以外的所有文件都复制到FL Studio的安装路径内，待提示是否覆盖时点击覆盖文件。</p>
-<p><img src="https://s2.loli.net/2025/07/20/tkFghSAB8ojn5Od.png" alt="image.png"></p>
-<h4 id="修改注册表授权信息"><a href="#修改注册表授权信息" class="headerlink" title="修改注册表授权信息"></a>修改注册表授权信息</h4><p>使用记事本打开【<code>FL Studio_24.2_reg_key.reg</code>】文件，将反白的地方修改为随意授权对象（可以不修改），随后保存并双击注册表文件，将其导入到系统。</p>
-<img src="https://s2.loli.net/2025/07/20/IRM5arKQdCWxN7t.png" alt="1dcc822b22a085bad3328dab3f3e7b7.png" style="zoom: 50%;" />
-
-
-
-<img src="https://s2.loli.net/2025/07/20/B2wtMWlxLG3ZQfN.png" alt="fffbb4dbe8f99b63c233bfd8e743116.png" style="zoom:50%;" />
-
-
-
-
-<h4 id="显示注册信息"><a href="#显示注册信息" class="headerlink" title="显示注册信息"></a>显示注册信息</h4><p>打开FL Studio，按F10进入到菜单。选择【<code>常规</code>】下滑到最后一个选项，将激活信息的显示从【<code>用户名</code>】修改为【<code>车牌号</code>】</p>
-<p><img src="https://s2.loli.net/2025/07/20/Khns7zkjE1G35qI.png" alt="image.png"></p>
-<h3 id="激活成功"><a href="#激活成功" class="headerlink" title="激活成功"></a>激活成功</h3>
       
     </div>
 
@@ -279,7 +332,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/16/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><span class="page-number current">17</span><a class="page-number" href="/page/18/">18</a><span class="space">&hellip;</span><a class="page-number" href="/page/47/">47</a><a class="extend next" rel="next" href="/page/18/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/16/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><span class="page-number current">17</span><a class="page-number" href="/page/18/">18</a><span class="space">&hellip;</span><a class="page-number" href="/page/49/">49</a><a class="extend next" rel="next" href="/page/18/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -366,7 +419,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-count">49</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -415,12 +468,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">196k</span>
+    <span title="站点总字数">202k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">5:27</span>
+    <span title="站点阅读时长">5:36</span>
 </div>
 <!-- 网站运行时间的设置 -->
 <span id="timeDate">载入天数...</span>
