@@ -169,7 +169,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/07/29/Ubuntu%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/">
+    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/07/29/Ubuntu%E6%96%B0%E6%89%8B%E9%85%8D%E7%BD%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
@@ -183,7 +183,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2025/07/29/Ubuntu%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/" class="post-title-link" itemprop="url">Ubuntu安装指南</a>
+            <a href="/2025/07/29/Ubuntu%E6%96%B0%E6%89%8B%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">Ubuntu新手配置</a>
         </h2>
 
         <div class="post-meta">
@@ -194,7 +194,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2025-07-29 14:41:17 / 修改时间：19:13:53" itemprop="dateCreated datePublished" datetime="2025-07-29T14:41:17+08:00">2025-07-29</time>
+              <time title="创建时间：2025-07-29 14:41:37 / 修改时间：20:53:52" itemprop="dateCreated datePublished" datetime="2025-07-29T14:41:37+08:00">2025-07-29</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -202,11 +202,11 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Ubuntu/" itemprop="url" rel="index"><span itemprop="name">Ubuntu</span></a>
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Ubuntu/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                  <a href="/categories/Linux/Ubuntu/" itemprop="url" rel="index"><span itemprop="name">Ubuntu</span></a>
                 </span>
             </span>
 
@@ -216,14 +216,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3k</span>
+              <span>1.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>5 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -235,85 +235,68 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>本次我们要讲的内容是使用U盘为物理机安装Ubuntu操作系统，本次我们使用的镜像版本为22.04 LTSC版本。之前我已经产生过安装使用较新版本的Ubuntu 24.04版本，但是在安装后我发现这个版本的系统没有左侧的Dock栏（Desktop版本，非Server）。这个22.04版本的安装一切顺利，所以本次就以该版本的安装作为示范。</p>
-<hr>
-<p>在安装之前你需要准备一个容量大于8Gb的U盘，还需要下载Ubuntu的ISO镜像，以及一个烧录软件。</p>
-<p>注意：Ubuntu桌面端是带有GUI界面的操作系统，也就是可以使用鼠标点击进行操作，界面类似于Windows的版本。</p>
-<p>​       server版本是只有黑框的终端版本，不能使用鼠标进行图形操作，建议新手从桌面端开始使用。U盘在制作过程中会被格式化，如有重要数据请注意提前备份！！！</p>
-<table>
-<thead>
-<tr>
-<th align="left">**Ubuntu iSO:    **</th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><a target="_blank" rel="noopener" href="https://releases.ubuntu.com/">https://releases.ubuntu.com/</a></td>
-<td>（桌面端和服务器端旧版本）</td>
-</tr>
-<tr>
-<td align="left"><a target="_blank" rel="noopener" href="https://ubuntu.com/download/desktop">https://ubuntu.com/download/desktop</a></td>
-<td>（桌面端新版本（近两代））</td>
-</tr>
-<tr>
-<td align="left"><a target="_blank" rel="noopener" href="https://ubuntu.com/download/server">https://ubuntu.com/download/server</a></td>
-<td>（服务器端新版本）</td>
-</tr>
-</tbody></table>
-<hr>
-<ul>
-<li>**Rufus：      **</li>
-</ul>
-<p>​     <a target="_blank" rel="noopener" href="https://rufus.ie/zh/">https://rufus.ie/zh/</a>     （推荐下载便携版（portable））</p>
-<hr>
-<h2 id="启动盘制作"><a href="#启动盘制作" class="headerlink" title="启动盘制作"></a>启动盘制作</h2><ol>
-<li>在另一台电脑下载安装Rufus下载Ubuntu的ISO镜像文件，打开Rufus，烧录镜像</li>
+          <p>在你已经安装好系统之后，需要做的第一件事就是先给系统装上SSH server，SSH server是Linux进行远程的重要工具。SSH会在Linux中作为一个服务端出现，为用户提供远程访问的服务。</p>
+<p>在装系统时你可能没有勾选Openssh-server服务，此时的Linux只能通过键盘链接实体机器进行命令输入，在安装openssh-server之后便可以从远程来访问终端了。</p>
+<h2 id="初始化apt"><a href="#初始化apt" class="headerlink" title="初始化apt"></a>初始化apt</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt update                     # 初始化apt</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt upgrade                    # 更新软件</span><br></pre></td></tr></table></figure>
+
+<h3 id="SSH-server-服务"><a href="#SSH-server-服务" class="headerlink" title="SSH server 服务"></a>SSH server 服务</h3><p>使用以下命令安装SSH Server服务器</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install openssh-server -y                          #安装ssh服务端</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="xrdp远程桌面"><a href="#xrdp远程桌面" class="headerlink" title="xrdp远程桌面"></a>xrdp远程桌面</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install xrdp                                       #安装xrdp</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start xrdp                                   # 启动xrdp服务</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reboot                                                 # 测试不可连接的话就重启以生效</span><br></pre></td></tr></table></figure>
+
+
+<p>远程桌面在安装后无法连接使用或者在来凝结后出现桌面异常没有Dock栏的话请按以下流程修改xrdp的配置文件</p>
+<ol>
+<li><p>找到位于<code>/etc/xrdp/</code>目录下名叫<code>startwm.sh</code>的文件</p>
+</li>
+<li><p>使用<code>vim</code>编辑器或其他编辑器在</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">if test -r /etc/profile; then</span><br><span class="line">        . /etc/profile</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">test -x /etc/X11/Xsession &amp;&amp; exec /etc/X11/Xsession</span><br><span class="line">exec /bin/sh /etc/X11/Xsession</span><br></pre></td></tr></table></figure>
+
+<p>之前加上配置文件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export GNOME_SHELL_SESSION_MODE=ubuntu</span><br><span class="line">export XDG_CURRENT_DESKTOP=ubuntu:GNOME</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>在第一个if循环之后加上</p>
+</li>
 </ol>
-<p><img src="https://s2.loli.net/2025/07/29/hUHGYoWisRa3gyf.png" alt="image.png"></p>
-<hr>
-<p>  1.1 <strong>首先查看识别到的U盘是不是你要制作引导的U盘</strong></p>
-<p>  1.2 ** 选择导入之前已经下载好的Ubuntu iSO镜像文件**</p>
-<p>  1.3 <strong>将分区类型修改为GPT</strong></p>
-<p>  1.4 <strong>点击开始即可进行烧录</strong></p>
-<p>  1.5 <strong>等待进度条走完之后，点击关闭按钮</strong></p>
-<p>  1.6 <strong>弹出U盘备用</strong></p>
-<hr>
-<h2 id="代理地址"><a href="#代理地址" class="headerlink" title="代理地址"></a>代理地址</h2><p>此项可以直接跳过，按enter继续</p>
-<hr>
-<h2 id="软件源设置"><a href="#软件源设置" class="headerlink" title="软件源设置"></a>软件源设置</h2><h4 id="可选软件源"><a href="#可选软件源" class="headerlink" title="可选软件源"></a>可选软件源</h4><p>在安装过程中系统会推荐合适的软件源，当然，你也可以执行设置。推荐的地址如下：</p>
-<p>中科大软件源：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">https://mirrors.ustc.edu.cn/ubuntu/</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export $(dbus-launch)</span><br></pre></td></tr></table></figure>
 
-<p>清华源</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">https://mirrors.tuna.tsinghua.edu.cn/ubuntu/</span></span><br></pre></td></tr></table></figure>
 
-<p>阿里源</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">https://mirrors.aliyun.com/ubuntu/</span></span><br></pre></td></tr></table></figure>
+<p>   完整的配置文件如下所示：</p>
+   <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">   #</span><span class="language-bash">!/bin/sh</span></span><br><span class="line"><span class="meta prompt_">   # </span><span class="language-bash">xrdp X session start script (c) 2015, 2017, 2021 mirabilos</span></span><br><span class="line"><span class="meta prompt_">   # </span><span class="language-bash">published under The MirOS Licence</span></span><br><span class="line">   </span><br><span class="line"><span class="meta prompt_">   # </span><span class="language-bash">Rely on /etc/pam.d/xrdp-sesman using pam_env to load both</span></span><br><span class="line"><span class="meta prompt_">   # </span><span class="language-bash">/etc/environment and /etc/default/locale to initialise the</span></span><br><span class="line"><span class="meta prompt_">   # </span><span class="language-bash">locale and the user environment properly.</span></span><br><span class="line">   </span><br><span class="line">   </span><br><span class="line">   export GNOME_SHELL_SESSION_MODE=ubuntu                # 修改点1</span><br><span class="line">   export XDG_CURRENT_DESKTOP=ubuntu:GNOME               # 修改点1</span><br><span class="line"></span><br><span class="line">   </span><br><span class="line">   </span><br><span class="line">   </span><br><span class="line">   if test -r /etc/profile; then</span><br><span class="line">           . /etc/profile</span><br><span class="line">   fi</span><br><span class="line">   </span><br><span class="line">export $(dbus-launch)                                    # 修改点2</span><br><span class="line"></span><br><span class="line">   test -x /etc/X11/Xsession &amp;&amp; exec /etc/X11/Xsession</span><br><span class="line">   exec /bin/sh /etc/X11/Xsession</span><br></pre></td></tr></table></figure>
 
-<hr>
-<p>#####################################################################</p>
-<h4 id="sources-list文件修改"><a href="#sources-list文件修改" class="headerlink" title="sources.list文件修改"></a>sources.list文件修改</h4><p>假如后面因为软件源的原因无法正常使用<code>apt</code>安装软件，请修改以下位置的文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+<h4 id="安装dbus-launch"><a href="#安装dbus-launch" class="headerlink" title="安装dbus-launch"></a>安装dbus-launch</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt install dbus-launch               #安装dbus-launch</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p>使用<code>Vim</code>或其它编辑器修改这个文件为上面推荐的某一个（Vim编辑器可能在系统刚安装后没有内置，这时候你可以使用命令<code>apt install vim</code>来安装，或者使用<code>Vi</code>或者<code>nano</code>等进行修改替换），需要修改的对象为：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">http://cn.archive.ubuntu.com/ubuntu/</span></span><br></pre></td></tr></table></figure>
 
-<p>这个东西。</p>
-<p>在旧版的Ubuntu中，需要修改很多处，但是在24版及以后的新版本中，只有一项是需要修改的，根据实际情况修改替换</p>
-<p>我的旧版本内容如下：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">deb http:<span class="comment">//cn.archive.ubuntu.com/ubuntu/ jammy main restricted</span></span><br><span class="line"># deb<span class="operator">-</span>src http:<span class="comment">//cn.archive.ubuntu.com/ubuntu/ jammy main restricted</span></span><br><span class="line"></span><br><span class="line">## <span class="type">Major</span> bug fix updates produced after the <span class="keyword">final</span> release of the</span><br><span class="line">## distribution.</span><br><span class="line">deb http:<span class="comment">//cn.archive.ubuntu.com/ubuntu/ jammy-updates main restricted</span></span><br><span class="line"># deb<span class="operator">-</span>src http:<span class="comment">//cn.archive.ubuntu.com/ubuntu/ jammy-updates main restricted</span></span><br><span class="line"></span><br><span class="line">## <span class="type">N</span>.<span class="type">B</span>. software from this repository <span class="keyword">is</span> <span class="type">ENTIRELY</span> <span class="type">UNSUPPORTED</span> by the <span class="type">Ubuntu</span></span><br><span class="line">## team. <span class="type">Also</span>, please note that software <span class="keyword">in</span> universe <span class="type">WILL</span> <span class="type">NOT</span> receive <span class="keyword">any</span></span><br><span class="line">## review or updates from the <span class="type">Ubuntu</span> security team.</span><br><span class="line">deb http:<span class="comment">//cn.archive.ubuntu.com/ubuntu/ jammy universe</span></span><br><span class="line"># deb<span class="operator">-</span>src http:<span class="comment">//cn.archive.ubuntu.com/ubuntu/ jammy universe</span></span><br><span class="line">deb http:<span class="comment">//cn.archive.ubuntu.com/ubuntu/ jammy-updates universe</span></span><br><span class="line"># deb<span class="operator">-</span>src http:<span class="comment">//cn.archive.ubuntu.com/ubuntu/ jammy-updates universe</span></span><br><span class="line"></span><br><span class="line">## <span class="type">N</span>.<span class="type">B</span>. software from this repository <span class="keyword">is</span> <span class="type">ENTIRELY</span> <span class="type">UNSUPPORTED</span> by the <span class="type">Ubuntu</span> </span><br><span class="line">## team, and may not be under a free licence. <span class="type">Please</span> satisfy yourself <span class="keyword">as</span> to </span><br><span class="line">## your rights to use the software. <span class="type">Also</span>, please note that software <span class="keyword">in</span> </span><br><span class="line">## multiverse <span class="type">WILL</span> <span class="type">NOT</span> receive <span class="keyword">any</span> review or updates from the <span class="type">Ubuntu</span></span><br><span class="line">## security team.</span><br><span class="line">deb http:<span class="comment">//cn.archive.ubuntu.com/ubuntu/ jammy multiverse</span></span><br><span class="line"># deb<span class="operator">-</span>src http:<span class="comment">//cn.archive.ubuntu.com/ubuntu/ jammy multiverse</span></span><br><span class="line">deb http:<span class="comment">//cn.archive.ubuntu.com/ubuntu/ jammy-updates multiverse</span></span><br><span class="line"># deb<span class="operator">-</span>src http:<span class="comment">//cn.archive.ubuntu.com/ubuntu/ jammy-updates multiverse</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dbus-launch                            #然后启动dbus-launch</span><br></pre></td></tr></table></figure>
 
 
 
-<p>此时需要对此处<code>http://cn.archive.ubuntu.com/ubuntu/</code>进行替换，将其修改为适合自己的源。</p>
-<hr>
-<h2 id="进入引导界面"><a href="#进入引导界面" class="headerlink" title="进入引导界面"></a>进入引导界面</h2><p>在启动盘已经做好的前提下，插入需要安装Ubuntu的电脑USB口，准备启动电脑。在电脑未完全启动之前，也就是还未开机之前，请根据提示进入BIOS（我这里使用的是技嘉的服务器，按del进入BIOS，按F10进入高级启动），你可以在BIOS中修改第一启动项为U盘，随后即可进入到安装界面。</p>
-<p>根据提示输入自己的用户名，计算机名以及密码，在进行安装位置设置的时候要注意：</p>
-<p>安装时不要使用前两项安装选择，不能使用整块磁盘安装，选择使用<code>Custom</code>或者<code>自定义安装</code>，在此处可以自行设置安装位置，且，格式化磁盘时必须选择使用<code>ext4</code>格式进行格式化，在选择挂载位置的时候，选择挂载<code>/</code>,也就是根目录。</p>
-<p><img src="https://s2.loli.net/2025/07/29/He9sNOxoTjD3nWv.jpg" alt="58c6508a9e5ff994fc635a0f3965f53.jpg"></p>
-<p>其他分区将会同意挂载在同一个分区，可以避免多个分区设置的麻烦。坏处是，系统坏了无法自救，请斟酌考虑。</p>
-<h2 id="进入系统"><a href="#进入系统" class="headerlink" title="进入系统"></a>进入系统</h2><p><img src="https://s2.loli.net/2025/07/29/gLpVM9tH1JI3siz.jpg" alt="8bf6236de952e3720836f104cf09a8f.jpg"></p>
-<p>如图所示，你的Dock栏大概率在左侧，这个是可以调的</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart xrdp                #重启xrdp</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dbus-launch                            # 启动dbus-launch</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart xrdp                 # 重启xrdp服务</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="远程桌面连接"><a href="#远程桌面连接" class="headerlink" title="远程桌面连接"></a>远程桌面连接</h2><p>这里说的远程桌面连接指的是Windows的功能<code>远程桌面</code>，使用该服务即可连接到局域网的Ubuntu服务器，假如你的服务器在海外或者国内云服务运营商的机房，同时你又安装了桌面版的Ubuntu，这时捏也可以使用这个服务器来远程连接你的服务器。</p>
+<h4 id="账密配置"><a href="#账密配置" class="headerlink" title="账密配置"></a>账密配置</h4><p>账号就是Ubuntu的ip地址，你可以使用下面的命令获取本机的IP地址</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip addr</span><br></pre></td></tr></table></figure>
+
+
+<p>找到eth0或eth1对应的IP地址，这就是你的登录目标</p>
+<p>账号和密码都是你在装系统时自己设置的。</p>
+<p><img src="https://s2.loli.net/2025/07/29/kcdG3Tv2WJqLKMA.png" alt="image.png"></p>
+<p><img src="https://s2.loli.net/2025/07/29/IT5tQAgO1wR39db.png" alt="image.png"></p>
+<p><img src="https://s2.loli.net/2025/07/29/WGLO5hsxdDoteTl.png" alt="712f43ebfe3f2a66a46b6fbd2c6d0fc.png"></p>
 
       
     </div>
@@ -332,7 +315,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/16/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><span class="page-number current">17</span><a class="page-number" href="/page/18/">18</a><span class="space">&hellip;</span><a class="page-number" href="/page/49/">49</a><a class="extend next" rel="next" href="/page/18/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/16/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><span class="page-number current">17</span><a class="page-number" href="/page/18/">18</a><span class="space">&hellip;</span><a class="page-number" href="/page/50/">50</a><a class="extend next" rel="next" href="/page/18/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -419,7 +402,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">49</span>
+          <span class="site-state-item-count">50</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -432,7 +415,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">69</span>
+        <span class="site-state-item-count">72</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -468,12 +451,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">202k</span>
+    <span title="站点总字数">204k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">5:36</span>
+    <span title="站点阅读时长">5:39</span>
 </div>
 <!-- 网站运行时间的设置 -->
 <span id="timeDate">载入天数...</span>
