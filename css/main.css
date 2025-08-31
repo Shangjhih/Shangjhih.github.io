@@ -1191,7 +1191,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #fe776c;
+  background: #3271d2;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2675,6 +2675,7 @@ ul.breadcrumb li + li:last-child {
   line-height: 1.8;
   color: #333;
   text-align: justify;
+  letter-spacing: 0.8px;
 }
 .post-body p {
   margin: 1.2em 0;
@@ -2693,19 +2694,19 @@ ul.breadcrumb li + li:last-child {
   margin: 1.5em 0 1em 0;
 }
 .post-body h1 {
-  font-size: 2.2em;
+  font-size: 1.4em;
   color: #2c3e50;
 }
 .post-body h2 {
-  font-size: 1.8em;
+  font-size: 1.2em;
   color: #34495e;
 }
 .post-body h3 {
-  font-size: 1.5em;
+  font-size: 1em;
   color: #34495e;
 }
 .post-body h4 {
-  font-size: 1.3em;
+  font-size: 0.8em;
   color: #34495e;
 }
 .post-body ul {
@@ -2732,7 +2733,7 @@ ul.breadcrumb li + li:last-child {
   background: #f2f2f2;
   padding: 0px 0px;
   border-radius: 0px;
-  color: #d14;
+  color: rgba(223,26,75,0.822);
 }
 .post-body pre {
   font-family: "Consolas", "Monaco", "Menlo", "Courier New", monospace;
