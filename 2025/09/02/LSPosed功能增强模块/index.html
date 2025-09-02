@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"lvshuqi.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":330,"display":"hide","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null,"line_number":false},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":0},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="LSPosed背景LSPosed是一个基于zygisk的hook框架，伴随root而生。没root就不用继续看了。 该框架是由安卓4时代的edxposed发展而来，经历多次的变动后LSPosed最初的维护团队也放弃了维护并转入内测阶段，大概在2024年的时候就停止更新了，原因忘了，貌似是因为有人开挂被封号然后说这个团队技术不行之类的，不过本次主题不在这里，此文章专注于推荐几个日常需要用到的模块。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LSPosed功能增强模块">
+<meta property="og:url" content="https://lvshuqi.top/2025/09/02/LSPosed%E5%8A%9F%E8%83%BD%E5%A2%9E%E5%BC%BA%E6%A8%A1%E5%9D%97/index.html">
+<meta property="og:site_name" content="就这样&amp;巴">
+<meta property="og:description" content="LSPosed背景LSPosed是一个基于zygisk的hook框架，伴随root而生。没root就不用继续看了。 该框架是由安卓4时代的edxposed发展而来，经历多次的变动后LSPosed最初的维护团队也放弃了维护并转入内测阶段，大概在2024年的时候就停止更新了，原因忘了，貌似是因为有人开挂被封号然后说这个团队技术不行之类的，不过本次主题不在这里，此文章专注于推荐几个日常需要用到的模块。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2025/09/02/Pf5MyeDWYSct6AR.jpg">
+<meta property="og:image" content="https://github.com/Dr-TSNG/Hide-My-Applist/raw/master/banner.png">
+<meta property="og:image" content="https://s2.loli.net/2025/09/02/KfeX7M3oUnkJuaz.png">
+<meta property="og:image" content="https://s2.loli.net/2025/09/02/VQZLySdkpXRlxho.png">
+<meta property="og:image" content="https://s2.loli.net/2025/09/02/3zFwutPArO4is8k.png">
+<meta property="og:image" content="https://s2.loli.net/2025/09/02/f4gPRJsSFr6ebWw.png">
+<meta property="article:published_time" content="2025-09-02T06:37:19.000Z">
+<meta property="article:modified_time" content="2025-09-02T08:25:53.898Z">
+<meta property="article:author" content="Shangjhih Jhao">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="博客">
+<meta property="article:tag" content="技术">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="随想">
+<meta property="article:tag" content="编程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2025/09/02/Pf5MyeDWYSct6AR.jpg">
+
+<link rel="canonical" href="https://lvshuqi.top/2025/09/02/LSPosed%E5%8A%9F%E8%83%BD%E5%A2%9E%E5%BC%BA%E6%A8%A1%E5%9D%97/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>LSPosed功能增强模块 | 就这样&巴</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">就这样&巴</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">个人网志</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/09/02/LSPosed%E5%8A%9F%E8%83%BD%E5%A2%9E%E5%BC%BA%E6%A8%A1%E5%9D%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
+      <meta itemprop="name" content="Shangjhih Jhao">
+      <meta itemprop="description" content="该博客在作者读大学本科期间创建，通过Hexo搭建，部署于Github Action。博客建立之初是为了防止作者遗忘已经学过的东西，将一些可以被记录的东西写下来一定程度上会减少遗忘。因为本科考研失败 ，在进行二战，目前并不会经常更新。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="就这样&巴">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          LSPosed功能增强模块
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-09-02 14:37:19 / 修改时间：16:25:53" itemprop="dateCreated datePublished" datetime="2025-09-02T14:37:19+08:00">2025-09-02</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="LSPosed背景"><a href="#LSPosed背景" class="headerlink" title="LSPosed背景"></a>LSPosed背景</h1><p>LSPosed是一个基于zygisk的hook框架，伴随root而生。没root就不用继续看了。</p>
+<p>该框架是由安卓4时代的edxposed发展而来，经历多次的变动后LSPosed最初的维护团队也放弃了维护并转入内测阶段，大概在2024年的时候就停止更新了，原因忘了，貌似是因为有人开挂被封号然后说这个团队技术不行之类的，不过本次主题不在这里，此文章专注于推荐几个日常需要用到的模块。</p>
+<h2 id="如何安装LSPosed-Magisk"><a href="#如何安装LSPosed-Magisk" class="headerlink" title="如何安装LSPosed(Magisk)"></a>如何安装LSPosed(Magisk)</h2><p>LSPosed实际上是Magisk的一个模块，通过在Magisk中刷入zip文件实现（LSPosed分为zygisk版本和riru两个版本，zygisk是目前推荐的版本），在模块刷入之后需要创建一个桌面快捷方式，以便于日常使用。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://github.com/JingMatrix/LSPosed/releases/tag/v1.10.2">LSPosed v1.10.2(Jing Matrix)</a></td>
+<td><a target="_blank" rel="noopener" href="https://github.com/JingMatrix/LSPosed/releases/download/v1.10.2/LSPosed-v1.10.2-7182-zygisk-release.zip">https://github.com/JingMatrix/LSPosed/releases/download/v1.10.2/LSPosed-v1.10.2-7182-zygisk-release.zip</a></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://github.com/mywalkb/LSPosed_mod">LSPosed_mod</a></td>
+<td><a target="_blank" rel="noopener" href="https://github.com/mywalkb/LSPosed_mod/releases/download/v1.9.3_mod/LSPosed-v1.9.3_mod-7244-zygisk-release.zip">https://github.com/mywalkb/LSPosed_mod&#x2F;releases&#x2F;download&#x2F;v1.9.3_mod&#x2F;LSPosed-v1.9.3_mod-7244-zygisk-release.zip</a></td>
+</tr>
+</tbody></table>
+<p>一行是两个能支持到安卓15的LSPosed版本，建议使用第一个，直接在Magisk中刷入连接内的zip文件，重启后即可看到LSPosed寄生器的提示。</p>
+<img src="https://s2.loli.net/2025/09/02/Pf5MyeDWYSct6AR.jpg" alt="174c60f6b0c6036f97106a0c4ae4490.jpg" style="zoom: 50%;" />
+
+
+
+
+<hr>
+<h1 id="模块推荐"><a href="#模块推荐" class="headerlink" title="模块推荐"></a>模块推荐</h1><h2 id="隐藏应用列表"><a href="#隐藏应用列表" class="headerlink" title="隐藏应用列表"></a>隐藏应用列表</h2><img src="https://github.com/Dr-TSNG/Hide-My-Applist/raw/master/banner.png" alt="174c60f6b0c6036f97106a0c4ae4490.jpg" style="zoom: 67%;" />
+
+<table>
+<thead>
+<tr>
+<th>Hide My Applist</th>
+<th><a target="_blank" rel="noopener" href="https://t.me/HideMyApplist/164">https://t.me/HideMyApplist/164</a></th>
+</tr>
+</thead>
+</table>
+<p><strong>功能简介：</strong></p>
+<p>雖然檢測特定的應用程式安裝來判斷使否有使用 root 是不正卻也不應該的，但並不是每個使用 root 的應用程式都提供隨機包名的功能。<br>在這種情況下，檢測到的使用 root 的應用程式 (例如 Fake Location 和儲存隔離) 就等於檢測到了 root 本身。</p>
+<p>同時，一些應用會利用各種漏洞來獲取你的應用列表，並預設你是使用 root 的使用者。</p>
+<p>這個模組提供了一些方法來測試你是否已經很好地隱藏了你的應用列表。<br>同時它可以作為一個 Xposed 模塊來隱藏一些應用程式或拒絕應用程式列表請求，以保護你的隱私。</p>
+<p><strong>总结</strong></p>
+<p>该模块可以控制已安装的软件能够读取的已安装文件列表</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>白名单</td>
+<td>软件只能读取到改白名单的软件</td>
+</tr>
+<tr>
+<td>黑名单</td>
+<td>软件无法读取黑名单的软件</td>
+</tr>
+</tbody></table>
+<p>黑名单和白名单需要自己根据需求手搓，哪个软件被限制读取黑名单还是白名单也是可以自行设置的，就是整个流程设置起来比较麻烦。<br><strong>注意：假如你给淘宝设置了黑名单，且黑名单中有支付宝。当你使用支付时，是不会跳转到支付宝支付的，因为淘宝在支付时读不到支付宝的存在，会导致交易失败或提示“检测到您还没有安装支付宝”请注意其作用逻辑</strong></p>
+<hr>
+<h2 id="HyperCeiler"><a href="#HyperCeiler" class="headerlink" title="HyperCeiler"></a>HyperCeiler</h2><img src="https://s2.loli.net/2025/09/02/KfeX7M3oUnkJuaz.png" alt="174c60f6b0c6036f97106a0c4ae4490.jpg" style="zoom: 80%;" />
+
+<p><strong>功能简介：</strong></p>
+<p>请在 <a target="_blank" rel="noopener" href="https://github.com/LSPosed/LSPosed/releases">LSPosed</a> 中启用 HyperCeiler，然后在 HyperCeiler 应用内启用对应的功能，重启作用域（需要 Root 权限）。</p>
+<p>本模块<strong>不支持</strong><code>修改较多的第三方 Xiaomi HyperOS ROM</code>、<code>修改较多的系统软件</code>，以及<code>部分国际 Xiaomi HyperOS ROM</code>。</p>
+<p>目前 HyperCeiler 是基于 Android 16 的 Xiaomi HyperOS 3.0 的手机端设备进行适配，覆盖不是很完整，需要不断测试和改进。</p>
+<p>提交反馈前请注意是否已有相同反馈，避免给开发者造成困扰。花相同精力看相同反馈是一件很浪费时间的事情。</p>
+<p>HyperCeiler 已停止维护 Android 11-13 的 MIUI ROM 和 Android 13&#x2F;14 的 HyperOS 1.0&#x2F;2.0 ROM。</p>
+<blockquote>
+<p>Android 11-12 的 MIUI ROM 请使用<a target="_blank" rel="noopener" href="https://github.com/ReChronoRain/Cemiuiler/releases/tag/1.3.130">此版本</a>。</p>
+<p>Android 13 的 MIUI ROM 和 HyperOS 1.0 ROM 请使用<a target="_blank" rel="noopener" href="https://github.com/Xposed-Modules-Repo/com.sevtinge.hyperceiler/releases/download/3866-2.5.156_20250118/HyperCeiler_2.5.156_20250118_3866_release_miui.apk">此版本</a>。</p>
+<p>Android 14 的 HyperOS 1.0&#x2F;2.0 已归档，从 2.6.162 版本开始将移除对 Android 14 的支持。</p>
+</blockquote>
+<p><strong>总结</strong></p>
+<p>该模块可以修改MIUI和Hyper OS系统功能，比如</p>
+<ul>
+<li>去除敏感软件的截图限制</li>
+<li>允许系统软件降级</li>
+<li>允许安装未签名或修改版系统软件</li>
+<li>允许多小窗</li>
+<li>解锁特定机型才有的AI或其它只有特定机型才能用的功能</li>
+<li>停用系统广告</li>
+</ul>
+<p>以及更多你想到或想不到的功能</p>
+<hr>
+<h2 id="Revanced-Xposed"><a href="#Revanced-Xposed" class="headerlink" title="Revanced Xposed"></a>Revanced Xposed</h2><img src="https://s2.loli.net/2025/09/02/VQZLySdkpXRlxho.png" alt="image.png" style="zoom:80%;" />
+
+<h2 id="功能简介"><a href="#功能简介" class="headerlink" title="功能简介"></a>功能简介</h2><p><strong>ReVanced LSPosed module by ChsBuffer.</strong></p>
+<p>Important</p>
+<p>This is not an official ReVanced project, do not ask the ReVanced developers for help.</p>
+<h3 id="Youtube"><a href="#Youtube" class="headerlink" title="Youtube"></a>Youtube</h3><ul>
+<li>Remove ads</li>
+<li>SponsorBlock</li>
+<li>Remove background playback restrictions</li>
+<li>Remove share links tracking query parameter</li>
+<li>Hide and change navigation buttons</li>
+<li>Swipe controls</li>
+<li>Remember video quality changes</li>
+<li>Show advanced video quality menu</li>
+<li>Copy video url video player button</li>
+<li>Open external downloader app</li>
+</ul>
+<h3 id="Spotify"><a href="#Spotify" class="headerlink" title="Spotify"></a>Spotify</h3><ul>
+<li>Unlock Spotify Premium</li>
+<li>Sanitize sharing links</li>
+<li>Hide Create button</li>
+</ul>
+<h3 id="Google-Photos"><a href="#Google-Photos" class="headerlink" title="Google Photos"></a>Google Photos</h3><ul>
+<li>Spoof Pixel XL</li>
+</ul>
+<h3 id="Youtube-Music"><a href="#Youtube-Music" class="headerlink" title="Youtube Music"></a>Youtube Music</h3><ul>
+<li>Remove music video ads</li>
+<li>Remove background playback restrictions</li>
+<li>Hide upgrade button</li>
+<li>Hide ‘Get Music Premium’ label</li>
+<li>Enable exclusive audio playback</li>
+</ul>
+<h3 id="Instagram"><a href="#Instagram" class="headerlink" title="Instagram"></a>Instagram</h3><ul>
+<li>Hide ads</li>
+</ul>
+<h3 id="Threads"><a href="#Threads" class="headerlink" title="Threads"></a>Threads</h3><ul>
+<li>Hide ads</li>
+</ul>
+<h3 id="Reddit-2024-17-0"><a href="#Reddit-2024-17-0" class="headerlink" title="Reddit (2024.17.0)"></a>Reddit (2024.17.0)</h3><ul>
+<li>Hide ads</li>
+<li>Sanitize sharing links</li>
+</ul>
+<h3 id="Strava"><a href="#Strava" class="headerlink" title="Strava"></a>Strava</h3><ul>
+<li>Unlock subscription features</li>
+<li>Disable subscription suggestions</li>
+</ul>
+<p><strong>总结</strong></p>
+<p>可以去除Youtube的视频内广告和窗口广告，可以开启小窗在后台播放。具体见功能简介。</p>
+<p>可去除Youtube的Premium，也就是解锁Premium会员服务（不开会员无法息屏播放音乐，还有打断广告）</p>
+<p>可去除Spotify的广告和播放限制，也就是解锁Premium功能</p>
+<p>可欺骗Google相册，以享受Google Pixel XL系列的【无限云相册空间】服务</p>
+<p>去除主流几家社交媒体的广告</p>
+<hr>
+<h2 id="应用伪装"><a href="#应用伪装" class="headerlink" title="应用伪装"></a>应用伪装</h2><img src="https://s2.loli.net/2025/09/02/3zFwutPArO4is8k.png" alt="image.png" style="zoom:67%;" />
+
+<h2 id="功能简介-1"><a href="#功能简介-1" class="headerlink" title="功能简介"></a>功能简介</h2><p>可以为作用域的应用传递错误的硬件和系统信息，比如让某个软件获取你私人信息的时候将信息替换为修改后的信息。可以伪软件识别到的手机型号和手机号、IMEI、系统版本、以及各种真实的可辩别身份的信息。</p>
+<h2 id="闰二月"><a href="#闰二月" class="headerlink" title="闰二月"></a>闰二月</h2><p>微信增强</p>
+<p>防撤回</p>
+<p>抢红包</p>
+<p>等</p>
+<h2 id="QAuxiliary"><a href="#QAuxiliary" class="headerlink" title="QAuxiliary"></a>QAuxiliary</h2><p>QQ增强，有100%封号的风险</p>
+<p>防撤回等功能</p>
+<h2 id="HookVIP"><a href="#HookVIP" class="headerlink" title="HookVIP"></a>HookVIP</h2><p><img src="https://s2.loli.net/2025/09/02/f4gPRJsSFr6ebWw.png" alt="image.png"></p>
+<table>
+<thead>
+<tr>
+<th><a target="_blank" rel="noopener" href="https://github.com/Xposed-Modules-Repo/top.hookvip.pro">NewHookVip</a></th>
+<th><a target="_blank" rel="noopener" href="https://github.com/Xposed-Modules-Repo/top.hookvip.pro/releases/download/20250812-4.1.2/HookVip-4.1.2-release.apk">https://github.com/Xposed-Modules-Repo/top.hookvip.pro/releases/download/20250812-4.1.2/HookVip-4.1.2-release.apk</a></th>
+</tr>
+</thead>
+</table>
+<p><strong>功能简介</strong></p>
+<p> <strong>破解功能</strong></p>
+<ul>
+<li>1.勾选对应应用重启后生效</li>
+<li>2.如果没有生效请尝试登录一下账号</li>
+<li>3.如果仍然不生效可能是坏掉了</li>
+<li>4.欢迎提交issues反馈问题</li>
+</ul>
+<p> <strong>拓展功能</strong></p>
+<ul>
+<li>1.请先前往模块主页</li>
+<li>2.点击左上角&#x2F;主页右滑 打开侧滑栏</li>
+<li>3.打开拓展功能页</li>
+<li>4.找到并点击你需要作用于的应用</li>
+<li>5.再选择性打开你需要使用的功能</li>
+<li>6.确保已经打开了总开关</li>
+</ul>
+<p><strong>总结</strong></p>
+<p>可破解的软件较多，请自行查阅</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2025/08/31/3x-ui%E9%9D%A2%E6%9D%BF%E6%96%B0%E5%8A%9F%E8%83%BD/" rel="prev" title="3x-ui面板新功能">
+      <i class="fa fa-chevron-left"></i> 3x-ui面板新功能
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#LSPosed%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">LSPosed背景</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85LSPosed-Magisk"><span class="nav-number">1.1.</span> <span class="nav-text">如何安装LSPosed(Magisk)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A8%A1%E5%9D%97%E6%8E%A8%E8%8D%90"><span class="nav-number">2.</span> <span class="nav-text">模块推荐</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9A%90%E8%97%8F%E5%BA%94%E7%94%A8%E5%88%97%E8%A1%A8"><span class="nav-number">2.1.</span> <span class="nav-text">隐藏应用列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HyperCeiler"><span class="nav-number">2.2.</span> <span class="nav-text">HyperCeiler</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Revanced-Xposed"><span class="nav-number">2.3.</span> <span class="nav-text">Revanced Xposed</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD%E7%AE%80%E4%BB%8B"><span class="nav-number">2.4.</span> <span class="nav-text">功能简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Youtube"><span class="nav-number">2.4.1.</span> <span class="nav-text">Youtube</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spotify"><span class="nav-number">2.4.2.</span> <span class="nav-text">Spotify</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Google-Photos"><span class="nav-number">2.4.3.</span> <span class="nav-text">Google Photos</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Youtube-Music"><span class="nav-number">2.4.4.</span> <span class="nav-text">Youtube Music</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Instagram"><span class="nav-number">2.4.5.</span> <span class="nav-text">Instagram</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Threads"><span class="nav-number">2.4.6.</span> <span class="nav-text">Threads</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reddit-2024-17-0"><span class="nav-number">2.4.7.</span> <span class="nav-text">Reddit (2024.17.0)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Strava"><span class="nav-number">2.4.8.</span> <span class="nav-text">Strava</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E4%BC%AA%E8%A3%85"><span class="nav-number">2.5.</span> <span class="nav-text">应用伪装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD%E7%AE%80%E4%BB%8B-1"><span class="nav-number">2.6.</span> <span class="nav-text">功能简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%B0%E4%BA%8C%E6%9C%88"><span class="nav-number">2.7.</span> <span class="nav-text">闰二月</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#QAuxiliary"><span class="nav-number">2.8.</span> <span class="nav-text">QAuxiliary</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HookVIP"><span class="nav-number">2.9.</span> <span class="nav-text">HookVIP</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Shangjhih Jhao"
+      src="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
+  <p class="site-author-name" itemprop="name">Shangjhih Jhao</p>
+  <div class="site-description" itemprop="description">该博客在作者读大学本科期间创建，通过Hexo搭建，部署于Github Action。博客建立之初是为了防止作者遗忘已经学过的东西，将一些可以被记录的东西写下来一定程度上会减少遗忘。因为本科考研失败 ，在进行二战，目前并不会经常更新。</div>
+</div>
+
+
+<div class="spotify-player-independent motion-element">
+  <div class="spotify-player-header">
+    <i class="fab fa-spotify"></i>
+    <span>音乐推荐</span>
+  </div>
+  <div class="spotify-player-content">
+    <iframe style="border-radius:8px" 
+            src="https://open.spotify.com/embed/track/6nUNxiFCjWFTidu0cn1sta?utm_source=generator" 
+            width="100%" 
+            height="152" 
+            frameBorder="0" 
+            allowfullscreen="" 
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+            loading="lazy">
+    </iframe>
+  </div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">85</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">72</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shangjhih Jhao</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">207k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">5:45</span>
+</div>
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("09/29/2024 11:04:00"); //此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已建立 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒.";
+    }
+setInterval("createtime()",250);
+</script>
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

@@ -169,7 +169,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/04/07/OpenWrt-Passwall2-%E5%88%86%E6%B5%81%E4%B8%8E%E4%BD%BF%E7%94%A8/">
+    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/04/12/Windows%E5%B1%80%E5%9F%9F%E7%BD%91%E6%96%87%E4%BB%B6%E5%A4%B9%E5%85%B1%E4%BA%AB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
@@ -183,7 +183,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2025/04/07/OpenWrt-Passwall2-%E5%88%86%E6%B5%81%E4%B8%8E%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">OpenWrt Passwall2 分流与使用</a>
+            <a href="/2025/04/12/Windows%E5%B1%80%E5%9F%9F%E7%BD%91%E6%96%87%E4%BB%B6%E5%A4%B9%E5%85%B1%E4%BA%AB/" class="post-title-link" itemprop="url">Windows局域网文件夹共享</a>
         </h2>
 
         <div class="post-meta">
@@ -192,39 +192,25 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2025-04-07 20:29:26" itemprop="dateCreated datePublished" datetime="2025-04-07T20:29:26+08:00">2025-04-07</time>
+              <time title="创建时间：2025-04-12 13:28:44 / 修改时间：14:59:15" itemprop="dateCreated datePublished" datetime="2025-04-12T13:28:44+08:00">2025-04-12</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-04-12 15:03:00" itemprop="dateModified" datetime="2025-04-12T15:03:00+08:00">2025-04-12</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BB%A3%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">代理</span></a>
+                  <a href="/categories/windows/" itemprop="url" rel="index"><span itemprop="name">windows</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BB%A3%E7%90%86/Proxy/" itemprop="url" rel="index"><span itemprop="name">Proxy</span></a>
+                  <a href="/categories/windows/%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB/" itemprop="url" rel="index"><span itemprop="name">文件共享</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BB%A3%E7%90%86/Proxy/OpenWrt/" itemprop="url" rel="index"><span itemprop="name">OpenWrt</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BB%A3%E7%90%86/Proxy/OpenWrt/%E8%BD%AF%E8%B7%AF%E7%94%B1/" itemprop="url" rel="index"><span itemprop="name">软路由</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BB%A3%E7%90%86/Proxy/OpenWrt/%E8%BD%AF%E8%B7%AF%E7%94%B1/Passwall-2/" itemprop="url" rel="index"><span itemprop="name">Passwall 2</span></a>
+                  <a href="/categories/windows/%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB/%E5%B1%80%E5%9F%9F%E7%BD%91/" itemprop="url" rel="index"><span itemprop="name">局域网</span></a>
                 </span>
             </span>
 
@@ -234,14 +220,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>6.6k</span>
+              <span>618</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>11 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -253,89 +239,41 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="OpenWrt-Passwall2-分流与使用"><a href="#OpenWrt-Passwall2-分流与使用" class="headerlink" title="OpenWrt Passwall2 分流与使用"></a>OpenWrt Passwall2 分流与使用</h1><p>###########################################################################<br>​    OpenWrt是一个基于Linux的嵌入式操作系统开源项目，主要用于嵌入式设备上路由网络流量，其主要工作组件包括Linux、util-linux、musl和busybox，所有的组件都得到简化，体积小、兼容性好。常用于在路由器设备上部署。因其基于arm Linux，很多x86的程序无法在上面运行，且搭载该系统的设备硬件都较差，很多都是用于跑一些个人博客或者Docker容器，比如青龙面板之类的。</p>
-<p>​    OpenWrt像大多数linux系统一样，使用shell命令行界面操作，如今的OpenWrt系统都带有Web界面(LuCi),可轻易通过鼠标与Ui界面交互，包管理系统为opkg。操作逻辑较为简单，容易上手。OpenWrt面板有较多分支，immortalWrt、ledeWrt等都是较为常见的版本，此篇文章我们以immortalWrt作为讲解对象。</p>
-<p>###########################################################################</p>
-<h3 id="登陆界面"><a href="#登陆界面" class="headerlink" title="登陆界面"></a>登陆界面</h3><p><img src="https://s2.loli.net/2025/04/07/kO6veTKZ7N2M9lX.png" alt="image.png"></p>
-<p><img src="https://s2.loli.net/2025/04/07/z1yuiCJxeQIFGrB.png" alt="image.png"></p>
-<p>###########################################################################<br>​    进入系统后可以看到左侧的菜单栏，我们常用的菜单栏为【首页】【网络向导】【服务】。首页可以查看系统的各项参数，包括Docker的状态。右侧的【IP地址】点击后可以设置设备的静态IP，当然，你也可以使用ssh命令登入后台找到etc目录下的network文件手动进行修改，此时你修改的IP就是未来你登入后台的局域网IP，该IP需要牢记，每次登陆都需要该IP。</p>
-<p>配置文件的绝对路径为：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/config/network</span><br></pre></td></tr></table></figure>
-
-<p>配置文件的内容大概如下：</p>
-<p>###########################################################################</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">config</span> <span class="string">interface</span> <span class="string">&#x27;loopback&#x27;</span></span><br><span class="line">        <span class="string">option</span> <span class="string">device</span> <span class="string">&#x27;lo&#x27;</span></span><br><span class="line">        <span class="string">option</span> <span class="string">proto</span> <span class="string">&#x27;static&#x27;</span></span><br><span class="line">        <span class="string">option</span> <span class="string">ipaddr</span> <span class="string">&#x27;127.0.0.1&#x27;</span></span><br><span class="line">        <span class="string">option</span> <span class="string">netmask</span> <span class="string">&#x27;255.0.0.0&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="string">config</span> <span class="string">globals</span> <span class="string">&#x27;globals&#x27;</span></span><br><span class="line">        <span class="string">option</span> <span class="string">ula_prefix</span> <span class="string">&#x27;lfkfa:d8dhf:3ubfbc::/48&#x27;</span></span><br><span class="line">        <span class="string">option</span> <span class="string">packet_steering</span> <span class="string">&#x27;1&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="string">config</span> <span class="string">device</span></span><br><span class="line">        <span class="string">option</span> <span class="string">name</span> <span class="string">&#x27;br-lan&#x27;</span></span><br><span class="line">        <span class="string">option</span> <span class="string">type</span> <span class="string">&#x27;bridge&#x27;</span></span><br><span class="line">        <span class="string">list</span> <span class="string">ports</span> <span class="string">&#x27;eth0&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="string">config</span> <span class="string">interface</span> <span class="string">&#x27;lan&#x27;</span></span><br><span class="line">        <span class="string">option</span> <span class="string">device</span> <span class="string">&#x27;br-lan&#x27;</span></span><br><span class="line">        <span class="string">option</span> <span class="string">proto</span> <span class="string">&#x27;static&#x27;</span></span><br><span class="line">        <span class="string">option</span> <span class="string">ip6assign</span> <span class="string">&#x27;60&#x27;</span></span><br><span class="line">        <span class="string">option</span> <span class="string">gateway</span> <span class="string">&#x27;此处为网关地址&#x27;</span>   <span class="comment"># 填入你的上级路由器地址</span></span><br><span class="line">        <span class="string">option</span> <span class="string">peerdns</span> <span class="string">&#x27;0&#x27;</span></span><br><span class="line">        <span class="string">list</span> <span class="string">dns</span> <span class="string">&#x27;223.5.5.5&#x27;</span></span><br><span class="line">        <span class="string">option</span> <span class="string">ipaddr</span> <span class="string">&#x27;静态IP地址&#x27;</span>        <span class="comment"># 静态IP地址为你日后登录使用的IP</span></span><br><span class="line">        <span class="string">option</span> <span class="string">netmask</span> <span class="string">&#x27;255.255.255.0&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="string">config</span> <span class="string">interface</span> <span class="string">&#x27;docker&#x27;</span></span><br><span class="line">        <span class="string">option</span> <span class="string">device</span> <span class="string">&#x27;docker0&#x27;</span></span><br><span class="line">        <span class="string">option</span> <span class="string">proto</span> <span class="string">&#x27;none&#x27;</span></span><br><span class="line">        <span class="string">option</span> <span class="string">auto</span> <span class="string">&#x27;0&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="string">config</span> <span class="string">device</span></span><br><span class="line">        <span class="string">option</span> <span class="string">type</span> <span class="string">&#x27;bridge&#x27;</span></span><br><span class="line">        <span class="string">option</span> <span class="string">name</span> <span class="string">&#x27;docker0&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p>###########################################################################<br>仅需要修改第20行和23行的内容。</p>
-<p>请自学<code>Vim</code>或者<code>Vi</code>以及<code>nano</code>编辑器的基础用法！！！</p>
-<p>###########################################################################</p>
-<p>   假定你现在使用的是<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%B6%B2%E9%97%9C%E4%BB%A3%E7%90%86/5005818">网关代理</a>模式，你只需要在系统的【网络向导】部分将路由器设置为【连接现有路由器】，再进入你的路由器，将路由器的【网关】设为OpenWrt的IP，此时你的路由器就会作为一个信号发射器，所有的数据便交由OpenWrt设备处理。(此处无佐证，不修改也可以)</p>
-<p>###########################################################################</p>
-<h2 id="软件源修改"><a href="#软件源修改" class="headerlink" title="软件源修改"></a>软件源修改</h2><p>​<br>###########################################################################<br>​    因此系统使用的是opkg包管理器，其官方软件源在中国大陆访问有问题，建议手动修改为国内的镜像源，以保证软件的正常下载(不然会遇到搜索不到软件的情况)。</p>
-<p>修改软件源路径:</p>
-<p style="font-weight:bold">【系统】-【软件包】-【配置opkg】</p>
-
-<p>###########################################################################<br><img src="https://s2.loli.net/2025/04/07/irUKQvXYO2f4HBx.png" alt="image.png"></p>
+          <h1 id="Windows局域网多设备共享"><a href="#Windows局域网多设备共享" class="headerlink" title="Windows局域网多设备共享"></a>Windows局域网多设备共享</h1><p>​    Windows在设计之初就加入了一项名为“<strong>网络</strong>”的功能，该功能可以让局域网的设备共享文件和信息。通过局域网（LAN）来构建一个由路由器为交换机的内部网络。SMB就是该技术的核心协议。通过该协议，可以实现：</p>
+<blockquote>
+<p><strong>局域网内设备文件夹互通</strong></p>
+</blockquote>
+<p>以下是配置顺序：</p>
 <hr>
-<p>###########################################################################</p>
-<p style="color:red">将原有的软件源前面加上  #  ，把原有的注释掉，使其不再生效。</p>
-
-<p>在下面选取合适的软件源复制到后面并保存：</p>
-<p>###########################################################################</p>
-<p>1.中科大软件源<br>###########################################################################</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">src/gz</span> <span class="string">openwrt_core</span> <span class="string">https://mirrors.ustc.edu.cn/immortalwrt/releases/21.02.0/targets/rockchip/armv8/packages</span></span><br><span class="line"><span class="string">src/gz</span> <span class="string">openwrt_base</span> <span class="string">https://mirrors.ustc.edu.cn/immortalwrt/releases/21.02.0/packages/aarch64_generic/base</span></span><br><span class="line"><span class="string">src/gz</span> <span class="string">openwrt_luci</span> <span class="string">https://mirrors.ustc.edu.cn/immortalwrt/releases/21.02.0/packages/aarch64_generic/luci</span></span><br><span class="line"><span class="string">src/gz</span> <span class="string">openwrt_packages</span> <span class="string">https://mirrors.ustc.edu.cn/immortalwrt/releases/21.02.0/packages/aarch64_generic/packages</span></span><br><span class="line"><span class="string">src/gz</span> <span class="string">openwrt_routing</span> <span class="string">https://mirrors.ustc.edu.cn/immortalwrt/releases/21.02.0/packages/aarch64_generic/routing</span></span><br><span class="line"><span class="string">src/gz</span> <span class="string">openwrt_telephony</span> <span class="string">https://mirrors.ustc.edu.cn/immortalwrt/releases/21.02.0/packages/aarch64_generic/telephony</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>###########################################################################</p>
-<p>2.清华源</p>
-<p>###########################################################################</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">src/gz</span> <span class="string">openwrt_core</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/immortalwrt/releases/21.02.0/targets/rockchip/armv8/packages</span></span><br><span class="line"><span class="string">src/gz</span> <span class="string">openwrt_base</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/immortalwrt/releases/21.02.0/packages/aarch64_generic/base</span></span><br><span class="line"><span class="string">src/gz</span> <span class="string">openwrt_luci</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/immortalwrt/releases/21.02.0/packages/aarch64_generic/luci</span></span><br><span class="line"><span class="string">src/gz</span> <span class="string">openwrt_packages</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/immortalwrt/releases/21.02.0/packages/aarch64_generic/packages</span></span><br><span class="line"><span class="string">src/gz</span> <span class="string">openwrt_routing</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/immortalwrt/releases/21.02.0/packages/aarch64_generic/routing</span></span><br><span class="line"><span class="string">src/gz</span> <span class="string">openwrt_telephony</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/immortalwrt/releases/21.02.0/packages/aarch64_generic/telephony</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
+<h2 id="新建文件夹"><a href="#新建文件夹" class="headerlink" title="新建文件夹"></a>新建文件夹</h2><p>在某一台设备创建一个文件夹（建议创建到某个很少使用的电脑），创建文件夹后</p>
+<blockquote>
+<p>【右键文件夹】-【共享】-【everyone】</p>
+</blockquote>
+<p>记住提示给出的<strong>网络路径</strong>的绝对路径</p>
+<blockquote>
+<p>\ \ 主机名\文件夹路径</p>
+</blockquote>
+<p>例如\\Desktop-HRY764G\Users\111\Desktop\share</p>
+<table>
+<thead>
+<tr>
+<th align="center"><img src="https://s2.loli.net/2025/04/12/M4jkGfJ71OCwsYq.png" alt="image.png"></th>
+</tr>
+</thead>
+</table>
 <hr>
-<p>###########################################################################</p>
-<p>此后便可以在软件下载目录中输入你想要的软件名字进行下载，此处仅提供一些参考：</p>
-<p>###########################################################################</p>
-<p><img src="https://s2.loli.net/2025/04/07/brna5DH4ICtUfwP.png" alt="image.png"></p>
-<p>  接下来我们会讲一下Passwall2的用法。代理软件中明星众多，为什么讲Passwall 2？当然是因为它以Xray为内核，完全支持自建节点（不支持新协议），它还有简单明了的Socks和HTTP代理服务了。</p>
-<p>###########################################################################</p>
-<h2 id="Passwall-2"><a href="#Passwall-2" class="headerlink" title="Passwall 2"></a>Passwall 2</h2><p>###########################################################################</p>
-<p><img src="https://s2.loli.net/2025/04/07/AyndShEfIMgvTco.png" alt="e0ca0686ec4e01015116860f5e5c820.png"></p>
-<p>​    在【节点列表】中有一个【新增】按钮，点进去有一个【导入分享URL】,点击进入后会弹出一个输入框，把你的节点信息复制进去，点击【确定】，再点击右下角的【保存】。然后重新点击【节点列表】，重新此步骤添加。<span style="color:red">为什么不在列表内持续添加？ 因为不支持</span></p>
-<p>多次添加节点后即可，不用添加太多，几个就够了。</p>
-<p>###########################################################################</p>
-<h3 id="分流节点"><a href="#分流节点" class="headerlink" title="分流节点"></a>分流节点</h3><p>###########################################################################</p>
-<p>​    在【节点列表】内，你将会看到一个【分流总节点】，点击右侧的编辑，编辑设置，按下图所示，需要修改【proxy】和【默认】的节点为你添加的节点，其它的内容都要和图示内容对上，假如你没有部分规则也不要紧，只要显示的规则跟图示对上就可以，该直连的直连，该黑洞的黑洞（封锁）。</p>
-<p>###########################################################################</p>
-<p><img src="https://s2.loli.net/2025/04/07/PcqCihaD8gYJ1pG.png" alt="image.png"></p>
+<h2 id="开启网络发现"><a href="#开启网络发现" class="headerlink" title="开启网络发现"></a>开启网络发现</h2><p><strong>打开【控制面板】-【网络和共享中心】-【更改高级共享设置】下面有</strong><span style="color:red;font-weight:bold">【启用网络发现】【启用文件夹和打印机共享】</span></p>
+<p><strong>将这两个开关打开：</strong><br><img src="https://s2.loli.net/2025/04/12/tEm7nwT1S2O5jhJ.png" alt="image.png"></p>
 <hr>
-<p> ###########################################################################</p>
-<p>随后在Passwall 2的主页选则【总分流节点】作为你的节点即可。<span style="color:red;font-weight:bold">假如我不听，非要自己选择之前添加的节点会怎么样？答：接入此设备的网络流量都会被代理，包括国内的app流量，一边会造成流量浪费，一边会拖慢你国内网络速度。</span></p>
-<p>###########################################################################</p>
-<h3 id="订阅链接添加"><a href="#订阅链接添加" class="headerlink" title="订阅链接添加"></a>订阅链接添加</h3><p>###########################################################################</p>
-<p>​    点击上面的【节点订阅】，左下角【新增】，【备注】随意填，【订阅URL】填你的订阅链接，开启【自动更新订阅】，然后右下角【保存并应用】。再回到【节点订阅】页面，找到已经添加的订阅，右侧【手动订阅】。随后你就会在【节点列表】看到从订阅链接导入的节点了。</p>
-<p>###########################################################################</p>
-<p><img src="https://s2.loli.net/2025/04/07/4hczRWidBMNG1pE.png" alt="image.png"></p>
-<h3 id="Socks-HTTP服务"><a href="#Socks-HTTP服务" class="headerlink" title="Socks&amp;HTTP服务"></a>Socks&amp;HTTP服务</h3><p>###########################################################################</p>
-<p>​     Socks 和HTTP服务是通过开通端口，将服务暴露到局域网，允许局域网设备通过socks和HTTP协议接入的一种方法，你可以通过开启这种服务，仅仅在你的设备添加此服务，设备作为单独的路由存在，不影响其他网络设备。</p>
-<p>仅仅需要填入任意端口即可，设置如下：</p>
-<p>#<img src="https://s2.loli.net/2025/04/07/18hpbtyUMeoi57R.png" alt="image.png"></p>
-<p>###########################################################################</p>
-<p>大功告成！！！</p>
-<p>###########################################################################</p>
-<h3 id="防火墙"><a href="#防火墙" class="headerlink" title="防火墙"></a>防火墙</h3><hr>
-<p style="color:red;font-weight:bold">注意：假如连接此网络后，你的国内网站无法接通，海外网站可以正常访问。此时你就要警惕了，你的防火墙出问题了！！！</p>
-
-<p>此时你需要在防火墙规则内添加如下一条规则：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -t nat -I POSTROUTING -o eth0 -j MASQUERADE</span><br></pre></td></tr></table></figure>
-
-<p style="color:red;font-weight:bold">如何添加，添加到哪里？</p>
-
-<p>在主页的功能栏找到【网络】-【防火墙】-【自定义规则】，在最后一行假如此条规则即可。</p>
-<p>##################################################################</p>
+<h2 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h2><hr>
+<p>1.在另一台电脑打开局域网共享<br>2.打开<strong>此电脑</strong><br>3.<strong>添加一个网络位置</strong></p>
+<p>4.选择自定义网络位置</p>
+<p>5.填入上节获取的类似<code>\\ \ 主机名\文件夹路径</code>格式的路径地址</p>
+<p>6.输入另一台电脑的账号和密码</p>
 <hr>
-<p><img src="https://s2.loli.net/2025/04/07/PNWnZYShx1tIdE2.png" alt="image.png"></p>
-<p>###################################################################</p>
-<p>​                                         恭喜你，你已经完成了所有的设置项，Enjoy it.</p>
-<p>###################################################################</p>
+<p>##############################################################################</p>
+<p>连接一次即可长期使用，快捷入口会添加至此电脑的<strong>网络位置</strong>中。Done</p>
+<p>##############################################################################</p>
 
       
     </div>
@@ -354,7 +292,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/35/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/35/">35</a><span class="page-number current">36</span><a class="page-number" href="/page/37/">37</a><span class="space">&hellip;</span><a class="page-number" href="/page/50/">50</a><a class="extend next" rel="next" href="/page/37/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/35/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/35/">35</a><span class="page-number current">36</span><a class="page-number" href="/page/37/">37</a><span class="space">&hellip;</span><a class="page-number" href="/page/51/">51</a><a class="extend next" rel="next" href="/page/37/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -441,7 +379,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">50</span>
+          <span class="site-state-item-count">51</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -490,12 +428,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">204k</span>
+    <span title="站点总字数">207k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">5:40</span>
+    <span title="站点阅读时长">5:45</span>
 </div>
 <!-- 网站运行时间的设置 -->
 <span id="timeDate">载入天数...</span>
