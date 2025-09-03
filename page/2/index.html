@@ -169,7 +169,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/08/31/3x-ui%E9%9D%A2%E6%9D%BF%E6%96%B0%E5%8A%9F%E8%83%BD/">
+    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/09/02/LSPosed%E5%8A%9F%E8%83%BD%E5%A2%9E%E5%BC%BA%E6%A8%A1%E5%9D%97/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
@@ -183,7 +183,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2025/08/31/3x-ui%E9%9D%A2%E6%9D%BF%E6%96%B0%E5%8A%9F%E8%83%BD/" class="post-title-link" itemprop="url">3x-ui面板新功能</a>
+            <a href="/2025/09/02/LSPosed%E5%8A%9F%E8%83%BD%E5%A2%9E%E5%BC%BA%E6%A8%A1%E5%9D%97/" class="post-title-link" itemprop="url">LSPosed功能增强模块</a>
         </h2>
 
         <div class="post-meta">
@@ -192,16 +192,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2025-08-31 08:44:31" itemprop="dateCreated datePublished" datetime="2025-08-31T08:44:31+08:00">2025-08-31</time>
+              <time title="创建时间：2025-09-02 14:37:19 / 修改时间：16:51:10" itemprop="dateCreated datePublished" datetime="2025-09-02T14:37:19+08:00">2025-09-02</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-09-01 14:07:04" itemprop="dateModified" datetime="2025-09-01T14:07:04+08:00">2025-09-01</time>
-              </span>
 
           <br>
             <span class="post-meta-item" title="本文字数">
@@ -209,14 +203,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.4k</span>
+              <span>3.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
+              <span>5 分钟</span>
             </span>
 
         </div>
@@ -228,132 +222,201 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天顺手更新了最新版的<code>3X-UI</code>面板,目前的版本信息如下（截至今日最新版本）</p>
-<ul>
-<li><p>3X-UI面板版本：<code>v2.6.7</code></p>
-</li>
-<li><p>Xray核心版本：<code>pre-release v25.8.29</code></p>
-</li>
-</ul>
+          <h1 id="LSPosed背景"><a href="#LSPosed背景" class="headerlink" title="LSPosed背景"></a>LSPosed背景</h1><p>LSPosed是一个基于zygisk的hook框架，伴随root而生。没root就不用继续看了。</p>
+<p>该框架是由安卓4时代的edxposed发展而来，经历多次的变动后LSPosed最初的维护团队也放弃了维护并转入内测阶段，大概在2024年的时候就停止更新了，原因忘了，貌似是因为有人开挂被封号然后说这个团队技术不行之类的，不过本次主题不在这里，此文章专注于推荐几个日常需要用到的模块。</p>
+<h2 id="如何安装LSPosed-Magisk"><a href="#如何安装LSPosed-Magisk" class="headerlink" title="如何安装LSPosed(Magisk)"></a>如何安装LSPosed(Magisk)</h2><p>LSPosed实际上是Magisk的一个模块，通过在Magisk中刷入zip文件实现（LSPosed分为zygisk版本和riru两个版本，zygisk是目前推荐的版本），在模块刷入之后需要创建一个桌面快捷方式，以便于日常使用。</p>
 <table>
 <thead>
 <tr>
-<th><img src="https://s2.loli.net/2025/08/31/TtisVW3uI7g15EQ.png" alt="image.png" style="zoom:80%;" /></th>
-</tr>
-</thead>
-</table>
-<h1 id="新特性引入"><a href="#新特性引入" class="headerlink" title="新特性引入"></a>新特性引入</h1><p>最近三个月（约2025年6月至8月）Xray-core重大更新和变动主要包括：</p>
-<p>版本v25.8.3（2025年8月3日发布）</p>
-<ul>
-<li>增加了 tunnel 入站配置的 portMap 功能，支持本地监听端口映射到远程指定地址和端口，简化配置，提升端口转发灵活性。</li>
-<li>TLS ECH客户端改进，新增 echForceQuery 参数支持三种查询需求，并加入Chrome指纹、header及body填充、h2c等功能，提升隐私和兼容性。</li>
-<li>根配置新增 version 参数，支持限制配置文件适用的Xray版本范围，增强配置管理。</li>
-<li>为 freedom 和 blackhole 添加直观别名 direct 和 block。</li>
-<li>版本使用 Go 1.24.5 编译。</li>
-</ul>
-<p>版本v25.7.26（2025年7月26日发布）</p>
-<ul>
-<li>为Reality协议添加可选的抗量子ML-DSA-65签名验签机制（pqv），加强加密安全，要求目标证书链总长度3500字节以上。</li>
-<li>TLS客户端及服务端支持Encrypted Client Hello（ECH）功能。</li>
-<li>优化Reality协议的post-handshake records检测和仿真，改善兼容性和隐私保护。</li>
-<li>增加DNS出站的nonIPQuery拒绝功能。</li>
-<li>多项API和功能修复，如统计接口返回更明确状态，传出UDP优化等。</li>
-</ul>
-<p>版本v25.6.8（2025年6月8日发布）</p>
-<ul>
-<li>Reality协议针对post-handshake records检测与模拟做重大改进，自动用Chrome指纹模仿目标。</li>
-<li>修复Reality服务端未用AES-NI硬件加速的问题，显著提升性能。</li>
-<li>合并Reality回落限速、Docker镜像重构、Happy Eyeballs（多路径快速连接）和DNS新特性。</li>
-<li>支持UDP监听绑定localhost地址。</li>
-<li>提升Reality相关配置灵活性，允许mldsa65字段为空，优化私钥处理逻辑。</li>
-</ul>
-<p>综合来看，近三个月Xray-core聚焦于Reality协议抗量子机制增强、TLS ECH加密支持、端口转发隧道配置改进及性能优化，持续提升安全性与稳定性，辅以DNS、API和多平台适配细节。各版本均由多名活跃贡献者协作完成并持续发布功能完善和漏洞修复。</p>
-<h2 id="受影响的变动"><a href="#受影响的变动" class="headerlink" title="受影响的变动"></a>受影响的变动</h2><p>reality协议加入了量子对抗机制，也就是新引入的<code>mldsa65 Seed</code>设置项，该协议被设计用于对抗量子计算机的中间人攻击解密，提升连接的安全性（一定程度上会增加延迟，可感）。</p>
-<h3 id="Reality中的新型加密-mldsa65"><a href="#Reality中的新型加密-mldsa65" class="headerlink" title="Reality中的新型加密 mldsa65"></a>Reality中的新型加密 <code>mldsa65</code></h3><table>
-<thead>
-<tr>
-<th align="center"><img src="https://s2.loli.net/2025/08/31/JFRxmENSHA8aUyv.png" alt="image.png" style="zoom:80%;" /></th>
-</tr>
-</thead>
-</table>
-<p style="color: red;font-size: 20px;font-weight: bold; text-align: center">
-不建议开启
-</p>
-
-
-
-
-<hr>
-<h3 id="TLS中的ECH-Encrypted-Client-Hello"><a href="#TLS中的ECH-Encrypted-Client-Hello" class="headerlink" title="TLS中的ECH (Encrypted Client Hello)"></a>TLS中的ECH (Encrypted Client Hello)</h3><table>
-<thead>
-<tr>
-<th align="center"><img src="https://s2.loli.net/2025/08/31/5YgfZXHrVTWxD3u.png" alt="image.png" style="zoom:80%;" /></th>
-</tr>
-</thead>
-</table>
-<hr>
-<p>ECH (Encrypted Client Hello)这部分是Xray Core中新增的TLS加密设置，具体涉及的是“Encrypted Client Hello”（简称ECH）功能的配置。</p>
-<h4 id="ECH功能简介"><a href="#ECH功能简介" class="headerlink" title="ECH功能简介"></a>ECH功能简介</h4><ul>
-<li><p>ECH是TLS协议中的一项隐私保护技术，通过加密客户端的Hello消息（ClientHello），防止中间人窥探访问的目标服务器地址，提升连接隐私和安全。</p>
-</li>
-<li><p>这是TLS 1.3的新特性，用于替代早期的SNI加密方案，更加标准和安全。</p>
-</li>
-<li><p><strong>ECH force query（强制查询）</strong><br>提供了选项“none”、“full”、“half”等，用于控制是否强制使用ECH及其强制程度。</p>
-<ul>
-<li>none：默认不强制，只有服务器支持时才启用。</li>
-<li>full&#x2F;half：分别代表强制使用并调整查询策略，增强隐私保护。</li>
-</ul>
-</li>
-<li><p><strong>Get New ECH Cert（获取新ECH证书）</strong><br>一键生成或刷新ECH相关的证书和配置，简化部署流程。</p>
-</li>
-</ul>
-<h4 id="作用与应用"><a href="#作用与应用" class="headerlink" title="作用与应用"></a>作用与应用</h4><ul>
-<li>这些设置让Xray在建立TLS连接时，可以启用ECH保护客户端Hello消息，防止被第三方监听嗅探目标网站，实现更高级别的连接隐私和安全。</li>
-<li>这对于用户在使用代理或VPN时，如何隐藏真实访问目标极为关键。</li>
-<li>ECH是未来TLS连接的重要隐私保护趋势，Xray引入这套功能表示技术领先和安全进一步加强。</li>
-</ul>
-<p style="color: red; text-align: center">
-******极不建议开启！******
-</p>
-
-
-<h1 id="建议"><a href="#建议" class="headerlink" title="建议"></a>建议</h1><p>最新引入的功能均不适合普通用户进行尝试。目前已经测试过了，新引入的功能均会导致节点不通。目前使用<code>Vless+TCP+Reality</code>结构的节点仍旧出现极高的延迟，该协议在推广时就有说到会增加网络延迟，所以除了在封锁加强的时候可以考虑使用此备用策略之外，别的时候尽量使用 <code>Vless+Websocket+TLS+CDN</code> 。经测试，在有个人域名作为<code>SNI</code>伪装的前提下该组合是最稳定的，而且CDN在这里并不会作为减速器，实际的速度可以跑满500Mb带宽。</p>
-<p style="color: red">
-注意：在对Reality协议进行配置的时候请忽略 【mldsa65】 相关内容，配置TCP的时候同样忽略 【ECH】 相关内容
-</p>
-
-<h1 id="客户端推荐"><a href="#客户端推荐" class="headerlink" title="客户端推荐"></a>客户端推荐</h1><p>3X-Ui面板本身是基于Xray核心开发的，常见的代理软件使用<code>Xray</code> <code>Sing-box</code> <code>Clash</code> <code>clash Meta</code>四种核心，每一个核心都有其主要维护的客户端。<br>常见的代理面板（服务端）有 <code>X-UI</code> <code>3X-UI</code> <code>S-UI</code> <code>Hiddify-Next</code>,其分别基于<code>Xray</code> <code>Xray</code> <code>Sing-box</code> <code>Sing-box</code>内核，3X-UI面板是由伊朗团队进行二改的X-UI.对于不同的内核，应该选用不同的客户端进行适配，很多小众协议是需要特定客户端支持的。</p>
-<table>
-<thead>
-<tr>
-<th>内核</th>
-<th align="center">移动客户端</th>
-<th>Windows客户端</th>
+<th></th>
+<th></th>
 </tr>
 </thead>
 <tbody><tr>
-<td>Xray</td>
-<td align="center">V2rayNG</td>
-<td>V2rayN</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/JingMatrix/LSPosed/releases/tag/v1.10.2">LSPosed v1.10.2(Jing Matrix)</a></td>
+<td><a target="_blank" rel="noopener" href="https://github.com/JingMatrix/LSPosed/releases/download/v1.10.2/LSPosed-v1.10.2-7182-zygisk-release.zip">https://github.com/JingMatrix/LSPosed/releases/download/v1.10.2/LSPosed-v1.10.2-7182-zygisk-release.zip</a></td>
 </tr>
 <tr>
-<td>Sing-box</td>
-<td align="center">Sing-box</td>
-<td>Hiddify</td>
-</tr>
-<tr>
-<td>Clash</td>
-<td align="center">Clash</td>
-<td>Clash for windows(已废弃)</td>
-</tr>
-<tr>
-<td>clash Meta</td>
-<td align="center">clash Meta</td>
-<td>Clash Verge、Mihomo、Flclash</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/mywalkb/LSPosed_mod">LSPosed_mod</a></td>
+<td><a target="_blank" rel="noopener" href="https://github.com/mywalkb/LSPosed_mod/releases/download/v1.9.3_mod/LSPosed-v1.9.3_mod-7244-zygisk-release.zip">https://github.com/mywalkb/LSPosed_mod&#x2F;releases&#x2F;download&#x2F;v1.9.3_mod&#x2F;LSPosed-v1.9.3_mod-7244-zygisk-release.zip</a></td>
 </tr>
 </tbody></table>
-<p style="color: red">注意：自搭建节点需要一定的Linux基础和网络知识，不推荐没有任何基础的尝试，无刚需就自行百度。假如你有时间，不妨看看我之前的基础教程和进阶的CDN以及WARP分流模块的文章。
-</p>
+<p>以上是两个能支持到安卓15的LSPosed版本，建议使用第一个，直接在Magisk中刷入连接内的zip文件，重启后即可看到LSPosed寄生器的提示。</p>
+<img src="https://s2.loli.net/2025/09/02/Pf5MyeDWYSct6AR.jpg" alt="174c60f6b0c6036f97106a0c4ae4490.jpg" style="zoom: 50%;" />
+
+
+
+
+<hr>
+<h1 id="模块推荐"><a href="#模块推荐" class="headerlink" title="模块推荐"></a>模块推荐</h1><h2 id="隐藏应用列表"><a href="#隐藏应用列表" class="headerlink" title="隐藏应用列表"></a>隐藏应用列表</h2><img src="https://github.com/Dr-TSNG/Hide-My-Applist/raw/master/banner.png" alt="174c60f6b0c6036f97106a0c4ae4490.jpg" style="zoom: 67%;" />
+
+<table>
+<thead>
+<tr>
+<th>Hide My Applist</th>
+<th><a target="_blank" rel="noopener" href="https://t.me/HideMyApplist/164">https://t.me/HideMyApplist/164</a></th>
+</tr>
+</thead>
+</table>
+<p><strong>功能简介：</strong></p>
+<blockquote>
+<p>雖然檢測特定的應用程式安裝來判斷使否有使用 root 是不正卻也不應該的，但並不是每個使用 root 的應用程式都提供隨機包名的功能。<br>在這種情況下，檢測到的使用 root 的應用程式 (例如 Fake Location 和儲存隔離) 就等於檢測到了 root 本身。</p>
+</blockquote>
+<p>同時，一些應用會利用各種漏洞來獲取你的應用列表，並預設你是使用 root 的使用者。</p>
+<p>這個模組提供了一些方法來測試你是否已經很好地隱藏了你的應用列表。<br>同時它可以作為一個 Xposed 模塊來隱藏一些應用程式或拒絕應用程式列表請求，以保護你的隱私。</p>
+<p><strong>总结</strong></p>
+<p>该模块可以控制已安装的软件能够读取的已安装文件列表</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>白名单</td>
+<td>软件只能读取到改白名单的软件</td>
+</tr>
+<tr>
+<td>黑名单</td>
+<td>软件无法读取黑名单的软件</td>
+</tr>
+</tbody></table>
+<p>黑名单和白名单需要自己根据需求手搓，哪个软件被限制读取黑名单还是白名单也是可以自行设置的，就是整个流程设置起来比较麻烦。<br><strong>注意：假如你给淘宝设置了黑名单，且黑名单中有支付宝。当你使用支付时，是不会跳转到支付宝支付的，因为淘宝在支付时读不到支付宝的存在，会导致交易失败或提示“检测到您还没有安装支付宝”请注意其作用逻辑</strong></p>
+<hr>
+<h2 id="HyperCeiler"><a href="#HyperCeiler" class="headerlink" title="HyperCeiler"></a>HyperCeiler</h2><img src="https://s2.loli.net/2025/09/02/KfeX7M3oUnkJuaz.png" alt="174c60f6b0c6036f97106a0c4ae4490.jpg" style="zoom: 80%;" />
+
+<p><strong>功能简介：</strong></p>
+<blockquote>
+<p>请在 <a target="_blank" rel="noopener" href="https://github.com/LSPosed/LSPosed/releases">LSPosed</a> 中启用 HyperCeiler，然后在 HyperCeiler 应用内启用对应的功能，重启作用域（需要 Root 权限）。</p>
+</blockquote>
+<p>本模块<strong>不支持</strong><code>修改较多的第三方 Xiaomi HyperOS ROM</code>、<code>修改较多的系统软件</code>，以及<code>部分国际 Xiaomi HyperOS ROM</code>。</p>
+<p>目前 HyperCeiler 是基于 Android 16 的 Xiaomi HyperOS 3.0 的手机端设备进行适配，覆盖不是很完整，需要不断测试和改进。</p>
+<p>提交反馈前请注意是否已有相同反馈，避免给开发者造成困扰。花相同精力看相同反馈是一件很浪费时间的事情。</p>
+<p>HyperCeiler 已停止维护 Android 11-13 的 MIUI ROM 和 Android 13&#x2F;14 的 HyperOS 1.0&#x2F;2.0 ROM。</p>
+<blockquote>
+<p>Android 11-12 的 MIUI ROM 请使用<a target="_blank" rel="noopener" href="https://github.com/ReChronoRain/Cemiuiler/releases/tag/1.3.130">此版本</a>。</p>
+<p>Android 13 的 MIUI ROM 和 HyperOS 1.0 ROM 请使用<a target="_blank" rel="noopener" href="https://github.com/Xposed-Modules-Repo/com.sevtinge.hyperceiler/releases/download/3866-2.5.156_20250118/HyperCeiler_2.5.156_20250118_3866_release_miui.apk">此版本</a>。</p>
+<p>Android 14 的 HyperOS 1.0&#x2F;2.0 已归档，从 2.6.162 版本开始将移除对 Android 14 的支持。</p>
+</blockquote>
+<p><strong>总结</strong></p>
+<p>该模块可以修改MIUI和Hyper OS系统功能，比如</p>
+<ul>
+<li>去除敏感软件的截图限制</li>
+<li>允许系统软件降级</li>
+<li>允许安装未签名或修改版系统软件</li>
+<li>允许多小窗</li>
+<li>解锁特定机型才有的AI或其它只有特定机型才能用的功能</li>
+<li>停用系统广告</li>
+</ul>
+<p>以及更多你想到或想不到的功能</p>
+<hr>
+<h2 id="Revanced-Xposed"><a href="#Revanced-Xposed" class="headerlink" title="Revanced Xposed"></a>Revanced Xposed</h2><img src="https://s2.loli.net/2025/09/02/VQZLySdkpXRlxho.png" alt="image.png" style="zoom:80%;" />
+
+<p><strong>功能简介</strong></p>
+<blockquote>
+<p><strong>ReVanced LSPosed module by ChsBuffer.</strong></p>
+</blockquote>
+<p>Important</p>
+<p>This is not an official ReVanced project, do not ask the ReVanced developers for help.</p>
+<p><strong>Youtube</strong></p>
+<ul>
+<li>Remove ads</li>
+<li>SponsorBlock</li>
+<li>Remove background playback restrictions</li>
+<li>Remove share links tracking query parameter</li>
+<li>Hide and change navigation buttons</li>
+<li>Swipe controls</li>
+<li>Remember video quality changes</li>
+<li>Show advanced video quality menu</li>
+<li>Copy video url video player button</li>
+<li>Open external downloader app</li>
+</ul>
+<p><strong>Spotify</strong></p>
+<ul>
+<li>Unlock Spotify Premium</li>
+<li>Sanitize sharing links</li>
+<li>Hide Create button</li>
+</ul>
+<p><strong>Google Photos</strong></p>
+<ul>
+<li>Spoof Pixel XL</li>
+</ul>
+<p><strong>Youtube Music</strong></p>
+<ul>
+<li>Remove music video ads</li>
+<li>Remove background playback restrictions</li>
+<li>Hide upgrade button</li>
+<li>Hide ‘Get Music Premium’ label</li>
+<li>Enable exclusive audio playback</li>
+</ul>
+<p><strong>Instagram</strong></p>
+<ul>
+<li>Hide ads</li>
+</ul>
+<p><strong>Threads</strong></p>
+<ul>
+<li>Hide ads</li>
+</ul>
+<p><strong>Reddit (2024.17.0)</strong></p>
+<ul>
+<li>Hide ads</li>
+<li>Sanitize sharing links</li>
+</ul>
+<p><strong>Strava</strong></p>
+<ul>
+<li>Unlock subscription features</li>
+<li>Disable subscription suggestions</li>
+</ul>
+<p><strong>总结</strong></p>
+<p>可以去除Youtube的视频内广告和窗口广告，可以开启小窗在后台播放。具体见功能简介。</p>
+<p>可去除Youtube的Premium，也就是解锁Premium会员服务（不开会员无法息屏播放音乐，还有打断广告）</p>
+<p>可去除Spotify的广告和播放限制，也就是解锁Premium功能</p>
+<p>可欺骗Google相册，以享受Google Pixel XL系列的【无限云相册空间】服务</p>
+<p>去除主流几家社交媒体的广告</p>
+<hr>
+<h2 id="应用伪装"><a href="#应用伪装" class="headerlink" title="应用伪装"></a>应用伪装</h2><img src="https://s2.loli.net/2025/09/02/3zFwutPArO4is8k.png" alt="image.png" style="zoom:67%;" />
+
+<p><strong>功能简介</strong></p>
+<blockquote>
+<p>可以为作用域的应用传递错误的硬件和系统信息，比如让某个软件获取你私人信息的时候将信息替换为修改后的信息。可以伪软件识别到的手机型号和手机号、IMEI、系统版本、以及各种真实的可辩别身份的信息。</p>
+</blockquote>
+<h2 id="闰二月"><a href="#闰二月" class="headerlink" title="闰二月"></a>闰二月</h2><p>微信增强</p>
+<p>防撤回</p>
+<p>抢红包</p>
+<p>等</p>
+<h2 id="QAuxiliary"><a href="#QAuxiliary" class="headerlink" title="QAuxiliary"></a>QAuxiliary</h2><p>QQ增强，有100%封号的惊喜</p>
+<p>防撤回等功能</p>
+<h2 id="HookVIP"><a href="#HookVIP" class="headerlink" title="HookVIP"></a>HookVIP</h2><p><img src="https://s2.loli.net/2025/09/02/f4gPRJsSFr6ebWw.png" alt="image.png"></p>
+<table>
+<thead>
+<tr>
+<th><a target="_blank" rel="noopener" href="https://github.com/Xposed-Modules-Repo/top.hookvip.pro">NewHookVip</a></th>
+<th><a target="_blank" rel="noopener" href="https://github.com/Xposed-Modules-Repo/top.hookvip.pro/releases/download/20250812-4.1.2/HookVip-4.1.2-release.apk">https://github.com/Xposed-Modules-Repo/top.hookvip.pro/releases/download/20250812-4.1.2/HookVip-4.1.2-release.apk</a></th>
+</tr>
+</thead>
+</table>
+<p><strong>功能简介</strong></p>
+<blockquote>
+<p> <strong>破解功能</strong></p>
+</blockquote>
+<ul>
+<li>1.勾选对应应用重启后生效</li>
+<li>2.如果没有生效请尝试登录一下账号</li>
+<li>3.如果仍然不生效可能是坏掉了</li>
+<li>4.欢迎提交issues反馈问题</li>
+</ul>
+<p> <strong>拓展功能</strong></p>
+<ul>
+<li>1.请先前往模块主页</li>
+<li>2.点击左上角&#x2F;主页右滑 打开侧滑栏</li>
+<li>3.打开拓展功能页</li>
+<li>4.找到并点击你需要作用于的应用</li>
+<li>5.再选择性打开你需要使用的功能</li>
+<li>6.确保已经打开了总开关</li>
+</ul>
+<p><strong>总结</strong></p>
+<p>可破解的软件较多，具体支持列表请自行查阅</p>
 
       
     </div>
@@ -372,7 +435,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/51/">51</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/52/">52</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -459,7 +522,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-count">52</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -508,12 +571,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">207k</span>
+    <span title="站点总字数">209k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">5:45</span>
+    <span title="站点阅读时长">5:49</span>
 </div>
 <!-- 网站运行时间的设置 -->
 <span id="timeDate">载入天数...</span>
