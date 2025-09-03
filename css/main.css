@@ -1191,7 +1191,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #8701c7;
+  background: #ffff54;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2671,7 +2671,7 @@ ul.breadcrumb li + li:last-child {
 }
 .post-body {
   font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
-  font-size: 18px;
+  font-size: 15px;
   line-height: 1.8;
   color: #333;
   text-align: justify;
