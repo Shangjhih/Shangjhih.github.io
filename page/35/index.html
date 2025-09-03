@@ -169,7 +169,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/04/13/Xray-CDN%E8%8A%82%E7%82%B9/">
+    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/05/10/MathType/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
@@ -183,7 +183,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2025/04/13/Xray-CDN%E8%8A%82%E7%82%B9/" class="post-title-link" itemprop="url">Xray-CDN节点</a>
+            <a href="/2025/05/10/MathType/" class="post-title-link" itemprop="url">MathType 运行时错误 错误代码53 文件未找到</a>
         </h2>
 
         <div class="post-meta">
@@ -192,29 +192,23 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2025-04-13 17:44:00 / 修改时间：17:59:33" itemprop="dateCreated datePublished" datetime="2025-04-13T17:44:00+08:00">2025-04-13</time>
+              <time title="创建时间：2025-05-10 17:16:25" itemprop="dateCreated datePublished" datetime="2025-05-10T17:16:25+08:00">2025-05-10</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-05-17 09:59:00" itemprop="dateModified" datetime="2025-05-17T09:59:00+08:00">2025-05-17</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Xray/" itemprop="url" rel="index"><span itemprop="name">Xray</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Xray/%E9%9D%A2%E6%9D%BF/" itemprop="url" rel="index"><span itemprop="name">面板</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Xray/%E9%9D%A2%E6%9D%BF/CDN/" itemprop="url" rel="index"><span itemprop="name">CDN</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Xray/%E9%9D%A2%E6%9D%BF/CDN/%E4%BC%98%E9%80%89IP/" itemprop="url" rel="index"><span itemprop="name">优选IP</span></a>
+                  <a href="/categories/MathType/" itemprop="url" rel="index"><span itemprop="name">MathType</span></a>
                 </span>
             </span>
 
@@ -224,14 +218,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.3k</span>
+              <span>295</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>6 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -243,123 +237,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p style="font-size:40px; text-align:center; font-weight:bold"> X-ray CDN节点配置</p>
-
-<hr>
-<h2 id="what-is-CDN"><a href="#what-is-CDN" class="headerlink" title="what is CDN"></a>what is CDN</h2><p><strong>谈到CDN节点，就不得不提到CDN服务了，什么是CDN？</strong></p>
-<p style=
-"line-height: 2;
-font-size:20px;
-text-indent:2em"
->
-​	  CDN (content delivery netwok) 内容分发网络，这是一种缓存技术，CDN的供应商会在全球各地购买并部署自己的CDN服务器，这些服务器会以付费或免费的形式供开发者使用。使用该服务的开发者可以通过CDN服务器来缓存自己网站或者服务的数据，世界各地的CDN服务器都会复制一份(可以的话)，假如你开启了CDN服务，在各地的用户访问你的网页或服务时，CDN厂家会将用户的请求转发到距离用户最近的CDN服务器。
-</p>
-
-
-<blockquote>
-<p>假设我们在新加坡的服务器部署了一个网站，一个欧洲的用户在欧洲访问你的网站，他将会向你的域名发送请求，CDN在解析请求后会将他的请求转发至位于欧洲或者距离他最近的CDN服务器，该服务器缓存了你的网页数据，他访问该CDN服务器所获取的内容和访问你的新加坡服务器是一样的，但是这次访问会更快，因为它的物理距离和用户更近。这就起到了加速服务。</p>
-</blockquote>
-<hr>
-<p><img src="https://s2.loli.net/2025/04/13/LriuZXwVNxU5DAb.png" alt="绘图1.png"></p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">│</span><br><span class="line">├─ ① 查询本地缓存（浏览器/操作系统） → 命中则直接访问</span><br><span class="line">│</span><br><span class="line">└─ ② 未命中 → 向本地DNS服务器（递归DNS）发起查询</span><br><span class="line"><span class="code">            │</span></span><br><span class="line"><span class="code">            ├─ ③ 递归DNS查询权威DNS</span></span><br><span class="line"><span class="code">            │    │</span></span><br><span class="line"><span class="code">            │    ├─ a.com的权威DNS返回CNAME（指向CDN别名，如a.com.cdn.com）</span></span><br><span class="line"><span class="code">            │    │</span></span><br><span class="line"><span class="code">            │    └─ CDN的权威DNS通过GSLB调度，返回最优边缘节点IP</span></span><br><span class="line"><span class="code">            │</span></span><br><span class="line"><span class="code">            └─ ④ 递归DNS将边缘节点IP返回给用户</span></span><br><span class="line"><span class="code">                │</span></span><br><span class="line"><span class="code">                ├─ ⑤ 用户与边缘节点建立TCP/TLS连接</span></span><br><span class="line"><span class="code">                │    │</span></span><br><span class="line"><span class="code">                │    ├─ ⑥ 请求资源 → 检查CDN缓存</span></span><br><span class="line"><span class="code">                │    │    │</span></span><br><span class="line"><span class="code">                │    │    ├─ 缓存命中 → 直接返回资源（HTTP 200）</span></span><br><span class="line"><span class="code">                │    │    │</span></span><br><span class="line"><span class="code">                │    │    └─ 缓存未命中 → 回源站拉取资源 → 缓存 → 返回用户</span></span><br><span class="line"><span class="code">                │    │</span></span><br><span class="line"><span class="code">                │    └─ ⑦ 动态内容可能直接透传至源站</span></span><br><span class="line"><span class="code">                │</span></span><br><span class="line"><span class="code">                └─ ⑧ 用户接收数据，完成访问</span></span><br></pre></td></tr></table></figure>
-
-
-<h2 id="How-to-use"><a href="#How-to-use" class="headerlink" title="How to use"></a>How to use</h2><p style=
-"line-height: 2;
-font-size:20px;
-text-indent:2em"
->
-​	首先，你需要挑选一家提供CDN服务的厂家。推荐Cloudflare。你可以使用Cloudflare的DNS解析来处理自己的域名，为自己的域名开启**小黄云** ，小黄云代表你的域名已经加入到CDN的处理范围。可使用全球CDN节点。
-</p>
-
-
-<h3 id="Cloudflare"><a href="#Cloudflare" class="headerlink" title="Cloudflare"></a>Cloudflare</h3><p>我们以Cloudflare作为CDN供应商来自做示例：</p>
-<ul>
-<li>域名托管</li>
-<li>添加CNAME解析</li>
-<li>开启CDN</li>
-</ul>
-<h4 id="1-域名托管"><a href="#1-域名托管" class="headerlink" title="1.域名托管"></a>1.域名托管</h4><p>​	首先，注册并登入Cloudflare。在首页添加域名，等待扫描DNS记录，当扫描到你的DNS记录未指向Cloudflare时，它将会提示你去修改DNS记录，提供的有两条记录，请到你的域名提供商修改<strong>NAME SERVER</strong>为提供的记录地址。</p>
-<p><img src="https://s2.loli.net/2025/04/13/zCFNMBUuWiSVrpe.png" alt="e.png"></p>
-<h4 id="2-添加CNAME解析"><a href="#2-添加CNAME解析" class="headerlink" title="2.添加CNAME解析"></a>2.添加CNAME解析</h4><p>​	等待域名初始化成功后进入你新添加的域名的管理界面，在左侧的功能栏里你将会看到一个名为<strong>【DNS】</strong>的选项，进入然后点击<strong>【记录】</strong>，在页面可以看到<strong>【添加记录】</strong>按钮，点击添加记录：</p>
-<blockquote>
-<p>添加记录类型为A记录，解析一级域名直接在名称部分填入**@** ，解析二级域名请添加你的二级域名内容，在IPv4栏内填入你的VPS地址。<strong>且Proxy状态要关闭！！！</strong></p>
-</blockquote>
-<p><img src="https://s2.loli.net/2025/04/13/o216zq7NCxRHXZh.png" alt="image.png"></p>
-<p style="color:red;font-weight:bold">☢ \ \  注意此处的 Proxy状态 ,必须关闭小黄云！！！</p>
-
-<hr>
-<h2 id="获取SSL证书"><a href="#获取SSL证书" class="headerlink" title="获取SSL证书"></a>获取SSL证书</h2><p style=
-"line-height: 2;
-font-size:20px;
-text-indent:2em"
->
-在你的节点面板申请SSL证书，一般都是使用Acme脚本获取，在验证的时候需要使用cloudfalre账号，也就是账号的邮箱。来申请证书
-</p>
-
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">│────────────────────────────────────────────────│</span><br><span class="line">│   6. Reset Username &amp; Password &amp; Secret Token  │</span><br><span class="line">│   7. Reset Web Base Path                       │</span><br><span class="line">│   8. Reset Settings                            │</span><br><span class="line">│   9. Change Port                               │</span><br><span class="line">│  10. View Current Settings                     │</span><br><span class="line">│────────────────────────────────────────────────│</span><br><span class="line">│  11. Start                                     │</span><br><span class="line">│  12. Stop                                      │</span><br><span class="line">│  13. Restart                                   │</span><br><span class="line">│  14. Check Status                              │</span><br><span class="line">│  15. Logs Management                           │</span><br><span class="line">│────────────────────────────────────────────────│</span><br><span class="line">│  16. Enable Autostart                          │</span><br><span class="line">│  17. Disable Autostart                         │</span><br><span class="line">│────────────────────────────────────────────────│</span><br><span class="line">│  18. SSL Certificate Management                │</span><br><span class="line">│  19. Cloudflare SSL Certificate                │</span><br><span class="line">│  20. IP Limit Management                       │</span><br><span class="line">│  21. Firewall Management                       │</span><br><span class="line">│  22. SSH Port Forwarding Management            │</span><br><span class="line">│────────────────────────────────────────────────│</span><br><span class="line">│  23. Enable BBR                                │</span><br><span class="line">│  24. Update Geo Files                          │</span><br><span class="line">│  25. Speedtest by Ookla                        │</span><br><span class="line">╚────────────────────────────────────────────────╝</span><br><span class="line"></span><br><span class="line">Please enter your selection [0-25]: 19</span><br><span class="line">[INF] ****** Instructions for Use ****** </span><br><span class="line">[INF] Follow the steps below to complete the process: </span><br><span class="line">[INF] 1. Cloudflare Registered E-mail. </span><br><span class="line">[INF] 2. Cloudflare Global API Key. </span><br><span class="line">[INF] 3. The Domain Name. </span><br><span class="line">[INF] 4. Once the certificate is issued, you will be prompted to set the certificate for the panel (optional). </span><br><span class="line">[INF] 5. The script also supports automatic renewal of the SSL certificate after installation. </span><br><span class="line"></span><br><span class="line">Do you confirm the information and wish to proceed? [y/n] [Default y]: </span><br></pre></td></tr></table></figure>
-
-<p style="color:red;font-weight:bold">☢\\  注意此时的80端口不要运行任何服务，有服务的话请手动停止，必须保证该端口无任何服务占用，不然申请证书会失败！！！</p>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[INF] Follow the steps below to complete the process: </span><br><span class="line">[INF] 1. Cloudflare Registered E-mail. </span><br><span class="line">[INF] 2. Cloudflare Global API Key. </span><br><span class="line">[INF] 3. The Domain Name. </span><br></pre></td></tr></table></figure>
-
-<p>提示列出了你需要准备的信息。</p>
-<p><strong>Cloudflare Global API Key</strong>可以在Cloudflare的账户设置中找到</p>
-<p><img src="https://s2.loli.net/2025/04/13/ILkagMJA8ScyrEd.png" alt="image.png"></p>
-<p style="color:red;font-weight:bold"> ☢\\   点击查看后会给你列出Key，马上复制下来备用，此Key只会出现一次，找不到了需要再次请求。</p>
-随后根据提示的内容输入关键信息，然后等待脚本运行结果，证书申请后会将总要信息打印到控制台，请记住证书的保存位置，建议使用cp命令将证书复制一份到别的地方，以防丢失。
-
-
-
-
-<p style="color:red;font-weight:bold">☢\\    证书申请后可以到Cloudflare域名设置中开启小黄云，等待CDN扩散至全部的CDN服务器。</p>
-
-
-
-<p><img src="https://s2.loli.net/2025/04/13/RIwW9g7mc1SNqJT.png"></p>
-<hr>
-<p style="color:red;font-weight:bold">在以上所有步骤都完成后即可开启80端口运行的服务</p>
-
-<hr>
-<h2 id="添加CDN节点"><a href="#添加CDN节点" class="headerlink" title="添加CDN节点"></a>添加CDN节点</h2><p>1.在面板的<strong>【面板设置】</strong> 中的<strong>【证书】</strong> 添加私钥和公钥的绝对路径</p>
-<ul>
-<li><p><code>fullchain.pem</code>  ———<strong>公钥</strong></p>
-</li>
-<li><p><code>privkey.pem </code> ————<strong>私钥</strong></p>
-</li>
-</ul>
-<p>2.在面板的<strong>【入站列表】</strong> 中新建一个80端口的VLESS节点，使用<code>websocket</code>协议，</p>
-<ul>
-<li>主机地址————————-域名</li>
-<li>路径—————————-随意，但是要<code>/</code> 开头(例如   &#x2F;userame)</li>
-</ul>
-<p>3.sniffing开启</p>
-<ol start="4">
-<li>安全   <code>无</code></li>
-</ol>
-<hr>
-<h2 id="修改CDN配置"><a href="#修改CDN配置" class="headerlink" title="修改CDN配置"></a>修改CDN配置</h2><h4 id="1-导出节点"><a href="#1-导出节点" class="headerlink" title="1.导出节点"></a>1.导出节点</h4><p>​	在面板中配置好Vless协议的基础节点后，以二维码的形式到入至V2ray，此后进行配置文件的修改。</p>
-<h4 id="2-修改配置"><a href="#2-修改配置" class="headerlink" title="2.修改配置"></a>2.修改配置</h4><p><img src="https://s2.loli.net/2025/04/13/oligHTDS4Q1vZFI.png" alt="image.png"></p>
-<p>按图示进行修改，测速，有数值即代表可以连通。</p>
-<hr>
-<h2 id="优选IP"><a href="#优选IP" class="headerlink" title="优选IP"></a>优选IP</h2><p>可以使用Github开源工具或者网站进行筛选并替换</p>
-<ul>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/XIU2/CloudflareSpeedTest">Github工具</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://cf.vvhan.com/">在线优选</a></p>
-</li>
-</ul>
-<hr>
-<p style="
-          font-size:30px;
-          fot-weight:bold;
-          text-align:center;
-          color:red
-          "> 👍恭喜您学会了一个新知识<br>
-                   GOOD JOB
-</p>
-
+          <p>在安装 MathType 之后，打开 Word 时出现以下错误：</p>
+<p><img src="https://s2.loli.net/2025/05/17/LXsJrGa1WemfAg9.png" alt="483921321e5b5a0ecb29c4b94b45f0c.png"></p>
+<p><img src="https://s2.loli.net/2025/05/17/Wk5zjgKqtcQ6E1P.png" alt="c73cc140ac77970a92161e049326783.png"></p>
+<p>这可能是由于之前多次安装过 MathType，导致MathType.wll文件的路径出现在不符合当前word版本的路径中。导致的无法识别，进而出现这种让你重启word重新配置的错误。也可能是多次安装Office导致的。</p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>进入MathType的安装目录，进入安装目录下的MathPage文件夹，进入其下面的<code>64</code> 文件夹，找到<code>MathPage.wll</code>文件，复制该文件。随后在桌面右键Word图标，点击进入文件的安装位置。<br>在安装位置下粘贴<code>MathPage.wll</code>文件，点击替换文件。随后重新打开Word，MathType就不会弹出错误了。</p>
 
       
     </div>
@@ -378,7 +260,7 @@ text-indent:2em"
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/34/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/34/">34</a><span class="page-number current">35</span><a class="page-number" href="/page/36/">36</a><span class="space">&hellip;</span><a class="page-number" href="/page/52/">52</a><a class="extend next" rel="next" href="/page/36/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/34/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/34/">34</a><span class="page-number current">35</span><a class="page-number" href="/page/36/">36</a><span class="space">&hellip;</span><a class="page-number" href="/page/53/">53</a><a class="extend next" rel="next" href="/page/36/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -465,7 +347,7 @@ text-indent:2em"
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-count">53</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -514,12 +396,12 @@ text-indent:2em"
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">210k</span>
+    <span title="站点总字数">216k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">5:49</span>
+    <span title="站点阅读时长">6:01</span>
 </div>
 <!-- 网站运行时间的设置 -->
 <span id="timeDate">载入天数...</span>
