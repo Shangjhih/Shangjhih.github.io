@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"lvshuqi.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":330,"display":"hide","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null,"line_number":false},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":0},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Google作为Chromium幕后的推动者，一直在陆续推荐Mainfest V3规范的落地。Google是Chromium基金会背后的大老板，而Chromium是现代很多浏览器的主要内核。使用Chromium作为浏览器内核的浏览器有很多，国内的360安全浏览器和QQ浏览器、2345浏览器以及海外的Brave和Edge等都是以Chromium作为自己的浏览器内核使用。      【Mianfest">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mainfest V3下Ublock Origin的替代选择">
+<meta property="og:url" content="https://lvshuqi.top/2025/09/05/Mainfest-V3%E4%B8%8BUblock-Origin%E7%9A%84%E6%9B%BF%E4%BB%A3%E9%80%89%E6%8B%A9/index.html">
+<meta property="og:site_name" content="就这样&amp;巴">
+<meta property="og:description" content="Google作为Chromium幕后的推动者，一直在陆续推荐Mainfest V3规范的落地。Google是Chromium基金会背后的大老板，而Chromium是现代很多浏览器的主要内核。使用Chromium作为浏览器内核的浏览器有很多，国内的360安全浏览器和QQ浏览器、2345浏览器以及海外的Brave和Edge等都是以Chromium作为自己的浏览器内核使用。      【Mianfest">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2025/09/05/UpLnZhDrbAQ6g2K.png">
+<meta property="og:image" content="https://s2.loli.net/2025/09/05/ydgOxsjhc1QZCHD.png">
+<meta property="og:image" content="https://s2.loli.net/2025/09/05/D2wEbGpmURv19fB.png">
+<meta property="og:image" content="https://s2.loli.net/2025/09/05/MyjBDUXfIGYkZRn.png">
+<meta property="og:image" content="https://s2.loli.net/2025/09/05/ibwJ4Qa2kmdIYOZ.png">
+<meta property="og:image" content="https://s2.loli.net/2025/09/05/3ACMfLlTZmIYHWG.png">
+<meta property="article:published_time" content="2025-09-05T07:17:15.000Z">
+<meta property="article:modified_time" content="2025-09-05T08:16:20.695Z">
+<meta property="article:author" content="Shangjhih Jhao">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="博客">
+<meta property="article:tag" content="技术">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="随想">
+<meta property="article:tag" content="编程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2025/09/05/UpLnZhDrbAQ6g2K.png">
+
+<link rel="canonical" href="https://lvshuqi.top/2025/09/05/Mainfest-V3%E4%B8%8BUblock-Origin%E7%9A%84%E6%9B%BF%E4%BB%A3%E9%80%89%E6%8B%A9/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Mainfest V3下Ublock Origin的替代选择 | 就这样&巴</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">就这样&巴</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">个人网志</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/09/05/Mainfest-V3%E4%B8%8BUblock-Origin%E7%9A%84%E6%9B%BF%E4%BB%A3%E9%80%89%E6%8B%A9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
+      <meta itemprop="name" content="Shangjhih Jhao">
+      <meta itemprop="description" content="该博客在作者读大学本科期间创建，通过Hexo搭建，部署于Github Action。博客建立之初是为了防止作者遗忘已经学过的东西，将一些可以被记录的东西写下来一定程度上会减少遗忘。因为本科考研失败 ，在进行二战，目前并不会经常更新。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="就这样&巴">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Mainfest V3下Ublock Origin的替代选择
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-09-05 15:17:15 / 修改时间：16:16:20" itemprop="dateCreated datePublished" datetime="2025-09-05T15:17:15+08:00">2025-09-05</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>7 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>Google作为Chromium幕后的推动者，一直在陆续推荐Mainfest V3规范的落地。Google是Chromium基金会背后的大老板，而Chromium是现代很多浏览器的主要内核。使用Chromium作为浏览器内核的浏览器有很多，国内的360安全浏览器和QQ浏览器、2345浏览器以及海外的Brave和Edge等都是以Chromium作为自己的浏览器内核使用。</p>
+<p style="color: red; text-align: center">
+    【Mianfest V3规范在Chrome140及以上版本强制实行】
+</p>
+
+
+<p>而Google推动的Mainfest V3规范的出现则极大的限制了浏览器插件的权限，具体内容为：</p>
+<blockquote>
+<ul>
+<li>Manifest V3 (MV3) 是谷歌为Chrome和基于Chromium的浏览器设计的新版浏览器扩展开发平台规范。</li>
+<li>MV3主要目的是提升扩展安全性、隐私保护和性能，减少恶意扩展的风险。</li>
+<li>关键变化包括使用Service Worker替代后台页面，不允许执行远程托管代码，改用更受限制的declarativeNetRequest API替代原来的webRequest阻断模式。</li>
+</ul>
+</blockquote>
+<p>总的来看来说就是Google要限制插件的权限，据外人来讲，就是为了增加其广告的营收，防止这些去广告插件阻碍其赚钱。在Google的介绍中，新的规范是为了安全考虑，保护隐私与减少恶意扩展的风险，谁说谁有理。不过政策对用户带来的影响才是我们需要解决的问题，uBlock Origin作为去广告插件主人公就受到了极大的影响。</p>
+<p><strong>关于uBlock Origin</strong></p>
+<blockquote>
+<p>2014年，<em>uBlock Origin 的</em>创始人、原作者兼首席开发者 Raymond Hill 创建了最初的 uBlock 扩展程序。其开发始于对 <em>HTTP Switchboard</em>代码库的分叉，并衍生出一个独立的阻止扩展程序<em>uMatrix，</em>后者此前专为高级用户设计。最初的<em>uBlock</em>由 Raymond Hill 开发，旨在支持社区维护的阻止列表，同时添加更多功能并将代码质量提升到适当的发布标准。最初的 uBlock 扩展程序于 2014 年 6 月首次发布，作为<em>Chrome</em>和 <em>Opera 的</em>独家扩展程序。2015 年底，最初的 uBlock 扩展程序以其当前名称<em>uBlock Origin</em> <em>（有时在全球使用 uBlock₀ 表示）扩展到其他浏览器。</em></p>
+<p>继 2015 年推出该软件后，<em>comsource</em>和<em>Sourcepoint</em>联合开展的一项行业研究调查显示，截至 2016 年 8 月的 10 个月内，该软件*的增长率高达 833%*，是当时所有上市的行业软件中增长最快的。该报告将这一巨大增长归因于用户对“纯粹”拦截器的需求，这些拦截器能够在 AdBlock 和其他行业扩展程序所使用的“可接受广告”程序之外运行。</p>
+<p><em>uBlock Origin 的</em> <em>Firefox</em>版本 迅速在整个广告拦截行业获得关注，积累了超过 500 万活跃用户，其<em>Chrome</em>扩展程序随后也积累了超过 1000 万活跃用户。开发者 Nik Rolls 于 2016 年 12 月正式发布了适用于<em>Microsoft Edge浏览器的**uBlock Origin</em>。</p>
+<p>2017 年 1 月，<em>uBlock Origin被添加到**Debian 9</em>和<em>Ubuntu</em> <em>（16.04）</em>的存储库中，并且 uBlock Origin 扩展被 Mozilla 授予“本月之选”物联网荣誉<em>。</em></p>
+<p>截至 2025 年，<em>uBlock Origin</em>继续由创始人兼首席开发人员 Raymond Hill 维护并积极开发。</p>
+<p>uBlock <em>Origin</em>扩展仍然是业界领先的开源跨平台浏览器扩展，其软件专为多平台使用而开发，截至 2025 年，uBlock Origin 的扩展可用于几种最广泛使用的浏览器，包括：<em>Chrome、Chromium、Edge、Opera、Firefox</em>和13 之前的 所有<em>Safari版本。</em></p>
+<p><em>uBlock Origin</em>项目目前仍然明确拒绝捐赠，而是建议所有客户、用户和支持者向阻止列表维护者捐款。</p>
+</blockquote>
+<h1 id="Mainfest-V3带来的影响"><a href="#Mainfest-V3带来的影响" class="headerlink" title="Mainfest V3带来的影响"></a>Mainfest V3带来的影响</h1><p><img src="https://s2.loli.net/2025/09/05/UpLnZhDrbAQ6g2K.png" alt="image.png"></p>
+<p><img src="https://s2.loli.net/2025/09/05/ydgOxsjhc1QZCHD.png" alt="8aba0d529fcb8807e3bd6541cb52b63.png"></p>
+<p>如图所示，基于Mianfest V2规范的插件在使用开发者模式添加未打包插件后出现如图提示，这也就意味着旧的规范已经不再被支持。在140版本之前的Chrome可以直接使用，最近的几个版本中可以通过在<code>chrome://flags</code>中开启实验功能，搜索有关Mainfest V2的功能，将其打开就能继续使用离线包加载该插件。</p>
+<h1 id="替代方案"><a href="#替代方案" class="headerlink" title="替代方案"></a>替代方案</h1><p>这里根据此信息造成的问题给出相对有效的解决方法（一定不是最有效，完美解决可以查找别人的解决方案）：</p>
+<h2 id="uBlock-Origin-Lite"><a href="#uBlock-Origin-Lite" class="headerlink" title="uBlock Origin Lite"></a>uBlock Origin Lite</h2><p><img src="https://s2.loli.net/2025/09/05/D2wEbGpmURv19fB.png" alt="image.png"></p>
+<p><code>uBlock Origin</code>对此推出了<code>uBlock Origin Lite</code>版本，该版本符合最新的Mainfest V3规范。在规范的影响下，新版本的插件失去了一些高级的特性，但是对于基础的广告拦截效果还是不用担心的，可以满足基本的需求。安装方式也较为简单，插件已经上架Chrome Webstore，在商店搜索就可以直接安装.</p>
+<p><strong>获取地址：</strong><a target="_blank" rel="noopener" href="https://chromewebstore.google.com/detail/ublock-origin-lite/ddkjiahejlhfcafbddmgiahcphecmpfh">https://chromewebstore.google.com/detail/ublock-origin-lite/ddkjiahejlhfcafbddmgiahcphecmpfh</a></p>
+<h2 id="AdGuard"><a href="#AdGuard" class="headerlink" title="AdGuard"></a>AdGuard</h2><p><img src="https://s2.loli.net/2025/09/05/MyjBDUXfIGYkZRn.png" alt="image.png"></p>
+<p>AdGuard 也是老牌的广告拦截插件，但是在Mainfest V3规范强制执行之后肯定也是会受到影响，但是不必担心基础功能，专业的黑白名单以及域名和规则也不是小白可以操作的，所以可以作为替换。</p>
+<p><strong>获取地址</strong> <a target="_blank" rel="noopener" href="https://chromewebstore.google.com/detail/adguard-adblocker/bgnkhhnnamicmpeenaelnjfhikgbkllg">https://chromewebstore.google.com/detail/adguard-adblocker/bgnkhhnnamicmpeenaelnjfhikgbkllg</a></p>
+<h1 id="额外的隐私保护"><a href="#额外的隐私保护" class="headerlink" title="额外的隐私保护"></a>额外的隐私保护</h1><p>根据个人上网习惯，我们可能有的人不在意自己的隐私，或者直接不相信网络会泄露什么个人信息。这都没关系，我们继续对那些有此需求的推荐合适的工具。</p>
+<p>本次主要针对的是<code>广告追踪器</code>,这里简单介绍一下什么是广告追踪器。</p>
+<blockquote>
+<p><strong>追踪器的主要作用</strong><br><code>用户行为收集：</code>追踪器记录用户在网页和应用上的行为，如点击、浏览页面、停留时间、搜索关键词等。<br><code>个性化推荐：</code>通过分析收集的行为数据，如短视频根据观看历史和兴趣为用户推荐内容，实现精准推送。<br><code>广告定向投放：</code>追踪用户的兴趣和设备信息，帮助广告商实现精准广告推送，提高广告点击率和转化率。<br><code>用户画像构建：</code>整合多渠道数据，形成详尽的用户画像，包括地理位置、兴趣偏好、消费行为等。<br><code>数据分析和优化：</code>帮助网站和应用运营者了解用户需求和行为趋势，优化用户体验和内容布局。</p>
+</blockquote>
+<blockquote>
+<p><strong>追踪器的工作原理</strong></p>
+<p><code>Cookie和本地存储：</code>追踪器在用户设备上存储Cookie、小型数据文件，记录用户身份和行为数据，形成持续追踪。<br><code>设备指纹识别：</code>通过收集设备信息（浏览器类型、屏幕分辨率、字体、插件等）形成唯一“指纹”标识用户。<br><code>第三方追踪脚本：</code>利用第三方脚本嵌入网页，跨站点收集行为数据，实现多站联合追踪。<br><code>网络请求拦截和分析：</code>监控用户发出的请求，分析请求信息，判断用户兴趣并反馈给推荐系统或广告服务器。<br><code>传感器数据收集：</code>手机或设备上的传感器（位置、加速度计等）数据被用于辅助定位和行为识别。</p>
+<p>短视频推荐：通过追踪用户的观看历史、点赞、停留时间，构建兴趣模型，精选推荐符合兴趣的视频内容。<br>输入法广告投放：输入法收集输入的关键词、频率、上下文信息，结合用户设备信息提交给广告商，实现精准广告推送。</p>
+</blockquote>
+<h2 id="Privacybadger"><a href="#Privacybadger" class="headerlink" title="Privacybadger"></a>Privacybadger</h2><p><img src="https://s2.loli.net/2025/09/05/ibwJ4Qa2kmdIYOZ.png" alt="image.png"></p>
+<blockquote>
+<p><strong>info</strong></p>
+<p>隐私獾是一个浏览器扩展程序，它可以阻止广告商和其他第三方跟踪器秘密跟踪您去哪里，以及您在网上看什么网页。 如果一个广告商似乎在未经您允许的情况下在多个网站上跟踪您，隐私獾会自动阻止该广告商在您的浏览器中加载更多内容。 对广告商来说，您就像突然消失了一样。</p>
+<ul>
+<li>个能够自动分析并阻止任何违反用户同意原则的追踪器或广告的扩展</li>
+<li>它能够在不需要用户进行任何设置、了解或配置的情况下很好地发挥作用</li>
+<li>它使用算法来决定是或不是追踪</li>
+<li>它是由一个毫不含糊地为用户而不是为营利工作的组织生产的</li>
+</ul>
+<p>因此，隐私獾在两个关键方面有别于传统的广告拦截扩展。首先，其他大多数拦截扩展都优先拦截广告，而隐私獾展不会阻止广告，除非它们碰巧在追踪您；事实上，我们的目标之一是激励广告商采取更好的隐私做法。</p>
+<p>第二，其他大多数拦截器都是依靠人工计算的域名或URL列表来进行拦截。隐私獾是一个算法跟踪器拦截器–我们定义“跟踪”是什么样子，然后隐私獾拦截或限制它观察到的野外跟踪域。是或不被认为是跟踪器，完全基于特定域的行为方式，而非人类的判断。</p>
+<p>隐私獾发送<a target="_blank" rel="noopener" href="https://globalprivacycontrol.org/">全局隐私控制</a>信号，以选择退出数据共享和销售，并发送<a target="_blank" rel="noopener" href="https://www.eff.org/issues/do-not-track">不要跟踪</a>信号，告诉公司不要跟踪您。如果追踪器无视这些信号，隐私獾将学习阻止它们。</p>
+</blockquote>
+<p><strong>获取地址：</strong><a target="_blank" rel="noopener" href="https://chromewebstore.google.com/detail/privacy-badger/pkehgijcmpdhfbdbbnkijodmdjhbjlgp">https://chromewebstore.google.com/detail/privacy-badger/pkehgijcmpdhfbdbbnkijodmdjhbjlgp</a></p>
+<h2 id="Ghostery"><a href="#Ghostery" class="headerlink" title="Ghostery"></a>Ghostery</h2><p><img src="https://s2.loli.net/2025/09/05/3ACMfLlTZmIYHWG.png" alt="image.png"></p>
+<p><strong>Ghostery 不仅仅是一个广告拦截器</strong></p>
+<p>1.Ghostery 提供多款应用程序协同工作，以确保最佳的隐私保护。无论您需要广告拦截器、跟踪器中和器，还是隐私搜索引擎，Ghostery 都能满足您的需求。</p>
+<p>2.Ghostery Tracker &amp; Ad Blocker Extension 受所有浏览器和设备支持，旨在阻止广告、停止跟踪器、隐藏广告并防止您浏览网页时弹出窗口。</p>
+<p>Ghostery 可以消除追踪器，阻止其收集您的个人数据。我们的浏览器扩展程序会删除个人标识符，并将其替换为随机值，让数据收集者无法得知您的身份。</p>
+<p>3.Ghostery 私人搜索引擎提供公正、公平的结果。</p>
+<p>在WhoTracks.Me的帮助下，我们的私人搜索甚至可以在您访问网站之前识别并显示跟踪器。</p>
+<p>Ghostery Private Search 是无广告的。</p>
+<p>4.WhoTracks.Me 不仅仅是一个网站——它也是我们反跟踪技术的支柱，可以保护用户免受不必要的和侵入性的跟踪。</p>
+<p>通过 WhoTracks.Me，您可以了解有关在线跟踪行业、其市场结构及其数据共享实践的更多信息。</p>
+<p><strong>获取地址：</strong><a target="_blank" rel="noopener" href="https://chromewebstore.google.com/detail/ghostery-tracker-ad-block/mlomiejdfkolichcflejclcbmpeaniij">https://chromewebstore.google.com/detail/ghostery-tracker-ad-block/mlomiejdfkolichcflejclcbmpeaniij</a></p>
+<p style="text-align: center; font-weight: bold">
+Have a Good Day
+</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2025/09/03/%E8%AE%A4%E7%9F%A5%E5%BD%A2%E6%88%90%E7%9A%84%E6%BD%9C%E5%9C%A8%E9%80%BB%E8%BE%91/" rel="prev" title="思想的“习得性”">
+      <i class="fa fa-chevron-left"></i> 思想的“习得性”
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Mainfest-V3%E5%B8%A6%E6%9D%A5%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="nav-number">1.</span> <span class="nav-text">Mainfest V3带来的影响</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9B%BF%E4%BB%A3%E6%96%B9%E6%A1%88"><span class="nav-number">2.</span> <span class="nav-text">替代方案</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#uBlock-Origin-Lite"><span class="nav-number">2.1.</span> <span class="nav-text">uBlock Origin Lite</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AdGuard"><span class="nav-number">2.2.</span> <span class="nav-text">AdGuard</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A2%9D%E5%A4%96%E7%9A%84%E9%9A%90%E7%A7%81%E4%BF%9D%E6%8A%A4"><span class="nav-number">3.</span> <span class="nav-text">额外的隐私保护</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Privacybadger"><span class="nav-number">3.1.</span> <span class="nav-text">Privacybadger</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ghostery"><span class="nav-number">3.2.</span> <span class="nav-text">Ghostery</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Shangjhih Jhao"
+      src="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
+  <p class="site-author-name" itemprop="name">Shangjhih Jhao</p>
+  <div class="site-description" itemprop="description">该博客在作者读大学本科期间创建，通过Hexo搭建，部署于Github Action。博客建立之初是为了防止作者遗忘已经学过的东西，将一些可以被记录的东西写下来一定程度上会减少遗忘。因为本科考研失败 ，在进行二战，目前并不会经常更新。</div>
+</div>
+
+
+<div class="spotify-player-independent motion-element">
+  <div class="spotify-player-header">
+    <i class="fab fa-spotify"></i>
+    <span>音乐推荐</span>
+  </div>
+  <div class="spotify-player-content">
+    <iframe style="border-radius:8px" 
+            src="https://open.spotify.com/embed/track/6nUNxiFCjWFTidu0cn1sta?utm_source=generator" 
+            width="100%" 
+            height="152" 
+            frameBorder="0" 
+            allowfullscreen="" 
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+            loading="lazy">
+    </iframe>
+  </div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">54</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">85</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">72</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shangjhih Jhao</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">220k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">6:07</span>
+</div>
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("09/29/2024 11:04:00"); //此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已建立 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒.";
+    }
+setInterval("createtime()",250);
+</script>
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
