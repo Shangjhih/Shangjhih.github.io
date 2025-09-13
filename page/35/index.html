@@ -169,7 +169,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/06/17/OpenWrt-Static-IP-Modification/">
+    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/06/22/Gmail-%E6%B3%A8%E5%86%8C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
@@ -183,7 +183,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2025/06/17/OpenWrt-Static-IP-Modification/" class="post-title-link" itemprop="url">OpenWrt Static IP Modification</a>
+            <a href="/2025/06/22/Gmail-%E6%B3%A8%E5%86%8C/" class="post-title-link" itemprop="url">Gmail 注册</a>
         </h2>
 
         <div class="post-meta">
@@ -194,7 +194,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2025-06-17 15:28:27 / 修改时间：16:22:20" itemprop="dateCreated datePublished" datetime="2025-06-17T15:28:27+08:00">2025-06-17</time>
+              <time title="创建时间：2025-06-22 11:39:53 / 修改时间：14:39:18" itemprop="dateCreated datePublished" datetime="2025-06-22T11:39:53+08:00">2025-06-22</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -202,15 +202,15 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/OpenWrt/" itemprop="url" rel="index"><span itemprop="name">OpenWrt</span></a>
+                  <a href="/categories/Google/" itemprop="url" rel="index"><span itemprop="name">Google</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/OpenWrt/Network/" itemprop="url" rel="index"><span itemprop="name">Network</span></a>
+                  <a href="/categories/Google/%E8%B4%A6%E5%8F%B7%E6%B3%A8%E5%86%8C/" itemprop="url" rel="index"><span itemprop="name">账号注册</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/OpenWrt/Network/Static-ip/" itemprop="url" rel="index"><span itemprop="name">Static ip</span></a>
+                  <a href="/categories/Google/%E8%B4%A6%E5%8F%B7%E6%B3%A8%E5%86%8C/Google%E8%B4%A6%E5%8F%B7/" itemprop="url" rel="index"><span itemprop="name">Google账号</span></a>
                 </span>
             </span>
 
@@ -220,14 +220,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.4k</span>
+              <span>890</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -239,38 +239,99 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>OpenWrt修改静态IP需要使用基础的linux命令进入后台对其进行修改，或者在网页端的后台中进行，本次我们大概了解一下通过ssh后台进行修改的具体步骤。</p>
-<p>大概的步骤为：通过ssh连接进入终端，cd切换到网络配置文件的绝对路径（<code>/etc/config/network</code>），使用vim命令对<code>network</code>文件进行修改（修改<code>option gateway</code>和<code>option ipaddr</code>两个参数，其中gateway参数设置为OpenWrt的上级主路由地址，ipaddr参数修改未主路由网段下的任意IP（用于后台登陆））。</p>
-<h2 id="SSH后台登录"><a href="#SSH后台登录" class="headerlink" title="SSH后台登录"></a>SSH后台登录</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@192.168.*.*</span><br></pre></td></tr></table></figure>
+          <p>  需要的一台带有完整或阉割版GMS的Android手机，在实际的注册中可能会需要使用手机号进行验证，当手机系统为国际版或类原生的时候<br>注册时可能无需进行手机号验证，直接按照流程进行注册即可。</p>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ul>
+<li><p><strong>注册账号的IP决定了账号的归属国家（每年可修改一次）</strong></p>
+</li>
+<li><p><strong>注册过程中必须保证你可以访问Google，自行寻找上网方式</strong></p>
+</li>
+<li><p><strong>建议在注册后绑定一个自己常用的邮箱</strong></p>
+</li>
+</ul>
+<h2 id="注册流程"><a href="#注册流程" class="headerlink" title="注册流程"></a>注册流程</h2><h3 id="1-打开Google基础服务-国产系统默认关闭"><a href="#1-打开Google基础服务-国产系统默认关闭" class="headerlink" title="1. 打开Google基础服务(国产系统默认关闭)"></a>1. 打开Google基础服务(国产系统默认关闭)</h3><p>在手机上打开手机设置，搜索【Google】，搜索结果中会出现【谷歌基础服务】选项，进入并打开卡关。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="https://s2.loli.net/2025/06/22/VEuPmwKH8h4nWe1.jpg" alt="b66998bb773b31c14a8c7a147178a87.jpg" style="zoom:33%;" /></td>
+<td><img src="https://s2.loli.net/2025/06/22/bnkwRNqE1UBW2Pu.png" alt="image.png" style="zoom: 36%;" /></td>
+</tr>
+</tbody></table>
+<p>打开此开关。</p>
+<h3 id="2-下载Google-Play"><a href="#2-下载Google-Play" class="headerlink" title="2. 下载Google Play"></a>2. 下载Google Play</h3><p>进入到手机自带的应用商店，搜索【Google Play】，找到对应的软件并下载，千万要核对信息，以免下载到错误的</p>
+<img src="https://s2.loli.net/2025/06/22/39iQ8HS64Puplmx.jpg" alt="b3ce677fe449cf82cd84faf0da11ad6.jpg" style="zoom: 33%;" />
 
-<p>在powershell使用以上命令进行登录或ssh客户端添加OpenWrt的登录信息</p>
-<p>命令解析：</p>
-<hr>
-<p><code>ssh</code> ————————————-使用ssh协议进行登录</p>
-<p><code>root</code>————————————用户名</p>
-<p><code>@</code>—————————————–指定目标地址的符号</p>
-<p><code>192.168.*.*</code>————————-设备内网地址</p>
-<p>第一次输入该命令后，powershell会提示是否保存该地址的指纹信息至ssh配置信息内，此时输入<code>yes</code>并回车，在地址输入正确之后会提示你输入密码（在输入密码时窗口不会显示输入的密码）在密码输入之后直接回车进入到控制台，提示如下：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">                                                 _____</span><br><span class="line">      _____________________________      __________  /_</span><br><span class="line">      _  __ \__  __ \  _ \_  __ \_ | /| / /_  ___/  __/</span><br><span class="line">      / /_/ /_  /_/ /  __/  / / /_ |/ |/ /_  /   / /_</span><br><span class="line">      \____/_  .___/\___//_/ /_/____/|__/ /_/    \__/</span><br><span class="line">            /_/    </span><br><span class="line">         _________________________________________</span><br><span class="line">                           </span><br><span class="line">                                lanlanOP 07.08.2023 </span><br><span class="line">         _________________________________________</span><br><span class="line">         </span><br><span class="line">系统负载:  0.57 0.43 0.34       运行时间:  11 days</span><br><span class="line">内存已用:  18 % of 989MB        IP  地址:  192.168.1.66</span><br><span class="line">系统存储:  48% of 1.5G          CPU 信息: ARMv7 Processor rev 1</span><br></pre></td></tr></table></figure>
+<h3 id="3-打开设置中的Google"><a href="#3-打开设置中的Google" class="headerlink" title="3. 打开设置中的Google"></a>3. 打开设置中的Google</h3><p>打开手机设置，下滑找到Google入口（在打开谷歌基础服务之后就会在设置中出现Google入口）</p>
+<img src="https://s2.loli.net/2025/06/22/pNe3tnWVkrDz6QA.jpg" alt="d42ade8a7b56459490f298e94f65a15.jpg" style="zoom:50%;" />
 
-<p>此时就代表已经成功进入后台，可随意对系统进行修改</p>
-<h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/config/network                    #使用vim编辑在/etc/config/network处的配置文件</span><br></pre></td></tr></table></figure>
 
-<p><code>vim</code>———————————————————–Linux中的文本编辑软件</p>
-<p><code>/etc/config/network</code>——————————–配置文件的绝对路径</p>
-<hr>
-<p>直接在空白处输入该命令，就会进入到编辑状态：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">config interface &#x27;loopback&#x27;</span><br><span class="line">        option device &#x27;lo&#x27;</span><br><span class="line">        option proto &#x27;static&#x27;</span><br><span class="line">        option ipaddr &#x27;127.0.0.1&#x27;</span><br><span class="line">        option netmask &#x27;255.0.0.0&#x27;</span><br><span class="line"></span><br><span class="line">config globals &#x27;globals&#x27;</span><br><span class="line">        option ula_prefix &#x27;fdbf:cc1f:7685::/48&#x27;</span><br><span class="line">        option packet_steering &#x27;1&#x27;</span><br><span class="line"></span><br><span class="line">config device</span><br><span class="line">        option name &#x27;br-lan&#x27;</span><br><span class="line">        option type &#x27;bridge&#x27;</span><br><span class="line">        list ports &#x27;eth0&#x27;</span><br><span class="line"></span><br><span class="line">config interface &#x27;lan&#x27;</span><br><span class="line">        option device &#x27;eth0&#x27;</span><br><span class="line">        option proto &#x27;static&#x27;</span><br><span class="line">        option ip6assign &#x27;60&#x27;</span><br><span class="line">        option gateway &#x27;192.168.1.1&#x27;         # 网关地址   192.168.1.1/192.168.0.1/192.168.31.1等常规地址</span><br><span class="line">        option ipaddr &#x27;192.168.1.66&#x27;         # 静态IP    可自由设置（与网关地址保持一致）</span><br><span class="line">        option netmask &#x27;255.255.255.0&#x27;</span><br><span class="line">        list dns &#x27;223.5.5.5&#x27;</span><br><span class="line"></span><br><span class="line">config interface &#x27;docker&#x27;</span><br><span class="line">        option device &#x27;docker0&#x27;</span><br><span class="line">        option proto &#x27;none&#x27;</span><br><span class="line">        option auto &#x27;0&#x27;</span><br><span class="line"></span><br><span class="line">config device</span><br><span class="line">        option type &#x27;bridge&#x27;</span><br><span class="line">        option name &#x27;docker0&#x27;</span><br><span class="line"></span><br><span class="line">~</span><br><span class="line">~</span><br><span class="line">~</span><br><span class="line">~</span><br><span class="line">~</span><br><span class="line">~</span><br><span class="line">~</span><br><span class="line">~</span><br><span class="line">- /etc/config/network 1/34 2%</span><br></pre></td></tr></table></figure>
 
-<p>此时使用方向键将光标移至<code>option gateway</code>所在行，按下按键<code>i</code>进入编辑模式（vim使用特性），进入编辑模式后及可对地址进行修改，修改后对<code>option ipaddr</code>的参数也进行修改，修改为与网关同网段的地址，可以根据自己的想法及逆行设置，保证最后一位的数字为2-225中的任何一位，且要保证不能与已分配的地址相同。（内网地址不可冲突！！！）</p>
-<p>在地址修改完成后按<code>esc</code>退出vim的编辑模式</p>
-<p>输入英文冒号<code>:</code>进入vim的命令模式，随后输入<code>wq</code>按回车保存并退出。（该输入会显示在屏幕的左下角，可以看到输入状态，在输入错后直接按删除键删除即可，可继续输入）。如下所示：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:wq                      # 保存并退出</span><br></pre></td></tr></table></figure>
+<img src="https://s2.loli.net/2025/06/22/R2tP4ZnqjiWNkCT.png" alt="image.png" style="zoom: 50%;" />
 
-<p>随后使用以下命令出重启使修改生效：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reboot</span><br></pre></td></tr></table></figure>
-<p>执行该命令后，系统会进行重启。</p>
-<p>完成，修改后的配置即生效。可以进入新设置的后台登陆测试。</p>
+
+<p>继续进行，点击建立账户：</p>
+<img src="C:\Users\123\AppData\Local\Temp\WeChat Files\b0420bb2d3e4fcc0ca75a33667500a3.jpg" alt="b0420bb2d3e4fcc0ca75a33667500a3" style="zoom:33%;" />
+
+<p>注册作为【个人用途】，或者根据自己的需求来进行选择，建议选择【个人用途】</p>
+<img src="https://s2.loli.net/2025/06/22/CbGpiZIANw2Tge8.jpg" alt="d5af3fa89610a4a3069aede8ab567f4.jpg" style="zoom:50%;" />
+
+<p>接下来输入你的个人信息</p>
+<span style="color:red; font-weight:bold; font-size:18px;">
+ 注意：设置的年龄必须大于20岁！！不然会有很多限制，建议设置在1990到2004之间
+</span>
+
+<img src="https://s2.loli.net/2025/06/22/FGrCJbhfe7RUpvz.jpg" alt="6c95ac5c7e4697822cf05939d18a616.jpg" style="zoom: 50%;" />
+
+<p>设置完个人信息即可设置自己的Google账号，选择【自行建立Gmail地址】</p>
+<span style="color:red; font-weight:bold; font-size:18px;">
+注意：Google账号可以自行设置，根据自己的喜好，任意都可以，只要没人占用！！！
+</span>
+
+<img src="https://s2.loli.net/2025/06/22/v8B6bzEJwLSlFIq.jpg" alt="67439ff6b63a1f716f232d7fb4efcf3.jpg" style="zoom:50%;" />
+
+<p>可选择自行建立。</p>
+<h3 id="接码"><a href="#接码" class="headerlink" title="接码"></a>接码</h3><p>此时在我设置后并未提示要求输入手机号进行验证或绑定，假如你在注册中出现输入手机号接验证码的选项，这说明你的手机带的时阉割的GMS，或者你的网络IP不干净。</p>
+<p>输入自己的手机号或者使用接码平台接受验证码</p>
+<p>假如自己的手机号无法接收验证码，请手动向运营商发送短信开启【<strong>国际短信的接收业务</strong>】，具体根据运营选择</p>
+<table>
+<thead>
+<tr>
+<th>运营商</th>
+<th>发送地址</th>
+<th>发送内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>中国移动</td>
+<td>10086</td>
+<td>KTGJDX</td>
+</tr>
+<tr>
+<td>中国联通</td>
+<td>10010</td>
+<td>KTGJDX</td>
+</tr>
+<tr>
+<td>中国电信</td>
+<td>10001</td>
+<td>KTGJDX</td>
+</tr>
+<tr>
+<td>广电</td>
+<td>10099</td>
+<td>KTGJDX</td>
+</tr>
+</tbody></table>
+<p>短信发送之后即可收到运营商的国际短信开通通知。</p>
+<img src="https://s2.loli.net/2025/06/22/QCaENIgH3ly9X4w.jpg" alt="c65f4a1cca65799359a37b78bdd9e14.jpg" style="zoom:50%;" />
+
+<p>看到该页面即表明你的账号已经注册成功。</p>
+<p>后面的隐私设置和备份设置等，都可以根据自己的需求打开或关闭。</p>
+<h3 id="注册完成"><a href="#注册完成" class="headerlink" title="注册完成"></a>注册完成</h3><p>后续可以浏览各项设置以及绑定国内的邮箱（<strong>防止忘记密码</strong>）</p>
 
       
     </div>
@@ -289,7 +350,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/34/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/34/">34</a><span class="page-number current">35</span><a class="page-number" href="/page/36/">36</a><span class="space">&hellip;</span><a class="page-number" href="/page/57/">57</a><a class="extend next" rel="next" href="/page/36/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/34/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/34/">34</a><span class="page-number current">35</span><a class="page-number" href="/page/36/">36</a><span class="space">&hellip;</span><a class="page-number" href="/page/58/">58</a><a class="extend next" rel="next" href="/page/36/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -376,7 +437,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-count">58</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -425,12 +486,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">240k</span>
+    <span title="站点总字数">241k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">6:40</span>
+    <span title="站点阅读时长">6:41</span>
 </div>
 <!-- 网站运行时间的设置 -->
 <span id="timeDate">载入天数...</span>
