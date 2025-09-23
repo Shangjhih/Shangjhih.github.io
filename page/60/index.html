@@ -169,7 +169,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/01/22/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E9%97%AE%E9%A2%98%E5%B0%8F%E7%BB%93/">
+    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/01/31/Hexo%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
@@ -183,7 +183,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2025/01/22/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E9%97%AE%E9%A2%98%E5%B0%8F%E7%BB%93/" class="post-title-link" itemprop="url">博客搭建问题小结</a>
+            <a href="/2025/01/31/Hexo%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95-1/" class="post-title-link" itemprop="url">Hexo基本语法</a>
         </h2>
 
         <div class="post-meta">
@@ -193,15 +193,32 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2025-01-22 15:09:03" itemprop="dateCreated datePublished" datetime="2025-01-22T15:09:03+08:00">2025-01-22</time>
+              <time title="创建时间：2025-01-31 15:51:30" itemprop="dateCreated datePublished" datetime="2025-01-31T15:51:30+08:00">2025-01-31</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-04-12 14:53:02" itemprop="dateModified" datetime="2025-04-12T14:53:02+08:00">2025-04-12</time>
+                <time title="修改时间：2025-04-12 15:06:30" itemprop="dateModified" datetime="2025-04-12T15:06:30+08:00">2025-04-12</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Hexo/%E9%83%A8%E7%BD%B2/" itemprop="url" rel="index"><span itemprop="name">部署</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Hexo/%E9%83%A8%E7%BD%B2/%E5%8D%9A%E5%AE%A2/" itemprop="url" rel="index"><span itemprop="name">博客</span></a>
+                </span>
+            </span>
 
           <br>
             <span class="post-meta-item" title="本文字数">
@@ -209,7 +226,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>710</span>
+              <span>324</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -228,19 +245,33 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h4 id="小问题合集"><a href="#小问题合集" class="headerlink" title="小问题合集"></a>小问题合集</h4><blockquote>
-<p>config 配置文件的错误  </p>
-</blockquote>
-<blockquote>
-<p>手动添加md文档出现的错误  </p>
-</blockquote>
-<blockquote>
-<p>错误代码5050（未知错误代码）</p>
-</blockquote>
-<blockquote>
-<p>还有一段莫名其妙的报错</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    YAMLException: end of the stream or a document separator is expected (7:1)</span><br><span class="line"></span><br><span class="line">    4 |</span><br><span class="line">     5 | # Site</span><br><span class="line">    6 |</span><br><span class="line">    7 | title: &quot;XXX&#x27;s Blog&quot;</span><br><span class="line">-----^</span><br><span class="line">    8 | subtitle:</span><br><span class="line">    9 | description: &quot;a blog to record&quot;</span><br><span class="line">    at generateError (F:\Hexo\halo\node_modules\js-yaml\lib\loader.js:183:10)</span><br><span class="line">    at throwError (F:\Hexo\halo\node_modules\js-yaml\lib\loader.js:187:9)</span><br><span class="line">    at readDocument (F:\Hexo\halo\node_modules\js-yaml\lib\loader.js:1645:5)</span><br><span class="line">    at loadDocuments (F:\Hexo\halo\node_modules\js-yaml\lib\loader.js:1688:5)</span><br><span class="line">    at Object.load (F:\Hexo\halo\node_modules\js-yaml\lib\loader.js:1714:19)</span><br><span class="line">    at Hexo.yamlHelper (F:\Hexo\halo\node_modules\hexo\dist\plugins\renderer\yaml.js:22:30)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+          <h3 id="Hexo博客的部署"><a href="#Hexo博客的部署" class="headerlink" title="Hexo博客的部署"></a>Hexo博客的部署</h3><ul>
+<li>安装git</li>
+<li>安装NodeJS        </li>
+<li>安装Hexo</li>
+</ul>
+<h3 id="Hexo安装"><a href="#Hexo安装" class="headerlink" title="Hexo安装"></a>Hexo安装</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> npm install <span class="literal">-g</span> hexo<span class="literal">-cli</span></span><br></pre></td></tr></table></figure>
+
+<p>使用此命令安装<code>hexo-cli</code>,也就是驱动Hexo的指令集    </p>
+<h3 id="Hexo基本语法"><a href="#Hexo基本语法" class="headerlink" title="Hexo基本语法"></a>Hexo基本语法</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> hexo init</span><br></pre></td></tr></table></figure>
+
+<p>初始化Hexo项目，从Github拉取基本的Hexo博客源代码到本地  </p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> hexo init [<span class="type">blog</span> <span class="type">name</span>]</span><br></pre></td></tr></table></figure>
+
+<p>新建一个网站，网站名为<code>blog name</code>  </p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> hexo new [<span class="type">article</span> <span class="type">title</span>]</span><br></pre></td></tr></table></figure>
+
+<p>新建一个名为<code>article title</code>的文章</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>生成静态文件    </p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> hexo s 或   hexo server</span><br></pre></td></tr></table></figure>
+
+<p>临时启动Hexo在本地4000端口的预览界面    </p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> hexo d 或  hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>将已经测试完成的静态页面部署到GitHub Pages</p>
+
       
     </div>
 
@@ -258,7 +289,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/59/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/59/">59</a><span class="page-number current">60</span><a class="page-number" href="/page/61/">61</a><a class="extend next" rel="next" href="/page/61/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/59/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/59/">59</a><span class="page-number current">60</span><a class="page-number" href="/page/61/">61</a><a class="page-number" href="/page/62/">62</a><a class="extend next" rel="next" href="/page/61/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -345,7 +376,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">61</span>
+          <span class="site-state-item-count">62</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -394,12 +425,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">247k</span>
+    <span title="站点总字数">248k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">6:52</span>
+    <span title="站点阅读时长">6:54</span>
 </div>
 <!-- 网站运行时间的设置 -->
 <span id="timeDate">载入天数...</span>
