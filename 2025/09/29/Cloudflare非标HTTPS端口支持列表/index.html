@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"lvshuqi.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":330,"display":"hide","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null,"line_number":false},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":0},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Cloudflare为其应用层（Layer 7）HTTP&#x2F;HTTPS 代理（即DNS记录设置为“橙色云”代理模式时）支持一套特定的端口。这些端口允许流量通过Cloudflare的网络进行加速、缓存和安全保护。  Cloudflare 标准 HTTPS 代理端口列表Cloudflare支持代理的 HTTPS (TLS) 端口 包括一个标准端口和多个非标准端口。您的网站若使用以下任一端口，C">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cloudflare非标HTTPS端口支持列表">
+<meta property="og:url" content="https://lvshuqi.top/2025/09/29/Cloudflare%E9%9D%9E%E6%A0%87HTTPS%E7%AB%AF%E5%8F%A3%E6%94%AF%E6%8C%81%E5%88%97%E8%A1%A8/index.html">
+<meta property="og:site_name" content="就这样&amp;巴">
+<meta property="og:description" content="Cloudflare为其应用层（Layer 7）HTTP&#x2F;HTTPS 代理（即DNS记录设置为“橙色云”代理模式时）支持一套特定的端口。这些端口允许流量通过Cloudflare的网络进行加速、缓存和安全保护。  Cloudflare 标准 HTTPS 代理端口列表Cloudflare支持代理的 HTTPS (TLS) 端口 包括一个标准端口和多个非标准端口。您的网站若使用以下任一端口，C">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2025/09/29/cOdGe9KfWuTFiLQ.png">
+<meta property="og:image" content="https://s2.loli.net/2025/09/29/VL8sMScmDUwaGTW.png">
+<meta property="og:image" content="https://s2.loli.net/2025/09/29/8h1SWc23qosuvBH.png">
+<meta property="og:image" content="https://s2.loli.net/2025/09/29/sWL8KF6wcEI75vT.png">
+<meta property="article:published_time" content="2025-09-29T07:48:38.000Z">
+<meta property="article:modified_time" content="2025-09-29T09:08:24.948Z">
+<meta property="article:author" content="Shangjhih Jhao">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="博客">
+<meta property="article:tag" content="技术">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="随想">
+<meta property="article:tag" content="编程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2025/09/29/cOdGe9KfWuTFiLQ.png">
+
+<link rel="canonical" href="https://lvshuqi.top/2025/09/29/Cloudflare%E9%9D%9E%E6%A0%87HTTPS%E7%AB%AF%E5%8F%A3%E6%94%AF%E6%8C%81%E5%88%97%E8%A1%A8/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Cloudflare非标HTTPS端口支持列表 | 就这样&巴</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">就这样&巴</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">个人网志</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/09/29/Cloudflare%E9%9D%9E%E6%A0%87HTTPS%E7%AB%AF%E5%8F%A3%E6%94%AF%E6%8C%81%E5%88%97%E8%A1%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
+      <meta itemprop="name" content="Shangjhih Jhao">
+      <meta itemprop="description" content="该博客在作者读大学本科期间创建，通过Hexo搭建，部署于Github Action。博客建立之初是为了防止作者遗忘已经学过的东西，将一些可以被记录的东西写下来一定程度上会减少遗忘。因为本科考研失败 ，在进行二战，目前并不会经常更新。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="就这样&巴">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Cloudflare非标HTTPS端口支持列表
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-09-29 15:48:38 / 修改时间：17:08:24" itemprop="dateCreated datePublished" datetime="2025-09-29T15:48:38+08:00">2025-09-29</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>Cloudflare为其应用层（Layer 7）<strong>HTTP&#x2F;HTTPS 代理</strong>（即DNS记录设置为“橙色云”代理模式时）支持一套特定的端口。这些端口允许流量通过Cloudflare的网络进行加速、缓存和安全保护。</p>
+<hr>
+<h1 id="Cloudflare-标准-HTTPS-代理端口列表"><a href="#Cloudflare-标准-HTTPS-代理端口列表" class="headerlink" title="Cloudflare 标准 HTTPS 代理端口列表"></a>Cloudflare 标准 HTTPS 代理端口列表</h1><p>Cloudflare支持代理的 <strong>HTTPS (TLS) 端口</strong> 包括一个标准端口和多个非标准端口。您的网站若使用以下任一端口，Cloudflare即可代理该流量：</p>
+<table>
+<thead>
+<tr>
+<th>端口号</th>
+<th>说明</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>443</strong></td>
+<td><strong>HTTPS 标准端口</strong></td>
+<td>全球公认的 HTTPS 标准端口，也是 Cloudflare 缓存和中国大陆网络支持的唯一 HTTPS 端口。</td>
+</tr>
+<tr>
+<td><strong>2053</strong></td>
+<td>非标准端口</td>
+<td>Cloudflare 支持的非标准 HTTPS 端口之一。</td>
+</tr>
+<tr>
+<td><strong>2083</strong></td>
+<td>非标准端口</td>
+<td>Cloudflare 支持的非标准 HTTPS 端口之一。</td>
+</tr>
+<tr>
+<td><strong>2087</strong></td>
+<td>非标准端口</td>
+<td>Cloudflare 支持的非标准 HTTPS 端口之一。</td>
+</tr>
+<tr>
+<td><strong>2096</strong></td>
+<td>非标准端口</td>
+<td>Cloudflare 支持的非标准 HTTPS 端口之一。</td>
+</tr>
+<tr>
+<td><strong>8443</strong></td>
+<td><strong>替代 HTTPS 端口</strong></td>
+<td>经常作为非标准或管理端口用于 HTTPS 服务。</td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="额外的重要技术细节"><a href="#额外的重要技术细节" class="headerlink" title="额外的重要技术细节"></a>额外的重要技术细节</h1><h3 id="1-HTTP-代理端口"><a href="#1-HTTP-代理端口" class="headerlink" title="1. HTTP 代理端口"></a>1. HTTP 代理端口</h3><p>为了完整性，Cloudflare 支持代理的 <strong>HTTP 端口</strong> 集合为：<strong>80, 8080, 8880, 2052, 2082, 2086, 2095</strong>。</p>
+<h2 id="2-缓存和中国大陆网络限制"><a href="#2-缓存和中国大陆网络限制" class="headerlink" title="2. 缓存和中国大陆网络限制"></a>2. 缓存和中国大陆网络限制</h2><p>请注意，并非所有支持的端口都享有 Cloudflare 的全部优势：</p>
+<ul>
+<li><strong>缓存限制：</strong> 只有 <strong>80 (HTTP)</strong> 和 <strong>443 (HTTPS)</strong> 这两个端口支持 **Cloudflare 缓存 (Caching)**。</li>
+<li><strong>中国大陆网络限制：</strong> 对于启用了 <strong>中国大陆网络 (China Network)</strong> 的区域，只有 <strong>80 (HTTP)</strong> 和 <strong>443 (HTTPS)</strong> 端口支持 HTTP&#x2F;HTTPS 代理流量。</li>
+</ul>
+<h2 id="3-任意端口和非-HTTP-流量"><a href="#3-任意端口和非-HTTP-流量" class="headerlink" title="3. 任意端口和非 HTTP 流量"></a>3. 任意端口和非 HTTP 流量</h2><p>如果您的服务运行在上述列表之外的端口上，或使用非 HTTP&#x2F;HTTPS 协议（例如 SSH, RDP, 自定义 TCP 协议），您有以下选项：</p>
+<ul>
+<li><strong>DNS Only (灰色云)：</strong> 将该DNS记录设置为“仅限 DNS”（灰色云），流量将绕过 Cloudflare 直接连接到您的源站服务器IP，Cloudflare将不提供保护或加速。</li>
+<li><strong>Cloudflare Spectrum：</strong> 对于 <strong>企业版 (Enterprise Plan)</strong> 用户，可以使用 <strong>Cloudflare Spectrum</strong> 产品来代理<strong>任意 TCP 端口</strong>（端口 21 除外），并为非 HTTP 流量提供保护和性能优化。</li>
+</ul>
+<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><h2 id="SSL-TLS-加密模式"><a href="#SSL-TLS-加密模式" class="headerlink" title="SSL&#x2F;TLS 加密模式"></a><strong>SSL&#x2F;TLS</strong> 加密模式</h2><p><strong>SSL&#x2F;TLS</strong>的加密模式根据加密强度划分以下几种：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Strict (SSL-Only Origin Pull)</strong></td>
+<td>在 Cloudflare 和您的源服务器之间强制加密。使用此模式可确保与源服务器的连接始终加密，无论访问者的请求如何。</td>
+</tr>
+<tr>
+<td><strong>Full (Strict)</strong></td>
+<td>启用端到端加密并强制验证原始证书。使用 Cloudflare 的 Origin CA 为您的原始证书生成证书。</td>
+</tr>
+<tr>
+<td><strong>Full</strong></td>
+<td>启用端到端加密。当您的源服务器支持 SSL 认证但不使用有效的、公众信任的证书时，请使用此模式。</td>
+</tr>
+<tr>
+<td><strong>Flexible</strong></td>
+<td>仅在您的访客和 Cloudflare 之间启用加密。这样可以避免浏览器安全警告，但 Cloudflare 与您的源站之间的所有连接均通过 HTTP 建立。</td>
+</tr>
+<tr>
+<td><strong>Off (not secure)</strong></td>
+<td>未应用加密。关闭 SSL 会禁用 HTTPS，并导致浏览器显示警告，提示您的网站不安全。</td>
+</tr>
+</tbody></table>
+<p><img src="https://s2.loli.net/2025/09/29/cOdGe9KfWuTFiLQ.png" alt="clipboard-image-1759132939.png"></p>
+<p style="color: red; font-size:20px; font-weight:bold"> 建议选择 Flexible模式（仅仅加密客户端至边缘服务器的流量，境外流量不进行加密）</p> 这样既能保证网络畅通还能保证网络速度（相对于两端加密少一层加密，速度也就提升一点），当然，若是担心个人安全或信息泄露的话可以使用两端加密，以保证安全。
+
+<h1 id="SSL证书申请"><a href="#SSL证书申请" class="headerlink" title="SSL证书申请"></a>SSL证书申请</h1><p>在申请SSL证书之前需要在DNS中为您的VPV添加一条A记录，将其解析到您的VPS的IP地址。<br><img src="https://s2.loli.net/2025/09/29/VL8sMScmDUwaGTW.png" alt="clipboard-image-1759135083.png"></p>
+<ul>
+<li>类型选择<strong>A</strong>,也就是添加一条A类型的DNS记录</li>
+<li>Name Required 指的是为您购买的二级域名添加一个三级域名</li>
+<li>IPV4处填入你的VPS公网地址</li>
+<li>proxy status 这里要把开关给关掉（暂时关掉不使用cdn，仅进行DNS解析）</li>
+</ul>
+<p>假如你在Cloudflare登记的域名为<code>abc.com</code>,在添加该条A记录的时候你为它写了一个<code>Name</code>叫做<code>cdn</code>，并且你把你的VPS 地址填进去了，把小黄云也关闭了，最后您确认并保存了该条解析。那么此时您使用ping工具<code>ping cdn.abc.com</code>时就能看到你绑定的IP地址。</p>
+<hr>
+<h1 id="注意-1"><a href="#注意-1" class="headerlink" title="注意"></a>注意</h1><p>在使用内置脚本申请SSL证书时会需要添加你的Cloudflare Global API,请点击您右上角的CF头像，找到<strong>API Tokens</strong>，进入下面的<strong>API Keys</strong>选择<code>Global API Key</code>输入账号密码查看并复制内容：</p>
+<p><img src="https://s2.loli.net/2025/09/29/8h1SWc23qosuvBH.png" alt="clipboard-image-1759136757.png"></p>
+<p><img src="https://s2.loli.net/2025/09/29/sWL8KF6wcEI75vT.png" alt="clipboard-image-1759136783.png"></p>
+<p>在添加DNS解析到您的VPS之后就可以在面板中（3x-ui面板）中使用自带的脚本申请<code>Let’s Encrypt</code>的自签SSL证书。请在服务器中复制一份申请得到的证书信息到root文件夹下备用，请注意区分私钥和公钥。</p>
+<h1 id="打开小黄云"><a href="#打开小黄云" class="headerlink" title="打开小黄云"></a>打开小黄云</h1><p>此时请回到<strong>SSL&#x2F;TLS</strong>加密部分将之前添加的那条DNS记录，将关闭的小黄云打开（开启CDN）。</p>
+<p><strong>为什么之前添加DNS记录的时候不打开小黄云？</strong></p>
+<p style="color:red">因为打开CDN再申请SSL证书时证书供应商会将你期望的IP解析为错误的CDN IP，CDN生效意味着你的IP会被解析为CDN边缘服务器的IP，并不是你的源站IP，这也就会导致解析无效。所以必须先关闭CDN再申请证书，待证书申请完成后再重新打开CDN.</p>
+
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2025/09/28/%E5%9B%BD%E5%AE%B6%E6%9C%BA%E5%99%A8%E5%9C%A8%E8%BF%90%E8%BD%AC/" rel="prev" title="国家机器在运转">
+      <i class="fa fa-chevron-left"></i> 国家机器在运转
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Cloudflare-%E6%A0%87%E5%87%86-HTTPS-%E4%BB%A3%E7%90%86%E7%AB%AF%E5%8F%A3%E5%88%97%E8%A1%A8"><span class="nav-number">1.</span> <span class="nav-text">Cloudflare 标准 HTTPS 代理端口列表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A2%9D%E5%A4%96%E7%9A%84%E9%87%8D%E8%A6%81%E6%8A%80%E6%9C%AF%E7%BB%86%E8%8A%82"><span class="nav-number">2.</span> <span class="nav-text">额外的重要技术细节</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-HTTP-%E4%BB%A3%E7%90%86%E7%AB%AF%E5%8F%A3"><span class="nav-number">2.0.1.</span> <span class="nav-text">1. HTTP 代理端口</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E7%BC%93%E5%AD%98%E5%92%8C%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86%E7%BD%91%E7%BB%9C%E9%99%90%E5%88%B6"><span class="nav-number">2.1.</span> <span class="nav-text">2. 缓存和中国大陆网络限制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E4%BB%BB%E6%84%8F%E7%AB%AF%E5%8F%A3%E5%92%8C%E9%9D%9E-HTTP-%E6%B5%81%E9%87%8F"><span class="nav-number">2.2.</span> <span class="nav-text">3. 任意端口和非 HTTP 流量</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F"><span class="nav-number">3.</span> <span class="nav-text">注意</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SSL-TLS-%E5%8A%A0%E5%AF%86%E6%A8%A1%E5%BC%8F"><span class="nav-number">3.1.</span> <span class="nav-text">SSL&#x2F;TLS 加密模式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SSL%E8%AF%81%E4%B9%A6%E7%94%B3%E8%AF%B7"><span class="nav-number">4.</span> <span class="nav-text">SSL证书申请</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F-1"><span class="nav-number">5.</span> <span class="nav-text">注意</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%89%93%E5%BC%80%E5%B0%8F%E9%BB%84%E4%BA%91"><span class="nav-number">6.</span> <span class="nav-text">打开小黄云</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Shangjhih Jhao"
+      src="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
+  <p class="site-author-name" itemprop="name">Shangjhih Jhao</p>
+  <div class="site-description" itemprop="description">该博客在作者读大学本科期间创建，通过Hexo搭建，部署于Github Action。博客建立之初是为了防止作者遗忘已经学过的东西，将一些可以被记录的东西写下来一定程度上会减少遗忘。因为本科考研失败 ，在进行二战，目前并不会经常更新。</div>
+</div>
+
+
+<div class="spotify-player-independent motion-element">
+  <div class="spotify-player-header">
+    <i class="fab fa-spotify"></i>
+    <span>音乐推荐</span>
+  </div>
+  <div class="spotify-player-content">
+    <iframe style="border-radius:8px" 
+            src="https://open.spotify.com/embed/track/6nUNxiFCjWFTidu0cn1sta?utm_source=generator" 
+            width="100%" 
+            height="152" 
+            frameBorder="0" 
+            allowfullscreen="" 
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+            loading="lazy">
+    </iframe>
+  </div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">64</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">86</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">72</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shangjhih Jhao</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">258k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">7:10</span>
+</div>
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("09/29/2024 11:04:00"); //此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已建立 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒.";
+    }
+setInterval("createtime()",250);
+</script>
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
