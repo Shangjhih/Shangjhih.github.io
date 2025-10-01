@@ -169,7 +169,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/08/13/Cloudflare-E-mail-Routing/">
+    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/08/14/%E9%A2%84%E5%AE%9A%E5%88%B6Windows%E7%B3%BB%E7%BB%9F-Playbook/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
@@ -183,7 +183,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2025/08/13/Cloudflare-E-mail-Routing/" class="post-title-link" itemprop="url">Cloudflare E-mail Routing</a>
+            <a href="/2025/08/14/%E9%A2%84%E5%AE%9A%E5%88%B6Windows%E7%B3%BB%E7%BB%9F-Playbook/" class="post-title-link" itemprop="url">预定制Windows系统-AME wizard&Playbook</a>
         </h2>
 
         <div class="post-meta">
@@ -194,7 +194,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2025-08-13 15:13:25 / 修改时间：15:56:59" itemprop="dateCreated datePublished" datetime="2025-08-13T15:13:25+08:00">2025-08-13</time>
+              <time title="创建时间：2025-08-14 12:24:57 / 修改时间：15:32:18" itemprop="dateCreated datePublished" datetime="2025-08-14T12:24:57+08:00">2025-08-14</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -202,7 +202,11 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/cloudflare/" itemprop="url" rel="index"><span itemprop="name">cloudflare</span></a>
+                  <a href="/categories/Windows/" itemprop="url" rel="index"><span itemprop="name">Windows</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Windows/playbook/" itemprop="url" rel="index"><span itemprop="name">playbook</span></a>
                 </span>
             </span>
 
@@ -212,7 +216,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.6k</span>
+              <span>3.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -231,28 +235,236 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h4 id="What-is-email-routing"><a href="#What-is-email-routing" class="headerlink" title="What is email routing?"></a>What is email routing?</h4><p>Email routing is the process of ensuring that the right messages get to the right recipients. It allows users to send different types of emails to separate accounts based on criteria such as the recipient’s address or department.</p>
-<h4 id="How-does-email-routing-work"><a href="#How-does-email-routing-work" class="headerlink" title="How does email routing work?"></a>How does email routing work?</h4><p>Email routing is a process that helps send email messages from one inbox to another. Email essentially operates like a digital post office — he sender mails a letter, it goes into a series of trucks, and then arrives at the recipient’s mailbox. In a real-world postal context, individuals and businesses can set up various guidelines to determine which letters are routed or redirected to which people. Email routing works in the same way.</p>
-<p>The first element of email routing is the relationship between the sender and the recipient. Sender-based routing assigns an email address to individual user accounts, and emails sent from within that account are routed accordingly. This type of system is usually used when one department within an organization uses its own domain (for example, @SalesTeam-CompanyName.com) for sending internal messages, but other departments (such as @companyname.com) use their company’s primary domain name.</p>
-<p>Meanwhile, receiver-based routing relies on filters to determine which addresses should receive which type of message based on certain criteria (such as contact information). When a message is received by a filter server, it compares the sender’s IP address with the list of known recipients stored in memory or in a database. If it matches someone who should receive that kind of message, then the message is filtered and forwarded to them.</p>
-<p>The second element of email routing is the pathway an email may take. Email routing can use inline, deferred, or transport-level forwarding pathways. Inline routing ties together individual mailboxes within a domain into an “inline flow.” An “inline flow” is the system that touches that email from the sender to the recipient. Deferred routing sends all incoming messages directly to a mailbox specified by the sender or contact, bypassing any other mailboxes in between and transport-level forwarding routes all emails sent through a specific transport server instead of going out through the general delivery system on the network.</p>
-<p>How to set up E-mail Routing on Cloudflare</p>
-<h4 id="step1-Domain"><a href="#step1-Domain" class="headerlink" title="step1: Domain"></a>step1: Domain</h4><p>You should buy a domain (which can be resolved by Cloudflare) and add it to your Cloudfalre account like picture below :<br><img src="https://s2.loli.net/2025/08/13/wy7KWAIMR5Brfj9.png" alt="image.png"></p>
-<p>before adding your domain here ,you should purchase a domain from domain name register. for me ,i choosed <code>nameesilo</code> as my dimain name register ,beacuse it is cheap.also you can buy from another ,if you have any choise , be your mind .</p>
-<h4 id="step2-DNS-server-name-change"><a href="#step2-DNS-server-name-change" class="headerlink" title="step2 DNS server name change"></a>step2 DNS server name change</h4><p>after adding your purchased domain name to cloudflare , it will detect your current dimain name server and remaind to change it to CF name server name like :</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">aaden.ns.cloudflare.com	</span><br><span class="line">dayana.ns.cloudflare.com</span><br><span class="line">kareem.ns.cloudflare.com</span><br><span class="line">paris.ns.cloudflare.com</span><br><span class="line">aarav.ns.cloudflare.com</span><br><span class="line">dean.ns.cloudflare.com</span><br><span class="line">karina.ns.cloudflare.com</span><br><span class="line">pat.ns.cloudflare.com</span><br><span class="line">aaron.ns.cloudflare.com</span><br></pre></td></tr></table></figure>
+          <br>
+
+<h1 id="前情提要"><a href="#前情提要" class="headerlink" title="前情提要"></a>前情提要</h1><p>本内容主要涉及<code>AME Wizard</code>软件的下载和<code>Playbook</code>配置文件的下载,以及文件下载后的使用方法。<br>核心在于Playbook文件的选择（下载链接已经贴出）和配置文件的修改项目选择。</p>
+<br>
+
+<p>预定制的Windows系统？什么是预定制？和Windows操作系统又有什么关系？</p>
+<blockquote>
+<p>首先要明确的是，预定制Windows完全基于官方的系统，官方系统的来源无非就是购买设备时已经灌装的OEM系统，也就是商家预置的系统，另一种是你自己使用PE或微软官方提供的iSO镜像自行安装的系统。</p>
+</blockquote>
+<p>OEM和微软官方系统有什么区别？</p>
+<blockquote>
+<p>OEM:各家电脑品牌方都会购买Windows的授权并基于其硬件对微软官方的系统进小规模或大规模的修改，以满足自己的硬件或品牌需求。比如联想电脑会在OEM预装的系统中安<code>装联想电脑管家</code>以及各种控制中心。</p>
+<p>微软官方：由微软官方提供的操作系统镜像，是最基础的Windows版本，没有任何第三方的软件按与定制文件。</p>
+</blockquote>
+<p>什么是Playbook？</p>
+<blockquote>
+<p>Playbook 是一个包含一系列系统修改的小文件。此 Playbook 中的更改由开源<a target="_blank" rel="noopener" href="https://ameliorated.io/">AME Wizard</a>应用，该工具可以修改<strong>正在运行的 Windows 系统</strong>。这允许您将当前安装<strong>转换</strong>为 ReviOS，而无需删除系统并重新安装。</p>
+<p>与之前的 ISO 版本一样，ReviOS Playbook 删除了过多的软件和不必要的系统组件，提升了隐私保护和系统性能，同时保持了兼容性。完整的更新列表可<a target="_blank" rel="noopener" href="https://revi.cc/docs/faq/before/features">在此处</a>查看。</p>
+<p>Playbook 兼容 Windows 10 版本<code>21H2 (19044)</code>和<code>22H2 (19045)</code>（仅限 X64）以及 Windows 11 版本<code>23H2 (22631)</code>和<code>24H2 (26100)</code>（X64 和 ARM64）。</p>
+<p>这涵盖标准 Windows 10、11 和 LTSC。它也适用于任何 Windows 版本，这意味着无论哪个版本，您都可以使用现有的 Windows 许可证密钥。</p>
+<p>Playbook 通常与<strong>Windows 版本无关</strong>，这意味着 Playbook 可以在任何受支持的 Windows 版本上运行（<a target="_blank" rel="noopener" href="https://github.com/meetrevision/playbook#-system-requirements">请参阅此列表</a>）。这意味着您无需担心 Playbook 版本与 Windows 版本的匹配问题。您也不必等待新的 Playbook 版本发布后再<a target="_blank" rel="noopener" href="https://revi.cc/docs/playbook/install#update">更新 Windows 安装</a>。</p>
+<p>根据经验法则，无论您想在哪个 Windows 版本上使用它，都应该始终使用最新的可用 Playbook 版本。</p>
+<p><br><br></p>
+<p><span style="text-align: right">摘自<a target="_blank" rel="noopener" href="https://revi.cc/docs/playbook/general">ReviOS</a></span></p>
+</blockquote>
+<hr>
+<h1 id="功能介绍"><a href="#功能介绍" class="headerlink" title="功能介绍"></a>功能介绍</h1><p>Playbook文件是一个yaml文档，该文档中写的是对Windows系统修改的自定义参数，也就是说这个文件可以定义Windows中的功能，可以添加额外的功能（Windows11右键菜单取消多级列表、禁止自动更新…）以及删减掉不必要的功能（比如微软的遥测功能以及信息收集功能…）,Playbook文件需要搭配执行该配置的软件使用——<a target="_blank" rel="noopener" href="https://ameliorated.io/?ref=kallemarjokorpi.fi#top">AME Wizard</a></p>
+<p>AME Wizard是一个用于修改Windows系统的一个开源工具，该工具可以执行Playbook文件的配置来根据预设的功能来对Windows的功能进行修改。但是有一个前提：</p>
+<p style="color: red; font-weight: bold">
+要将 AME 向导与指定的 Playbook 配合使用，您必须安装该 Playbook 支持的 Windows 版本。目前，AME 11支持所有稳定的 Windows 11 版本，AME 10支持 Windows 10 21H2 和 22H2。
+</p>
+
+<p>在进行安装使用前请检查您的系统版本。如何检查？</p>
+<blockquote>
+<p><code>win+r</code>打开运行框，输入<code>winver</code>回车，检查自己的系统版本是否为以上提到的版本（win11全版本支持，win10仅支持<code>21H2</code>及更新版本）</p>
+</blockquote>
+<p>++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
+<p style="color: red; font-weight: bold; fonnt-size: 26px; text-align: center">
+Warning!!! 通过本文件执行的所有操作都是不可逆的，如不确定是否使用，请预先创建还原点以做后悔药！！！
+</p>
+
+
+
+<p>++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
+<h2 id="创建还原点"><a href="#创建还原点" class="headerlink" title="创建还原点"></a>创建还原点</h2><p>在屏幕的左下角有一个搜索框，在搜索框中输入<code>还原点</code>找到图示程序，打开进入：</p>
+<table>
+<thead>
+<tr>
+<th><img src="https://s2.loli.net/2025/08/14/WxTfqbSjBmicyGO.png" alt="image.png" style="zoom: 50%;" /></th>
+<th><img src="https://s2.loli.net/2025/08/14/yoZz9RDJqVBOvuc.png" alt="image.png" style="zoom: 50%;" /></th>
+</tr>
+</thead>
+</table>
+<hr>
+<h3 id="准备必须的文件"><a href="#准备必须的文件" class="headerlink" title="准备必须的文件"></a>准备必须的文件</h3><h3 id="各版本区别"><a href="#各版本区别" class="headerlink" title="各版本区别"></a>各版本区别</h3><h4 id="Revi-OS"><a href="#Revi-OS" class="headerlink" title="Revi OS :"></a>Revi OS :</h4><blockquote>
+<ul>
+<li><strong>类型</strong>：带预做优化的 Windows ISO（也有 Playbook 格式的配置）</li>
+<li><strong>核心特点</strong>：<ul>
+<li><strong>内置禁用遥测、广告推送、自动更新调度器</strong></li>
+<li><strong>删除部分 UWP 应用，但保留核心功能（微软商店可选）</strong></li>
+<li>调整服务启动类型（多数服务延迟启动，提升空闲性能）</li>
+<li>启用更多高级性能参数（TCP 优化、低延迟模式）</li>
+</ul>
+</li>
+<li><strong>安装后主要变化</strong>：<ul>
+<li>系统占用较低，但比 Atlas 更日常化（注重稳定性）</li>
+<li>更适合长期桌面使用 + 游戏混合</li>
+<li>更新服务可选保留或精简，不像 AME 那么激进</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h4 id="Atlas-OS"><a href="#Atlas-OS" class="headerlink" title="Atlas OS:"></a>Atlas OS:</h4><blockquote>
+<ul>
+<li><strong>类型</strong>：偏向游戏调优的安装后执行脚本（Playbook）</li>
+<li><strong>核心特点</strong>：<ul>
+<li><strong>禁用 Windows Telemetry、广告服务、OneDrive、Xbox Game Bar</strong></li>
+<li>优化 GPU&#x2F;CPU 电源策略，减少 DPC 延迟</li>
+<li><strong>关闭动画、特效以降低输入延迟</strong></li>
+<li>精简后台进程（网络发现、打印服务等）</li>
+</ul>
+</li>
+<li><strong>安装后主要变化</strong>：<ul>
+<li>系统功能较完整（微软商店、部分 UWP 可用）</li>
+<li>明显减少后台 CPU 占用</li>
+<li>游戏响应更快，但日常办公功能保留</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h4 id="AME-Official"><a href="#AME-Official" class="headerlink" title="AME Official:"></a>AME Official:</h4><blockquote>
+<ul>
+<li><strong>类型</strong>：极端去微软化配置 + 安装向导（Playbook 脚本是执行方案的一部分）</li>
+<li><strong>核心特点</strong>：<ul>
+<li><strong>删除 Microsoft Store、Xbox、Cortana、Edge、OneDrive 等所有在线依赖</strong></li>
+<li><strong>阻断 Microsoft 登录体系（只支持本地账户）</strong></li>
+<li><strong>完全关闭 Windows Update（需要手动更新补丁）</strong></li>
+<li>删除遥测、DRM 相关组件，替换部分 DLL 以绕过依赖</li>
+</ul>
+</li>
+<li><strong>安装后主要变化</strong>：<ul>
+<li>系统极度干净、后台进程非常少（免打扰）</li>
+<li><strong>丧失部分 Windows 生态功能（不能直接使用商店 &#x2F; Xbox Game Pass &#x2F; MSA 同步）</strong></li>
+<li>非常适合隐私优先的专用机或嵌入式用途，但不适合普通用户</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<hr>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th align="left">来源与性质</th>
+<th align="left">定位&#x2F;目标</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Atlas OS</strong></td>
+<td align="left">国外开源优化项目（偏游戏玩家圈），提供 PowerShell&#x2F;批处理 Playbook 脚本</td>
+<td align="left">为游戏性能优化的精简 Windows，减少延迟、输入延时，降低系统占用</td>
+</tr>
+<tr>
+<td><strong>ReviOS</strong></td>
+<td align="left">国外 Revios 团队维护的精简版 Windows（基于 LTSC&#x2F;Pro），预设好的优化 ISO</td>
+<td align="left">在保持功能可用的前提下，移除遥测、广告、服务冗余，让系统更流畅稳定</td>
+</tr>
+<tr>
+<td><strong>AME (Ameliorated Windows)</strong></td>
+<td align="left">Ameliorated 小组制作的“去微软化”方案，有自己的 AME Wizard 作为安装执行器</td>
+<td align="left">完全删除 Microsoft 账户体系、大量内置组件和在线依赖，隐私优先</td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="软件下载："><a href="#软件下载：" class="headerlink" title="软件下载："></a>软件下载：</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://ameliorated.io/?ref=kallemarjokorpi.fi#top">AME Wizard</a></li>
+</ul>
+<h1 id="Playbook配置文件下载"><a href="#Playbook配置文件下载" class="headerlink" title="Playbook配置文件下载"></a>Playbook配置文件下载</h1><ul>
+<li><p><a target="_blank" rel="noopener" href="https://revi.cc/revios/download">Revi OS</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://atlasos.dev/">Atlas OS</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://ameliorated.io/?ref=kallemarjokorpi.fi#top">AME Official</a></p>
+<blockquote>
+<p>AME 11 : for Windows 11</p>
+<p>AME 10 : for Windows 10</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<p style="color: red; fot-size: 24px; line-height: 2; text-align: center">
+    确定在你已经阅读并知悉以上所有加粗内容之后再选取适合你的配置文件，在此我及不推荐日用电脑安装`AME`和`Atlas OS`,因为新手根本不知道有些功能和配件的丢失意味着什么，<span style="font-weight: bold; font-size: 26px">一切都是无法重来的，除非你按照之前的提示已经创建了还原点!!!</span>
+</p>
+
 
 <hr>
-<p>after change your name server on your domain purchase platform , your domain should be active on Cloudflare.and you can now setup your email routing.<br><img src="https://s2.loli.net/2025/08/13/lrMADvBKsS32Ojd.png" alt="image.png"></p>
-<h4 id="step3-setup-domain-routing"><a href="#step3-setup-domain-routing" class="headerlink" title="step3 setup domain routing"></a>step3 setup domain routing</h4><p>back up to your CF homepage ,click your registed domain on the left .you will be in the domain manage page<br><img src="https://s2.loli.net/2025/08/13/G6ecMyBRgrmhljX.png" alt="image.png"></p>
-<p>in the left function list ,you should select and click <code>e-mail routing</code>  buton ,it will direct to setting page<br>you can see an <code>add</code> buton on the right.clicl it and follow the prompts to add your new email routing rules.</p>
-<p><img src="https://s2.loli.net/2025/08/13/c1lWy2QpGX39dLk.png" alt="image.png"></p>
-<p><code>custom address</code> that is your custom information , you can fill it with any alphabet and mix with number or mixed . The follwing is your first-level donmain name which i sthe domain name you purchased .</p>
-<p><code>Destination</code> you should fill it with your normal useing e-mail like Gmail or outlook mail address.</p>
-<p>fill all information and click save.</p>
-<p><strong>it may prompt you the process is not finished , you should turn the prompted block on .</strong></p>
-<p>it may prompt you to verify your email address before the changes take effect. open your vertified mail and check out your inbox ,you will find a email sent by Cloudflare ,click it and follow the prompts to complete the verification process.</p>
-<p>that’s it!</p>
+<table>
+<thead>
+<tr>
+<th><img src="https://s2.loli.net/2025/08/14/xc4CXarTG9iWkE1.png" alt="image.png"></th>
+<th><img src="https://s2.loli.net/2025/08/14/32whelaXNoMsmzn.png" alt="image.png"></th>
+</tr>
+</thead>
+</table>
+<table>
+<thead>
+<tr>
+<th><img src="https://s2.loli.net/2025/08/14/tHcFR7AZTX93s4P.png" alt="image.png"></th>
+<th><img src="https://s2.loli.net/2025/08/14/bZ4TamwA8vM7cgx.png" alt="image.png"></th>
+</tr>
+</thead>
+</table>
+<h1 id="安装流程"><a href="#安装流程" class="headerlink" title="安装流程"></a>安装流程</h1><h2 id="打开下载好的AME-Wizard"><a href="#打开下载好的AME-Wizard" class="headerlink" title="打开下载好的AME Wizard"></a>打开下载好的AME Wizard</h2><img src="https://s2.loli.net/2025/08/14/qLTKYgOWUyES8hp.png" alt="image.png" style="zoom: 67%;" />
+
+
+
+<p>首先需要将你已经下载好的<code>Playbook</code>文件拖进左上角的虚线框中才会出现<code>Revi OS</code>的标志，入上图所示。</p>
+<hr>
+<h2 id="根据提示关闭所有的Windows-Defender防护"><a href="#根据提示关闭所有的Windows-Defender防护" class="headerlink" title="根据提示关闭所有的Windows Defender防护"></a>根据提示关闭所有的<code>Windows Defender</code>防护</h2><img src="https://s2.loli.net/2025/08/14/URMaY6olAKpvCSu.png" alt="image.png" style="zoom: 50%;" />
+
+<h2 id="功能选择"><a href="#功能选择" class="headerlink" title="功能选择"></a>功能选择</h2><h3 id="浏览器替换"><a href="#浏览器替换" class="headerlink" title="浏览器替换"></a>浏览器替换</h3><p>可以选择不替换原有的浏览器</p>
+<img src="https://s2.loli.net/2025/08/14/or3fGPm2YZRpd4a.png" alt="image.png" style="zoom:50%;" />
+
+<h3 id="Defender移除"><a href="#Defender移除" class="headerlink" title="Defender移除"></a>Defender移除</h3><p>这里选择不移除</p>
+<img src="https://s2.loli.net/2025/08/14/sIeE5qdZFgf4nuW.png" alt="image.png" style="zoom:50%;" />
+
+<h3 id="功能移除"><a href="#功能移除" class="headerlink" title="功能移除"></a>功能移除</h3><blockquote>
+<p>1.移除Edge浏览器</p>
+<p>2.移除OneDrive</p>
+<p>3.移除Recall AI (仅在Windows 11有提供)</p>
+</blockquote>
+<p>此处根据自己需要选择，本人建议一个都不要动，你要明白，这里没有后悔药（除非你创建了还原点）</p>
+<img src="https://s2.loli.net/2025/08/14/mJ2VSzkr6QyNpos.png" alt="image.png" style="zoom:50%;" />
+
+
+
+<h3 id="UWP软件移除"><a href="#UWP软件移除" class="headerlink" title="UWP软件移除"></a>UWP软件移除</h3><blockquote>
+<p>1.移除<code>照片</code>程序   （建议保留）</p>
+<p>2.移除<code>Dev home</code>   (推荐移除)</p>
+<p>3.移除<code>Xbox</code>    （建议保留）</p>
+<p>4.移除<code>手机连接</code>  （推荐移除，基本上用不到）</p>
+</blockquote>
+<img src="https://s2.loli.net/2025/08/14/N9R6XqhzEDmIvpO.png" alt="image.png" style="zoom:50%;" />
+
+
+
+<h2 id="常规修改"><a href="#常规修改" class="headerlink" title="常规修改"></a>常规修改</h2><blockquote>
+<p>1.应用<code>Revi OS</code>官方壁纸                                   （随意）</p>
+<p>2.开启暗色模式                                               （随意）</p>
+<p>3.将<code>Windows 11右键菜单</code>修改为<code>Windows 10</code>样式   （后面可再次修改）</p>
+<p>4.启用旧版本的照片查看器                                 （不建议开启）</p>
+</blockquote>
+<img src="https://s2.loli.net/2025/08/14/MTApnaHCQqXzo3s.png" alt="image.png" style="zoom:50%;" />
+
+<blockquote>
+<ol>
+<li>修改资源管理器的图标                （不建议小白开启）</li>
+<li>移除开始菜单的九宫格快捷方式    （不建议移除）</li>
+<li>修复<code>Revi OS </code>设置                      (建议开启)</li>
+<li>关闭<code>Windows自动更新</code>                   （根据个人情况开启）</li>
+</ol>
+</blockquote>
+<img src="https://s2.loli.net/2025/08/14/rKedgnYDaOSAF7M.png" alt="image.png" style="zoom:50%;" />
+
+
+
+
+
+<hr>
+<h1 id="等待重启"><a href="#等待重启" class="headerlink" title="等待重启"></a>等待重启</h1><p><img src="https://s2.loli.net/2025/08/14/ctYQA7rkjwmXVJs.png" alt="bac548e5d59ef14bccbaee66ba88703.png"><br><img src="https://s2.loli.net/2025/08/14/bpmL5BlGThUfEPw.png" alt="3daaa41bdd59d953b152aee6b4f5885.png"><br><img src="https://s2.loli.net/2025/08/14/pINgoORy92swAGu.jpg" alt="deb7a9ac3b2de0bb7a513015258c2f4.jpg"></p>
 
       
     </div>
@@ -271,7 +483,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/22/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><span class="page-number current">23</span><a class="page-number" href="/page/24/">24</a><span class="space">&hellip;</span><a class="page-number" href="/page/64/">64</a><a class="extend next" rel="next" href="/page/24/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/22/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><span class="page-number current">23</span><a class="page-number" href="/page/24/">24</a><span class="space">&hellip;</span><a class="page-number" href="/page/65/">65</a><a class="extend next" rel="next" href="/page/24/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -358,7 +570,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">64</span>
+          <span class="site-state-item-count">65</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -407,12 +619,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">258k</span>
+    <span title="站点总字数">266k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">7:10</span>
+    <span title="站点阅读时长">7:23</span>
 </div>
 <!-- 网站运行时间的设置 -->
 <span id="timeDate">载入天数...</span>
