@@ -169,7 +169,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/07/29/Ubuntu%E6%96%B0%E6%89%8B%E9%85%8D%E7%BD%AE/">
+    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/07/30/Windows%E6%9C%AC%E5%9C%B0%E8%B4%A6%E6%88%B7%E6%97%A0%E5%AF%86%E7%A0%81%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E5%A4%B1%E8%B4%A5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
@@ -183,7 +183,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2025/07/29/Ubuntu%E6%96%B0%E6%89%8B%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">Ubuntu新手配置</a>
+            <a href="/2025/07/30/Windows%E6%9C%AC%E5%9C%B0%E8%B4%A6%E6%88%B7%E6%97%A0%E5%AF%86%E7%A0%81%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E5%A4%B1%E8%B4%A5/" class="post-title-link" itemprop="url">Windows本地账户无密码远程桌面失败</a>
         </h2>
 
         <div class="post-meta">
@@ -194,7 +194,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2025-07-29 14:41:37 / 修改时间：20:53:52" itemprop="dateCreated datePublished" datetime="2025-07-29T14:41:37+08:00">2025-07-29</time>
+              <time title="创建时间：2025-07-30 17:36:24 / 修改时间：18:12:47" itemprop="dateCreated datePublished" datetime="2025-07-30T17:36:24+08:00">2025-07-30</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -202,11 +202,15 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                  <a href="/categories/RDP/" itemprop="url" rel="index"><span itemprop="name">RDP</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/Ubuntu/" itemprop="url" rel="index"><span itemprop="name">Ubuntu</span></a>
+                  <a href="/categories/RDP/%E6%B3%A8%E5%86%8C%E8%A1%A8/" itemprop="url" rel="index"><span itemprop="name">注册表</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/RDP/%E6%B3%A8%E5%86%8C%E8%A1%A8/%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/" itemprop="url" rel="index"><span itemprop="name">远程桌面</span></a>
                 </span>
             </span>
 
@@ -216,14 +220,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.6k</span>
+              <span>419</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -235,68 +239,44 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>在你已经安装好系统之后，需要做的第一件事就是先给系统装上SSH server，SSH server是Linux进行远程的重要工具。SSH会在Linux中作为一个服务端出现，为用户提供远程访问的服务。</p>
-<p>在装系统时你可能没有勾选Openssh-server服务，此时的Linux只能通过键盘链接实体机器进行命令输入，在安装openssh-server之后便可以从远程来访问终端了。</p>
-<h2 id="初始化apt"><a href="#初始化apt" class="headerlink" title="初始化apt"></a>初始化apt</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt update                     # 初始化apt</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt upgrade                    # 更新软件</span><br></pre></td></tr></table></figure>
-
-<h3 id="SSH-server-服务"><a href="#SSH-server-服务" class="headerlink" title="SSH server 服务"></a>SSH server 服务</h3><p>使用以下命令安装SSH Server服务器</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install openssh-server -y                          #安装ssh服务端</span><br></pre></td></tr></table></figure>
+          <h3 id="问题背景"><a href="#问题背景" class="headerlink" title="问题背景"></a>问题背景</h3><p style="font-size: 20px">
+在使用Windows的远程桌面连接另一台设备的时候，远程桌面出现以下错误提示
+</p>
 
 
-<h2 id="xrdp远程桌面"><a href="#xrdp远程桌面" class="headerlink" title="xrdp远程桌面"></a>xrdp远程桌面</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install xrdp                                       #安装xrdp</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start xrdp                                   # 启动xrdp服务</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reboot                                                 # 测试不可连接的话就重启以生效</span><br></pre></td></tr></table></figure>
-
-
-<p>远程桌面在安装后无法连接使用或者在来凝结后出现桌面异常没有Dock栏的话请按以下流程修改xrdp的配置文件</p>
-<ol>
-<li><p>找到位于<code>/etc/xrdp/</code>目录下名叫<code>startwm.sh</code>的文件</p>
-</li>
-<li><p>使用<code>vim</code>编辑器或其他编辑器在</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">if test -r /etc/profile; then</span><br><span class="line">        . /etc/profile</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">test -x /etc/X11/Xsession &amp;&amp; exec /etc/X11/Xsession</span><br><span class="line">exec /bin/sh /etc/X11/Xsession</span><br></pre></td></tr></table></figure>
-
-<p>之前加上配置文件：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export GNOME_SHELL_SESSION_MODE=ubuntu</span><br><span class="line">export XDG_CURRENT_DESKTOP=ubuntu:GNOME</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>在第一个if循环之后加上</p>
-</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export $(dbus-launch)</span><br></pre></td></tr></table></figure>
-
-
-<p>   完整的配置文件如下所示：</p>
-   <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">   #</span><span class="language-bash">!/bin/sh</span></span><br><span class="line"><span class="meta prompt_">   # </span><span class="language-bash">xrdp X session start script (c) 2015, 2017, 2021 mirabilos</span></span><br><span class="line"><span class="meta prompt_">   # </span><span class="language-bash">published under The MirOS Licence</span></span><br><span class="line">   </span><br><span class="line"><span class="meta prompt_">   # </span><span class="language-bash">Rely on /etc/pam.d/xrdp-sesman using pam_env to load both</span></span><br><span class="line"><span class="meta prompt_">   # </span><span class="language-bash">/etc/environment and /etc/default/locale to initialise the</span></span><br><span class="line"><span class="meta prompt_">   # </span><span class="language-bash">locale and the user environment properly.</span></span><br><span class="line">   </span><br><span class="line">   </span><br><span class="line">   export GNOME_SHELL_SESSION_MODE=ubuntu                # 修改点1</span><br><span class="line">   export XDG_CURRENT_DESKTOP=ubuntu:GNOME               # 修改点1</span><br><span class="line"></span><br><span class="line">   </span><br><span class="line">   </span><br><span class="line">   </span><br><span class="line">   if test -r /etc/profile; then</span><br><span class="line">           . /etc/profile</span><br><span class="line">   fi</span><br><span class="line">   </span><br><span class="line">export $(dbus-launch)                                    # 修改点2</span><br><span class="line"></span><br><span class="line">   test -x /etc/X11/Xsession &amp;&amp; exec /etc/X11/Xsession</span><br><span class="line">   exec /bin/sh /etc/X11/Xsession</span><br></pre></td></tr></table></figure>
-
-<h4 id="安装dbus-launch"><a href="#安装dbus-launch" class="headerlink" title="安装dbus-launch"></a>安装dbus-launch</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt install dbus-launch               #安装dbus-launch</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dbus-launch                            #然后启动dbus-launch</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2025/07/30/vMAYHhkzeUyRZou.png" alt="a0e7b7d992a6e10ff6b19806e1b44da.png"></p>
+<blockquote>
+<p>用户帐户限制（例如，时间限制）会阻止你登录。请与系统管理员或技术支持联系以获取帮助。</p>
+</blockquote>
+<h2 id="​"><a href="#​" class="headerlink" title="​		"></a>​		</h2><p style="color: red; font-size: 20px">
+- 被远程的电脑为本地账户<br><br>
+- 该账户并没有设置登陆密码
+</p>
 
 
 
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart xrdp                #重启xrdp</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="解决方式"><a href="#解决方式" class="headerlink" title="解决方式"></a>解决方式</h3><p style="font-size: 18px">
+修改注册表的键值
+</p>
 
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dbus-launch                            # 启动dbus-launch</span><br></pre></td></tr></table></figure>
+<p>需要修改的注册表位于：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">计算机\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa</span><br></pre></td></tr></table></figure>
+<p>在此目录下有一个名叫<span style="color: red"><code>LimitBlankPasswordUse</code></span>的项目，编辑这项的DWORD值为<code>0</code>, 代表使这条规则不再生效，也就取消了账户限制。</p>
+<p><img src="https://s2.loli.net/2025/07/30/hbYtgnqswT143UL.png" alt="image.png"></p>
+<hr>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>重新进入另一台Windows的远程桌面，在弹出的框内输入<code>计算机名称</code>、<code>用户名</code></p>
+<p><img src="https://s2.loli.net/2025/07/30/Pgb6VXlSsnzy4rf.png" alt="image.png"></p>
+<h4 id="计算机名称获取"><a href="#计算机名称获取" class="headerlink" title="计算机名称获取"></a>计算机名称获取</h4><span  style="color: purple">
+`开始菜单`  →`设置`→ `系统` →`关于` →`设备名称` 
+</span>
 
+<br>
 
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart xrdp                 # 重启xrdp服务</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="远程桌面连接"><a href="#远程桌面连接" class="headerlink" title="远程桌面连接"></a>远程桌面连接</h2><p>这里说的远程桌面连接指的是Windows的功能<code>远程桌面</code>，使用该服务即可连接到局域网的Ubuntu服务器，假如你的服务器在海外或者国内云服务运营商的机房，同时你又安装了桌面版的Ubuntu，这时捏也可以使用这个服务器来远程连接你的服务器。</p>
-<h4 id="账密配置"><a href="#账密配置" class="headerlink" title="账密配置"></a>账密配置</h4><p>账号就是Ubuntu的ip地址，你可以使用下面的命令获取本机的IP地址</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip addr</span><br></pre></td></tr></table></figure>
-
-
-<p>找到eth0或eth1对应的IP地址，这就是你的登录目标</p>
-<p>账号和密码都是你在装系统时自己设置的。</p>
-<p><img src="https://s2.loli.net/2025/07/29/kcdG3Tv2WJqLKMA.png" alt="image.png"></p>
-<p><img src="https://s2.loli.net/2025/07/29/IT5tQAgO1wR39db.png" alt="image.png"></p>
-<p><img src="https://s2.loli.net/2025/07/29/WGLO5hsxdDoteTl.png" alt="712f43ebfe3f2a66a46b6fbd2c6d0fc.png"></p>
+<p>设备规格下面对应的设备名称就是你需要的计算机名称，复制下来备用，大概都是叫做<code>DESKTOP-XXXXXX</code>格式的内容。</p>
+<h4 id="用户名获取"><a href="#用户名获取" class="headerlink" title="用户名获取"></a>用户名获取</h4><blockquote>
+<p>电脑开机时登陆界面头向下面显示的就是</p>
+</blockquote>
 
       
     </div>
@@ -315,7 +295,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/32/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/32/">32</a><span class="page-number current">33</span><a class="page-number" href="/page/34/">34</a><span class="space">&hellip;</span><a class="page-number" href="/page/66/">66</a><a class="extend next" rel="next" href="/page/34/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/32/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/32/">32</a><span class="page-number current">33</span><a class="page-number" href="/page/34/">34</a><span class="space">&hellip;</span><a class="page-number" href="/page/67/">67</a><a class="extend next" rel="next" href="/page/34/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -402,20 +382,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">66</span>
+          <span class="site-state-item-count">67</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">86</span>
+        <span class="site-state-item-count">88</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">72</span>
+        <span class="site-state-item-count">74</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -451,12 +431,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">268k</span>
+    <span title="站点总字数">270k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">7:27</span>
+    <span title="站点阅读时长">7:29</span>
 </div>
 <!-- 网站运行时间的设置 -->
 <span id="timeDate">载入天数...</span>

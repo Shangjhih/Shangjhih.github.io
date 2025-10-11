@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"lvshuqi.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":330,"display":"hide","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null,"line_number":false},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":0},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="在Windows11 25H2版本的更新后，微软取消了以前使用oobe跳过联网登录在线账户的功能，尽量保证用户都使用微软账户登录使用。但是在初次购买笔记本测试的时候我们要避免联网激活，所以跳过登陆激活是极其必要的。这里我们将提供其它可用的跳过联网方法。该信息具有时效性，请查看本文的建立时间并比对您的实际情况参考使用。 注意：跳激活期间设备不能联网  已失效的方法oobe命令在25H2之前的版本中，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Win11 25H2跳过在线账户">
+<meta property="og:url" content="https://lvshuqi.top/2025/10/11/Win11-25H2%E8%B7%B3%E8%BF%87%E5%9C%A8%E7%BA%BF%E8%B4%A6%E6%88%B7/index.html">
+<meta property="og:site_name" content="就这样&amp;巴">
+<meta property="og:description" content="在Windows11 25H2版本的更新后，微软取消了以前使用oobe跳过联网登录在线账户的功能，尽量保证用户都使用微软账户登录使用。但是在初次购买笔记本测试的时候我们要避免联网激活，所以跳过登陆激活是极其必要的。这里我们将提供其它可用的跳过联网方法。该信息具有时效性，请查看本文的建立时间并比对您的实际情况参考使用。 注意：跳激活期间设备不能联网  已失效的方法oobe命令在25H2之前的版本中，">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2025/10/11/oIXzPyFgV9MucJT.png">
+<meta property="og:image" content="https://s2.loli.net/2025/10/11/p6njP1B2LJKabq5.png">
+<meta property="article:published_time" content="2025-10-11T02:25:19.000Z">
+<meta property="article:modified_time" content="2025-10-11T03:21:53.550Z">
+<meta property="article:author" content="Shangjhih Jhao">
+<meta property="article:tag" content="Win11">
+<meta property="article:tag" content="oobe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2025/10/11/oIXzPyFgV9MucJT.png">
+
+<link rel="canonical" href="https://lvshuqi.top/2025/10/11/Win11-25H2%E8%B7%B3%E8%BF%87%E5%9C%A8%E7%BA%BF%E8%B4%A6%E6%88%B7/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Win11 25H2跳过在线账户 | 就这样&巴</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">就这样&巴</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">个人网志</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/10/11/Win11-25H2%E8%B7%B3%E8%BF%87%E5%9C%A8%E7%BA%BF%E8%B4%A6%E6%88%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
+      <meta itemprop="name" content="Shangjhih Jhao">
+      <meta itemprop="description" content="该博客在作者读大学本科期间创建，通过Hexo搭建，部署于Github Action。博客建立之初是为了防止作者遗忘已经学过的东西，将一些可以被记录的东西写下来一定程度上会减少遗忘。因为本科考研失败 ，在进行二战，目前并不会经常更新。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="就这样&巴">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Win11 25H2跳过在线账户
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-10-11 10:25:19 / 修改时间：11:21:53" itemprop="dateCreated datePublished" datetime="2025-10-11T10:25:19+08:00">2025-10-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Win11/" itemprop="url" rel="index"><span itemprop="name">Win11</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Win11/oobe/" itemprop="url" rel="index"><span itemprop="name">oobe</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>在Windows11 25H2版本的更新后，微软取消了以前使用oobe跳过联网登录在线账户的功能，尽量保证用户都使用微软账户登录使用。但是在初次购买笔记本测试的时候我们要避免联网激活，所以跳过登陆激活是极其必要的。这里我们将提供其它可用的跳过联网方法。该信息具有时效性，请查看本文的建立时间并比对您的实际情况参考使用。</p>
+<p style="color:red; font-weight:bold">注意：跳激活期间设备不能联网</p>
+
+<h1 id="已失效的方法"><a href="#已失效的方法" class="headerlink" title="已失效的方法"></a>已失效的方法</h1><h2 id="oobe命令"><a href="#oobe命令" class="headerlink" title="oobe命令"></a>oobe命令</h2><p>在25H2之前的版本中，可以使用快捷键<code>shift + F10</code> 快捷键调出CMD运行框，通过命令<code>oobe\bypassnro</code> 跳过联网验证（该命令会在联网环节调出<code>我没有internet</code> 窗口，允许用户使用本地账户登入Windows）。</p>
+<ul>
+<li>笔记本用户可以在激活前使用<code>Shift + Fn + F10</code> 组合键调出运行框</li>
+<li>台式组装机可以使用上文提到的<code>Shift + F10</code></li>
+</ul>
+<p><strong>注意</strong>：输入命令并回车后系统会重启，随后才会在联网阶段出现【我没有internet连接】选项，通过此选项即可建立本地账户。</p>
+<p> <img src="https://s2.loli.net/2025/10/11/oIXzPyFgV9MucJT.png" alt="clipboard-image-1760150671.png"></p>
+<h2 id="localonly命令"><a href="#localonly命令" class="headerlink" title="localonly命令"></a>localonly命令</h2><p>与上文同，在激活前的预备界面使用同样的方式打开CMD，但是输入命令,效果是一致的。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">start</span> ms<span class="literal">-cxh</span>:localonly</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://s2.loli.net/2025/10/11/p6njP1B2LJKabq5.png" alt="clipboard-image-1760151022.png"></p>
+<h1 id="目前可用的解决方法"><a href="#目前可用的解决方法" class="headerlink" title="目前可用的解决方法"></a>目前可用的解决方法</h1><h2 id="重新启用oobe"><a href="#重新启用oobe" class="headerlink" title="重新启用oobe"></a>重新启用oobe</h2><p>新版本的oobe无法使用使用为微软在新版本中移除了激活阶段调用oobe的文件，但是我们依旧可以通过添加注册表项的方式重新启用oobe。</p>
+<h3 id="打开cmd"><a href="#打开cmd" class="headerlink" title="打开cmd"></a>打开cmd</h3><p>依旧是使用之前提到的方法打开CMD</p>
+<h3 id="使用命令添加注册表项"><a href="#使用命令添加注册表项" class="headerlink" title="使用命令添加注册表项"></a>使用命令添加注册表项</h3><p>使用以下命令在注册表项中重新启用oobe</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OOBE /v BypassNRO/t REG_DWORD /d <span class="number">1</span>/f</span><br><span class="line"></span><br><span class="line"><span class="comment"># 以上代码功能为在注册表中添加oobe的启用</span></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">shutdown <span class="literal">-r</span> <span class="literal">-t</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># shutdown是Windows的电源相关命令，-r指的是重启，-t指定时间，0指的是0秒</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>手动输入该代码的时候注意字母大小写和空格！！！代码后端有多个带空格的地方</strong></p>
+<p>随后等待重启，重启后进入到联网阶段就可以点选【我没有internet连接】进行本地账户的创建。</p>
+<hr>
+<h2 id="使用JavaScript函数跳过oobe"><a href="#使用JavaScript函数跳过oobe" class="headerlink" title="使用JavaScript函数跳过oobe"></a>使用JavaScript函数跳过oobe</h2><p>1.在进入联网阶段前按组合键<code>Ctrl + Shift + J</code> 进入到开发者控制台，输入以下命令并回车</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WinJS.Application.restart(<span class="string">&quot;ms-cxh://LOCALONLY&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>2.按【Esc】或点击屏幕关闭控制台，直接就可以创建本地账户。</p>
+<hr>
+<h2 id="禁用oobe在线验证"><a href="#禁用oobe在线验证" class="headerlink" title="禁用oobe在线验证"></a>禁用oobe在线验证</h2><p>依旧是使用快捷键打开CMD，输入以下代码回车执行</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reg add HKLM\Software\Microsoft\Windows\CurrentVersion\OOBE /v HideOnlineAccountScreens /t REG_DWORD /d <span class="number">1</span> /f</span><br></pre></td></tr></table></figure>
+
+<p>重启，使用【我没有internet连接】选项创建本地账户。</p>
+<hr>
+<p>部分信息摘自：</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/vmSqKZGiqIFdl6CULpRlfw">6种方法跳过OOBE强制登录微软账户（2025年10月9日更新）</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.cnbeta.com.tw/articles/tech/1530000.htm">目前仍有办法可以跳过Windows 11账号登录 需在断网环境下操作</a></p>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Win11/" rel="tag"># Win11</a>
+              <a href="/tags/oobe/" rel="tag"># oobe</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2025/10/03/Perplexity-Comet%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85%EF%BC%9F/" rel="prev" title="Perplexity Comet无法安装？">
+      <i class="fa fa-chevron-left"></i> Perplexity Comet无法安装？
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B7%B2%E5%A4%B1%E6%95%88%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">已失效的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#oobe%E5%91%BD%E4%BB%A4"><span class="nav-number">1.1.</span> <span class="nav-text">oobe命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#localonly%E5%91%BD%E4%BB%A4"><span class="nav-number">1.2.</span> <span class="nav-text">localonly命令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%AE%E5%89%8D%E5%8F%AF%E7%94%A8%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">目前可用的解决方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8D%E6%96%B0%E5%90%AF%E7%94%A8oobe"><span class="nav-number">2.1.</span> <span class="nav-text">重新启用oobe</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%93%E5%BC%80cmd"><span class="nav-number">2.1.1.</span> <span class="nav-text">打开cmd</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%91%BD%E4%BB%A4%E6%B7%BB%E5%8A%A0%E6%B3%A8%E5%86%8C%E8%A1%A8%E9%A1%B9"><span class="nav-number">2.1.2.</span> <span class="nav-text">使用命令添加注册表项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8JavaScript%E5%87%BD%E6%95%B0%E8%B7%B3%E8%BF%87oobe"><span class="nav-number">2.2.</span> <span class="nav-text">使用JavaScript函数跳过oobe</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A6%81%E7%94%A8oobe%E5%9C%A8%E7%BA%BF%E9%AA%8C%E8%AF%81"><span class="nav-number">2.3.</span> <span class="nav-text">禁用oobe在线验证</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Shangjhih Jhao"
+      src="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
+  <p class="site-author-name" itemprop="name">Shangjhih Jhao</p>
+  <div class="site-description" itemprop="description">该博客在作者读大学本科期间创建，通过Hexo搭建，部署于Github Action。博客建立之初是为了防止作者遗忘已经学过的东西，将一些可以被记录的东西写下来一定程度上会减少遗忘。因为本科考研失败 ，在进行二战，目前并不会经常更新。</div>
+</div>
+
+
+<div class="spotify-player-independent motion-element">
+  <div class="spotify-player-header">
+    <i class="fab fa-spotify"></i>
+    <span>音乐推荐</span>
+  </div>
+  <div class="spotify-player-content">
+    <iframe style="border-radius:8px" 
+            src="https://open.spotify.com/embed/track/6nUNxiFCjWFTidu0cn1sta?utm_source=generator" 
+            width="100%" 
+            height="152" 
+            frameBorder="0" 
+            allowfullscreen="" 
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+            loading="lazy">
+    </iframe>
+  </div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">67</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">88</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">74</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shangjhih Jhao</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">270k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">7:29</span>
+</div>
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("09/29/2024 11:04:00"); //此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已建立 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒.";
+    }
+setInterval("createtime()",250);
+</script>
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
