@@ -194,7 +194,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2025-10-13 14:10:00 / 修改时间：15:54:00" itemprop="dateCreated datePublished" datetime="2025-10-13T14:10:00+08:00">2025-10-13</time>
+              <time title="创建时间：2025-10-13 14:10:00 / 修改时间：19:36:52" itemprop="dateCreated datePublished" datetime="2025-10-13T14:10:00+08:00">2025-10-13</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -216,14 +216,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.8k</span>
+              <span>4.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>6 分钟</span>
+              <span>7 分钟</span>
             </span>
 
         </div>
@@ -394,6 +394,33 @@
 
 <p style="color:red; font-weight:bold">最后，假如担心服务器会被攻击，可以在节点搭建完成且导入成功后使用防火墙关闭订阅端口和面板端口。</p>
 
+<hr>
+<h1 id="4-进阶–WARP分流"><a href="#4-进阶–WARP分流" class="headerlink" title="4. 进阶–WARP分流"></a>4. 进阶–WARP分流</h1><p>经测试，S-UI也是可以通过warp进行分流的，分流的对象包括域名和IP和关键字匹配等方式，本节以精准域名匹配做测试。</p>
+<p style="color:red; font-weight:bold">前提是你已经安装好warp并配置其模式为proxy，开启4000端口的socks服务，具体配置方法参加博客的其它内容。</p>
+
+<h2 id="4-1-出站管理"><a href="#4-1-出站管理" class="headerlink" title="4.1 出站管理"></a>4.1 出站管理</h2><img src="https://s2.loli.net/2025/10/13/3rsnxY1ZDmat7kS.png" alt="clipboard-image-1760354484.png" style="zoom:67%;" />
+
+<p>出站管理部分按图示填入：</p>
+<ul>
+<li>协议选择<code>SOCKS</code></li>
+<li>服务器地址填<code>127.0.0.1</code></li>
+<li>标签填<code>warp</code></li>
+<li>服务器端口填<code>40000</code></li>
+</ul>
+<h2 id="4-2-路由列表"><a href="#4-2-路由列表" class="headerlink" title="4.2 路由列表"></a>4.2 路由列表</h2><img src="https://s2.loli.net/2025/10/13/41oLcaGk69qvW5t.png" alt="clipboard-image-1760354938.png" style="zoom:67%;" />
+
+<p>首先点击添加规则，将【逻辑】打开，根据提示操作</p>
+<ul>
+<li>操作改为Route</li>
+<li>出站选择前一步设置的warp</li>
+<li>规则选项可以选择命中形式，这里选择域名和IP</li>
+<li>第5步选择domain</li>
+<li>绿色框内填入你想被warp代理的网站，只保留网站的后半部分，比如google你就填<code>google.com</code>,chatgpt你就填<code>chatgpt.com</code> ,多个域名的话请注意使用英文逗号将其隔开</li>
+<li><img src="https://s2.loli.net/2025/10/13/9VRCkgKSxvWbtDm.png" alt="clipboard-image-1760355216.png"></li>
+<li>随后点击路由列表上面显示的【保存】即可生效<br><img src="https://s2.loli.net/2025/10/13/mPaXTuOCkUxVFgK.png" alt="clipboard-image-1760355319.png"></li>
+</ul>
+<p style="color:red; font-weight:bold">后面如有需要，可以手动添加走warp的网站或ip等</p>
+
 
       
     </div>
@@ -548,7 +575,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">273k</span>
+    <span title="站点总字数">274k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
