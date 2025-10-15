@@ -1191,7 +1191,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ff587a;
+  background: #8566b5;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2678,9 +2678,9 @@ ul.breadcrumb li + li:last-child {
   letter-spacing: 0.9px;
 }
 .post-body p {
-  margin: 0.8em 0;
-  line-height: 0.8;
-  text-indent: 2em;
+  margin: 1.2em 0;
+  line-height: 1.8;
+  text-indent: 0.5em;
 }
 .post-body h1,
 .post-body h2,
