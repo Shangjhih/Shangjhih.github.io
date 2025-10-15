@@ -1191,7 +1191,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #3dc6e5;
+  background: #fff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2728,7 +2728,7 @@ ul.breadcrumb li + li:last-child {
   line-height: 1.6;
 }
 .post-body code {
-  font-family: "Consolas", "Monaco", "Menlo", "Courier New", monospace;
+  font-family: "Microsoft YaHei", "微软雅黑", "Consolas", "Monaco", "Menlo", "Courier New", monospace;
   font-size: 0.85em;
   background: #f2f2f2;
   padding: 0px 0px;
