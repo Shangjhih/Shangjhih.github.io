@@ -169,7 +169,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/09/14/Adobe-Service-Unlock/">
+    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/09/22/3x-ui%E9%9D%A2%E6%9D%BF%E4%B8%ADWARP%E5%88%86%E6%B5%81%E8%AE%BE%E7%BD%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
@@ -183,7 +183,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2025/09/14/Adobe-Service-Unlock/" class="post-title-link" itemprop="url">Adobe Service Unlock</a>
+            <a href="/2025/09/22/3x-ui%E9%9D%A2%E6%9D%BF%E4%B8%ADWARP%E5%88%86%E6%B5%81%E8%AE%BE%E7%BD%AE/" class="post-title-link" itemprop="url">3X-UI面板扩展功能-WARP分流</a>
         </h2>
 
         <div class="post-meta">
@@ -194,7 +194,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2025-09-14 14:53:21 / 修改时间：16:02:02" itemprop="dateCreated datePublished" datetime="2025-09-14T14:53:21+08:00">2025-09-14</time>
+              <time title="创建时间：2025-09-22 14:50:12 / 修改时间：16:39:28" itemprop="dateCreated datePublished" datetime="2025-09-22T14:50:12+08:00">2025-09-22</time>
             </span>
 
           <br>
@@ -203,14 +203,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.3k</span>
+              <span>4.5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>7 分钟</span>
             </span>
 
         </div>
@@ -222,36 +222,117 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <img src="https://s2.loli.net/2025/09/14/iGk2PA6LgfSnbCq.png" alt="image.png" style="zoom:8%;" />
+          <h1 id="功能简介"><a href="#功能简介" class="headerlink" title="功能简介"></a>功能简介</h1><h2 id="WARP背景及目标"><a href="#WARP背景及目标" class="headerlink" title="WARP背景及目标"></a>WARP背景及目标</h2><p>Cloudflare WARP旨在为移动设备与互联网之间建立更安全、更快速的连接。它基于Cloudflare遍布全球的庞大数据中心网络，目的是通过加密用户流量提高隐私保护，同时利用智能路由优化网络性能。WARP并非传统VPN，设计上更注重连接速度和可靠性，而非匿名和IP定位变更。</p>
+<h2 id="Cloudflare网络架构基础"><a href="#Cloudflare网络架构基础" class="headerlink" title="Cloudflare网络架构基础"></a>Cloudflare网络架构基础</h2><p>Cloudflare拥有194个城市、90多个国家的数据中心，采用Anycast IP地址宣布技术使流量自动路由到最近的数据中心。每个数据中心使用高效的网络路由器而非传统负载均衡器，将流量根据ECMP（Equal-Cost Multi-Path）策略分配给多个服务器。ECMP通过源IP和端口、目的IP和端口的四元组保证同一TCP连接的所有数据包都落在同一台服务器，确保数据包的顺序和连接的连续性。</p>
+<img src="https://s2.loli.net/2025/09/22/EuXK3kWFCUN6Q8p.png" alt="image.png" style="zoom:67%;" />
 
-<p>Adobe提供各种各样的程序,从网页设计工具、照片处理和矢量创建,到视频&#x2F;音频编辑、移动应用程序开发、打印布局和动画软件。它历来专注于创建和发布各种内容的软件,包括图形、摄影、插图、动画、多媒体&#x2F;视频、电影和印刷。其旗舰产品包括 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Adobe_Photoshop">Adobe Photoshop</a> 图像编辑软件； <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Adobe_Illustrator">Adobe Illustrator</a> 基于矢量的插图软件；Adobe <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Acrobat_Reader">杂技演员阅读器</a> 还有 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Portable_Document_Format">便携式文档格式</a>（PDF）；以及一系列主要用于视听内容创作、编辑和出版的工具。Adobe 提供了其产品的捆绑解决方案,名为 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Adobe_Creative_Suite">Adobe 创意套件</a>, 它演变成一种基于订阅的产品,名为 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Adobe_Creative_Cloud">Adobe Creative Cloud</a>。该公司还扩展到数字营销软件领域,并于 2021 年被认为是客户体验管理（CXM）领域的全球顶尖领导者之一。</p>
-<p><img src="https://s2.loli.net/2025/09/14/v1pkM3ewGgUKcTf.png" alt="image.png"></p>
-<h1 id="统一安装方式"><a href="#统一安装方式" class="headerlink" title="统一安装方式"></a>统一安装方式</h1><p>使用Adobe Creative Cloud统一安装旗下的所有服务，所有的已知服务都是可以通过该官方软件安装的。安装方式与普通软件一样，就是要记得软件的安装路径，以后会用到。下载地址如下：</p>
-<p><a target="_blank" rel="noopener" href="https://www.adobe.com/download/creative-cloud">https://www.adobe.com/download/creative-cloud</a></p>
-<p><img src="https://s2.loli.net/2025/09/14/vNyM9gfAYuiLomK.png" alt="image.png"></p>
-<p>为使用该软件，你还需要注册一个Adobe的账号，邮箱便可以，而且不限制邮箱。可以考虑以下的临时邮箱，用完就可以扔：</p>
-<p><a target="_blank" rel="noopener" href="https://temp-mail.org/en/">https://temp-mail.org/en/</a></p>
+<h2 id="WARP面临的路由和连接挑战"><a href="#WARP面临的路由和连接挑战" class="headerlink" title="WARP面临的路由和连接挑战"></a>WARP面临的路由和连接挑战</h2><p>WARP利用基于现代WireGuard协议的加密隧道，通过UDP传输加密数据包。WireGuard以简洁、安全、高性能著称，采用公钥加密进行会话密钥协商，保证数据包只有目标服务器能解密。</p>
+<p>与传统Web请求相比，WARP连接的持续时间远长于一般TCP连接，且用户设备经常切换网络（如移动网络与Wi-Fi切换），导致源IP和源端口频繁变化。加之NAT（网络地址转换）导致端口映射短暂，端口变化导致ECMP路由的四元组变化，流量可能被分配至不同服务器，破坏加密会话，导致连接断开，这成为WARP最大难题。</p>
+<p>为解决此问题，Cloudflare创造性地绕过传统ECMP限制，通过内部负载均衡机制，先将数据包路由到任意一台服务器，再由该服务器根据WARP客户端提供的唯一标识clientid转发给正确的会话服务器。clientid被嵌入WireGuard协议头部未使用的3字节空间，允许服务器在解密前识别流量归属，保证即使设备IP或端口变化，数据包始终能到达同一台服务器，从而保持连接稳定。</p>
+<h2 id="WireGuard协议的巧妙应用"><a href="#WireGuard协议的巧妙应用" class="headerlink" title="WireGuard协议的巧妙应用"></a>WireGuard协议的巧妙应用</h2><p>WireGuard使用UDP而非TCP，降低了协议头开销和重传复杂度，包内携带完整TCP头数据，结合TCP的可靠传输机制，既保证性能，又确保数据可靠性。WireGuard会定期更换密钥增强安全性，但这带来了连接持久性的新挑战，Cloudflare通过clientid机制有效应对这些问题。<a target="_blank" rel="noopener" href="https://blog.cloudflare.com/warp-technical-challenges/">cloudflare</a></p>
+<h2 id="软件实现与平台适配"><a href="#软件实现与平台适配" class="headerlink" title="软件实现与平台适配"></a>软件实现与平台适配</h2><p>Cloudflare第一次大规模开发跨多个移动平台的底层网络客户端，克服了iOS、Android提供的网络API性能限制和BUG，特别是在iOS中，处理大量UDP数据包时遇到系统缓冲区限制（ENOBUFS错误）和连接管理复杂性。为此他们采用兼容机制（类似Happy Eyeballs技术）在IPv4和IPv6之间选择最快连接，增强IPv6支持，合理调度连接重建，最大化性能与稳定性。<a target="_blank" rel="noopener" href="https://blog.cloudflare.com/warp-technical-challenges/">cloudflare</a></p>
+<h2 id="智能路由与加速（WARP-）"><a href="#智能路由与加速（WARP-）" class="headerlink" title="智能路由与加速（WARP+）"></a>智能路由与加速（WARP+）</h2><p>WARP整合了Cloudflare的Argo智能路由技术，类似互联网的“交通GPS”，动态选择最快路径传输流量。Argo原为HTTP应用加速设计，WARP将其升级为支持全协议流量的路径优化。非Cloudflare托管的HTTP流量通过HTTP CONNECT协议转发至目标服务器，保持透明隧道加速，同时提供速度和安全提升。</p>
+<p style="color: red ; font-size: 19px">
+ 简单来说就是：cloudfalre使用自己位于世界各地的边缘服务器通过客户端的分流技术以及wireguard协议并整合来为用户选择最佳的连接节点，以此加速用户的网络访问（同时具有类似VPN的匿名特征）。
+</p>
+
 <hr>
-<h1 id="破解"><a href="#破解" class="headerlink" title="破解"></a>破解</h1><h2 id="你需要了解的"><a href="#你需要了解的" class="headerlink" title="你需要了解的"></a>你需要了解的</h2><p>该破解方式依赖于一个叫做<code>GenP</code>的服务，该服务以前在Reddit的论坛有提供，但是在后面被提到有风险有病毒<br><img src="https://s2.loli.net/2025/09/14/CzWoO1qyADUrF2Q.png" alt="image.png" style="zoom: 50%;" /></p>
-<p>至于是否真毒有病毒，还不确定。这里我贴上卡巴斯基标准版的检测结果自己参考吧</p>
-<img src="https://s2.loli.net/2025/09/14/H4Obj2y5fJxhXI7.png" alt="image.png" style="zoom: 80%;" />
+<h1 id="WARP-installation-on-Linux"><a href="#WARP-installation-on-Linux" class="headerlink" title="WARP installation on Linux"></a>WARP installation on Linux</h1><p style="color: red ; font-size: 19px">
+安装WARP前提是：您的系统已经安装好3X-UI且已测试通过。<br>
+    WARP仅仅是辅助进行分流的，主要代理任务依旧是Xray内核承担。
+</p>
 
-<h2 id="操作流程"><a href="#操作流程" class="headerlink" title="操作流程"></a>操作流程</h2><h3 id="安装并登录Adobe-Creative-cloud"><a href="#安装并登录Adobe-Creative-cloud" class="headerlink" title="安装并登录Adobe Creative cloud"></a>安装并登录Adobe Creative cloud</h3><p>请正确安装Adobe Creative cloud，并登录账号。</p>
-<p><img src="https://s2.loli.net/2025/09/14/blwD1OfgUNXrupE.png" alt="clipboard-image-1757834967.png"></p>
-<p>在左上角打开设置项，<code>文件</code>–<code>首选项</code>–<code>应用程序</code>，把下面的自动更新全部关闭，<br><img src="https://s2.loli.net/2025/09/14/9g8uIbEjCOSYyex.png" alt="clipboard-image-1757835077.png"></p>
-<p><strong>常规</strong>下的启动相关设置也要全部关闭，具体的请自行查找关闭</p>
-<p><img src="https://s2.loli.net/2025/09/14/lGJvsFb5dEIfqKi.png" alt="image.png"></p>
-<p>检查并关闭以上所有的启动项设置。</p>
-<p>最后点击<strong>退出Creative Cloud</strong>完全退出软件。</p>
-<h3 id="破解文件下载"><a href="#破解文件下载" class="headerlink" title="破解文件下载"></a>破解文件下载</h3><p>请于以下地址下载所需文件：</p>
-<p><a target="_blank" rel="noopener" href="https://wiki.dbzer0.com/genp-guides/guide/">https://wiki.dbzer0.com/genp-guides/guide/</a></p>
-<p>下滑找到🔗 <strong><a target="_blank" rel="noopener" href="https://gen.paramore.su/">GenP v3.6.9 CGP</a></strong> - Latest Updated Version，点击进入下载界面</p>
-<p><img src="https://s2.loli.net/2025/09/14/7Cacw3bzVEhguOB.png" alt="clipboard-image-1757835571.png"></p>
-<p>下载后请将压缩包解压到一个您可以找到的位置，双击打开软件（注意：不要使用管理员权限打开）</p>
-<p>点击<code>Path</code>选择你的Creative Cloud安装位置</p>
-<p><img src="https://s2.loli.net/2025/09/14/ykhDKScGuY8PEs1.png" alt="image.png"></p>
-<p>随后点击<code>Search</code>,这将会自动找到需要破解的文件位置及信息，此时点击<code>Patch</code>破解文件，此时你的Creative Cloud就已经完全破解，再进入Creative Cloud就可以在里面下载你需要的软件了。待软件下载安装后请不要直接打开使用，需要继续打开这个叫做<code>Genp</code>的软件继续走流程<code>Path</code>—<code>Search</code>—<code>Patch</code>继续破解你已经下载的Adobe软件。流程走完就可以使用。</p>
-<h3 id="软件更新"><a href="#软件更新" class="headerlink" title="软件更新"></a>软件更新</h3><p>你在Creative cloud下载的软件是可以是随时更新的，在Creative Cloud中进行更新，更新后请继续走流程，按照<code>Path</code>—<code>Search</code>—<code>Patch</code>的流程继续破解，这就可以继续使用。未来只要有任何弹窗，就需要重新下载最新的Genp重新进行破解。</p>
+<p style="color: green ; font-size: 18px">
+    因apt和yum的存储库中并没有warp的包，所以请根据您的系统选择使用以下的提示步骤安装cloudfalre gpg key后再拉取软件包。
+</p>
+
+<p><strong>Linux Support List</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>OS version</strong></th>
+<th>CentOS 8, RHEL 8, Debian 10, Debian 11, Debian 12, Fedora 34, Fedora 35, Ubuntu 20.04, Ubuntu 22.04, Ubuntu 24.04</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Processor</strong></td>
+<td>AMD64 &#x2F; x86-64 or ARM64 &#x2F; AArch64</td>
+</tr>
+<tr>
+<td><strong>HD space</strong></td>
+<td>75 MB</td>
+</tr>
+<tr>
+<td><strong>Memory</strong></td>
+<td>35 MB</td>
+</tr>
+<tr>
+<td><strong>Network interface type</strong></td>
+<td>WIFI or LAN</td>
+</tr>
+<tr>
+<td><strong>Minimum MTU</strong></td>
+<td>1360 bytes1</td>
+</tr>
+</tbody></table>
+<p><strong>Warnning</strong></p>
+<p>以上是WARP在不同Linux发行版的支持列表，请根据自己服务器的具体系统版本来确认您的服务器是否支持WARP.一般情况下我们都会选择使用Debian或者Ubuntu作为选定系统使用，但是有个别玩家可能会选择CentOS使用，这都是在支持列表的。在旧版本的系统中安装最新版本的3x-ui面板时可能会出现<code>libssl版本过低</code>的问题，此时请进行系统更新。保证您的Ubuntu版本为<code>Ubuntu 22.04.5 LTS</code>或者更新。如在安装面板过程中出现问题。可尝试使用低版本的面板或者在线更新您的系统。</p>
+<h2 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a>Ubuntu</h2><p>The supported releases are:</p>
+<ul>
+<li>Noble (24.04)</li>
+<li>Jammy (22.04)</li>
+<li>Focal (20.04)</li>
+</ul>
+<p>Older builds exist for:</p>
+<ul>
+<li>Bionic (18.04)</li>
+<li>Xenial (16.04)</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 添加 cloudflare gpg key</span><br><span class="line">curl -fsSL https://pkg.cloudflareclient.com/pubkey.gpg | sudo gpg --yes --dearmor --output /usr/share/keyrings/cloudflare-warp-archive-keyring.gpg</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 将此 repo 添加到您的 apt 存储库</span><br><span class="line">echo &quot;deb [signed-by=/usr/share/keyrings/cloudflare-warp-archive-keyring.gpg] https://pkg.cloudflareclient.com/ $(lsb_release -cs) main&quot; | sudo tee /etc/apt/sources.list.d/cloudflare-client.list</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 安装</span><br><span class="line">sudo apt-get update &amp;&amp; sudo apt-get install cloudflare-warp</span><br></pre></td></tr></table></figure>
+
+<h2 id="Debian"><a href="#Debian" class="headerlink" title="Debian"></a>Debian</h2><p>The supported releases are:</p>
+<ul>
+<li>Bookworm (12)</li>
+<li>Bullseye (11)</li>
+<li>Buster (10)</li>
+</ul>
+<p>Older builds exist for:</p>
+<ul>
+<li>Stretch (9)</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 添加 cloudflare gpg key</span><br><span class="line">curl -fsSL https://pkg.cloudflareclient.com/pubkey.gpg | sudo gpg --yes --dearmor --output /usr/share/keyrings/cloudflare-warp-archive-keyring.gpg</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 将此 repo 添加到您的 apt 存储库</span><br><span class="line">echo &quot;deb [signed-by=/usr/share/keyrings/cloudflare-warp-archive-keyring.gpg] https://pkg.cloudflareclient.com/ $(lsb_release -cs) main&quot; | sudo tee /etc/apt/sources.list.d/cloudflare-client.list</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 安装</span><br><span class="line">sudo apt-get update &amp;&amp; sudo apt-get install cloudflare-warp</span><br></pre></td></tr></table></figure>
+
+<h2 id="Red-Hat-Enterprise-Linux-CentOS"><a href="#Red-Hat-Enterprise-Linux-CentOS" class="headerlink" title="Red Hat Enterprise Linux &amp; CentOS"></a>Red Hat Enterprise Linux &amp; CentOS</h2><p>Install the repository with yum (replace <VERSION> with the release version number):<br>The supported versions are:</p>
+<ul>
+<li>8</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Add cloudflare-warp.repo to /etc/yum.repos.d/</span><br><span class="line">curl -fsSl https://pkg.cloudflareclient.com/cloudflare-warp-ascii.repo | sudo tee /etc/yum.repos.d/cloudflare-warp.repo</span><br><span class="line"></span><br><span class="line"># Update repo</span><br><span class="line">sudo yum update</span><br><span class="line"></span><br><span class="line"># Install</span><br><span class="line">sudo yum install cloudflare-warp</span><br></pre></td></tr></table></figure>
+
+<h2 id="初始化WARP"><a href="#初始化WARP" class="headerlink" title="初始化WARP"></a>初始化WARP</h2><p>依次运行以下命令即可按预期启动服务并开启需要的端口（该端口在内部开放，不需要在防火墙开放端口）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">warp-cli registration new </span><br><span class="line"></span><br><span class="line">warp-cli connect</span><br><span class="line"></span><br><span class="line">warp-cli set-mode proxy</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>使用以下命令查看从40000端口获取到的IP是否和vps实际IP不同</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -4 ip.gs -x socks5://127.0.0.1:40000</span><br></pre></td></tr></table></figure>
+
+<p>最后使用命令<code>warp-cli status</code>查看服务状态。</p>
+<h2 id="添加WARP-key"><a href="#添加WARP-key" class="headerlink" title="添加WARP++ key"></a>添加WARP++ key</h2><p>从Telegram群组<a target="_blank" rel="noopener" href="https://t.me/warpplus">Warp Plus - Free VPN Keys</a>获取KEY并将其填入到面板的【Xray设置】–【出站规则】–【☁WARP】。<br><img src="https://s2.loli.net/2025/09/22/jKxk35gLXvBcwrp.png" alt="clipboard-image-1758530231.png"></p>
+<p>添加完成后点击更新即可获取几乎无限多的WARP流量。</p>
+<h2 id="出站规则"><a href="#出站规则" class="headerlink" title="出站规则"></a>出站规则</h2><p>在面板的<code>Xray设置</code>–<code>出站规则</code>中添加一个叫做<code>warp</code>的规则，将协议设置为<code>socks</code>,标签为<code>warp</code>,地址为<code>127.0.0.1</code>.端口设置为<code>40000</code>,点击确定并添加。<br><img src="https://s2.loli.net/2025/09/22/MytxWpAo71Okws2.png" alt="image.png" style="zoom: 50%;" /></p>
+<h2 id="路由规则"><a href="#路由规则" class="headerlink" title="路由规则"></a>路由规则</h2><p>新建一个路由规则，将<code>Outbound Tags</code>标签设置为出站规则的<code>warp</code>,添加规则。</p>
+<h2 id="WARP路由"><a href="#WARP路由" class="headerlink" title="WARP路由"></a>WARP路由</h2><p>在<code>Xray设置</code>中的【基础配置】内找到【WARP路由】，在框内填入你需要进行代理的域名，比如<code>ecosia.org</code>.ecosia是一个搜索引擎，但是会对可以IP及逆行拦截要求进行cloudflare验证，而WARP路由则可以将你的节点流量路由到cloudfalre网络，使得ecosia将你的流量是识别为cloudfalre自己的流量，借此突破5秒盾。也就是说，此时通往ecosia的流量在经过VPS时会被WARP识别并拦截，WARP将拦截到的数据包转送至cloudflare边缘服务器，由边缘服务器代为访问（此时的IP就会是边缘服务器IP，以隐藏自身IP并突破5秒盾）。</p>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>以下是开启WARP路由前后访问ecosia的页面：</p>
+<img src="https://s2.loli.net/2025/09/22/vdhyDg1M5w4tI6X.png" alt="clipboard-image-1758528545.png" style="zoom:50%;" />
+
+<img src="https://s2.loli.net/2025/09/22/hRlmIVjgko2PUWb.png" alt="clipboard-image-1758528465.png" style="zoom:50%;" />
+
+<p>借此分流即可突破指定网站的cloudfalre WAF防御。</p>
+<img src="https://s2.loli.net/2025/09/22/uLD4pvRWbsZOc3J.png" alt="image.png" style="zoom: 60%;" />
+<img src="https://s2.loli.net/2025/09/22/n5zWpldfbriq1XE.png" alt="clipboard-image-1758528994.png" style="zoom: 50%;" />
+
+<hr>
+<h2 id="劣势"><a href="#劣势" class="headerlink" title="劣势"></a>劣势</h2><p>通过该方式进行的分流仅仅可以代理【WARP路由】中添加的服务域名，并不是全局代理！！！</p>
+<p>如需要进行全局代理，请参考【<a target="_blank" rel="noopener" href="https://github.com/ViRb3/wgcf">wgcf项目</a>】</p>
+<p>WARP靠的是在本地创建一个socks代理，通过面板将流量重定向到Cloudfalre边缘服务器。只能代理列表中的域名服务。和局域网代理的逻辑差不多。</p>
 
       
     </div>
@@ -270,7 +351,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/68/">68</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/69/">69</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -357,7 +438,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">68</span>
+          <span class="site-state-item-count">69</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -406,12 +487,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">274k</span>
+    <span title="站点总字数">276k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">7:36</span>
+    <span title="站点阅读时长">7:40</span>
 </div>
 <!-- 网站运行时间的设置 -->
 <span id="timeDate">载入天数...</span>
