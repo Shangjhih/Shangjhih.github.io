@@ -169,7 +169,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zmdcdn.ggff.net/2025/06/17/OpenWrt-Static-IP-Modification/">
+    <link itemprop="mainEntityOfPage" href="https://zmdcdn.ggff.net/2025/06/22/%E6%96%90%E8%AE%AFN1%E5%88%B7iStorerOS/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
@@ -183,7 +183,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2025/06/17/OpenWrt-Static-IP-Modification/" class="post-title-link" itemprop="url">OpenWrt Static IP Modification</a>
+            <a href="/2025/06/22/%E6%96%90%E8%AE%AFN1%E5%88%B7iStorerOS/" class="post-title-link" itemprop="url">斐讯N1刷iStorerOS</a>
         </h2>
 
         <div class="post-meta">
@@ -194,24 +194,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2025-06-17 15:28:27 / 修改时间：16:22:20" itemprop="dateCreated datePublished" datetime="2025-06-17T15:28:27+08:00">2025-06-17</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/OpenWrt/" itemprop="url" rel="index"><span itemprop="name">OpenWrt</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/OpenWrt/Network/" itemprop="url" rel="index"><span itemprop="name">Network</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/OpenWrt/Network/Static-ip/" itemprop="url" rel="index"><span itemprop="name">Static ip</span></a>
-                </span>
+              <time title="创建时间：2025-06-22 14:52:55 / 修改时间：15:56:19" itemprop="dateCreated datePublished" datetime="2025-06-22T14:52:55+08:00">2025-06-22</time>
             </span>
 
           <br>
@@ -220,14 +203,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.4k</span>
+              <span>2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -239,38 +222,126 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>OpenWrt修改静态IP需要使用基础的linux命令进入后台对其进行修改，或者在网页端的后台中进行，本次我们大概了解一下通过ssh后台进行修改的具体步骤。</p>
-<p>大概的步骤为：通过ssh连接进入终端，cd切换到网络配置文件的绝对路径（<code>/etc/config/network</code>），使用vim命令对<code>network</code>文件进行修改（修改<code>option gateway</code>和<code>option ipaddr</code>两个参数，其中gateway参数设置为OpenWrt的上级主路由地址，ipaddr参数修改未主路由网段下的任意IP（用于后台登陆））。</p>
-<h2 id="SSH后台登录"><a href="#SSH后台登录" class="headerlink" title="SSH后台登录"></a>SSH后台登录</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@192.168.*.*</span><br></pre></td></tr></table></figure>
+          <p style="font-size:18px; line-height: 2">
+斐讯N1刷入iStoreOS的流程较为简单，但是对于一个从未接触过网络架构的人来说还是有一点难度的（特别是系统的设置与调试，也就是旁路由模式），本文将通过文字以及图片的形式来对N1设备刷入iStoreOS的流程进行详细的讲解。
+</p>
 
-<p>在powershell使用以上命令进行登录或ssh客户端添加OpenWrt的登录信息</p>
-<p>命令解析：</p>
+
 <hr>
-<p><code>ssh</code> ————————————-使用ssh协议进行登录</p>
-<p><code>root</code>————————————用户名</p>
-<p><code>@</code>—————————————–指定目标地址的符号</p>
-<p><code>192.168.*.*</code>————————-设备内网地址</p>
-<p>第一次输入该命令后，powershell会提示是否保存该地址的指纹信息至ssh配置信息内，此时输入<code>yes</code>并回车，在地址输入正确之后会提示你输入密码（在输入密码时窗口不会显示输入的密码）在密码输入之后直接回车进入到控制台，提示如下：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">                                                 _____</span><br><span class="line">      _____________________________      __________  /_</span><br><span class="line">      _  __ \__  __ \  _ \_  __ \_ | /| / /_  ___/  __/</span><br><span class="line">      / /_/ /_  /_/ /  __/  / / /_ |/ |/ /_  /   / /_</span><br><span class="line">      \____/_  .___/\___//_/ /_/____/|__/ /_/    \__/</span><br><span class="line">            /_/    </span><br><span class="line">         _________________________________________</span><br><span class="line">                           </span><br><span class="line">                                lanlanOP 07.08.2023 </span><br><span class="line">         _________________________________________</span><br><span class="line">         </span><br><span class="line">系统负载:  0.57 0.43 0.34       运行时间:  11 days</span><br><span class="line">内存已用:  18 % of 989MB        IP  地址:  192.168.1.66</span><br><span class="line">系统存储:  48% of 1.5G          CPU 信息: ARMv7 Processor rev 1</span><br></pre></td></tr></table></figure>
+<p style="font-weight:bold">材料准备：</p>
+<p style="font-size:18px; line-height: 2">
+    -	1台斐讯N1设备 <br>
+    -	1块U盘（8Gb以上） <br>
+    -	iStore OS刷机包 <br>
+</p>
 
-<p>此时就代表已经成功进入后台，可随意对系统进行修改</p>
-<h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/config/network                    #使用vim编辑在/etc/config/network处的配置文件</span><br></pre></td></tr></table></figure>
-
-<p><code>vim</code>———————————————————–Linux中的文本编辑软件</p>
-<p><code>/etc/config/network</code>——————————–配置文件的绝对路径</p>
 <hr>
-<p>直接在空白处输入该命令，就会进入到编辑状态：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">config interface &#x27;loopback&#x27;</span><br><span class="line">        option device &#x27;lo&#x27;</span><br><span class="line">        option proto &#x27;static&#x27;</span><br><span class="line">        option ipaddr &#x27;127.0.0.1&#x27;</span><br><span class="line">        option netmask &#x27;255.0.0.0&#x27;</span><br><span class="line"></span><br><span class="line">config globals &#x27;globals&#x27;</span><br><span class="line">        option ula_prefix &#x27;fdbf:cc1f:7685::/48&#x27;</span><br><span class="line">        option packet_steering &#x27;1&#x27;</span><br><span class="line"></span><br><span class="line">config device</span><br><span class="line">        option name &#x27;br-lan&#x27;</span><br><span class="line">        option type &#x27;bridge&#x27;</span><br><span class="line">        list ports &#x27;eth0&#x27;</span><br><span class="line"></span><br><span class="line">config interface &#x27;lan&#x27;</span><br><span class="line">        option device &#x27;eth0&#x27;</span><br><span class="line">        option proto &#x27;static&#x27;</span><br><span class="line">        option ip6assign &#x27;60&#x27;</span><br><span class="line">        option gateway &#x27;192.168.1.1&#x27;         # 网关地址   192.168.1.1/192.168.0.1/192.168.31.1等常规地址</span><br><span class="line">        option ipaddr &#x27;192.168.1.66&#x27;         # 静态IP    可自由设置（与网关地址保持一致）</span><br><span class="line">        option netmask &#x27;255.255.255.0&#x27;</span><br><span class="line">        list dns &#x27;223.5.5.5&#x27;</span><br><span class="line"></span><br><span class="line">config interface &#x27;docker&#x27;</span><br><span class="line">        option device &#x27;docker0&#x27;</span><br><span class="line">        option proto &#x27;none&#x27;</span><br><span class="line">        option auto &#x27;0&#x27;</span><br><span class="line"></span><br><span class="line">config device</span><br><span class="line">        option type &#x27;bridge&#x27;</span><br><span class="line">        option name &#x27;docker0&#x27;</span><br><span class="line"></span><br><span class="line">~</span><br><span class="line">~</span><br><span class="line">~</span><br><span class="line">~</span><br><span class="line">~</span><br><span class="line">~</span><br><span class="line">~</span><br><span class="line">~</span><br><span class="line">- /etc/config/network 1/34 2%</span><br></pre></td></tr></table></figure>
+<h2 id="启动器制作"><a href="#启动器制作" class="headerlink" title="启动器制作"></a>启动器制作</h2><p style="font-size:18px; line-height: 2">
+想要给斐讯N1刷入系统，首先需要写盘工具为U盘刷入一个引导程序，这将会在设备启动时作为第一引导，引导系统进入U盘内的系统。用户可以通过U盘内的系统来对设备的EMMC进行刷写，也就是将系统永久写入到设备的内存中。
+写入镜像推荐使用以下两个软件：（任选其一）
+</p>
 
-<p>此时使用方向键将光标移至<code>option gateway</code>所在行，按下按键<code>i</code>进入编辑模式（vim使用特性），进入编辑模式后及可对地址进行修改，修改后对<code>option ipaddr</code>的参数也进行修改，修改为与网关同网段的地址，可以根据自己的想法及逆行设置，保证最后一位的数字为2-225中的任何一位，且要保证不能与已分配的地址相同。（内网地址不可冲突！！！）</p>
-<p>在地址修改完成后按<code>esc</code>退出vim的编辑模式</p>
-<p>输入英文冒号<code>:</code>进入vim的命令模式，随后输入<code>wq</code>按回车保存并退出。（该输入会显示在屏幕的左下角，可以看到输入状态，在输入错后直接按删除键删除即可，可继续输入）。如下所示：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:wq                      # 保存并退出</span><br></pre></td></tr></table></figure>
 
-<p>随后使用以下命令出重启使修改生效：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reboot</span><br></pre></td></tr></table></figure>
-<p>执行该命令后，系统会进行重启。</p>
-<p>完成，修改后的配置即生效。可以进入新设置的后台登陆测试。</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://s2.loli.net/2025/06/22/q1BgyISxHhvYeKQ.png" alt="8c5b0835451528c7475c9cfe9a826bb.png"></td>
+<td align="center"><a target="_blank" rel="noopener" href="https://etcher.balena.io/">https://etcher.balena.io/</a></td>
+</tr>
+<tr>
+<td align="center"><img src="https://s2.loli.net/2025/06/22/cuaNMFpgAboeQPT.png" alt="ce4a3e2b9951739204f479bd9f97f9d.png"></td>
+<td align="center"><a target="_blank" rel="noopener" href="https://rufus.ie/zh/">https://rufus.ie/zh/</a></td>
+</tr>
+</tbody></table>
+<hr>
+<p style="font-size:26px; font-weight:bold">iStoreOS镜像下载地址:</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="https://s2.loli.net/2025/06/22/E13HWOatBIedTZo.png" alt="image.png"></td>
+<td>(<a target="_blank" rel="noopener" href="https://fw.koolcenter.com/iStoreOS/alpha/n1/">https://fw.koolcenter.com/iStoreOS/alpha/n1/</a>)</td>
+</tr>
+</tbody></table>
+<p><img src="https://s2.loli.net/2025/06/22/w8WGsSPlXJArvbk.png" alt="image.png"></p>
+<p style="font-size:18px; line-height: 2">
+下载使用红色方框圈起来的文件，直接下载，下载后不要解压。
+</p>
+
+<p>下载【<strong>BalenaEtcher</strong>】或者【<strong>rufus</strong>】任意一个，插入你的U盘，选择需要写入的U盘，选择需要刷入的镜像文件（该文件就是图中所示的<span style="color:green; font-size:16px">istoreos-22.03.6-2024043010-phicomm_n1-squashfs.img.gz</span>，U盘和镜像选好后点击开始，等待进度条跑到100%后点击关闭，点击关闭后即可拔掉U盘，切记不可直接拔。</p>
+<img src="https://s2.loli.net/2025/06/22/UtT9wDYCPdA68MB.png" alt="914e9e83235e8ef8a87cdb1d916c967.png" style="zoom: 67%;" />
+
+<p style="font-size:18px; line-height: 2">
+随后将写好镜像的U盘插入到N1盒子靠近HDMI接口的USB接口，注意：一定是靠近HDMI接口的USB接口。插入U盘后再插入电源，使用网线将盒子与路由器连接。一定要先插U盘再插电源线！！！否则可能进不去系统。
+</p>
+
+
+<img src="https://s2.loli.net/2025/06/22/zF6J27kiasUIXY3.png" alt="image.png" style="zoom: 25%;" />
+
+<p style="font-size:18px; line-height: 2">
+在一切都完成后，进入你插入的路由器的后台监测这台设备的上线情况，在后台显示的接入设备里有一个叫做iStore OS的新设备，点开该设备，记下它的内网IP地址。
+注意：可能需要等待两分钟左右才能看到后台有新设备接入，不要着急
+</p>
+
+
+<img src="https://s2.loli.net/2025/06/22/4OHxrI9ih5vnfE1.png" alt="image.png" style="zoom: 50%;" />
+
+<p style="font-size:18px; line-height: 2;">
+保证你的电脑已经连接到这个路由器的WiFi，不然无法进入到路由器的后台。在确认已经连接完成并且找到该设备后，浏览器新建一个页面，输入这个IP地址然后回车，即可看到登陆界面。路由器给我的设备分配的IP为<span style="color:green">192.168.1.66</span>，我就在路由器输入192.168.1.66回车，即可看到系统的登录页面。
+</p>
+
+
+<p><img src="https://s2.loli.net/2025/06/22/7bsrmOvWdohEDe9.png" alt="image.png"></p>
+<p style="color:purple; text-align: center; font-size:18px">
+++++++++++++++++++++++++++++++++++++++++<br>
+默认的用户名为root，默认密码password。<br>
+++++++++++++++++++++++++++++++++++++++++<br>
+</p><br>
+
+<p style="font-size:18px; line-height: 2">
+输入密码并点击登录，即可进入系统后台。
+</p>
+
+<p><img src="https://s2.loli.net/2025/06/22/cY6ePTp9BElhj3n.png" alt="image.png"></p>
+<p style="font-size:18px; line-height: 2.8; text-weight: bold">
+依次点击左侧菜单栏的【服务】-【终端】，进入到输入命令的界面，根据终端的提示
+输入用户名
+root以及密码password，（<span style="color:red">在输入密码的过程中，输入的密码不会显示在屏幕上，输完密码直接回车进入即可</span>）。待看到系统信息后就代表已经登陆进入后台，随后输入install,然后按tab键，这将会补全命令，待看到它将命令补全并且是以.sh结尾的命令，这时可以按回车执行命令，随后命令行提示你将使用mtd命令刷写某个分区，接下来会提示你输入y或者n，代表同意与否，你输入y并回车，命令将会继续执行，将系统写入到EMMC内存中，随后它将会自启。
+</p>
+
+<p><img src="https://s2.loli.net/2025/06/22/MhPQaSBqDbOxTiH.png" alt="image.png"></p>
+<p><img src="https://s2.loli.net/2025/06/22/kK5y8J4H9AflSEj.png" alt="image.png"></p>
+<p><img src="https://s2.loli.net/2025/06/22/BeWSxQgRF6ALvEK.png" alt="image.png"></p>
+<p style="color:red; font-size:18px; line-height: 2.8; text-indent: 2em">  在系统再次启动前，请将U盘拔掉，以防再次进入U盘中的引导程序。因系统已经写入进设备的EMMC，直接插电就能进入系统。网线不要拔，在浏览器输入192.168.100.1即可进入到新系统的控制台，账号和密码不变，依旧是root和password，输入进入系统。</p><br>
+
+<p style="font-size:18px; line-height: 2.8; text-indent: 2em">
+  在后台的【网络向导】中选择【旁路由】模式，进入后选择【手动配置】，在IP地址中填入你选好的地址（假如你自己的路由器，也就是盒子通过网线连接的路由器后台地址是192.168.1.1，那就在IP地址栏位填入192.168.1.X,其中的X可以填2-254中的任何一个数字，要求该数字只有一台设备使用，我填的是66，假如你的路由器入口是192.168.31.1，那就填192.168.31.X,其中的X也是要求为2-254中的任何一个数字。也是根据路由器地址来填，只要求最后一串数字和路由器不一样。）.子网掩码填入255.255.255.0 ，网关地址可以不用填。随后点击【保存配置】。此时你就可以使用你填的IP地址来访问系统后台了。
+</p>
+
+
+<p><img src="https://s2.loli.net/2025/06/22/WoU6yRh38BeSJA7.png" alt="image.png"></p>
+<p><img src="https://s2.loli.net/2025/06/22/yRMozSCV5itgUc8.png" alt="image.png"></p>
+<p style="font-size:18px; line-height: 2.8">
+在一切都做好之后，就可以在【服务】模块中找到你需要的代理功能对其进行设置。该N1设备可以通过【iStoreOS】模块导入【.run】格式的软件包来安装【passwall2】【passwall】【Shadwsocks Plus】等插件了。插件地址为：
+</p>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/bcseputetto/Are-u-ok/releases/tag/iStoreOS">https://github.com/bcseputetto/Are-u-ok/releases/tag/iStoreOS</a><br>可以到该网页下载对应的文件</p>
+<p><img src="https://s2.loli.net/2025/06/22/bjCUkhOwTmSBMqN.png" alt="image.png"></p>
+<p style="font-size:18px; line-height: 2">
+图中标出的是适合该设备的软件包，下载后直接通过iStore OS软件包管理的上传界面从本地上传至设备安装即可。
+</p>
+
+<p><img src="https://s2.loli.net/2025/06/22/TDHq3f4XPSYUJuW.png" alt="image.png"></p>
 
       
     </div>
@@ -289,7 +360,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/48/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/48/">48</a><span class="page-number current">49</span><a class="page-number" href="/page/50/">50</a><span class="space">&hellip;</span><a class="page-number" href="/page/71/">71</a><a class="extend next" rel="next" href="/page/50/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/48/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/48/">48</a><span class="page-number current">49</span><a class="page-number" href="/page/50/">50</a><span class="space">&hellip;</span><a class="page-number" href="/page/73/">73</a><a class="extend next" rel="next" href="/page/50/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -376,7 +447,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">71</span>
+          <span class="site-state-item-count">73</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -389,7 +460,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">76</span>
+        <span class="site-state-item-count">80</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -425,12 +496,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">280k</span>
+    <span title="站点总字数">290k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">7:47</span>
+    <span title="站点阅读时长">8:03</span>
 </div>
 <!-- 网站运行时间的设置 -->
 <span id="timeDate">载入天数...</span>

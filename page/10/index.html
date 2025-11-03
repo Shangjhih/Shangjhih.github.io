@@ -169,7 +169,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zmdcdn.ggff.net/2025/09/23/Shadowrocket%E8%A7%84%E5%88%99%E3%80%81%E6%A8%A1%E5%9D%97-%E5%88%86%E6%B5%81%E5%8F%8A%E8%A7%A3%E9%94%81/">
+    <link itemprop="mainEntityOfPage" href="https://zmdcdn.ggff.net/2025/09/29/Cloudflare%E9%9D%9E%E6%A0%87HTTPS%E7%AB%AF%E5%8F%A3%E6%94%AF%E6%8C%81%E5%88%97%E8%A1%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
@@ -183,7 +183,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2025/09/23/Shadowrocket%E8%A7%84%E5%88%99%E3%80%81%E6%A8%A1%E5%9D%97-%E5%88%86%E6%B5%81%E5%8F%8A%E8%A7%A3%E9%94%81/" class="post-title-link" itemprop="url">ShadowRocket规则、模块(分流及解锁)</a>
+            <a href="/2025/09/29/Cloudflare%E9%9D%9E%E6%A0%87HTTPS%E7%AB%AF%E5%8F%A3%E6%94%AF%E6%8C%81%E5%88%97%E8%A1%A8/" class="post-title-link" itemprop="url">Cloudflare非标HTTPS端口支持列表</a>
         </h2>
 
         <div class="post-meta">
@@ -193,14 +193,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2025-09-23 21:48:37" itemprop="dateCreated datePublished" datetime="2025-09-23T21:48:37+08:00">2025-09-23</time>
+              <time title="创建时间：2025-09-29 15:48:38" itemprop="dateCreated datePublished" datetime="2025-09-29T15:48:38+08:00">2025-09-29</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-09-24 16:34:40" itemprop="dateModified" datetime="2025-09-24T16:34:40+08:00">2025-09-24</time>
+                <time title="修改时间：2025-10-01 21:14:15" itemprop="dateModified" datetime="2025-10-01T21:14:15+08:00">2025-10-01</time>
               </span>
 
           <br>
@@ -209,14 +209,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.6k</span>
+              <span>2.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
+              <span>4 分钟</span>
             </span>
 
         </div>
@@ -228,69 +228,109 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <img src="https://s2.loli.net/2025/09/23/OW2MTZ7rvBXdkL8.png" alt="clipboard-image-1758635852.png" style="zoom:25%;" />
-Shadowrocket是iPhone中常用的一个代理客户端，一般简称小火箭（下文统称小火箭）。该软件是一款基于规则的代理客户端，主要面向 iOS 系统，允许用户通过代理服务器管理和路由互联网流量，从而增强安全性和隐私性，并访问受地理限制的内容。它通过应用自定义的域名匹配规则、IP 地址和地理位置，将流量引导至不同的代理服务器，并提供广告拦截、HTTPS 解密和各种代理协议支持等高级功能。虽然这款应用可以从 App Store 购买，但它并不直接提供代理；用户必须自行获取代理服务或 VPN 订阅才能使用该应用。
-
-<p><strong>注意</strong></p>
-<p>该软件仅仅在非国区的app store上架，且售价为2.99$.因appstore可以在其他设备并下载已经购买的产品，所以这里我将会提供一个<a target="_blank" rel="noopener" href="https://id.bocchi.vip/">共享Apple ID</a>的网站，请各位用户严格按照网站提示登录使用，避免被锁机。在使用该服务的时候遵循网站要求的规范是对其他人的尊重，你的错误操作（二次验证）可能会导致其他用户无法再使用该账号。</p>
+          <p>Cloudflare为其应用层（Layer 7）<strong>HTTP&#x2F;HTTPS 代理</strong>（即DNS记录设置为“橙色云”代理模式时）支持一套特定的端口。这些端口允许流量通过Cloudflare的网络进行加速、缓存和安全保护。</p>
 <hr>
-<h1 id="功能介绍"><a href="#功能介绍" class="headerlink" title="功能介绍"></a>功能介绍</h1><p>小火箭是一个支持代理协议和机场订阅的一个客户端，但并不是俗称的VPN软件。使用使用该软件进行网络代理前请准备好你的机场订阅链接，该链接将作为提供接入点的来源。</p>
-<p>小火箭还可以通过导入他人做好的配置文件(.conf)来实现流量重写，主要应用是解锁流媒体服务，去广告。</p>
-<h1 id="基础使用方法"><a href="#基础使用方法" class="headerlink" title="基础使用方法"></a>基础使用方法</h1><h2 id="导入节点"><a href="#导入节点" class="headerlink" title="导入节点"></a>导入节点</h2><h3 id="通过机场网页导入"><a href="#通过机场网页导入" class="headerlink" title="通过机场网页导入"></a>通过机场网页导入</h3><p>首先在【Safari】登陆到你买订阅的网站，在网站的主页会提示一个【一键订阅】，点击【一键订阅】后提示可以选择导入的项目，请选择【导入到Sadowrocket】。随后safari会提示是否打开Shadowrocket，点击允许即可成功导入订阅，在主页就可以看到已经导入的节点列表。</p>
+<h1 id="Cloudflare-标准-HTTPS-代理端口列表"><a href="#Cloudflare-标准-HTTPS-代理端口列表" class="headerlink" title="Cloudflare 标准 HTTPS 代理端口列表"></a>Cloudflare 标准 HTTPS 代理端口列表</h1><p>Cloudflare支持代理的 <strong>HTTPS (TLS) 端口</strong> 包括一个标准端口和多个非标准端口。您的网站若使用以下任一端口，Cloudflare即可代理该流量：</p>
 <table>
 <thead>
 <tr>
-<th><img src="https://s2.loli.net/2025/09/24/KidhOCpFv7Ttb9N.png" alt="clipboard-image-1758701358.png"></th>
-<th><img src="https://s2.loli.net/2025/09/24/bQ7wxaHpihDMA64.png" alt="clipboard-image-1758700812.png"  /></th>
+<th>端口号</th>
+<th>说明</th>
+<th>备注</th>
 </tr>
 </thead>
-</table>
-<h3 id="通过订阅链接导入"><a href="#通过订阅链接导入" class="headerlink" title="通过订阅链接导入"></a>通过订阅链接导入</h3><p>首先登陆你的机场网站，在机场网站的服务中找到导入节点的位置，找到【复制订阅地址】，订阅链接会被复制到粘贴板上。打开小火箭，点击右上角的加号，在【类型】处选择<code>Subscribe</code>,【URL】处填入复制好的订阅链接地址，点击右上角的【保存】即可成功导入。</p>
-<table>
-<thead>
+<tbody><tr>
+<td><strong>443</strong></td>
+<td><strong>HTTPS 标准端口</strong></td>
+<td>全球公认的 HTTPS 标准端口，也是 Cloudflare 缓存和中国大陆网络支持的唯一 HTTPS 端口。</td>
+</tr>
 <tr>
-<th><img src="https://s2.loli.net/2025/09/24/NTa4kvn2Ro9rYlJ.png" alt="clipboard-image-1758701274.png"></th>
-<th><img src="https://s2.loli.net/2025/09/24/7u3GSHFjO96biIn.png" alt="clipboard-image-1758700592.png"></th>
-<th><img src="https://s2.loli.net/2025/09/24/D4U9tmT8IXMz1WF.png" alt="clipboard-image-1758700737.png"></th>
-<th><img src="https://s2.loli.net/2025/09/24/bQ7wxaHpihDMA64.png" alt="clipboard-image-1758700812.png"></th>
+<td><strong>2053</strong></td>
+<td>非标准端口</td>
+<td>Cloudflare 支持的非标准 HTTPS 端口之一。</td>
 </tr>
-</thead>
-</table>
-<h2 id="连接节点"><a href="#连接节点" class="headerlink" title="连接节点"></a>连接节点</h2><p>在确保所有节点已经导入之后，接下来需要检测结点的可用性（节点并不是一直有效，随时可能失联）。首先展开你导入的节点，确保可以看见所有节点。点击【连通性测试】右边的蓝色符号，将原来的<code>TCP</code>修改为<code>CONNECT</code>并返回，在主页点击【连通性测试】检查节点的连接状态。</p>
-<table>
-<thead>
 <tr>
-<th><img src="https://s2.loli.net/2025/09/24/8hC3aVQDzfik4Bn.png" alt="clipboard-image-1758702492.png" style="zoom:67%;" /></th>
-<th><img src="https://s2.loli.net/2025/09/24/Ny1mou5vBRwZAE2.png" alt="clipboard-image-1758702586.png" style="zoom:67%;" /></th>
+<td><strong>2083</strong></td>
+<td>非标准端口</td>
+<td>Cloudflare 支持的非标准 HTTPS 端口之一。</td>
 </tr>
-</thead>
-</table>
-<p>在进行连通性测试后，节点后面会出现数字，该数字指的是节点的真连接延迟（也就是实际的网络质量，该值越小越好），当节点后显示<code>timeout</code>时就表示该节点无法正常使用，请切换带有延迟的节点。</p>
-<p>点击某节点即代表选择某节点作为代理服务器，被选节点前面会出现一个曾色的点，这就表示节点已经被选中，可以进行连接。</p>
-<p>【全局路由】处必须为<code>配置</code>，如无别的额外其需求请不要切换为其它选项，配置指的是网络流量跟随配置文件选择性代理，国内的不代理，国外的代理（该文件由Geosite和GeoIP决定）。随后点击开关就可以连接节点。</p>
-<h1 id="高级用法-添加配置"><a href="#高级用法-添加配置" class="headerlink" title="高级用法-添加配置"></a>高级用法-添加配置</h1><p>假如你有解锁Spotify或者各种相关需求，可以在配置文件中添加模块以获取额外的插件支持。相关的插件在以下网页有提供，请自行查看列表寻找适合自己的服务。</p>
-<p><a target="_blank" rel="noopener" href="https://whatshub.top/shadowrocket">插件地址</a></p>
-<p><img src="https://s2.loli.net/2025/09/23/P9TmdGwAJk5xLfj.png" alt="clipboard-image-1758637298.png"></p>
-<p>直接点击你需要的功能，网站或提示跳转到小火箭安装i相关功能，或者你可以到小火箭的【配置】界面手动添加或导入。</p>
-<img src="https://s2.loli.net/2025/09/23/rvHmsaPe2iXZchL.png" alt="image.png" style="zoom:80%;" />
-
-<img src="https://s2.loli.net/2025/09/23/kOhFWsNulMJySga.png" alt="clipboard-image-1758637490.png" style="zoom:80%;" />
-
+<tr>
+<td><strong>2087</strong></td>
+<td>非标准端口</td>
+<td>Cloudflare 支持的非标准 HTTPS 端口之一。</td>
+</tr>
+<tr>
+<td><strong>2096</strong></td>
+<td>非标准端口</td>
+<td>Cloudflare 支持的非标准 HTTPS 端口之一。</td>
+</tr>
+<tr>
+<td><strong>8443</strong></td>
+<td><strong>替代 HTTPS 端口</strong></td>
+<td>经常作为非标准或管理端口用于 HTTPS 服务。</td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="额外的重要技术细节"><a href="#额外的重要技术细节" class="headerlink" title="额外的重要技术细节"></a>额外的重要技术细节</h1><h3 id="1-HTTP-代理端口"><a href="#1-HTTP-代理端口" class="headerlink" title="1. HTTP 代理端口"></a>1. HTTP 代理端口</h3><p>为了完整性，Cloudflare 支持代理的 <strong>HTTP 端口</strong> 集合为：<strong>80, 8080, 8880, 2052, 2082, 2086, 2095</strong>。</p>
+<h2 id="2-缓存和中国大陆网络限制"><a href="#2-缓存和中国大陆网络限制" class="headerlink" title="2. 缓存和中国大陆网络限制"></a>2. 缓存和中国大陆网络限制</h2><p>请注意，并非所有支持的端口都享有 Cloudflare 的全部优势：</p>
 <ul>
-<li><ol>
-<li>右上角的加号是通过连接添加模块的，假如你有某个模块的链接，可以通过该选项导入模块。</li>
-<li>新建模块指的是你手动将模块的内容复制进去，和右上角的加号添加功能是一样的，一个需要联网下载一个不需要。</li>
-<li>点击你已经下载或导入的模块，当模块后边有一个对勾的时候表明你的模块已经被应用到网路i流量中，也就是模块的开关，点击开启点击关闭。</li>
-</ol>
-<hr>
-</li>
+<li><strong>缓存限制：</strong> 只有 <strong>80 (HTTP)</strong> 和 <strong>443 (HTTPS)</strong> 这两个端口支持 **Cloudflare 缓存 (Caching)**。</li>
+<li><strong>中国大陆网络限制：</strong> 对于启用了 <strong>中国大陆网络 (China Network)</strong> 的区域，只有 <strong>80 (HTTP)</strong> 和 <strong>443 (HTTPS)</strong> 端口支持 HTTP&#x2F;HTTPS 代理流量。</li>
 </ul>
-<p>主页的全局路由选项一定要设置为【配置】<br><img src="https://s2.loli.net/2025/09/23/QJtRbUYlznsK5id.png" alt="clipboard-image-1758637746.png"></p>
+<h2 id="3-任意端口和非-HTTP-流量"><a href="#3-任意端口和非-HTTP-流量" class="headerlink" title="3. 任意端口和非 HTTP 流量"></a>3. 任意端口和非 HTTP 流量</h2><p>如果您的服务运行在上述列表之外的端口上，或使用非 HTTP&#x2F;HTTPS 协议（例如 SSH, RDP, 自定义 TCP 协议），您有以下选项：</p>
+<ul>
+<li><strong>DNS Only (灰色云)：</strong> 将该DNS记录设置为“仅限 DNS”（灰色云），流量将绕过 Cloudflare 直接连接到您的源站服务器IP，Cloudflare将不提供保护或加速。</li>
+<li><strong>Cloudflare Spectrum：</strong> 对于 <strong>企业版 (Enterprise Plan)</strong> 用户，可以使用 <strong>Cloudflare Spectrum</strong> 产品来代理<strong>任意 TCP 端口</strong>（端口 21 除外），并为非 HTTP 流量提供保护和性能优化。</li>
+</ul>
+<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><h2 id="SSL-TLS-加密模式"><a href="#SSL-TLS-加密模式" class="headerlink" title="SSL&#x2F;TLS 加密模式"></a><strong>SSL&#x2F;TLS</strong> 加密模式</h2><p><strong>SSL&#x2F;TLS</strong>的加密模式根据加密强度划分以下几种：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Strict (SSL-Only Origin Pull)</strong></td>
+<td>在 Cloudflare 和您的源服务器之间强制加密。使用此模式可确保与源服务器的连接始终加密，无论访问者的请求如何。</td>
+</tr>
+<tr>
+<td><strong>Full (Strict)</strong></td>
+<td>启用端到端加密并强制验证原始证书。使用 Cloudflare 的 Origin CA 为您的原始证书生成证书。</td>
+</tr>
+<tr>
+<td><strong>Full</strong></td>
+<td>启用端到端加密。当您的源服务器支持 SSL 认证但不使用有效的、公众信任的证书时，请使用此模式。</td>
+</tr>
+<tr>
+<td><strong>Flexible</strong></td>
+<td>仅在您的访客和 Cloudflare 之间启用加密。这样可以避免浏览器安全警告，但 Cloudflare 与您的源站之间的所有连接均通过 HTTP 建立。</td>
+</tr>
+<tr>
+<td><strong>Off (not secure)</strong></td>
+<td>未应用加密。关闭 SSL 会禁用 HTTPS，并导致浏览器显示警告，提示您的网站不安全。</td>
+</tr>
+</tbody></table>
+<p><img src="https://s2.loli.net/2025/09/29/cOdGe9KfWuTFiLQ.png" alt="clipboard-image-1759132939.png"></p>
+<p style="color: red; font-size:20px; font-weight:bold"> 建议选择 Flexible模式（仅仅加密客户端至边缘服务器的流量，境外流量不进行加密）</p> 这样既能保证网络畅通还能保证网络速度（相对于两端加密少一层加密，速度也就提升一点），当然，若是担心个人安全或信息泄露的话可以使用两端加密，以保证安全。
+
+<h1 id="SSL证书申请"><a href="#SSL证书申请" class="headerlink" title="SSL证书申请"></a>SSL证书申请</h1><p>在申请SSL证书之前需要在DNS中为您的VPV添加一条A记录，将其解析到您的VPS的IP地址。<br><img src="https://s2.loli.net/2025/09/29/VL8sMScmDUwaGTW.png" alt="clipboard-image-1759135083.png"></p>
+<ul>
+<li>类型选择<strong>A</strong>,也就是添加一条A类型的DNS记录</li>
+<li>Name Required 指的是为您购买的二级域名添加一个三级域名</li>
+<li>IPV4处填入你的VPS公网地址</li>
+<li>proxy status 这里要把开关给关掉（暂时关掉不使用cdn，仅进行DNS解析）</li>
+</ul>
+<p>假如你在Cloudflare登记的域名为<code>abc.com</code>,在添加该条A记录的时候你为它写了一个<code>Name</code>叫做<code>cdn</code>，并且你把你的VPS 地址填进去了，把小黄云也关闭了，最后您确认并保存了该条解析。那么此时您使用ping工具<code>ping cdn.abc.com</code>时就能看到你绑定的IP地址。</p>
 <hr>
-<p>连通性测试用以测试节点的状态，其测试的数字越小越好，timeout代表节点无法连接使用。假如你有自己的国家位置需求，请根据节点状态和自己的需求结合选择需要的节点。</p>
-<p><img src="https://s2.loli.net/2025/09/23/w1tsx5VBdyRuHh9.png" alt="clipboard-image-1758637839.png"></p>
-<hr>
-<p>节点选择好后，点击这里的开关连接节点即可。</p>
+<h1 id="注意-1"><a href="#注意-1" class="headerlink" title="注意"></a>注意</h1><p>在使用内置脚本申请SSL证书时会需要添加你的Cloudflare Global API,请点击您右上角的CF头像，找到<strong>API Tokens</strong>，进入下面的<strong>API Keys</strong>选择<code>Global API Key</code>输入账号密码查看并复制内容：</p>
+<p><img src="https://s2.loli.net/2025/09/29/8h1SWc23qosuvBH.png" alt="clipboard-image-1759136757.png"></p>
+<p><img src="https://s2.loli.net/2025/09/29/sWL8KF6wcEI75vT.png" alt="clipboard-image-1759136783.png"></p>
+<p>在添加DNS解析到您的VPS之后就可以在面板中（3x-ui面板）中使用自带的脚本申请<code>Let’s Encrypt</code>的自签SSL证书。请在服务器中复制一份申请得到的证书信息到root文件夹下备用，请注意区分私钥和公钥。</p>
+<h1 id="打开小黄云"><a href="#打开小黄云" class="headerlink" title="打开小黄云"></a>打开小黄云</h1><p>此时请回到<strong>SSL&#x2F;TLS</strong>加密部分将之前添加的那条DNS记录设置页面，将之前添加的解析中关闭的小黄云打开（开启CDN）。</p>
+<p><strong>为什么之前添加DNS记录的时候不打开小黄云？</strong></p>
+<p style="color:red">因为打开CDN再申请SSL证书时证书供应商会将你期望的IP解析为错误的CDN IP，CDN生效意味着你的IP会被解析为CDN边缘服务器的IP，并不是你的源站IP，这也就会导致解析无效。所以必须先关闭CDN再申请证书，待证书申请完成后再重新打开CDN.</p>
+
 
       
     </div>
@@ -309,7 +349,7 @@ Shadowrocket是iPhone中常用的一个代理客户端，一般简称小火箭�
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/71/">71</a><a class="extend next" rel="next" href="/page/11/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/73/">73</a><a class="extend next" rel="next" href="/page/11/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -396,7 +436,7 @@ Shadowrocket是iPhone中常用的一个代理客户端，一般简称小火箭�
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">71</span>
+          <span class="site-state-item-count">73</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -409,7 +449,7 @@ Shadowrocket是iPhone中常用的一个代理客户端，一般简称小火箭�
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">76</span>
+        <span class="site-state-item-count">80</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -445,12 +485,12 @@ Shadowrocket是iPhone中常用的一个代理客户端，一般简称小火箭�
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">280k</span>
+    <span title="站点总字数">290k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">7:47</span>
+    <span title="站点阅读时长">8:03</span>
 </div>
 <!-- 网站运行时间的设置 -->
 <span id="timeDate">载入天数...</span>
