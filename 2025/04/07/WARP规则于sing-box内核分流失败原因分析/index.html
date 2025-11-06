@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"zmdcdn.ggff.net","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":330,"display":"hide","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null,"line_number":false},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":0},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"lvshuqi.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":330,"display":"hide","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null,"line_number":false},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":0},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="WARP规则于sing-box内核分流失败原因分析目前主流的代理客户端主要以三个内核为主：  X-ray内核  Sing-box内核  Clash内核(还有魔改的clash meta内核)    大部分自建节点都是以X-ray内核和sing-box内核为主，其代表为x-ui面板和s-ui。按使用人数来说X-ray面板的用户更多，由于sing-box内核和x-ray内核的运作原理不同，很多的参数都是">
 <meta property="og:type" content="article">
 <meta property="og:title" content="WARP规则于sing-box内核分流失败原因分析">
-<meta property="og:url" content="https://zmdcdn.ggff.net/2025/04/07/WARP%E8%A7%84%E5%88%99%E4%BA%8Esing-box%E5%86%85%E6%A0%B8%E5%88%86%E6%B5%81%E5%A4%B1%E8%B4%A5%E5%8E%9F%E5%9B%A0%E5%88%86%E6%9E%90/index.html">
+<meta property="og:url" content="https://lvshuqi.top/2025/04/07/WARP%E8%A7%84%E5%88%99%E4%BA%8Esing-box%E5%86%85%E6%A0%B8%E5%88%86%E6%B5%81%E5%A4%B1%E8%B4%A5%E5%8E%9F%E5%9B%A0%E5%88%86%E6%9E%90/index.html">
 <meta property="og:site_name" content="就这样&amp;巴">
 <meta property="og:description" content="WARP规则于sing-box内核分流失败原因分析目前主流的代理客户端主要以三个内核为主：  X-ray内核  Sing-box内核  Clash内核(还有魔改的clash meta内核)    大部分自建节点都是以X-ray内核和sing-box内核为主，其代表为x-ui面板和s-ui。按使用人数来说X-ray面板的用户更多，由于sing-box内核和x-ray内核的运作原理不同，很多的参数都是">
 <meta property="og:locale" content="zh_CN">
@@ -41,7 +41,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://s2.loli.net/2025/04/07/jLurQMpAKt6wkhf.png">
 
-<link rel="canonical" href="https://zmdcdn.ggff.net/2025/04/07/WARP%E8%A7%84%E5%88%99%E4%BA%8Esing-box%E5%86%85%E6%A0%B8%E5%88%86%E6%B5%81%E5%A4%B1%E8%B4%A5%E5%8E%9F%E5%9B%A0%E5%88%86%E6%9E%90/">
+<link rel="canonical" href="https://lvshuqi.top/2025/04/07/WARP%E8%A7%84%E5%88%99%E4%BA%8Esing-box%E5%86%85%E6%A0%B8%E5%88%86%E6%B5%81%E5%A4%B1%E8%B4%A5%E5%8E%9F%E5%9B%A0%E5%88%86%E6%9E%90/">
 
 
 <script id="page-configurations">
@@ -175,7 +175,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zmdcdn.ggff.net/2025/04/07/WARP%E8%A7%84%E5%88%99%E4%BA%8Esing-box%E5%86%85%E6%A0%B8%E5%88%86%E6%B5%81%E5%A4%B1%E8%B4%A5%E5%8E%9F%E5%9B%A0%E5%88%86%E6%9E%90/">
+    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/04/07/WARP%E8%A7%84%E5%88%99%E4%BA%8Esing-box%E5%86%85%E6%A0%B8%E5%88%86%E6%B5%81%E5%A4%B1%E8%B4%A5%E5%8E%9F%E5%9B%A0%E5%88%86%E6%9E%90/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">

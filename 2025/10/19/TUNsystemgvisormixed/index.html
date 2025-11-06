@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"zmdcdn.ggff.net","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":330,"display":"hide","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null,"line_number":false},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":0},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"lvshuqi.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":330,"display":"hide","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null,"line_number":false},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":0},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="TUN (虚拟网络栈)定义：TUN 是一种虚拟网路介面，工作在 OSI 模型的第三层（IP 层）。它不是一个实体硬体，而是一个软体驱动程式，允许使用者空间的程式像处理普通网路介面一样读取和写入 IP 封包。用途：当一个应用程式（例如 VPN 客户端）需要拦截或处理所有网路流量时，它会建立一个 TUN 栈。作业系统会将所有指定路由的流量发送到这个介面，然后应用程式从介面读取这些封包进行处理（例如加密">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TUN中三种路由区别">
-<meta property="og:url" content="https://zmdcdn.ggff.net/2025/10/19/TUNsystemgvisormixed/index.html">
+<meta property="og:url" content="https://lvshuqi.top/2025/10/19/TUNsystemgvisormixed/index.html">
 <meta property="og:site_name" content="就这样&amp;巴">
 <meta property="og:description" content="TUN (虚拟网络栈)定义：TUN 是一种虚拟网路介面，工作在 OSI 模型的第三层（IP 层）。它不是一个实体硬体，而是一个软体驱动程式，允许使用者空间的程式像处理普通网路介面一样读取和写入 IP 封包。用途：当一个应用程式（例如 VPN 客户端）需要拦截或处理所有网路流量时，它会建立一个 TUN 栈。作业系统会将所有指定路由的流量发送到这个介面，然后应用程式从介面读取这些封包进行处理（例如加密">
 <meta property="og:locale" content="zh_CN">
@@ -38,7 +38,7 @@
 <meta property="article:tag" content="编程">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://zmdcdn.ggff.net/2025/10/19/TUNsystemgvisormixed/">
+<link rel="canonical" href="https://lvshuqi.top/2025/10/19/TUNsystemgvisormixed/">
 
 
 <script id="page-configurations">
@@ -172,7 +172,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zmdcdn.ggff.net/2025/10/19/TUNsystemgvisormixed/">
+    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/10/19/TUNsystemgvisormixed/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
