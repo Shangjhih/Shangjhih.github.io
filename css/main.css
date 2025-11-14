@@ -1191,7 +1191,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #1cc332;
+  background: #8effff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2741,47 +2741,47 @@ figure.highlight pre code {
   padding: 0;
   margin: 0;
 }
-/* 让侧边栏内的每个区块（菜单、作者卡、spotify 等）占满同一宽度并对齐 */
-.sidebar-inner > * {
-  width: 100%;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 12px 18px;
-}
-/* 兼容常见模块类名，避免某个模块单独带边框/外距导致错位 */
-.site-overview,
-.site-state-wrap,
-.links-of-author,
-.links-of-blogroll,
-.profile-box,
+/* Spotify 嵌入：保证不出现外部滚动条、内容自适应、保持在侧栏内完整显示 */
 .spotify-player-independent,
-.widget,
-.panel,
-.site-state,
-.site-state-item {
+.spotify-player-independent .spotify-player-content {
   width: 100%;
   box-sizing: border-box;
-  margin: 0;
-  padding: 12px 18px;
+  padding: 0;
+  margin: 12px 0;
   background: transparent;
+  overflow: hidden;
+  display: block;
+}
+/* 使 iframe 占满容器宽度并限制高度为 Spotify 推荐值，避免内部出现滚动条 */
+.spotify-player-independent iframe {
+  display: block;
+  width: 92%;
+  height: 152px;
+  max-height: none;
   border: none;
+  border-radius: 8px;
   box-shadow: none;
+  overflow: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
-/* 悬停/焦点时防止边框或外发阴影改变宽度（解决蓝框/橘框悬停不对齐问题） */
-.sidebar-inner > *:hover,
-.sidebar-inner > *:focus {
-  outline: none;
-  box-shadow: none;
+/* 尝试隐藏 iframe 内部滚动条的常用选择器（对跨域 iframe 不一定生效，但可覆盖某些代理嵌入） */
+.spotify-player-independent iframe::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
 }
-/* 更小屏幕自适应 —— 恢复流式布局，避免固定宽度导致溢出 */
-@media (max-width: 991px) {
-  .sidebar,
-  .sidebar-inner {
-    width: auto;
-    padding-left: 0;
-    padding-right: 0;
+/* 若嵌入内容高度确实超出，请增加容器高度以完整显示（桌面端可调整为 200px 等）
+   建议：在主题配置或 site-overview.swig 中使用 theme.spotify.height 来控制高度 */
+.spotify-player-independent .spotify-player-content {
+  min-height: 152px;
+}
+/* 移动端：允许高度稍增以避免裁切，仍不显示滚动条 */
+@media (max-width: 767px) {
+  .spotify-player-independent iframe {
+    height: 180px;
   }
-  .sidebar-inner > * {
-    padding: 8px 12px;
+  .spotify-player-independent .spotify-player-content {
+    min-height: 180px;
   }
 }
