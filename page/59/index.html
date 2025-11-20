@@ -169,7 +169,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/04/12/Hexo-%E4%BE%A7%E8%BE%B9%E6%A0%8F%E9%85%8D%E7%BD%AE/">
+    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/05/10/MathType/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
@@ -183,7 +183,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2025/04/12/Hexo-%E4%BE%A7%E8%BE%B9%E6%A0%8F%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">Hexo 侧边栏配置</a>
+            <a href="/2025/05/10/MathType/" class="post-title-link" itemprop="url">MathType 运行时错误 错误代码53 文件未找到</a>
         </h2>
 
         <div class="post-meta">
@@ -193,14 +193,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2025-04-12 16:01:54" itemprop="dateCreated datePublished" datetime="2025-04-12T16:01:54+08:00">2025-04-12</time>
+              <time title="创建时间：2025-05-10 17:16:25" itemprop="dateCreated datePublished" datetime="2025-05-10T17:16:25+08:00">2025-05-10</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-06-11 21:23:41" itemprop="dateModified" datetime="2025-06-11T21:23:41+08:00">2025-06-11</time>
+                <time title="修改时间：2025-05-17 09:59:00" itemprop="dateModified" datetime="2025-05-17T09:59:00+08:00">2025-05-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -208,19 +208,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/%E9%97%AE%E9%A2%98%E5%A4%84%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">问题处理</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/%E9%97%AE%E9%A2%98%E5%A4%84%E7%90%86/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" itemprop="url" rel="index"><span itemprop="name">配置文件</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/%E9%97%AE%E9%A2%98%E5%A4%84%E7%90%86/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/%E5%8D%9A%E5%AE%A2/" itemprop="url" rel="index"><span itemprop="name">博客</span></a>
+                  <a href="/categories/MathType/" itemprop="url" rel="index"><span itemprop="name">MathType</span></a>
                 </span>
             </span>
 
@@ -230,14 +218,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.5k</span>
+              <span>295</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -249,59 +237,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Hexo侧边栏功能配置"><a href="#Hexo侧边栏功能配置" class="headerlink" title="Hexo侧边栏功能配置"></a>Hexo侧边栏功能配置</h1><blockquote>
-<p>1.修改_config.yml文件</p>
-</blockquote>
-<blockquote>
-<p>2.初始化功能区</p>
-</blockquote>
-<blockquote>
-<p>3.添加tags和categories参数</p>
-</blockquote>
-<h2 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h2><p>Hexo的配置文件在项目根目录，文件名称为<code>_config.yml</code></p>
-<p>在配置文件中添加一个名为<code>menu</code>的块，填入以下参数：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="attr">home:</span> <span class="string">/</span></span><br><span class="line">  <span class="attr">about:</span> <span class="string">/about</span></span><br><span class="line">  <span class="attr">categies:</span> <span class="string">/categories</span></span><br><span class="line">  <span class="attr">tags:</span> <span class="string">/tags</span></span><br><span class="line">  <span class="attr">archives:</span> <span class="string">/archives</span></span><br></pre></td></tr></table></figure>
+          <p>在安装 MathType 之后，打开 Word 时出现以下错误：</p>
+<p><img src="https://s2.loli.net/2025/05/17/LXsJrGa1WemfAg9.png" alt="483921321e5b5a0ecb29c4b94b45f0c.png"></p>
+<p><img src="https://s2.loli.net/2025/05/17/Wk5zjgKqtcQ6E1P.png" alt="c73cc140ac77970a92161e049326783.png"></p>
+<p>这可能是由于之前多次安装过 MathType，导致MathType.wll文件的路径出现在不符合当前word版本的路径中。导致的无法识别，进而出现这种让你重启word重新配置的错误。也可能是多次安装Office导致的。</p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>进入MathType的安装目录，进入安装目录下的MathPage文件夹，进入其下面的<code>64</code> 文件夹，找到<code>MathPage.wll</code>文件，复制该文件。随后在桌面右键Word图标，点击进入文件的安装位置。<br>在安装位置下粘贴<code>MathPage.wll</code>文件，点击替换文件。随后重新打开Word，MathType就不会弹出错误了。</p>
 
-<p>最好保证该代码块与前后代码块各距三行。</p>
-<hr>
-<h2 id="初始化功能区"><a href="#初始化功能区" class="headerlink" title="初始化功能区"></a>初始化功能区</h2><h3 id="生成配置"><a href="#生成配置" class="headerlink" title="生成配置"></a>生成配置</h3><p>在项目的根目录使用以下命令对以下三个参数进行初始化</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo new page about</span><br><span class="line">hexo new page tags</span><br><span class="line">hexo new page categories</span><br></pre></td></tr></table></figure>
-
-<p>生成的文件夹在<code>source</code>目录,分别有以下三个</p>
-<blockquote>
-<p>- tags<br>- about<br>- categories </p>
-</blockquote>
-<p>每个文件夹下都会有一个叫做<code>index.md</code>的文件，这就是初始化生成的文件。</p>
-<h3 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a>修改配置</h3><p>三个文件分别添加<code>type</code>和<code>layout</code>两个参数，每个参数都对应各自文件的名字</p>
-<p><em><strong>about下index.md</strong></em></p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">about</span></span><br><span class="line"><span class="attr">date:</span> <span class="string">XXXX-XX-XX</span> <span class="string">XX:XX:XX</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">&quot;about&quot;</span>                <span class="comment"># 添加此行</span></span><br><span class="line"><span class="attr">layout:</span> <span class="string">&quot;about&quot;</span>              <span class="comment"># 添加此行</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
-
-<p><em><strong>tags下index.md</strong></em></p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">about</span></span><br><span class="line"><span class="attr">date:</span> <span class="string">XXXX-XX-XX</span> <span class="string">XX:XX:XX</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">&quot;tags&quot;</span>                <span class="comment"># 添加此行</span></span><br><span class="line"><span class="attr">layout:</span> <span class="string">&quot;tags&quot;</span>              <span class="comment"># 添加此行</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p><em><strong>categories下index.md</strong></em></p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">about</span></span><br><span class="line"><span class="attr">date:</span> <span class="string">XXXX-XX-XX</span> <span class="string">XX:XX:XX</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">&quot;categories&quot;</span>                <span class="comment"># 添加此行</span></span><br><span class="line"><span class="attr">layout:</span> <span class="string">&quot;categories&quot;</span>              <span class="comment"># 添加此行</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="添加参数"><a href="#添加参数" class="headerlink" title="添加参数"></a>添加参数</h3><p>在每一个文章中都添加<code>tags</code>、<code>categories</code>两个参数，参数后跟上你文章的内容方向和类型，写在每个参数后面且严格按照规范进行，以下为文章开头的举例</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: Cloudflare WARP 出口代理学习笔记</span><br><span class="line">date: 2025-04-05 13:16:57</span><br><span class="line">tags:</span><br><span class="line"><span class="bullet">    -</span> tag1</span><br><span class="line"><span class="bullet">    -</span> tag2</span><br><span class="line"><span class="bullet">    -</span> tag3</span><br><span class="line"><span class="bullet">    -</span> tag4</span><br><span class="line">categories:</span><br><span class="line"><span class="bullet">    -</span> categories1</span><br><span class="line"><span class="bullet">    -</span> categories2</span><br><span class="line"><span class="bullet">    -</span> categories3</span><br><span class="line"><span class="section">    - categories4</span></span><br><span class="line"><span class="section">---</span></span><br></pre></td></tr></table></figure>
-
-<p><code>tags</code>和<code>categories</code>使用符号<code>-</code>隔开可以为文章添加多个类型，也可以添加单个类型。<br>##############################################################################</p>
-<p style="color:red;font-weight:bold">所有配置文件修改后记得保存!!!</p>
-
-<p>##############################################################################</p>
-<p>确定修改无误后使用</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>生成静态文件</p>
-<hr>
-<p>使用命令</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>将生成的静态页面通过<code>git</code>推送到GitHub action生成网页。<br>##############################################################################<br>                            <em><strong>All Done</strong></em><br>##############################################################################</p>
-<p style="color:red;font-weight:bold">Attention!!!注意yaml的语法规范</p>
       
     </div>
 
@@ -319,7 +260,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/58/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/58/">58</a><span class="page-number current">59</span><a class="page-number" href="/page/60/">60</a><span class="space">&hellip;</span><a class="page-number" href="/page/75/">75</a><a class="extend next" rel="next" href="/page/60/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/58/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/58/">58</a><span class="page-number current">59</span><a class="page-number" href="/page/60/">60</a><span class="space">&hellip;</span><a class="page-number" href="/page/77/">77</a><a class="extend next" rel="next" href="/page/60/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -406,7 +347,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">75</span>
+          <span class="site-state-item-count">77</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -455,12 +396,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">306k</span>
+    <span title="站点总字数">323k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">8:30</span>
+    <span title="站点阅读时长">8:59</span>
 </div>
 <!-- 网站运行时间的设置 -->
 <span id="timeDate">载入天数...</span>
