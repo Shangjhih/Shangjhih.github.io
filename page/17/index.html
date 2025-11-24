@@ -169,7 +169,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/09/22/3x-ui%E9%9D%A2%E6%9D%BF%E4%B8%ADWARP%E5%88%86%E6%B5%81%E8%AE%BE%E7%BD%AE/">
+    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/09/23/Shadowrocket%E8%A7%84%E5%88%99%E3%80%81%E6%A8%A1%E5%9D%97-%E5%88%86%E6%B5%81%E5%8F%8A%E8%A7%A3%E9%94%81/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
@@ -183,7 +183,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2025/09/22/3x-ui%E9%9D%A2%E6%9D%BF%E4%B8%ADWARP%E5%88%86%E6%B5%81%E8%AE%BE%E7%BD%AE/" class="post-title-link" itemprop="url">3X-UI面板扩展功能-WARP分流</a>
+            <a href="/2025/09/23/Shadowrocket%E8%A7%84%E5%88%99%E3%80%81%E6%A8%A1%E5%9D%97-%E5%88%86%E6%B5%81%E5%8F%8A%E8%A7%A3%E9%94%81/" class="post-title-link" itemprop="url">ShadowRocket规则、模块(分流及解锁)</a>
         </h2>
 
         <div class="post-meta">
@@ -192,10 +192,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2025-09-22 14:50:12 / 修改时间：16:39:28" itemprop="dateCreated datePublished" datetime="2025-09-22T14:50:12+08:00">2025-09-22</time>
+              <time title="创建时间：2025-09-23 21:48:37" itemprop="dateCreated datePublished" datetime="2025-09-23T21:48:37+08:00">2025-09-23</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-09-24 16:34:40" itemprop="dateModified" datetime="2025-09-24T16:34:40+08:00">2025-09-24</time>
+              </span>
 
           <br>
             <span class="post-meta-item" title="本文字数">
@@ -203,14 +209,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>4.5k</span>
+              <span>1.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>7 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -222,117 +228,69 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="功能简介"><a href="#功能简介" class="headerlink" title="功能简介"></a>功能简介</h1><h2 id="WARP背景及目标"><a href="#WARP背景及目标" class="headerlink" title="WARP背景及目标"></a>WARP背景及目标</h2><p>Cloudflare WARP旨在为移动设备与互联网之间建立更安全、更快速的连接。它基于Cloudflare遍布全球的庞大数据中心网络，目的是通过加密用户流量提高隐私保护，同时利用智能路由优化网络性能。WARP并非传统VPN，设计上更注重连接速度和可靠性，而非匿名和IP定位变更。</p>
-<h2 id="Cloudflare网络架构基础"><a href="#Cloudflare网络架构基础" class="headerlink" title="Cloudflare网络架构基础"></a>Cloudflare网络架构基础</h2><p>Cloudflare拥有194个城市、90多个国家的数据中心，采用Anycast IP地址宣布技术使流量自动路由到最近的数据中心。每个数据中心使用高效的网络路由器而非传统负载均衡器，将流量根据ECMP（Equal-Cost Multi-Path）策略分配给多个服务器。ECMP通过源IP和端口、目的IP和端口的四元组保证同一TCP连接的所有数据包都落在同一台服务器，确保数据包的顺序和连接的连续性。</p>
-<img src="https://s2.loli.net/2025/09/22/EuXK3kWFCUN6Q8p.png" alt="image.png" style="zoom:67%;" />
+          <img src="https://s2.loli.net/2025/09/23/OW2MTZ7rvBXdkL8.png" alt="clipboard-image-1758635852.png" style="zoom:25%;" />
+Shadowrocket是iPhone中常用的一个代理客户端，一般简称小火箭（下文统称小火箭）。该软件是一款基于规则的代理客户端，主要面向 iOS 系统，允许用户通过代理服务器管理和路由互联网流量，从而增强安全性和隐私性，并访问受地理限制的内容。它通过应用自定义的域名匹配规则、IP 地址和地理位置，将流量引导至不同的代理服务器，并提供广告拦截、HTTPS 解密和各种代理协议支持等高级功能。虽然这款应用可以从 App Store 购买，但它并不直接提供代理；用户必须自行获取代理服务或 VPN 订阅才能使用该应用。
 
-<h2 id="WARP面临的路由和连接挑战"><a href="#WARP面临的路由和连接挑战" class="headerlink" title="WARP面临的路由和连接挑战"></a>WARP面临的路由和连接挑战</h2><p>WARP利用基于现代WireGuard协议的加密隧道，通过UDP传输加密数据包。WireGuard以简洁、安全、高性能著称，采用公钥加密进行会话密钥协商，保证数据包只有目标服务器能解密。</p>
-<p>与传统Web请求相比，WARP连接的持续时间远长于一般TCP连接，且用户设备经常切换网络（如移动网络与Wi-Fi切换），导致源IP和源端口频繁变化。加之NAT（网络地址转换）导致端口映射短暂，端口变化导致ECMP路由的四元组变化，流量可能被分配至不同服务器，破坏加密会话，导致连接断开，这成为WARP最大难题。</p>
-<p>为解决此问题，Cloudflare创造性地绕过传统ECMP限制，通过内部负载均衡机制，先将数据包路由到任意一台服务器，再由该服务器根据WARP客户端提供的唯一标识clientid转发给正确的会话服务器。clientid被嵌入WireGuard协议头部未使用的3字节空间，允许服务器在解密前识别流量归属，保证即使设备IP或端口变化，数据包始终能到达同一台服务器，从而保持连接稳定。</p>
-<h2 id="WireGuard协议的巧妙应用"><a href="#WireGuard协议的巧妙应用" class="headerlink" title="WireGuard协议的巧妙应用"></a>WireGuard协议的巧妙应用</h2><p>WireGuard使用UDP而非TCP，降低了协议头开销和重传复杂度，包内携带完整TCP头数据，结合TCP的可靠传输机制，既保证性能，又确保数据可靠性。WireGuard会定期更换密钥增强安全性，但这带来了连接持久性的新挑战，Cloudflare通过clientid机制有效应对这些问题。<a target="_blank" rel="noopener" href="https://blog.cloudflare.com/warp-technical-challenges/">cloudflare</a></p>
-<h2 id="软件实现与平台适配"><a href="#软件实现与平台适配" class="headerlink" title="软件实现与平台适配"></a>软件实现与平台适配</h2><p>Cloudflare第一次大规模开发跨多个移动平台的底层网络客户端，克服了iOS、Android提供的网络API性能限制和BUG，特别是在iOS中，处理大量UDP数据包时遇到系统缓冲区限制（ENOBUFS错误）和连接管理复杂性。为此他们采用兼容机制（类似Happy Eyeballs技术）在IPv4和IPv6之间选择最快连接，增强IPv6支持，合理调度连接重建，最大化性能与稳定性。<a target="_blank" rel="noopener" href="https://blog.cloudflare.com/warp-technical-challenges/">cloudflare</a></p>
-<h2 id="智能路由与加速（WARP-）"><a href="#智能路由与加速（WARP-）" class="headerlink" title="智能路由与加速（WARP+）"></a>智能路由与加速（WARP+）</h2><p>WARP整合了Cloudflare的Argo智能路由技术，类似互联网的“交通GPS”，动态选择最快路径传输流量。Argo原为HTTP应用加速设计，WARP将其升级为支持全协议流量的路径优化。非Cloudflare托管的HTTP流量通过HTTP CONNECT协议转发至目标服务器，保持透明隧道加速，同时提供速度和安全提升。</p>
-<p style="color: red ; font-size: 19px">
- 简单来说就是：cloudfalre使用自己位于世界各地的边缘服务器通过客户端的分流技术以及wireguard协议并整合来为用户选择最佳的连接节点，以此加速用户的网络访问（同时具有类似VPN的匿名特征）。
-</p>
-
+<p><strong>注意</strong></p>
+<p>该软件仅仅在非国区的app store上架，且售价为2.99$.因appstore可以在其他设备并下载已经购买的产品，所以这里我将会提供一个<a target="_blank" rel="noopener" href="https://id.bocchi.vip/">共享Apple ID</a>的网站，请各位用户严格按照网站提示登录使用，避免被锁机。在使用该服务的时候遵循网站要求的规范是对其他人的尊重，你的错误操作（二次验证）可能会导致其他用户无法再使用该账号。</p>
 <hr>
-<h1 id="WARP-installation-on-Linux"><a href="#WARP-installation-on-Linux" class="headerlink" title="WARP installation on Linux"></a>WARP installation on Linux</h1><p style="color: red ; font-size: 19px">
-安装WARP前提是：您的系统已经安装好3X-UI且已测试通过。<br>
-    WARP仅仅是辅助进行分流的，主要代理任务依旧是Xray内核承担。
-</p>
-
-<p style="color: green ; font-size: 18px">
-    因apt和yum的存储库中并没有warp的包，所以请根据您的系统选择使用以下的提示步骤安装cloudfalre gpg key后再拉取软件包。
-</p>
-
-<p><strong>Linux Support List</strong></p>
+<h1 id="功能介绍"><a href="#功能介绍" class="headerlink" title="功能介绍"></a>功能介绍</h1><p>小火箭是一个支持代理协议和机场订阅的一个客户端，但并不是俗称的VPN软件。使用使用该软件进行网络代理前请准备好你的机场订阅链接，该链接将作为提供接入点的来源。</p>
+<p>小火箭还可以通过导入他人做好的配置文件(.conf)来实现流量重写，主要应用是解锁流媒体服务，去广告。</p>
+<h1 id="基础使用方法"><a href="#基础使用方法" class="headerlink" title="基础使用方法"></a>基础使用方法</h1><h2 id="导入节点"><a href="#导入节点" class="headerlink" title="导入节点"></a>导入节点</h2><h3 id="通过机场网页导入"><a href="#通过机场网页导入" class="headerlink" title="通过机场网页导入"></a>通过机场网页导入</h3><p>首先在【Safari】登陆到你买订阅的网站，在网站的主页会提示一个【一键订阅】，点击【一键订阅】后提示可以选择导入的项目，请选择【导入到Sadowrocket】。随后safari会提示是否打开Shadowrocket，点击允许即可成功导入订阅，在主页就可以看到已经导入的节点列表。</p>
 <table>
 <thead>
 <tr>
-<th><strong>OS version</strong></th>
-<th>CentOS 8, RHEL 8, Debian 10, Debian 11, Debian 12, Fedora 34, Fedora 35, Ubuntu 20.04, Ubuntu 22.04, Ubuntu 24.04</th>
+<th><img src="https://s2.loli.net/2025/09/24/KidhOCpFv7Ttb9N.png" alt="clipboard-image-1758701358.png"></th>
+<th><img src="https://s2.loli.net/2025/09/24/bQ7wxaHpihDMA64.png" alt="clipboard-image-1758700812.png"  /></th>
 </tr>
 </thead>
-<tbody><tr>
-<td><strong>Processor</strong></td>
-<td>AMD64 &#x2F; x86-64 or ARM64 &#x2F; AArch64</td>
-</tr>
+</table>
+<h3 id="通过订阅链接导入"><a href="#通过订阅链接导入" class="headerlink" title="通过订阅链接导入"></a>通过订阅链接导入</h3><p>首先登陆你的机场网站，在机场网站的服务中找到导入节点的位置，找到【复制订阅地址】，订阅链接会被复制到粘贴板上。打开小火箭，点击右上角的加号，在【类型】处选择<code>Subscribe</code>,【URL】处填入复制好的订阅链接地址，点击右上角的【保存】即可成功导入。</p>
+<table>
+<thead>
 <tr>
-<td><strong>HD space</strong></td>
-<td>75 MB</td>
+<th><img src="https://s2.loli.net/2025/09/24/NTa4kvn2Ro9rYlJ.png" alt="clipboard-image-1758701274.png"></th>
+<th><img src="https://s2.loli.net/2025/09/24/7u3GSHFjO96biIn.png" alt="clipboard-image-1758700592.png"></th>
+<th><img src="https://s2.loli.net/2025/09/24/D4U9tmT8IXMz1WF.png" alt="clipboard-image-1758700737.png"></th>
+<th><img src="https://s2.loli.net/2025/09/24/bQ7wxaHpihDMA64.png" alt="clipboard-image-1758700812.png"></th>
 </tr>
+</thead>
+</table>
+<h2 id="连接节点"><a href="#连接节点" class="headerlink" title="连接节点"></a>连接节点</h2><p>在确保所有节点已经导入之后，接下来需要检测结点的可用性（节点并不是一直有效，随时可能失联）。首先展开你导入的节点，确保可以看见所有节点。点击【连通性测试】右边的蓝色符号，将原来的<code>TCP</code>修改为<code>CONNECT</code>并返回，在主页点击【连通性测试】检查节点的连接状态。</p>
+<table>
+<thead>
 <tr>
-<td><strong>Memory</strong></td>
-<td>35 MB</td>
+<th><img src="https://s2.loli.net/2025/09/24/8hC3aVQDzfik4Bn.png" alt="clipboard-image-1758702492.png" style="zoom:67%;" /></th>
+<th><img src="https://s2.loli.net/2025/09/24/Ny1mou5vBRwZAE2.png" alt="clipboard-image-1758702586.png" style="zoom:67%;" /></th>
 </tr>
-<tr>
-<td><strong>Network interface type</strong></td>
-<td>WIFI or LAN</td>
-</tr>
-<tr>
-<td><strong>Minimum MTU</strong></td>
-<td>1360 bytes1</td>
-</tr>
-</tbody></table>
-<p><strong>Warnning</strong></p>
-<p>以上是WARP在不同Linux发行版的支持列表，请根据自己服务器的具体系统版本来确认您的服务器是否支持WARP.一般情况下我们都会选择使用Debian或者Ubuntu作为选定系统使用，但是有个别玩家可能会选择CentOS使用，这都是在支持列表的。在旧版本的系统中安装最新版本的3x-ui面板时可能会出现<code>libssl版本过低</code>的问题，此时请进行系统更新。保证您的Ubuntu版本为<code>Ubuntu 22.04.5 LTS</code>或者更新。如在安装面板过程中出现问题。可尝试使用低版本的面板或者在线更新您的系统。</p>
-<h2 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a>Ubuntu</h2><p>The supported releases are:</p>
+</thead>
+</table>
+<p>在进行连通性测试后，节点后面会出现数字，该数字指的是节点的真连接延迟（也就是实际的网络质量，该值越小越好），当节点后显示<code>timeout</code>时就表示该节点无法正常使用，请切换带有延迟的节点。</p>
+<p>点击某节点即代表选择某节点作为代理服务器，被选节点前面会出现一个曾色的点，这就表示节点已经被选中，可以进行连接。</p>
+<p>【全局路由】处必须为<code>配置</code>，如无别的额外其需求请不要切换为其它选项，配置指的是网络流量跟随配置文件选择性代理，国内的不代理，国外的代理（该文件由Geosite和GeoIP决定）。随后点击开关就可以连接节点。</p>
+<h1 id="高级用法-添加配置"><a href="#高级用法-添加配置" class="headerlink" title="高级用法-添加配置"></a>高级用法-添加配置</h1><p>假如你有解锁Spotify或者各种相关需求，可以在配置文件中添加模块以获取额外的插件支持。相关的插件在以下网页有提供，请自行查看列表寻找适合自己的服务。</p>
+<p><a target="_blank" rel="noopener" href="https://whatshub.top/shadowrocket">插件地址</a></p>
+<p><img src="https://s2.loli.net/2025/09/23/P9TmdGwAJk5xLfj.png" alt="clipboard-image-1758637298.png"></p>
+<p>直接点击你需要的功能，网站或提示跳转到小火箭安装i相关功能，或者你可以到小火箭的【配置】界面手动添加或导入。</p>
+<img src="https://s2.loli.net/2025/09/23/rvHmsaPe2iXZchL.png" alt="image.png" style="zoom:80%;" />
+
+<img src="https://s2.loli.net/2025/09/23/kOhFWsNulMJySga.png" alt="clipboard-image-1758637490.png" style="zoom:80%;" />
+
 <ul>
-<li>Noble (24.04)</li>
-<li>Jammy (22.04)</li>
-<li>Focal (20.04)</li>
-</ul>
-<p>Older builds exist for:</p>
-<ul>
-<li>Bionic (18.04)</li>
-<li>Xenial (16.04)</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 添加 cloudflare gpg key</span><br><span class="line">curl -fsSL https://pkg.cloudflareclient.com/pubkey.gpg | sudo gpg --yes --dearmor --output /usr/share/keyrings/cloudflare-warp-archive-keyring.gpg</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 将此 repo 添加到您的 apt 存储库</span><br><span class="line">echo &quot;deb [signed-by=/usr/share/keyrings/cloudflare-warp-archive-keyring.gpg] https://pkg.cloudflareclient.com/ $(lsb_release -cs) main&quot; | sudo tee /etc/apt/sources.list.d/cloudflare-client.list</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 安装</span><br><span class="line">sudo apt-get update &amp;&amp; sudo apt-get install cloudflare-warp</span><br></pre></td></tr></table></figure>
-
-<h2 id="Debian"><a href="#Debian" class="headerlink" title="Debian"></a>Debian</h2><p>The supported releases are:</p>
-<ul>
-<li>Bookworm (12)</li>
-<li>Bullseye (11)</li>
-<li>Buster (10)</li>
-</ul>
-<p>Older builds exist for:</p>
-<ul>
-<li>Stretch (9)</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 添加 cloudflare gpg key</span><br><span class="line">curl -fsSL https://pkg.cloudflareclient.com/pubkey.gpg | sudo gpg --yes --dearmor --output /usr/share/keyrings/cloudflare-warp-archive-keyring.gpg</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 将此 repo 添加到您的 apt 存储库</span><br><span class="line">echo &quot;deb [signed-by=/usr/share/keyrings/cloudflare-warp-archive-keyring.gpg] https://pkg.cloudflareclient.com/ $(lsb_release -cs) main&quot; | sudo tee /etc/apt/sources.list.d/cloudflare-client.list</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 安装</span><br><span class="line">sudo apt-get update &amp;&amp; sudo apt-get install cloudflare-warp</span><br></pre></td></tr></table></figure>
-
-<h2 id="Red-Hat-Enterprise-Linux-CentOS"><a href="#Red-Hat-Enterprise-Linux-CentOS" class="headerlink" title="Red Hat Enterprise Linux &amp; CentOS"></a>Red Hat Enterprise Linux &amp; CentOS</h2><p>Install the repository with yum (replace <VERSION> with the release version number):<br>The supported versions are:</p>
-<ul>
-<li>8</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Add cloudflare-warp.repo to /etc/yum.repos.d/</span><br><span class="line">curl -fsSl https://pkg.cloudflareclient.com/cloudflare-warp-ascii.repo | sudo tee /etc/yum.repos.d/cloudflare-warp.repo</span><br><span class="line"></span><br><span class="line"># Update repo</span><br><span class="line">sudo yum update</span><br><span class="line"></span><br><span class="line"># Install</span><br><span class="line">sudo yum install cloudflare-warp</span><br></pre></td></tr></table></figure>
-
-<h2 id="初始化WARP"><a href="#初始化WARP" class="headerlink" title="初始化WARP"></a>初始化WARP</h2><p>依次运行以下命令即可按预期启动服务并开启需要的端口（该端口在内部开放，不需要在防火墙开放端口）</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">warp-cli registration new </span><br><span class="line"></span><br><span class="line">warp-cli connect</span><br><span class="line"></span><br><span class="line">warp-cli set-mode proxy</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>使用以下命令查看从40000端口获取到的IP是否和vps实际IP不同</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -4 ip.gs -x socks5://127.0.0.1:40000</span><br></pre></td></tr></table></figure>
-
-<p>最后使用命令<code>warp-cli status</code>查看服务状态。</p>
-<h2 id="添加WARP-key"><a href="#添加WARP-key" class="headerlink" title="添加WARP++ key"></a>添加WARP++ key</h2><p>从Telegram群组<a target="_blank" rel="noopener" href="https://t.me/warpplus">Warp Plus - Free VPN Keys</a>获取KEY并将其填入到面板的【Xray设置】–【出站规则】–【☁WARP】。<br><img src="https://s2.loli.net/2025/09/22/jKxk35gLXvBcwrp.png" alt="clipboard-image-1758530231.png"></p>
-<p>添加完成后点击更新即可获取几乎无限多的WARP流量。</p>
-<h2 id="出站规则"><a href="#出站规则" class="headerlink" title="出站规则"></a>出站规则</h2><p>在面板的<code>Xray设置</code>–<code>出站规则</code>中添加一个叫做<code>warp</code>的规则，将协议设置为<code>socks</code>,标签为<code>warp</code>,地址为<code>127.0.0.1</code>.端口设置为<code>40000</code>,点击确定并添加。<br><img src="https://s2.loli.net/2025/09/22/MytxWpAo71Okws2.png" alt="image.png" style="zoom: 50%;" /></p>
-<h2 id="路由规则"><a href="#路由规则" class="headerlink" title="路由规则"></a>路由规则</h2><p>新建一个路由规则，将<code>Outbound Tags</code>标签设置为出站规则的<code>warp</code>,添加规则。</p>
-<h2 id="WARP路由"><a href="#WARP路由" class="headerlink" title="WARP路由"></a>WARP路由</h2><p>在<code>Xray设置</code>中的【基础配置】内找到【WARP路由】，在框内填入你需要进行代理的域名，比如<code>ecosia.org</code>.ecosia是一个搜索引擎，但是会对可以IP及逆行拦截要求进行cloudflare验证，而WARP路由则可以将你的节点流量路由到cloudfalre网络，使得ecosia将你的流量是识别为cloudfalre自己的流量，借此突破5秒盾。也就是说，此时通往ecosia的流量在经过VPS时会被WARP识别并拦截，WARP将拦截到的数据包转送至cloudflare边缘服务器，由边缘服务器代为访问（此时的IP就会是边缘服务器IP，以隐藏自身IP并突破5秒盾）。</p>
-<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>以下是开启WARP路由前后访问ecosia的页面：</p>
-<img src="https://s2.loli.net/2025/09/22/vdhyDg1M5w4tI6X.png" alt="clipboard-image-1758528545.png" style="zoom:50%;" />
-
-<img src="https://s2.loli.net/2025/09/22/hRlmIVjgko2PUWb.png" alt="clipboard-image-1758528465.png" style="zoom:50%;" />
-
-<p>借此分流即可突破指定网站的cloudfalre WAF防御。</p>
-<img src="https://s2.loli.net/2025/09/22/uLD4pvRWbsZOc3J.png" alt="image.png" style="zoom: 60%;" />
-<img src="https://s2.loli.net/2025/09/22/n5zWpldfbriq1XE.png" alt="clipboard-image-1758528994.png" style="zoom: 50%;" />
-
+<li><ol>
+<li>右上角的加号是通过连接添加模块的，假如你有某个模块的链接，可以通过该选项导入模块。</li>
+<li>新建模块指的是你手动将模块的内容复制进去，和右上角的加号添加功能是一样的，一个需要联网下载一个不需要。</li>
+<li>点击你已经下载或导入的模块，当模块后边有一个对勾的时候表明你的模块已经被应用到网路i流量中，也就是模块的开关，点击开启点击关闭。</li>
+</ol>
 <hr>
-<h2 id="劣势"><a href="#劣势" class="headerlink" title="劣势"></a>劣势</h2><p>通过该方式进行的分流仅仅可以代理【WARP路由】中添加的服务域名，并不是全局代理！！！</p>
-<p>如需要进行全局代理，请参考【<a target="_blank" rel="noopener" href="https://github.com/ViRb3/wgcf">wgcf项目</a>】</p>
-<p>WARP靠的是在本地创建一个socks代理，通过面板将流量重定向到Cloudfalre边缘服务器。只能代理列表中的域名服务。和局域网代理的逻辑差不多。</p>
+</li>
+</ul>
+<p>主页的全局路由选项一定要设置为【配置】<br><img src="https://s2.loli.net/2025/09/23/QJtRbUYlznsK5id.png" alt="clipboard-image-1758637746.png"></p>
+<hr>
+<p>连通性测试用以测试节点的状态，其测试的数字越小越好，timeout代表节点无法连接使用。假如你有自己的国家位置需求，请根据节点状态和自己的需求结合选择需要的节点。</p>
+<p><img src="https://s2.loli.net/2025/09/23/w1tsx5VBdyRuHh9.png" alt="clipboard-image-1758637839.png"></p>
+<hr>
+<p>节点选择好后，点击这里的开关连接节点即可。</p>
 
       
     </div>
@@ -351,7 +309,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/16/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><span class="page-number current">17</span><a class="page-number" href="/page/18/">18</a><span class="space">&hellip;</span><a class="page-number" href="/page/77/">77</a><a class="extend next" rel="next" href="/page/18/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/16/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><span class="page-number current">17</span><a class="page-number" href="/page/18/">18</a><span class="space">&hellip;</span><a class="page-number" href="/page/78/">78</a><a class="extend next" rel="next" href="/page/18/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -438,7 +396,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">77</span>
+          <span class="site-state-item-count">78</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -487,12 +445,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">323k</span>
+    <span title="站点总字数">331k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">8:59</span>
+    <span title="站点阅读时长">9:12</span>
 </div>
 <!-- 网站运行时间的设置 -->
 <span id="timeDate">载入天数...</span>
