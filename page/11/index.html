@@ -169,7 +169,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/10/19/TUNsystemgvisormixed/">
+    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/10/26/FTP-Error-code/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
@@ -183,7 +183,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2025/10/19/TUNsystemgvisormixed/" class="post-title-link" itemprop="url">TUN中三种路由区别</a>
+            <a href="/2025/10/26/FTP-Error-code/" class="post-title-link" itemprop="url">FTP文件传输200 Binary type set 227 Entering Passive Mode</a>
         </h2>
 
         <div class="post-meta">
@@ -192,10 +192,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2025-10-19 13:59:23 / 修改时间：14:42:56" itemprop="dateCreated datePublished" datetime="2025-10-19T13:59:23+08:00">2025-10-19</time>
+              <time title="创建时间：2025-10-26 22:24:00" itemprop="dateCreated datePublished" datetime="2025-10-26T22:24:00+08:00">2025-10-26</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-10-27 12:58:47" itemprop="dateModified" datetime="2025-10-27T12:58:47+08:00">2025-10-27</time>
+              </span>
 
           <br>
             <span class="post-meta-item" title="本文字数">
@@ -203,14 +209,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.2k</span>
+              <span>127</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -222,66 +228,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="TUN-虚拟网络栈"><a href="#TUN-虚拟网络栈" class="headerlink" title="TUN (虚拟网络栈)"></a>TUN (虚拟网络栈)</h1><p><strong>定义：</strong><code>TUN</code> 是一种虚拟网路介面，工作在 <code>OSI </code>模型的第三层（<code>IP 层</code>）。它不是一个实体硬体，而是一个软体驱动程式，允许使用者空间的程式像处理普通网路介面一样读取和写入 IP 封包。<br><strong>用途：</strong>当一个应用程式（例如 VPN 客户端）需要拦截或处理所有网路流量时，它会建立一个 <code>TUN</code> 栈。作业系统会将所有指定路由的流量发送到这个介面，然后应用程式从介面读取这些封包进行处理（例如加密）。处理完成后，应用程式再将封包写回介面，由作业系统发送到网路。</p>
-<h2 id="TUN-的L3→L4-转换"><a href="#TUN-的L3→L4-转换" class="headerlink" title="TUN 的L3→L4 转换"></a>TUN 的L3→L4 转换</h2><p>用户空间的代理收到来自 TUN 的原始 IP 包（例如一个目标 IP&#x2F;端口的 <code>TCP SYN</code>），需要把这个 IP 包“翻译&#x2F;组装”成一个用户空间的 <code>TCP/UDP socket</code>（或把它交给系统内核栈）去建立连接并转发。这个过程叫 L3→L4 assemble（把 <code>IP</code> 包组装为<code> TCP/UDP</code> 连接）。不同实现选择把这项工作用<strong>系统内核栈</strong>来做，或用<strong>用户态的网络栈</strong>（如<code> gVisor</code> 风格实现）来做。<code>sing-box/sing-tun </code>就实现了这几种策略。</p>
-<h1 id="system-gvisor-mixed三种stack的区别与应用"><a href="#system-gvisor-mixed三种stack的区别与应用" class="headerlink" title="system gvisor mixed三种stack的区别与应用"></a>system gvisor mixed三种stack的区别与应用</h1><h2 id="system"><a href="#system" class="headerlink" title="system"></a>system</h2><p>把接收到的 L3 包交由操作系统内核网络栈去处理（即在内核&#x2F;系统层面建立&#x2F;转发 <code>TCP/UDP </code>连接）。代理做的工作是路由与转发决策，但不重新实现<code> TCP/UDP</code>。</p>
-<p><strong>优点：</strong>与系统兼容性最好、对 OS 现有防火墙 &#x2F; 路由规则亲和（通常延迟和 CPU 负载较低）。</p>
-<p><strong>缺点：</strong>需要对系统防火墙与路由做更多配置（比如在 Linux 上可能需要 <code>nftables/iproute2 </code>的配合），在一些平台（或 sandbox 环境）无法轻易修改内核路由规则时不方便。<br><strong>实现方式</strong>： - 完全依赖操作系统的<code>TCP/IP</code>协议栈</p>
-<ul>
-<li><p>代理程序直接从TUN设备读取完整的IP数据包 </p>
-</li>
-<li><p>由系统内核完成TCP连接管理、拥塞控制、重传等<br><strong>特点</strong>：</p>
-</li>
-<li><p>✅ 性能最高（内核态处理，零拷贝优化） </p>
-</li>
-<li><p>✅ 兼容性最好（完全符合RFC标准）</p>
-</li>
-<li><p>❌ 需要内核级别权限 </p>
-</li>
-<li><p>❌ 在某些平台（如Android）可能受限</p>
-</li>
-</ul>
-<p><strong>System模式问题</strong>：</p>
-<ul>
-<li>系统内核的TCP栈可能有一些”优化”行为（如窗口缩放、时间戳选项、快速打开）</li>
-<li>经过Hysteria2的UDP封装后，这些特性的时序可能被打乱</li>
-<li>某些网站的防火墙&#x2F;负载均衡器可能误判为异常流量</li>
-</ul>
-<h2 id="gVisor"><a href="#gVisor" class="headerlink" title="gVisor"></a>gVisor</h2><p>在用户空间实现一个虚拟的网络协议栈（受 gVisor 启发），代理在用户态模拟&#x2F;处理 TCP 与 UDP；换言之代理重建并管理传输层。</p>
-<p><strong>优点：</strong>更强的隔离性（不需要改内核路由或防火墙），在受限环境或需要“捕获全部流量而不改系统设置”的场景下更可靠；某些情况下还能避免内核&#x2F;用户态切换带来的成本。</p>
-<p><strong>缺点：</strong>实现复杂、CPU 占用可能更高（尤其是高并发下用户态处理多连接），对某些低层网络行为（如某些 NAT 行为、路径 MTU、特定 ICMP&#x2F;非标准包）表现不同。文档也说明 gvisor 栈可提供 endpoint-independent NAT 等可选行为。<br><strong>实现方式</strong>： </p>
-<ul>
-<li>使用Google开源的gVisor项目中的<strong>netstack</strong>组件</li>
-<li>在<strong>用户空间</strong>完整实现<code>TCP/IP</code>协议栈（Go语言编写）</li>
-<li>不依赖系统内核的网络功能 </li>
-<li><strong>技术细节</strong>： </li>
-<li>自己处理TCP状态机、滑动窗口、快速重传、拥塞控制（如<code>Cubic/BBR</code>）</li>
-<li>完整的NAT转换和连接跟踪 </li>
-<li>独立的路由表和防火墙规则<br> <strong>特点</strong>：</li>
-<li>✅ 无需特殊权限（相对<code>system</code>模式）</li>
-<li>✅ 跨平台一致性好 </li>
-<li>✅ 更强的隔离性和安全性</li>
-<li>❌ 性能略低于<code>system</code>（用户态 vs 内核态）</li>
-<li>✅ <strong>协议实现更严格</strong>（这是你问题的关键）</li>
-</ul>
-<h2 id="mixed"><a href="#mixed" class="headerlink" title="mixed"></a>mixed</h2><p>混合策略：<code>TCP</code> 用 <code>system</code>（系统栈）处理，UDP 用 <code>gvisor</code>（用户态）处理。设计上的折衷是利用系统对 TCP 的成熟处理，同时用<code> gvisor</code> 捕获 UDP（例如<code> QUIC/HTTP/3/</code>或其他 <code>UDP-based </code>协议）。<br>设计意图：兼顾兼容性与对<code>UDP</code>的更好捕获&#x2F;隔离。<br><strong>实现方式</strong>：</p>
-<ul>
-<li>通常默认使用system模式</li>
-<li>遇到特定情况时切换到<code>gVisor</code>（如需要更精细控制）</li>
-<li>或者按连接类型分流（<code>TCP</code>用<code>system</code>，<code>UDP</code>用<code>gVisor</code>）</li>
-</ul>
-<p><strong>特点</strong>：</p>
-<ul>
-<li>✅ 试图平衡性能和兼容性</li>
-<li>❌ 切换逻辑可能引入bug</li>
-<li>❌ 状态管理更复杂</li>
-</ul>
-<h1 id="节点协议"><a href="#节点协议" class="headerlink" title="节点协议"></a>节点协议</h1><p>在推荐的使用协议中，vless和hysteria2都是极为推荐的协议，其中vless主要使用tcp协议的流量进行通信，儿Hysteria2使用的则是TUIC&#x2F;UDP流量。</p>
-<h2 id="协议栈推荐"><a href="#协议栈推荐" class="headerlink" title="协议栈推荐"></a>协议栈推荐</h2><p>在使用任何协议的节点时都要注意使用合适的TUN模式来对流量进行路由，由于安卓设备和Windows设备的路由中都有可能出现某些流量不遵循系统路由规范的情况，所以在未进行针对设置的情况下有些服务是无法正常使用的，也就是软件会绕过代理进行直连。这个时候你可能会遇到部分网站无法访问的情况（比如Claude），假如你使用xray和sing-box系列的代理工具，很多默认使用mixed路由规范的工具就会无法正确路由该网站的流量，导致访问失败。</p>
-<p>假如流量出现异常，请尝试使用gVisor模式作为路由规范，此时将会新建一个虚拟网卡，所有的流量都会交由虚拟网卡处理，阻止一些不遵守规范的服务绕过路由规则。此时所有的流量都会跟随预先设计的路由规则分发流量与连接。</p>
-<p style="color:red; font-weight:bold">
-如连接出现问题，请将您的TUN模式修改为gVisor。
+          <p>本地局域网使用FTP从Windows向安卓传输文件出现以下错误：</p>
+<img src="https://s2.loli.net/2025/10/26/eRMt2QkaTJ4IqyE.png" alt="clipboard-image-1761488883.png" style="zoom:33%;" />
+
+
+
+<img src="https://s2.loli.net/2025/10/26/D4nR3yxv5W2dEgZ.png" alt="clipboard-image-1761488926.png" style="zoom:67%;" />
+
+
+
+<p><strong>原因分析：</strong>FPT服务器无法传输带有特殊编码的文件(UTF-8可能会导致文件编码混乱—出现锟斤拷等字符)</p>
+<p style="color: red; font-weight: bold">解决办法：重命名文件为普通可打印字符或可尝试切换FTP服务器编码格式为 UTF-8 进行测试
 </p>
+
+
       
     </div>
 
@@ -299,7 +259,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/10/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/79/">79</a><a class="extend next" rel="next" href="/page/12/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/10/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/80/">80</a><a class="extend next" rel="next" href="/page/12/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -386,7 +346,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">79</span>
+          <span class="site-state-item-count">80</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -435,12 +395,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">332k</span>
+    <span title="站点总字数">339k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">9:14</span>
+    <span title="站点阅读时长">9:25</span>
 </div>
 <!-- 网站运行时间的设置 -->
 <span id="timeDate">载入天数...</span>
