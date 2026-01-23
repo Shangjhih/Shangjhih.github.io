@@ -200,7 +200,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-01-23 23:18:53" itemprop="dateModified" datetime="2026-01-23T23:18:53+08:00">2026-01-23</time>
+                <time title="修改时间：2026-01-23 23:26:16" itemprop="dateModified" datetime="2026-01-23T23:26:16+08:00">2026-01-23</time>
               </span>
 
           <br>
@@ -228,29 +228,45 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="基础操作命令"><a href="#基础操作命令" class="headerlink" title="基础操作命令"></a>基础操作命令</h1><p><strong>ls</strong></p>
+          <h1 id="基础操作命令"><a href="#基础操作命令" class="headerlink" title="基础操作命令"></a>基础操作命令</h1><p><br><br></p>
+<p><strong>ls</strong></p>
 <p><code>-l </code> 以列表的形式列出当前文件夹下的文件目录</p>
 <p><code>-a </code>列出有关文件的详细信息，包括文件的大小和权限</p>
 <p><code>ll </code>相当于使用 ls -la </p>
+<br>
+
 <p><strong>touch</strong></p>
 <p><code>touch file.conf</code>   创建一个叫做file.conf的文件</p>
+<br>
+
 <p><strong>mkdir</strong></p>
 <p><code>mkdir -p folder1/folder2</code>		 创建多级目录</p>
 <p><code>mkdir foler1 folder2 folder3</code> 	创建多个目录</p>
+<br>
+
 <p><strong>rm</strong></p>
 <p>rm  foler(file)  删除文件夹或文件</p>
 <p><code>-r</code> 递归删除文件夹</p>
 <p><code>-f </code>强制删除，无提示</p>
 <p><code>-rf </code>强制删除多级目录</p>
-<h1 id="解压缩命令"><a href="#解压缩命令" class="headerlink" title="解压缩命令"></a>解压缩命令</h1><p><strong>gzip</strong>      压缩文件，压缩后会把原始文件删除</p>
+<p><br><br></p>
+<h1 id="解压缩命令"><a href="#解压缩命令" class="headerlink" title="解压缩命令"></a>解压缩命令</h1><br>
+
+<p><strong>gzip</strong>      压缩文件，压缩后会把原始文件删除</p>
 <p><code>gzip file1 </code>   压缩某一个文件为。gz格式的压缩包</p>
 <p><code>gzip file1 file2 ... </code>   将多个文件分别压缩为单个.gz的压缩包</p>
 <p><code>gzip -d file.gz </code>    使用-d参数解压缩已经被压缩的gz格式文件</p>
 <p><code>gzip -d file2.gz file3.gz </code>   使用-d参数解压多个压缩包</p>
+<br>
+
 <p><strong>gunzip</strong></p>
 <p><code>guzip file.gz</code>    解压gz格式的压缩包，作用通zip -d 用法</p>
 <p><code>gunzip file1.gz file2.gz file3.gz</code>     解压多个gz格式的压缩包</p>
+<br>
+
 <p><strong>bzip2</strong>   可加参数通gzip</p>
+<br>
+
 <p><strong>tar</strong>    压缩多个文件或多个目录为一个文件</p>
 <p><code>-c</code>  创建打包文件</p>
 <p><code>-x</code> 解包文件，解压缩</p>
@@ -264,9 +280,9 @@
 <p>用法： <code>tar -xvf mytar.tar -C /root/file/path</code></p>
 <p><code>-cvf </code></p>
 <blockquote>
-<p>创建一个压缩包并为压缩包指定名字</p>
+<p>创建一个压缩包并指定压缩包名字</p>
 </blockquote>
-<p><code>-rf &lt;mytar.tar&gt; &lt;newfile.txt&gt;     </code></p>
+<p><code>-rf &lt;mytar.tar&gt; &lt;newfile.txt&gt;</code></p>
 <blockquote>
 <p>向压缩包mytar.tar 添加新文件 newfile.txt</p>
 </blockquote>
@@ -274,22 +290,31 @@
 <blockquote>
 <p>用法： tar -cvzf mytar.tar file1 file2 file3     将文件打包并压缩为gz文件</p>
 </blockquote>
-<p>-z   压缩为gz格式</p>
-<p>-j 压缩为bz2格式</p>
-<p>-J 压缩为xy格式</p>
+<p><code>-z</code>   	压缩为gz格式</p>
+<p><code>-j</code>	   压缩为bz2格式</p>
+<p><code>-J</code> 	  压缩为xy格式</p>
 <p><strong>解压文件</strong></p>
 <p><code>tar -xvzf &lt;tar.gz&gt;  -C File_path</code>    解压文件到指定地址</p>
-<h1 id="进程相关命令"><a href="#进程相关命令" class="headerlink" title="进程相关命令"></a>进程相关命令</h1><p><strong>ps</strong></p>
+<p><br><br></p>
+<h1 id="进程相关命令"><a href="#进程相关命令" class="headerlink" title="进程相关命令"></a>进程相关命令</h1><br>
+
+<p><strong>ps</strong></p>
 <p><code>ps aux </code>  显示系统进程信息</p>
+<br>
+
 <p><strong>kill</strong>              </p>
 <blockquote>
 <p>kill命令只会杀死指定的单个进程 ， 不会杀死守护进程（守护进程独立于主进程）</p>
 </blockquote>
 <p><code>kill &lt;PID&gt;  </code>  杀死指定PID 参数对应的程序   （PID在ps命令中对应的为第一列的数字）</p>
 <p><code>kill -9</code> 强制杀死进程</p>
+<br>
+
 <p><strong>killall</strong></p>
 <p><code>killall &lt;name&gt; </code>   杀死叫此名称的进程</p>
-<h1 id="IP地址查看命令"><a href="#IP地址查看命令" class="headerlink" title="IP地址查看命令"></a>IP地址查看命令</h1><p><strong>ifconfig</strong></p>
+<h1 id="IP地址查看命令"><a href="#IP地址查看命令" class="headerlink" title="IP地址查看命令"></a>IP地址查看命令</h1><br>
+
+<p><strong>ifconfig</strong></p>
 <p>查看网络接口相关的信息，包括IP地址和网卡信息</p>
 <blockquote>
 <p>eth0 对应的是网卡信息</p>
@@ -297,6 +322,8 @@
 <blockquote>
 <p>lo对应的是本地回环地址</p>
 </blockquote>
+<br>
+
 <p><strong>ip addr</strong></p>
 <p>查看当前系统的IP地址</p>
 <blockquote>
@@ -305,17 +332,22 @@
 <blockquote>
 <p>lo对应的是本地回环地址</p>
 </blockquote>
-<h1 id="重定向符号"><a href="#重定向符号" class="headerlink" title="重定向符号"></a>重定向符号</h1><p><strong>输出重定向</strong></p>
+<p><br><br></p>
+<h1 id="重定向符号"><a href="#重定向符号" class="headerlink" title="重定向符号"></a>重定向符号</h1><br>
+
+<p><strong>输出重定向</strong></p>
 <p>符号<code>&gt;</code> 和 <code>&gt;&gt;</code></p>
 <p><code>&gt;</code> 将内容输出到某个文件中</p>
 <p><code>&gt;&gt;</code>  将内容追加到某个文件中</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span> -la &gt; list.txt         <span class="comment"># 将ls -la的输出添加至文件list.txt</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">ls</span> -la &gt;&gt; list.txt        <span class="comment"># 将ls -la的输出追加至文件list.txt</span></span><br></pre></td></tr></table></figure>
 
-<h1 id="打印命令"><a href="#打印命令" class="headerlink" title="打印命令"></a>打印命令</h1><p><strong>echo</strong></p>
+<h1 id="打印命令"><a href="#打印命令" class="headerlink" title="打印命令"></a>打印命令</h1><br>
+
+<p><strong>echo</strong></p>
 <p>打印命令，后跟需要打印的文字内容。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> hello world &gt; list.txt       <span class="comment"># 打印内容  hello world 将其输出至list.txt</span></span><br></pre></td></tr></table></figure>
 
-
+<br>
 
 <p><strong>cat</strong></p>
 <p>将文件内容打印至屏幕输出（从前往后）</p>
@@ -329,22 +361,28 @@
 <p><strong>tac</strong></p>
 <p>将文件内容输出至屏幕（从后往前）</p>
 <p>用法通cat</p>
+<br>
+
 <p><strong>–help</strong></p>
 <p>添加在某个命令后，用于查看该命令的用法</p>
-<h1 id="磁盘内存相关命令"><a href="#磁盘内存相关命令" class="headerlink" title="磁盘内存相关命令"></a>磁盘内存相关命令</h1><p><strong>df</strong></p>
+<h1 id="磁盘内存相关命令"><a href="#磁盘内存相关命令" class="headerlink" title="磁盘内存相关命令"></a>磁盘内存相关命令</h1><p><br><strong>df</strong></p>
 <p> 查看设备各分区所占用的空间</p>
 <p><code>df -h</code>  以更加清晰的表格形式查看磁盘占用情况，磁盘的空间单位以Mb表示</p>
+<br>
+
 <p><strong>free</strong></p>
 <p>查看系统内存占用情况</p>
 <p><code>free -h</code>   以更加人性化的形式查看内存的占用情况</p>
 <p><code>free -m</code>   将原始的Kb单位转换为Mb单位查看内存占用</p>
+<br>
+
 <p><strong>wc</strong></p>
 <p>统计文件的行数、单词数和字节数</p>
 <table>
 <thead>
 <tr>
-<th></th>
-<th></th>
+<th>参数</th>
+<th>作用</th>
 </tr>
 </thead>
 <tbody><tr>
@@ -361,22 +399,36 @@
 </tr>
 </tbody></table>
 <p><code>wc</code> 通<code>wc -lwc</code>  一起统计文件的行数、单词数、字节数</p>
+<br>
+
 <p><strong>du</strong></p>
 <p>查看某目录下的目录所占磁盘大小</p>
 <p><code>-s</code>			查看该目录所占磁盘大小</p>
 <p><code>-h</code>			以更加可读的形式展示目录所占磁盘大小</p>
 <p><code>du -sh</code> 		以更加刻度得形式查看某文件夹所占磁盘大小</p>
-<h1 id="文件查看命令"><a href="#文件查看命令" class="headerlink" title="文件查看命令"></a>文件查看命令</h1><p><strong>head</strong></p>
+<br>
+
+<br>
+
+<h1 id="文件查看命令"><a href="#文件查看命令" class="headerlink" title="文件查看命令"></a>文件查看命令</h1><p><br><strong>head</strong></p>
 <p>查看文件的前N行，默认查看文件的前10行</p>
 <p><code>head -n</code> 查看文件的前n行</p>
+<br>
+
 <p><strong>tail</strong></p>
 <p>查看文件的末尾n行，默认显示后10行</p>
 <p><code>tail -n </code>			 查看文件的后n行</p>
 <p><code>tail -f &lt;path&gt;</code>  	   查看某位置的动态文件，一般用于查看日志</p>
+<br>
+
 <p><strong>less</strong></p>
 <p>查看大文件，需要使用方向键翻页以查看更多内容，不会将所有内容都打印至屏幕</p>
+<br>
+
 <p><strong>more</strong></p>
 <p>查看大文件，功能与less类似，往上翻页Ctrl +b, 往下翻页Ctrl + f (空格键也可以)</p>
+<br>
+
 <p><strong>find</strong></p>
 <p>查找文档,可以使用<code>* </code>通配符扩大查找范围</p>
 <p><code>-name</code>	以文档名的形式查找文档</p>
@@ -389,7 +441,9 @@
 </blockquote>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find &lt;path&gt; -name &lt;file&gt;  -type f   	使用名称查找的方式在目录&lt;path&gt;下查找文件 &lt;file&gt;</span><br></pre></td></tr></table></figure>
 
-<h1 id="日期和时间命令"><a href="#日期和时间命令" class="headerlink" title="日期和时间命令"></a>日期和时间命令</h1><p><strong>date</strong></p>
+<h1 id="日期和时间命令"><a href="#日期和时间命令" class="headerlink" title="日期和时间命令"></a>日期和时间命令</h1><br>
+
+<p><strong>date</strong></p>
 <p>获取系统时间</p>
 <p><code>date </code></p>
 <blockquote>
@@ -406,8 +460,8 @@
 <table>
 <thead>
 <tr>
-<th></th>
-<th></th>
+<th>参数</th>
+<th>作用</th>
 </tr>
 </thead>
 <tbody><tr>
@@ -445,18 +499,18 @@
 </tbody></table>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">date -s &quot;2026-01-23 12:34:45&quot;             #设置系统时间为具体的时间日期，注意格式</span><br></pre></td></tr></table></figure>
 
-<p><strong>timedatectl</strong></p>
+<p><br><strong>timedatectl</strong></p>
 <p>列出系统时间和硬件时间，可设置时区</p>
 <p><code>list-timezones</code>	列出时区列表<br><code>set-timezone</code>	    设定为指定时区<br><code>set-time</code>		    设定具体的时间</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">timedatectl set-time &quot;2026-01-10 12:21&quot;        #将时间设置为：2026-01-10 12:21   注意时间格式</span><br></pre></td></tr></table></figure>
 
-<p><strong>ntpdate</strong></p>
+<p><br><strong>ntpdate</strong></p>
 <p>手动网络校时，修正时间为网络时间(需要添加ntp服务器地址)</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ntpdate ntp.ntsc.ac.cn	使用ntp.ntsc.ac.cn的授时信息修正时间</span><br></pre></td></tr></table></figure>
 
 
 
-<p><strong>cal</strong></p>
+<p><br><strong>cal</strong></p>
 <p>查看系统日历</p>
 <p><code>cal -n</code>	输出当前前一个月后一个月以及本月的日历</p>
 
