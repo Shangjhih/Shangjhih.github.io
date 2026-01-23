@@ -169,7 +169,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/04/06/Office-%E9%83%A8%E7%BD%B2%E4%B8%8E%E6%BF%80%E6%B4%BB/">
+    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/04/07/WARP%E8%A7%84%E5%88%99%E4%BA%8Esing-box%E5%86%85%E6%A0%B8%E5%88%86%E6%B5%81%E5%A4%B1%E8%B4%A5%E5%8E%9F%E5%9B%A0%E5%88%86%E6%9E%90/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
@@ -183,7 +183,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2025/04/06/Office-%E9%83%A8%E7%BD%B2%E4%B8%8E%E6%BF%80%E6%B4%BB/" class="post-title-link" itemprop="url">Office 部署与激活</a>
+            <a href="/2025/04/07/WARP%E8%A7%84%E5%88%99%E4%BA%8Esing-box%E5%86%85%E6%A0%B8%E5%88%86%E6%B5%81%E5%A4%B1%E8%B4%A5%E5%8E%9F%E5%9B%A0%E5%88%86%E6%9E%90/" class="post-title-link" itemprop="url">WARP规则于sing-box内核分流失败原因分析</a>
         </h2>
 
         <div class="post-meta">
@@ -193,14 +193,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2025-04-06 20:32:08" itemprop="dateCreated datePublished" datetime="2025-04-06T20:32:08+08:00">2025-04-06</time>
+              <time title="创建时间：2025-04-07 16:24:49" itemprop="dateCreated datePublished" datetime="2025-04-07T16:24:49+08:00">2025-04-07</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-09-10 14:40:41" itemprop="dateModified" datetime="2025-09-10T14:40:41+08:00">2025-09-10</time>
+                <time title="修改时间：2025-04-12 15:00:54" itemprop="dateModified" datetime="2025-04-12T15:00:54+08:00">2025-04-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -208,15 +208,27 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/office/" itemprop="url" rel="index"><span itemprop="name">office</span></a>
+                  <a href="/categories/WARP/" itemprop="url" rel="index"><span itemprop="name">WARP</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/office/%E9%83%A8%E7%BD%B2/" itemprop="url" rel="index"><span itemprop="name">部署</span></a>
+                  <a href="/categories/WARP/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/office/%E9%83%A8%E7%BD%B2/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
+                  <a href="/categories/WARP/Linux/X-ray/" itemprop="url" rel="index"><span itemprop="name">X-ray</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/WARP/Linux/X-ray/%E4%BB%A3%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">代理</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/WARP/Linux/X-ray/%E4%BB%A3%E7%90%86/Proxy/" itemprop="url" rel="index"><span itemprop="name">Proxy</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/WARP/Linux/X-ray/%E4%BB%A3%E7%90%86/Proxy/sing-box/" itemprop="url" rel="index"><span itemprop="name">sing-box</span></a>
                 </span>
             </span>
 
@@ -226,7 +238,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.1k</span>
+              <span>1.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -245,96 +257,69 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Office部署"><a href="#Office部署" class="headerlink" title="Office部署"></a>Office部署</h1><h2 id="准备材料"><a href="#准备材料" class="headerlink" title="准备材料"></a>准备材料</h2><ul>
-<li><p>官方Office安装包<a target="_blank" rel="noopener" href="https://www.microsoft.com/en-us/download/office">setup.exe</a></p>
-<blockquote>
-<p>进入此网页后会看到 <span style="color:red"> 01 Office Deployment Tool </span>,点击进入下载</p>
-</blockquote>
-</li>
-<li><p>应答文件<a target="_blank" rel="noopener" href="https://config.office.com/deploymentsettings">config.xml</a></p>
-</li>
-</ul>
-<p><em><strong>☝点击文件名即可跳转到该文件的下载网页</strong></em><span style="color:red">   安装新版本前请自行卸载原有的office</span></p>
-<hr>
-<h2 id="安装包文件"><a href="#安装包文件" class="headerlink" title="安装包文件"></a>安装包文件</h2><p>​       <em><strong>点击<a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/microsoft-365-apps/deploy/overview-office-deployment-tool">此处</a>，从【Microsoft下载中心】获取文件下载链接(材料准备中也有提到)</strong></em></p>
-<ol>
-<li>点击<strong>Download</strong>按钮下载安装包</li>
-</ol>
-<p><img src="https://s2.loli.net/2025/04/06/KNImZip4aCteT9V.png" alt="image.png"></p>
-<p>此后你将会得到一个setup.exe文件，双击文件，他将询问你安装（解压）到哪个位置，此时在桌面右键新建一个非中文的文件夹（建议名字为<code>office</code>），然后将文件解压到此位置。<span style="color:red;"> 虽然是exe文件，但它是一个压缩包，运行后会得到 <span style="color:blue"> configure.xml </span>和带有office 365标志的<span style="color:blue"> setup.exe </span>部署器。</span></p>
-<p>如下图所示：☟</p>
-<hr>
-<p><img src="https://s2.loli.net/2025/04/06/aLlKC15eJ4tqjms.png" alt="image.png"></p>
-<p><img src="https://s2.loli.net/2025/04/06/D5S7RJbK9H6MzLB.png" alt="image.png"></p>
-<hr>
-<p>文件列表☟</p>
+          <h1 id="WARP规则于sing-box内核分流失败原因分析"><a href="#WARP规则于sing-box内核分流失败原因分析" class="headerlink" title="WARP规则于sing-box内核分流失败原因分析"></a>WARP规则于sing-box内核分流失败原因分析</h1><p>目前主流的代理客户端主要以三个内核为主：</p>
 <ul>
-<li>configuration-Office365-x64</li>
-<li>setup.exe</li>
+<li><p>X-ray内核</p>
+</li>
+<li><p>Sing-box内核</p>
+</li>
+<li><p>Clash内核(还有魔改的clash meta内核)</p>
+</li>
 </ul>
-<p style="color:red;font-weight:bold"> xml文件是带有完整office套件的应答文件，使用此文件安装office会将全家桶一个不落安装完，但我们根本不需要这么多文件，所以建议将此文件删除，我们下一步配置自己需要的应答文件</p>
+<hr>
+<p>大部分自建节点都是以X-ray内核和sing-box内核为主，其代表为x-ui面板和s-ui。按使用人数来说<br>X-ray面板的用户更多，由于sing-box内核和x-ray内核的运作原理不同，很多的参数都是独有参数，虽然两方标明的支持协议都覆盖全面<br>可是在实际操作和使用的时候总会出现很多莫名其妙的问题。</p>
+<hr>
+<p>以下是各方宣称支持的协议列表：</p>
+<p style="color:red">暂不考虑通信协议</p>
 
+<table>
+<thead>
+<tr>
+<th align="left">内核</th>
+<th>支持的协议</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">X-ray</td>
+<td>Vless、Vmess、Trojan、Shadowsocks、Socks、HTTP</td>
+</tr>
+<tr>
+<td align="left">Sing-box</td>
+<td>Vless、Vmess、Trojan、Shadowsocks、Socks、HTTP、Naive、Hysteria</td>
+</tr>
+<tr>
+<td align="left">Clash</td>
+<td>Vless(原版不支持此协议)、Vmess、Trojan、Shadowsocks、Hysteria、Snell</td>
+</tr>
+</tbody></table>
 <hr>
-<h2 id="下载config-xml应答文件"><a href="#下载config-xml应答文件" class="headerlink" title="下载config.xml应答文件"></a>下载config.xml应答文件</h2><p><strong><a target="_blank" rel="noopener" href="https://config.office.com/deploymentsettings">点此</a>进入文件的下载网站</strong></p>
+<h2 id="各协议的支持度"><a href="#各协议的支持度" class="headerlink" title="各协议的支持度"></a>各协议的支持度</h2><ul>
+<li>在使用购买的订阅链接时，可以根据网站提示的订阅链接，链接之间不要混用，论通用性的话，V2ray系列的支持是比较丰富的，但是其不支持Hysterial协议，另外两个内核都是支持Hysterial的。</li>
+</ul>
 <hr>
-<p><img src="https://s2.loli.net/2025/04/06/DjSoJPAYKBOT39v.png" alt="image.png"></p>
-<p><img src="https://s2.loli.net/2025/04/06/yh61PJrCTlqFBnu.png" alt="image.png"></p>
+<ul>
+<li>基于xray的reality通信协议是不被另两个内核所支持的，reality是其内部开发的新通信协议，不是加密协议。节点加入此reality协议后可以极大加速节点速度也可以提升抗封锁能力，还有xtls也是xray内核所支持的，另外两个内核不支持提到的两个协议。</li>
+</ul>
 <hr>
-<p><strong>左侧会有文件的配置列表，按下图的标记进行修改</strong></p>
+<ul>
+<li>Shadowsocks裸协议是三方全部支持的，但是在Shasowsocks套上tls后，默认的配置是不受另外两个内核支持的，测速时会出现<span style="color:red"> -1 </span>错误提示，但是shadowsocks协议裸奔的话虽说速度很快，但是容易被识别，有概率出现被封端口或者封IP的情况，不够安全。</li>
+</ul>
 <hr>
-<p><img src="https://s2.loli.net/2025/04/06/yFT4IBP6xm9Mhi1.png" alt="image.png"></p>
-<p><img src="https://s2.loli.net/2025/04/06/b8xrLYugRf9zZyt.png" alt="下载选项"></p>
-<p><img src="https://s2.loli.net/2025/04/06/2pyqu1ON8chdFVA.png" alt="image.png"></p>
-<p><img src="https://s2.loli.net/2025/04/06/fc4jadku5HSBi1r.png" alt="image.png"></p>
-<p><img src="https://s2.loli.net/2025/04/06/Oa4To1IwG5RgF8z.png" alt="image.png"></p>
-<p><img src="https://s2.loli.net/2025/04/06/8U56ZTiBVJu2zNw.png" alt="image.png"></p>
-<p><img src="https://s2.loli.net/2025/04/06/51G8znlHYKmkNMO.png" alt="image.png"></p>
-<p><img src="https://s2.loli.net/2025/04/06/HjbwshySXVkxKQ3.png" alt="image.png"></p>
+<ul>
+<li><p>Vless套reality协议可以极大防止被检测且能有限提速，好在此协议抗封锁能力很强。</p>
+</li>
+<li><p>Vless套CDN的节点是通用的，三方都有支持。</p>
+</li>
+</ul>
 <hr>
-<p>导出后你将会得到一个包含你选择的xml文件，将此文件复制到你桌面的<code>office</code>文件夹，将其与<code>setup.exe</code>文件放在一起☟☟☟</p>
+<h2 id="原理分析"><a href="#原理分析" class="headerlink" title="原理分析"></a>原理分析</h2><p><img src="https://s2.loli.net/2025/04/07/jLurQMpAKt6wkhf.png" alt="png"></p>
 <hr>
-<p><img src="https://s2.loli.net/2025/04/06/IUdFCRYEjoaxQhX.png" alt="image.png"></p>
+<p>  图示为xray某方案的运作原理，此方案套有cloudflare的CDN，同时又加入了WARP的二级代理，一方面可以优选IP，另一方面又可以实现流媒体解锁和ChatGPT以及Perplexity等的IP限制，直接通过warp接入到cloudflare的CDN,在访问带有cloudflare5秒盾保护的网站时可以不用进【机器人验证】。</p>
 <hr>
-<p>此时到电脑左下角搜索<code>powershell</code>,然后以管理员身份运行☟☟☟</p>
+<p><img src="https://global.discourse-cdn.com/cloudflare/optimized/3X/0/9/0941d3b69a35cd8357c812fe11f4bc950288dcce_2_1024x311.jpeg"></p>
+<p>此技术可以结合以前提到的技术分析来应用到你的项目中，因其在中国大陆是不可用状态，所以只能部署到境外的服务器。部署稍微复杂，但其优秀的流媒体解锁能力还是很有实用价值的。特别是针对ChatGPT和Perplexity的解锁，基本上可以解决移动端的访问问题（<span style="color:red">移动端的ChatGPT和Perplexity对网络要求极高，一般使用人数多的ip都会被纳入风控列表，进入风控列表后你的IP就将无法使用相关服务</span>)</p>
 <hr>
-<p><img src="https://s2.loli.net/2025/04/06/Wm1RgqAeNMPU5H4.png" alt="image.png"></p>
-<p><img src="https://s2.loli.net/2025/04/06/pb78nVBysaH4JcK.png" alt="image.png"></p>
-<hr>
-<p><strong>在powershell中输入</strong> <code>cd</code> <strong>然后加个空格，再点击鼠标右键即可将地址复制到命令框内</strong></p>
-<p>参见下图☟☟☟</p>
-<hr>
-<p><img src="https://s2.loli.net/2025/04/06/yqxgFdLeAmtRJDl.png" alt="image.png"></p>
-<p>在Powershell中输入<code>./set</code>然后按Tab键补全，加个空格，随后输入<code>/configure</code>,再空格，输入应答文件的全名，如下图：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./setup.exe /configure config.xml</span><br></pre></td></tr></table></figure>
-
-
-<p>点击回车，即可弹出office的下载框，等待即可。</p>
-<p style="color:red;font-weight:bold">屏幕右下角展开小箭头，就可以看到下载进度，假如下载进度很久都未更新，等待即可，需要一段时间。安装成功后会提示已经部署。开始进行激活步骤</p>
-
-<hr>
-<h2 id="激活"><a href="#激活" class="headerlink" title="激活"></a>激活</h2><p>1.复制命令</p>
-<p>不要关闭powershell窗口，在此复制以下命令，然后右键粘贴到powershell中，点击回车，允许运行，等待激活窗口。命令如下☟☟☟</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">irm</span> https://get.activated.win | <span class="built_in">iex</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<ol start="2">
-<li>选择激活方式<p style="color:red;font-weight:bold">输入数字`2`</p></li>
-</ol>
-<hr>
-<p><img src="https://s2.loli.net/2025/04/06/hznLyCWr1xPOHpw.png" alt="image.png"></p>
-<hr>
-<p style="color:red;font-weight:bold">输入2后回车</p>
-
-<hr>
-<p style="color:red;font-weight:bold">等待提示第二个窗口，再输入`1`,回车</p>
-
-
-<p><img src="https://s2.loli.net/2025/04/06/atISuJedZPf9vUQ.png" alt="image.png"></p>
-<hr>
-<p style="color:red;font-weight:bold"> 等待提示绿色的 </p>
-<span style="color:green;font-weight:bold">successfull!</span>
-
-<p>**到此即安装并激活完成！！！Enjoy your paper writting **</p>
+<p>自行搭建节点时注意你的面板内核与你客户端的内核，尽量保持内核一致。特别是Hysterial节点，必须使用sing-box内核的代理软件才能获取支持，在V2ray使用是无法正常连接的！！！</p>
 
       
     </div>
@@ -353,7 +338,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/70/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/70/">70</a><span class="page-number current">71</span><a class="page-number" href="/page/72/">72</a><span class="space">&hellip;</span><a class="page-number" href="/page/83/">83</a><a class="extend next" rel="next" href="/page/72/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/70/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/70/">70</a><span class="page-number current">71</span><a class="page-number" href="/page/72/">72</a><span class="space">&hellip;</span><a class="page-number" href="/page/84/">84</a><a class="extend next" rel="next" href="/page/72/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -440,7 +425,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">83</span>
+          <span class="site-state-item-count">84</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -453,7 +438,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">80</span>
+        <span class="site-state-item-count">81</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -489,12 +474,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">348k</span>
+    <span title="站点总字数">351k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">9:41</span>
+    <span title="站点阅读时长">9:45</span>
 </div>
 <!-- 网站运行时间的设置 -->
 <span id="timeDate">载入天数...</span>
