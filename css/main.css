@@ -1191,7 +1191,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ff0bcc;
+  background: #f1000f;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2664,12 +2664,12 @@ figure.highlight.plaintext {
   line-height: 1.6;
 /* 去掉外部间距/边框/阴影，保持与正文间隔一致 */
   margin: 0;
-  padding: 4px 4px;
-  background: #f7f7f7;
-  color: #333;
+  padding: 16px 20px;
+  background: #1e1e1e;
+  color: #d4d4d4;
   border: none;
-  box-shadow: none;
-  border-radius: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  border-radius: 6px;
 /* 显示所有行（不限制高度），长行横向滚动 */
   max-height: none;
   overflow-y: visible;
@@ -2677,6 +2677,59 @@ figure.highlight.plaintext {
   white-space: pre;
   word-break: normal;
   box-sizing: border-box;
+}
+/* Kiro 风格代码高亮颜色 */
+.post-body .hljs-keyword,
+.post-body .hljs-selector-tag,
+.post-body .hljs-built_in {
+  color: #569cd6;
+}
+.post-body .hljs-string,
+.post-body .hljs-attr {
+  color: #ce9178;
+}
+.post-body .hljs-comment,
+.post-body .hljs-quote {
+  color: #6a9955;
+  font-style: italic;
+}
+.post-body .hljs-number,
+.post-body .hljs-literal {
+  color: #b5cea8;
+}
+.post-body .hljs-function,
+.post-body .hljs-title {
+  color: #dcdcaa;
+}
+.post-body .hljs-variable,
+.post-body .hljs-name {
+  color: #9cdcfe;
+}
+.post-body .hljs-type,
+.post-body .hljs-class {
+  color: #4ec9b0;
+}
+.post-body .hljs-operator,
+.post-body .hljs-punctuation {
+  color: #d4d4d4;
+}
+.post-body .hljs-meta,
+.post-body .hljs-meta-keyword {
+  color: #c586c0;
+}
+.post-body .hljs-tag {
+  color: #569cd6;
+}
+.post-body .hljs-attribute {
+  color: #92c5f8;
+}
+.post-body .hljs-deletion {
+  background: #4b1818;
+  color: #f85149;
+}
+.post-body .hljs-addition {
+  background: #1b4b1b;
+  color: #56d364;
 }
 /* 去掉表格式高亮器的行号列，避免造成左右错位或额外宽度 */
 figure.highlight table,
@@ -2707,12 +2760,13 @@ figure.highlight pre code {
 }
 /* 行内 code 风格保持，仅影响非 pre 的 <code> */
 .post-body :not(pre) > code {
-  background: #f2f2f2;
-  padding: 2px 6px;
-  border-radius: 3px;
+  background: #2d2d2d;
+  color: #f8f8f2;
+  padding: 3px 6px;
+  border-radius: 4px;
   font-size: 0.9em;
-  color: #df5aa4;
-  border: 1px solid rgba(0,0,0,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  font-family: "Consolas", "Monaco", "Menlo", "Courier New", monospace;
 }
 /* 移动端：允许换行以避免横向溢出，保持紧凑内边距 */
 @media (max-width: 767px) {
@@ -2722,7 +2776,7 @@ figure.highlight pre code {
   figure.highlight {
     white-space: pre-wrap;
     overflow-x: auto;
-    padding: 8px 10px;
+    padding: 12px 16px;
     font-size: 12px;
   }
 }
