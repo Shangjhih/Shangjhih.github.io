@@ -169,7 +169,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2026/01/22/Linux-%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/">
+    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2026/01/24/Linux-%E5%85%B6%E4%BB%96%E5%91%BD%E4%BB%A4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
@@ -183,7 +183,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2026/01/22/Linux-%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">Linux 基本命令</a>
+            <a href="/2026/01/24/Linux-%E5%85%B6%E4%BB%96%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">Linux 其他命令</a>
         </h2>
 
         <div class="post-meta">
@@ -192,16 +192,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2026-01-22 19:31:20" itemprop="dateCreated datePublished" datetime="2026-01-22T19:31:20+08:00">2026-01-22</time>
+              <time title="创建时间：2026-01-24 13:38:14 / 修改时间：16:10:13" itemprop="dateCreated datePublished" datetime="2026-01-24T13:38:14+08:00">2026-01-24</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-01-23 23:26:16" itemprop="dateModified" datetime="2026-01-23T23:26:16+08:00">2026-01-23</time>
-              </span>
 
           <br>
             <span class="post-meta-item" title="本文字数">
@@ -209,14 +203,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.7k</span>
+              <span>774</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>5 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -228,291 +222,40 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="基础操作命令"><a href="#基础操作命令" class="headerlink" title="基础操作命令"></a>基础操作命令</h1><p><br><br></p>
-<p><strong>ls</strong></p>
-<p><code>-l </code> 以列表的形式列出当前文件夹下的文件目录</p>
-<p><code>-a </code>列出有关文件的详细信息，包括文件的大小和权限</p>
-<p><code>ll </code>相当于使用 ls -la </p>
-<br>
+          <hr>
+<h1 id="图形化与命令行显示切换"><a href="#图形化与命令行显示切换" class="headerlink" title="图形化与命令行显示切换"></a>图形化与命令行显示切换</h1><p><strong>查看当前模式</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl get-default</span><br></pre></td></tr></table></figure>
 
-<p><strong>touch</strong></p>
-<p><code>touch file.conf</code>   创建一个叫做file.conf的文件</p>
-<br>
+<p><strong>切换为图形模式</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl isolate graphical.terget                   # 临时切换</span><br><span class="line"></span><br><span class="line">systemctl set-default graphical.terget				 # 永久切换</span><br></pre></td></tr></table></figure>
 
-<p><strong>mkdir</strong></p>
-<p><code>mkdir -p folder1/folder2</code>		 创建多级目录</p>
-<p><code>mkdir foler1 folder2 folder3</code> 	创建多个目录</p>
-<br>
-
-<p><strong>rm</strong></p>
-<p>rm  foler(file)  删除文件夹或文件</p>
-<p><code>-r</code> 递归删除文件夹</p>
-<p><code>-f </code>强制删除，无提示</p>
-<p><code>-rf </code>强制删除多级目录</p>
-<p><br><br></p>
-<h1 id="解压缩命令"><a href="#解压缩命令" class="headerlink" title="解压缩命令"></a>解压缩命令</h1><br>
-
-<p><strong>gzip</strong>      压缩文件，压缩后会把原始文件删除</p>
-<p><code>gzip file1 </code>   压缩某一个文件为。gz格式的压缩包</p>
-<p><code>gzip file1 file2 ... </code>   将多个文件分别压缩为单个.gz的压缩包</p>
-<p><code>gzip -d file.gz </code>    使用-d参数解压缩已经被压缩的gz格式文件</p>
-<p><code>gzip -d file2.gz file3.gz </code>   使用-d参数解压多个压缩包</p>
-<br>
-
-<p><strong>gunzip</strong></p>
-<p><code>guzip file.gz</code>    解压gz格式的压缩包，作用通zip -d 用法</p>
-<p><code>gunzip file1.gz file2.gz file3.gz</code>     解压多个gz格式的压缩包</p>
-<br>
-
-<p><strong>bzip2</strong>   可加参数通gzip</p>
-<br>
-
-<p><strong>tar</strong>    压缩多个文件或多个目录为一个文件</p>
-<p><code>-c</code>  创建打包文件</p>
-<p><code>-x</code> 解包文件，解压缩</p>
-<p><code>-v </code>可视化压缩和解压缩过程（跑码过程）</p>
-<p><code>-f </code><strong>必写参数</strong> 后面跟的是file ，压缩包的名字，f要放到参数的最后一位</p>
-<p><code>-r </code>向已经压缩后的文件追加新的文件</p>
-<blockquote>
-<p>用法： tar -rf mytart.tar readme.txt</p>
-</blockquote>
-<p>-C 解压时指定文件解压的目标路径</p>
-<p>用法： <code>tar -xvf mytar.tar -C /root/file/path</code></p>
-<p><code>-cvf </code></p>
-<blockquote>
-<p>创建一个压缩包并指定压缩包名字</p>
-</blockquote>
-<p><code>-rf &lt;mytar.tar&gt; &lt;newfile.txt&gt;</code></p>
-<blockquote>
-<p>向压缩包mytar.tar 添加新文件 newfile.txt</p>
-</blockquote>
-<p><strong>打包并压缩</strong></p>
-<blockquote>
-<p>用法： tar -cvzf mytar.tar file1 file2 file3     将文件打包并压缩为gz文件</p>
-</blockquote>
-<p><code>-z</code>   	压缩为gz格式</p>
-<p><code>-j</code>	   压缩为bz2格式</p>
-<p><code>-J</code> 	  压缩为xy格式</p>
-<p><strong>解压文件</strong></p>
-<p><code>tar -xvzf &lt;tar.gz&gt;  -C File_path</code>    解压文件到指定地址</p>
-<p><br><br></p>
-<h1 id="进程相关命令"><a href="#进程相关命令" class="headerlink" title="进程相关命令"></a>进程相关命令</h1><br>
-
-<p><strong>ps</strong></p>
-<p><code>ps aux </code>  显示系统进程信息</p>
-<br>
-
-<p><strong>kill</strong>              </p>
-<blockquote>
-<p>kill命令只会杀死指定的单个进程 ， 不会杀死守护进程（守护进程独立于主进程）</p>
-</blockquote>
-<p><code>kill &lt;PID&gt;  </code>  杀死指定PID 参数对应的程序   （PID在ps命令中对应的为第一列的数字）</p>
-<p><code>kill -9</code> 强制杀死进程</p>
-<br>
-
-<p><strong>killall</strong></p>
-<p><code>killall &lt;name&gt; </code>   杀死叫此名称的进程</p>
-<h1 id="IP地址查看命令"><a href="#IP地址查看命令" class="headerlink" title="IP地址查看命令"></a>IP地址查看命令</h1><br>
-
-<p><strong>ifconfig</strong></p>
-<p>查看网络接口相关的信息，包括IP地址和网卡信息</p>
-<blockquote>
-<p>eth0 对应的是网卡信息</p>
-</blockquote>
-<blockquote>
-<p>lo对应的是本地回环地址</p>
-</blockquote>
-<br>
-
-<p><strong>ip addr</strong></p>
-<p>查看当前系统的IP地址</p>
-<blockquote>
-<p>eth0 对应的是网卡信息</p>
-</blockquote>
-<blockquote>
-<p>lo对应的是本地回环地址</p>
-</blockquote>
-<p><br><br></p>
-<h1 id="重定向符号"><a href="#重定向符号" class="headerlink" title="重定向符号"></a>重定向符号</h1><br>
-
-<p><strong>输出重定向</strong></p>
-<p>符号<code>&gt;</code> 和 <code>&gt;&gt;</code></p>
-<p><code>&gt;</code> 将内容输出到某个文件中</p>
-<p><code>&gt;&gt;</code>  将内容追加到某个文件中</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span> -la &gt; list.txt         <span class="comment"># 将ls -la的输出添加至文件list.txt</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">ls</span> -la &gt;&gt; list.txt        <span class="comment"># 将ls -la的输出追加至文件list.txt</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="打印命令"><a href="#打印命令" class="headerlink" title="打印命令"></a>打印命令</h1><br>
-
-<p><strong>echo</strong></p>
-<p>打印命令，后跟需要打印的文字内容。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> hello world &gt; list.txt       <span class="comment"># 打印内容  hello world 将其输出至list.txt</span></span><br></pre></td></tr></table></figure>
-
-<br>
-
-<p><strong>cat</strong></p>
-<p>将文件内容打印至屏幕输出（从前往后）</p>
-<p><code>cat file.txt</code>   打印file.txt内容至屏幕</p>
-<p>额外用法：</p>
-<p>将多个文件重写或追加进某新的文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat file1.txt file2.txt &gt; file3.txt         # 将file1.txt file2.txt文件内容输出至file3.txt</span><br><span class="line"></span><br><span class="line">cat file1.txt file2.txt &gt;&gt; file3.txt         # 将file1.txt file2.txt文件内容追加至file3.txt</span><br></pre></td></tr></table></figure>
+<p><strong>切换为命令行模式</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl isolate multi-user.terget                   # 临时切换</span><br><span class="line"></span><br><span class="line">systemctl set-default multi-user.terget			      # 永久切换</span><br></pre></td></tr></table></figure>
 
 
 
-<p><strong>tac</strong></p>
-<p>将文件内容输出至屏幕（从后往前）</p>
-<p>用法通cat</p>
-<br>
+<h1 id="计划任务"><a href="#计划任务" class="headerlink" title="计划任务"></a>计划任务</h1><ul>
+<li>一次性计划任务(系统重启后失效)<code>at</code></li>
+<li>持久性计划任务<code>crontab</code></li>
+</ul>
+<p><strong><code>at</code></strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">at 14:12 [command]                   # 在14:12执行一次命令[command]</span><br><span class="line">at 13:45 free -h						# 在13:45 执行命令`free -h`</span><br></pre></td></tr></table></figure>
 
-<p><strong>–help</strong></p>
-<p>添加在某个命令后，用于查看该命令的用法</p>
-<h1 id="磁盘内存相关命令"><a href="#磁盘内存相关命令" class="headerlink" title="磁盘内存相关命令"></a>磁盘内存相关命令</h1><p><br><strong>df</strong></p>
-<p> 查看设备各分区所占用的空间</p>
-<p><code>df -h</code>  以更加清晰的表格形式查看磁盘占用情况，磁盘的空间单位以Mb表示</p>
-<br>
+<p><strong>具体案例</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">at now + 34 minutes [command]			# 在34分钟后执行命令</span><br><span class="line"></span><br><span class="line">at now + 3 hour [command]				# 在3小时后执行命令</span><br><span class="line"></span><br><span class="line">at now + 2 day [command]			# 在两天后执行命令</span><br></pre></td></tr></table></figure>
 
-<p><strong>free</strong></p>
-<p>查看系统内存占用情况</p>
-<p><code>free -h</code>   以更加人性化的形式查看内存的占用情况</p>
-<p><code>free -m</code>   将原始的Kb单位转换为Mb单位查看内存占用</p>
-<br>
+<p><strong><code>at</code>参数管理</strong></p>
+<p><code>at -l</code>				列出记录的所有任务</p>
+<p><code>at -d [job_id]</code>		删除某个任务</p>
+<p><code>at -c [job_id]</code>		查看某任务的具体内容</p>
+<hr>
+<p><strong><code>cron</code></strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">crontab 25 1 * * * [command]</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">#############################</span></span></span><br><span class="line">	   分 时 日 月 周</span><br><span class="line">	   *  *  * *  * [command]</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">   ✳代表具体时间，指定哪个时间就修改哪个位置的数</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">################################</span></span></span><br><span class="line"><span class="meta prompt_">		# </span><span class="language-bash">特殊标记方法：</span></span><br><span class="line">32 1,3,5 1 * *        # 一天后的一小时32分、三小时32分、五小时32分各执行一次</span><br><span class="line">42 1-5 1 * *			# 一天后的1-5小时的42分后各执行一次</span><br></pre></td></tr></table></figure>
 
-<p><strong>wc</strong></p>
-<p>统计文件的行数、单词数和字节数</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>-l</td>
-<td>仅统计文件行数</td>
-</tr>
-<tr>
-<td>-w</td>
-<td>仅统计文件单词数</td>
-</tr>
-<tr>
-<td>-c</td>
-<td>仅统计文件字节数</td>
-</tr>
-</tbody></table>
-<p><code>wc</code> 通<code>wc -lwc</code>  一起统计文件的行数、单词数、字节数</p>
-<br>
-
-<p><strong>du</strong></p>
-<p>查看某目录下的目录所占磁盘大小</p>
-<p><code>-s</code>			查看该目录所占磁盘大小</p>
-<p><code>-h</code>			以更加可读的形式展示目录所占磁盘大小</p>
-<p><code>du -sh</code> 		以更加刻度得形式查看某文件夹所占磁盘大小</p>
-<br>
-
-<br>
-
-<h1 id="文件查看命令"><a href="#文件查看命令" class="headerlink" title="文件查看命令"></a>文件查看命令</h1><p><br><strong>head</strong></p>
-<p>查看文件的前N行，默认查看文件的前10行</p>
-<p><code>head -n</code> 查看文件的前n行</p>
-<br>
-
-<p><strong>tail</strong></p>
-<p>查看文件的末尾n行，默认显示后10行</p>
-<p><code>tail -n </code>			 查看文件的后n行</p>
-<p><code>tail -f &lt;path&gt;</code>  	   查看某位置的动态文件，一般用于查看日志</p>
-<br>
-
-<p><strong>less</strong></p>
-<p>查看大文件，需要使用方向键翻页以查看更多内容，不会将所有内容都打印至屏幕</p>
-<br>
-
-<p><strong>more</strong></p>
-<p>查看大文件，功能与less类似，往上翻页Ctrl +b, 往下翻页Ctrl + f (空格键也可以)</p>
-<br>
-
-<p><strong>find</strong></p>
-<p>查找文档,可以使用<code>* </code>通配符扩大查找范围</p>
-<p><code>-name</code>	以文档名的形式查找文档</p>
-<p>**<code>-type</code>	**</p>
-<blockquote>
-<p><code>-type f  </code>	以文档类型查找文档</p>
-</blockquote>
-<blockquote>
-<p><code>-type d</code>	查找文件夹</p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find &lt;path&gt; -name &lt;file&gt;  -type f   	使用名称查找的方式在目录&lt;path&gt;下查找文件 &lt;file&gt;</span><br></pre></td></tr></table></figure>
-
-<h1 id="日期和时间命令"><a href="#日期和时间命令" class="headerlink" title="日期和时间命令"></a>日期和时间命令</h1><br>
-
-<p><strong>date</strong></p>
-<p>获取系统时间</p>
-<p><code>date </code></p>
-<blockquote>
-<p>Fri Jan 23 02:45:25 PM UTC 20</p>
-</blockquote>
-<p><code>date +%F</code></p>
-<blockquote>
-<p>2026-01-23</p>
-</blockquote>
-<p><code>date +%F%T</code></p>
-<blockquote>
-<p>2026-01-2314:47:20</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>%F</td>
-<td>打印完整的年月日</td>
-</tr>
-<tr>
-<td>%T</td>
-<td>打印完整的时分秒</td>
-</tr>
-<tr>
-<td>%Y</td>
-<td>打印四位的年份</td>
-</tr>
-<tr>
-<td>%m</td>
-<td>打印两位的月份</td>
-</tr>
-<tr>
-<td>%d</td>
-<td>打印日</td>
-</tr>
-<tr>
-<td>%H</td>
-<td>打印小时</td>
-</tr>
-<tr>
-<td>%M</td>
-<td>打印分钟</td>
-</tr>
-<tr>
-<td>%S</td>
-<td>打印秒</td>
-</tr>
-</tbody></table>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">date -s &quot;2026-01-23 12:34:45&quot;             #设置系统时间为具体的时间日期，注意格式</span><br></pre></td></tr></table></figure>
-
-<p><br><strong>timedatectl</strong></p>
-<p>列出系统时间和硬件时间，可设置时区</p>
-<p><code>list-timezones</code>	列出时区列表<br><code>set-timezone</code>	    设定为指定时区<br><code>set-time</code>		    设定具体的时间</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">timedatectl set-time &quot;2026-01-10 12:21&quot;        #将时间设置为：2026-01-10 12:21   注意时间格式</span><br></pre></td></tr></table></figure>
-
-<p><br><strong>ntpdate</strong></p>
-<p>手动网络校时，修正时间为网络时间(需要添加ntp服务器地址)</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ntpdate ntp.ntsc.ac.cn	使用ntp.ntsc.ac.cn的授时信息修正时间</span><br></pre></td></tr></table></figure>
-
-
-
-<p><br><strong>cal</strong></p>
-<p>查看系统日历</p>
-<p><code>cal -n</code>	输出当前前一个月后一个月以及本月的日历</p>
+<p><strong><code>crontab</code>参数管理</strong></p>
+<p><code>crontab -e</code>			编辑当前用户的任务</p>
+<p><code>crontab -l</code>			列出当前用户的任务</p>
+<p><code>crontab -r</code>			删除当前用户所有的任务</p>
 
       
     </div>
@@ -531,7 +274,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/84/">84</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/86/">86</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -618,7 +361,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">84</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -667,12 +410,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">351k</span>
+    <span title="站点总字数">356k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">9:45</span>
+    <span title="站点阅读时长">9:53</span>
 </div>
 <!-- 网站运行时间的设置 -->
 <span id="timeDate">载入天数...</span>

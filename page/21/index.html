@@ -169,7 +169,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/09/29/Cloudflare%E9%9D%9E%E6%A0%87HTTPS%E7%AB%AF%E5%8F%A3%E6%94%AF%E6%8C%81%E5%88%97%E8%A1%A8/">
+    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/10/03/Perplexity-Comet%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85%EF%BC%9F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
@@ -183,7 +183,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2025/09/29/Cloudflare%E9%9D%9E%E6%A0%87HTTPS%E7%AB%AF%E5%8F%A3%E6%94%AF%E6%8C%81%E5%88%97%E8%A1%A8/" class="post-title-link" itemprop="url">Cloudflare非标HTTPS端口支持列表</a>
+            <a href="/2025/10/03/Perplexity-Comet%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85%EF%BC%9F/" class="post-title-link" itemprop="url">Perplexity Comet无法安装？</a>
         </h2>
 
         <div class="post-meta">
@@ -193,14 +193,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2025-09-29 15:48:38" itemprop="dateCreated datePublished" datetime="2025-09-29T15:48:38+08:00">2025-09-29</time>
+              <time title="创建时间：2025-10-03 21:40:16" itemprop="dateCreated datePublished" datetime="2025-10-03T21:40:16+08:00">2025-10-03</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-10-01 21:14:15" itemprop="dateModified" datetime="2025-10-01T21:14:15+08:00">2025-10-01</time>
+                <time title="修改时间：2025-10-05 15:07:50" itemprop="dateModified" datetime="2025-10-05T15:07:50+08:00">2025-10-05</time>
               </span>
 
           <br>
@@ -209,14 +209,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.2k</span>
+              <span>1.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -228,109 +228,27 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Cloudflare为其应用层（Layer 7）<strong>HTTP&#x2F;HTTPS 代理</strong>（即DNS记录设置为“橙色云”代理模式时）支持一套特定的端口。这些端口允许流量通过Cloudflare的网络进行加速、缓存和安全保护。</p>
-<hr>
-<h1 id="Cloudflare-标准-HTTPS-代理端口列表"><a href="#Cloudflare-标准-HTTPS-代理端口列表" class="headerlink" title="Cloudflare 标准 HTTPS 代理端口列表"></a>Cloudflare 标准 HTTPS 代理端口列表</h1><p>Cloudflare支持代理的 <strong>HTTPS (TLS) 端口</strong> 包括一个标准端口和多个非标准端口。您的网站若使用以下任一端口，Cloudflare即可代理该流量：</p>
-<table>
-<thead>
-<tr>
-<th>端口号</th>
-<th>说明</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>443</strong></td>
-<td><strong>HTTPS 标准端口</strong></td>
-<td>全球公认的 HTTPS 标准端口，也是 Cloudflare 缓存和中国大陆网络支持的唯一 HTTPS 端口。</td>
-</tr>
-<tr>
-<td><strong>2053</strong></td>
-<td>非标准端口</td>
-<td>Cloudflare 支持的非标准 HTTPS 端口之一。</td>
-</tr>
-<tr>
-<td><strong>2083</strong></td>
-<td>非标准端口</td>
-<td>Cloudflare 支持的非标准 HTTPS 端口之一。</td>
-</tr>
-<tr>
-<td><strong>2087</strong></td>
-<td>非标准端口</td>
-<td>Cloudflare 支持的非标准 HTTPS 端口之一。</td>
-</tr>
-<tr>
-<td><strong>2096</strong></td>
-<td>非标准端口</td>
-<td>Cloudflare 支持的非标准 HTTPS 端口之一。</td>
-</tr>
-<tr>
-<td><strong>8443</strong></td>
-<td><strong>替代 HTTPS 端口</strong></td>
-<td>经常作为非标准或管理端口用于 HTTPS 服务。</td>
-</tr>
-</tbody></table>
-<hr>
-<h1 id="额外的重要技术细节"><a href="#额外的重要技术细节" class="headerlink" title="额外的重要技术细节"></a>额外的重要技术细节</h1><h3 id="1-HTTP-代理端口"><a href="#1-HTTP-代理端口" class="headerlink" title="1. HTTP 代理端口"></a>1. HTTP 代理端口</h3><p>为了完整性，Cloudflare 支持代理的 <strong>HTTP 端口</strong> 集合为：<strong>80, 8080, 8880, 2052, 2082, 2086, 2095</strong>。</p>
-<h2 id="2-缓存和中国大陆网络限制"><a href="#2-缓存和中国大陆网络限制" class="headerlink" title="2. 缓存和中国大陆网络限制"></a>2. 缓存和中国大陆网络限制</h2><p>请注意，并非所有支持的端口都享有 Cloudflare 的全部优势：</p>
-<ul>
-<li><strong>缓存限制：</strong> 只有 <strong>80 (HTTP)</strong> 和 <strong>443 (HTTPS)</strong> 这两个端口支持 **Cloudflare 缓存 (Caching)**。</li>
-<li><strong>中国大陆网络限制：</strong> 对于启用了 <strong>中国大陆网络 (China Network)</strong> 的区域，只有 <strong>80 (HTTP)</strong> 和 <strong>443 (HTTPS)</strong> 端口支持 HTTP&#x2F;HTTPS 代理流量。</li>
-</ul>
-<h2 id="3-任意端口和非-HTTP-流量"><a href="#3-任意端口和非-HTTP-流量" class="headerlink" title="3. 任意端口和非 HTTP 流量"></a>3. 任意端口和非 HTTP 流量</h2><p>如果您的服务运行在上述列表之外的端口上，或使用非 HTTP&#x2F;HTTPS 协议（例如 SSH, RDP, 自定义 TCP 协议），您有以下选项：</p>
-<ul>
-<li><strong>DNS Only (灰色云)：</strong> 将该DNS记录设置为“仅限 DNS”（灰色云），流量将绕过 Cloudflare 直接连接到您的源站服务器IP，Cloudflare将不提供保护或加速。</li>
-<li><strong>Cloudflare Spectrum：</strong> 对于 <strong>企业版 (Enterprise Plan)</strong> 用户，可以使用 <strong>Cloudflare Spectrum</strong> 产品来代理<strong>任意 TCP 端口</strong>（端口 21 除外），并为非 HTTP 流量提供保护和性能优化。</li>
-</ul>
-<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><h2 id="SSL-TLS-加密模式"><a href="#SSL-TLS-加密模式" class="headerlink" title="SSL&#x2F;TLS 加密模式"></a><strong>SSL&#x2F;TLS</strong> 加密模式</h2><p><strong>SSL&#x2F;TLS</strong>的加密模式根据加密强度划分以下几种：</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>Strict (SSL-Only Origin Pull)</strong></td>
-<td>在 Cloudflare 和您的源服务器之间强制加密。使用此模式可确保与源服务器的连接始终加密，无论访问者的请求如何。</td>
-</tr>
-<tr>
-<td><strong>Full (Strict)</strong></td>
-<td>启用端到端加密并强制验证原始证书。使用 Cloudflare 的 Origin CA 为您的原始证书生成证书。</td>
-</tr>
-<tr>
-<td><strong>Full</strong></td>
-<td>启用端到端加密。当您的源服务器支持 SSL 认证但不使用有效的、公众信任的证书时，请使用此模式。</td>
-</tr>
-<tr>
-<td><strong>Flexible</strong></td>
-<td>仅在您的访客和 Cloudflare 之间启用加密。这样可以避免浏览器安全警告，但 Cloudflare 与您的源站之间的所有连接均通过 HTTP 建立。</td>
-</tr>
-<tr>
-<td><strong>Off (not secure)</strong></td>
-<td>未应用加密。关闭 SSL 会禁用 HTTPS，并导致浏览器显示警告，提示您的网站不安全。</td>
-</tr>
-</tbody></table>
-<p><img src="https://s2.loli.net/2025/09/29/cOdGe9KfWuTFiLQ.png" alt="clipboard-image-1759132939.png"></p>
-<p style="color: red; font-size:20px; font-weight:bold"> 建议选择 Flexible模式（仅仅加密客户端至边缘服务器的流量，境外流量不进行加密）</p> 这样既能保证网络畅通还能保证网络速度（相对于两端加密少一层加密，速度也就提升一点），当然，若是担心个人安全或信息泄露的话可以使用两端加密，以保证安全。
+          <p><img src="https://s2.loli.net/2025/10/05/q3gTfCcDaxNZRWQ.png" alt="clipboard-image-1759644885.png" style="zoom: 50%;" /><img src="https://s2.loli.net/2025/10/05/ghEVWC6O2R98rZQ.png" alt="clipboard-image-1759645217.png" style="zoom:7.6%;" /><br>关于Perplexity和Comet，可能很多人没有听说过没有接触过。Perplexity是一家美国初创的Ai搜索服务公司，该公司主要面向智能的搜索服务，其内部集成多家Ai公司的API，以保证搜索结果的合理性和搜索来源的多样化。</p>
+<p>曾经Apple启动收购程序要将Perplexity收购下来作为Apple Intelligence的模型来源。但是最终并购案未成功进行。2025年9月，Perplexity曾涉及收购Chrome案，因美国法院驳回对Google的反垄断法案，Chrome出售给Perplexity的提案也就此终结。截至2025年十月，Perplexity已完成多轮融资，市值估计超200亿美元。Accel、SoftBank、Nvidia、Jeff Bezos等早期投资者也逐渐加大对其投资。</p>
+<p>关于Perplexity背景，该公司全名叫<code>Perplexity AI, Inc</code> 印度裔的印度理工大学的Aravind Srinivas在2022年8月创建。具体参见<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Perplexity_AI">Wiki</a>.</p>
+<img src="https://s2.loli.net/2025/10/05/o1GBl4EsbIxvkqU.png" alt="clipboard-image-1759645787.png" style="zoom:67%;" />
 
-<h1 id="SSL证书申请"><a href="#SSL证书申请" class="headerlink" title="SSL证书申请"></a>SSL证书申请</h1><p>在申请SSL证书之前需要在DNS中为您的VPV添加一条A记录，将其解析到您的VPS的IP地址。<br><img src="https://s2.loli.net/2025/09/29/VL8sMScmDUwaGTW.png" alt="clipboard-image-1759135083.png"></p>
-<ul>
-<li>类型选择<strong>A</strong>,也就是添加一条A类型的DNS记录</li>
-<li>Name Required 指的是为您购买的二级域名添加一个三级域名</li>
-<li>IPV4处填入你的VPS公网地址</li>
-<li>proxy status 这里要把开关给关掉（暂时关掉不使用cdn，仅进行DNS解析）</li>
-</ul>
-<p>假如你在Cloudflare登记的域名为<code>abc.com</code>,在添加该条A记录的时候你为它写了一个<code>Name</code>叫做<code>cdn</code>，并且你把你的VPS 地址填进去了，把小黄云也关闭了，最后您确认并保存了该条解析。那么此时您使用ping工具<code>ping cdn.abc.com</code>时就能看到你绑定的IP地址。</p>
-<hr>
-<h1 id="注意-1"><a href="#注意-1" class="headerlink" title="注意"></a>注意</h1><p>在使用内置脚本申请SSL证书时会需要添加你的Cloudflare Global API,请点击您右上角的CF头像，找到<strong>API Tokens</strong>，进入下面的<strong>API Keys</strong>选择<code>Global API Key</code>输入账号密码查看并复制内容：</p>
-<p><img src="https://s2.loli.net/2025/09/29/8h1SWc23qosuvBH.png" alt="clipboard-image-1759136757.png"></p>
-<p><img src="https://s2.loli.net/2025/09/29/sWL8KF6wcEI75vT.png" alt="clipboard-image-1759136783.png"></p>
-<p>在添加DNS解析到您的VPS之后就可以在面板中（3x-ui面板）中使用自带的脚本申请<code>Let’s Encrypt</code>的自签SSL证书。请在服务器中复制一份申请得到的证书信息到root文件夹下备用，请注意区分私钥和公钥。</p>
-<h1 id="打开小黄云"><a href="#打开小黄云" class="headerlink" title="打开小黄云"></a>打开小黄云</h1><p>此时请回到<strong>SSL&#x2F;TLS</strong>加密部分将之前添加的那条DNS记录设置页面，将之前添加的解析中关闭的小黄云打开（开启CDN）。</p>
-<p><strong>为什么之前添加DNS记录的时候不打开小黄云？</strong></p>
-<p style="color:red">因为打开CDN再申请SSL证书时证书供应商会将你期望的IP解析为错误的CDN IP，CDN生效意味着你的IP会被解析为CDN边缘服务器的IP，并不是你的源站IP，这也就会导致解析无效。所以必须先关闭CDN再申请证书，待证书申请完成后再重新打开CDN.</p>
+<p>图示为Perplexity的主界面，该界面与市面上其它的Ai界面几乎一致，特别是Grok。左侧时功能栏，中间是搜索框，搜索框下由几个可选功能，比如联网搜索功能和学术搜索。其Ai模型也是可选的，有市面上常见的几家高市占率模型。可以根据个人情况选择合适的模型进行搜索（该搜索引擎和实际的AI是一样的）。</p>
+<p><img src="https://s2.loli.net/2025/10/05/G92qVPW6bN58XKF.png" alt="clipboard-image-1759646683.png"></p>
+<p>上图是Comet浏览器的界面，和Perplexity几乎无异，但值得注意的是该浏览器在进行网络浏览的时候可以对网页内容进行总结和提问，也就是相当于普通的浏览器加入了一个插件。但时不能说这就是加了AI插件的浏览器。它是由chromium修改的浏览器，核心依旧是chromium，但是界面经过改造后更加的有美感，观感更好。而且内置的网页总结和侧边栏AI问答也可以更好地解答问题。</p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p><strong>注意</strong>：请注意该软件的安装，因为其安装程序仅使用<code>UDP</code> 流量进行，而且必须依赖境外流量，所以会出现安装失败的情况，直接对安装包双击是不够的，需要对代理软件进行设置。</p>
+<img src="https://s2.loli.net/2025/10/05/yXhexItUmf3HR7K.png" alt="clipboard-image-1759647194.png" style="zoom:80%;" />
 
+<p>如图所示，世界双击安装会出现左下角显示的<code>等待网络连接</code> ，这将会导致安装进行无法继续，也就是无法安装。不过已知该程序仅允许进行UDP链接，所以在代理软件中开启<code>TUN</code> 模式再进行安装就可以解决。<br><img src="https://s2.loli.net/2025/10/05/8Inalu7MZEfwNDo.png" alt="clipboard-image-1759647423.png"></p>
+<p>打开代理软件的管理界面，将网络设置的<code>系统代理</code> 替换为<code>虚拟网卡模式</code> 并且将更具<code>规则</code> 代理修改为<code>全局</code> 此时即可重新启动安装程序。</p>
+<p style="color:red; font-weight: bold">
+    请打开代理软件的设置，将系统代理切换为虚拟网模式。
+    <br>
+    Comet程序下载数据使用的是纯UDP协议，且绕过了系统代理，所以下载无法正常进行。必须将代理软件调整为虚拟网卡模式，使代理软件接管所有的设备流量，将不经过系统代理的UDP流量重新通过软件代理进行。
+</p>
+![clipboard-image-1759647886.png](https://s2.loli.net/2025/10/05/3u6vcqCtpBeyFSo.png)
+
+<h1 id="严格IP要求"><a href="#严格IP要求" class="headerlink" title="严格IP要求"></a>严格IP要求</h1><p>请注意，perplexity的服务对于访问IP的质量要求极高，假如你的网络不干净，可能会被Cloudflare的安全盾组织无法使用该服务，请切换节点或者看我之前的warp分流教程解决问题，如无问题请正常是登录使用。出现无法使用的情况，请即时考虑到是您的IP导致的访问的限制，以进行排查。</p>
 
       
     </div>
@@ -349,7 +267,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/20/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><span class="page-number current">21</span><a class="page-number" href="/page/22/">22</a><span class="space">&hellip;</span><a class="page-number" href="/page/84/">84</a><a class="extend next" rel="next" href="/page/22/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/20/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><span class="page-number current">21</span><a class="page-number" href="/page/22/">22</a><span class="space">&hellip;</span><a class="page-number" href="/page/86/">86</a><a class="extend next" rel="next" href="/page/22/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -436,7 +354,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">84</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -485,12 +403,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">351k</span>
+    <span title="站点总字数">356k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">9:45</span>
+    <span title="站点阅读时长">9:53</span>
 </div>
 <!-- 网站运行时间的设置 -->
 <span id="timeDate">载入天数...</span>

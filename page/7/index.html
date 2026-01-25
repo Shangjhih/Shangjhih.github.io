@@ -169,7 +169,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/11/24/Word%E4%B8%8EUnicode%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6/">
+    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/12/05/%E4%B8%BB%E4%B9%89%E3%80%81%E5%AE%97%E6%95%99%E4%B8%8E%E4%BF%A1%E4%BB%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
@@ -183,7 +183,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2025/11/24/Word%E4%B8%8EUnicode%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6/" class="post-title-link" itemprop="url">Word中的Unicode特殊字符</a>
+            <a href="/2025/12/05/%E4%B8%BB%E4%B9%89%E3%80%81%E5%AE%97%E6%95%99%E4%B8%8E%E4%BF%A1%E4%BB%B0/" class="post-title-link" itemprop="url">宗教、主义与信仰</a>
         </h2>
 
         <div class="post-meta">
@@ -194,7 +194,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2025-11-24 16:21:38 / 修改时间：17:56:10" itemprop="dateCreated datePublished" datetime="2025-11-24T16:21:38+08:00">2025-11-24</time>
+              <time title="创建时间：2025-12-05 13:32:17 / 修改时间：15:15:18" itemprop="dateCreated datePublished" datetime="2025-12-05T13:32:17+08:00">2025-12-05</time>
             </span>
 
           <br>
@@ -203,14 +203,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>7.3k</span>
+              <span>6.5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>12 分钟</span>
+              <span>11 分钟</span>
             </span>
 
         </div>
@@ -222,686 +222,56 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><img src="https://s2.loli.net/2025/11/24/eQAqt1cIug3WVba.png" alt="clipboard-image-1763973510.png"><br><img src="https://s2.loli.net/2025/11/24/qWoJRmI4O6xunkp.png" alt="clipboard-image-1763973646.png"></p>
-<hr>
-<p>很多时候在使用Word填写文件时会遇到一些特殊字符，比如<code>带方框的✓</code>(2611)、<code>方框</code>（2610）、<code>带方框的✗</code>（2612）等。此时你可能会在word中的插入字符里寻找，你能找到吗？是的，有经验的话你可以找到，但是没经验的话根本找不到，这里我们将会讲一下Unicode与特殊字符之间的关系。</p>
-<p>我们先讲一下如何使用鼠标点选操作来选择特殊字符</p>
-<p><img src="https://s2.loli.net/2025/11/24/jXR1dkQYhv87VSm.png" alt="clipboard-image-1763973223.png"><br><img src="https://s2.loli.net/2025/11/24/rzZ2eGXkKAE84Rt.png" alt="clipboard-image-1763973393.png" style="zoom:80%;" /></p>
-<h1 id="Unicode标准"><a href="#Unicode标准" class="headerlink" title="Unicode标准"></a>Unicode标准</h1><p><strong>Unicode</strong>，全称为<strong>Unicode标准</strong>（The Unicode Standard），其官方机构<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%B5%B1%E4%B8%80%E7%A2%BC%E8%81%AF%E7%9B%9F">Unicode联盟</a>所用的中文名称为<strong>统一码</strong>[<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%BB%9F%E4%B8%80%E7%A0%81#cite_note-1">1]</a>，又译作<strong>万国码</strong>、统一字符码、统一字符编码[<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%BB%9F%E4%B8%80%E7%A0%81#cite_note-2">2]</a>，是<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF">信息技术</a>领域的业界<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%A0%87%E5%87%86">标准</a>，其整理、编码了世界上大部分的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%96%87%E5%AD%97%E7%B3%BB%E7%B5%B1">文字系统</a>，使得<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E9%9B%BB%E8%85%A6">电脑</a>能以通用划一的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%AD%97%E5%85%83%E7%B7%A8%E7%A2%BC">字符集</a>来处理和显示文字，不但减轻在不同编码系统间切换和转换的困扰，更提供了一种<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E8%B7%A8%E5%B9%B3%E8%87%BA">跨平台</a>的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E4%BA%82%E7%A2%BC">乱码</a>问题解决方案。Unicode由<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E9%9D%9E%E7%87%9F%E5%88%A9%E6%A9%9F%E6%A7%8B">非营利机构</a><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Unicode%E8%81%AF%E7%9B%9F">Unicode联盟</a>（Unicode Consortium）负责维护，该机构致力让Unicode标准取代编码空间有限、不适用于多语言环境的既有字符编码方案。</p>
-<p>在文字处理方面，统一码为每一个字符而非字形定义唯一的代码（即一个整数）。换句话说，统一码以一种抽象的方式（即数字）来处理字符，并将视觉上的演绎工作（例如字体大小、外观形状、字体形态、文体等）留给其他软件来处理，例如网页浏览器或是文字处理器。</p>
-<p style="color: red; font-weight: bold"> 总结：网络中出现的所有字符都经过Unicode标准进行编码，所有的字符都涵盖在字符表中，包括英文字符、希腊字母和中文、汉语、日语等各种语言中出现的字符，也包括小黄脸表情包等可输出字符。但是根据输入法以及字体的不同，同样的Unicode编码在经过不同规范进行渲染时也会出现不同，比如苹果手机可以打出苹果公司的标志，发送至安卓手机时就会出现无法渲染的情况，我们将在后面谈到。</p>
-
-<h1 id="UTF-8编码下不同字符的字节占用"><a href="#UTF-8编码下不同字符的字节占用" class="headerlink" title="UTF-8编码下不同字符的字节占用"></a>UTF-8编码下不同字符的字节占用</h1><table>
-<thead>
-<tr>
-<th><strong>字符类型</strong></th>
-<th><strong>Unicode 代码点范围</strong></th>
-<th><strong>占用字节数</strong></th>
-<th><strong>示例</strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>英文字符</strong> (基础 $\text{ASCII}$)</td>
-<td>$\text{U}+0000$ 到 $\text{U}+007F$</td>
-<td><strong>1 字节</strong></td>
-<td>字母 $\text{A}$ ($\text{U}+0041$)、数字 $1$、空格、标点符号。</td>
-</tr>
-<tr>
-<td><strong>中文字符</strong> (常用汉字)</td>
-<td>$\text{U}+0800$ 到 $\text{U}+\text{FFFF}$ (主要 $\text{CJK}$ 区域)</td>
-<td><strong>3 字节</strong></td>
-<td>汉字 <strong>中</strong> ($\text{U}+4E2D$)、汉字 <strong>文</strong>。</td>
-</tr>
-<tr>
-<td><strong>欧洲特殊字符</strong> (带变音符号)</td>
-<td>$\text{U}+0080$ 到 $\text{U}+07FF$</td>
-<td><strong>2 字节</strong></td>
-<td>字母 $\text{é}$ ($\text{U}+00E9$)、$\text{ü}$、欧元符号 $\text{€}$ ($\text{U}+20AC$ - <strong>3 字节</strong>)</td>
-</tr>
-<tr>
-<td><strong>特殊&#x2F;生僻字符</strong> ($\text{Emoji}$、生僻汉字)</td>
-<td>$\text{U}+10000$ 及以上 ($\text{Supplementary Planes}$)</td>
-<td><strong>4 字节</strong></td>
-<td>—哭泣的表情 $\text{😂}$ ($\text{U}+1F602$)、甲骨文等罕见字符。</td>
-</tr>
-</tbody></table>
-<hr>
-<p>我们可以这样计算：打出一个英文单词可能需要1-10多个不同的拉丁字母，也就是1-10多个字节大小。打出一个中文字符则需要占用3字节大小。由此便可以计算你文档的大小。同样的一句话，可能中文占用的字节多也可能英文表述占用的字节多，这都是有可能的，具体根据字母和词语出现的次数来计算。</p>
-<h1 id="部分特殊字符的Unicode-16代码点表示方法"><a href="#部分特殊字符的Unicode-16代码点表示方法" class="headerlink" title="部分特殊字符的Unicode-16代码点表示方法"></a>部分特殊字符的Unicode-16代码点表示方法</h1><p style="color: red; font-weight: bold">Unicode代码点代表该字符在字符表中所对应的唯一位置，在word中输入该符号对应的4位代码点后将光标移至该4位代码后使用快捷键  ALT + X  即可渲染出该代码表示的符号。</p>
-
-<table>
-<thead>
-<tr>
-<th><strong>序号</strong></th>
-<th>**字符 **</th>
-<th>**名称 **</th>
-<th>**Unicode 代码点 **</th>
-<th><strong>Word 输入 (代码 + Alt+X)</strong></th>
-<th><strong>Unicode 区块</strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1</td>
-<td>$\text{□}$</td>
-<td>空白复选框</td>
-<td>$\text{2610}$</td>
-<td>$\mathbf{2610} + \text{Alt}+\text{X}$</td>
-<td>杂项符号</td>
-</tr>
-<tr>
-<td>2</td>
-<td>$\text{☑}$</td>
-<td>带勾复选框</td>
-<td>$\text{2611}$</td>
-<td>$\mathbf{2611} + \text{Alt}+\text{X}$</td>
-<td>杂项符号</td>
-</tr>
-<tr>
-<td>3</td>
-<td>$\text{☒}$</td>
-<td>带 $\text{X}$ 复选框</td>
-<td>$\text{2612}$</td>
-<td>$\mathbf{2612} + \text{Alt}+\text{X}$</td>
-<td>杂项符号</td>
-</tr>
-<tr>
-<td>4</td>
-<td>$\sqrt{}$</td>
-<td>根号</td>
-<td>$\text{221A}$</td>
-<td>$\mathbf{221A} + \text{Alt}+\text{X}$</td>
-<td>数学运算符</td>
-</tr>
-<tr>
-<td>5</td>
-<td>$\sum$</td>
-<td>求和符号</td>
-<td>$\text{2211}$</td>
-<td>$\mathbf{2211} + \text{Alt}+\text{X}$</td>
-<td>数学运算符</td>
-</tr>
-<tr>
-<td>6</td>
-<td>$\pi$</td>
-<td>小写希腊 $\text{Pi}$ (圆周率)</td>
-<td>$\text{03C0}$</td>
-<td>$\mathbf{03C0} + \text{Alt}+\text{X}$</td>
-<td>希腊语和科普特语</td>
-</tr>
-<tr>
-<td>7</td>
-<td>$\in$</td>
-<td>属于</td>
-<td>$\text{2208}$</td>
-<td>$\mathbf{2208} + \text{Alt}+\text{X}$</td>
-<td>数学运算符</td>
-</tr>
-<tr>
-<td>8</td>
-<td>$\forall$</td>
-<td>对于所有</td>
-<td>$\text{2200}$</td>
-<td>$\mathbf{2200} + \text{Alt}+\text{X}$</td>
-<td>数学运算符</td>
-</tr>
-<tr>
-<td>9</td>
-<td>$\subset$</td>
-<td>是…的子集</td>
-<td>$\text{2282}$</td>
-<td>$\mathbf{2282} + \text{Alt}+\text{X}$</td>
-<td>数学运算符</td>
-</tr>
-<tr>
-<td>10</td>
-<td>$\text{™}$</td>
-<td>商标</td>
-<td>$\text{2122}$</td>
-<td>$\mathbf{2122} + \text{Alt}+\text{X}$</td>
-<td>字母类似符号</td>
-</tr>
-<tr>
-<td>11</td>
-<td>$\text{©}$</td>
-<td>版权</td>
-<td>$\text{00A9}$</td>
-<td>$\mathbf{00A9} + \text{Alt}+\text{X}$</td>
-<td>拉丁语补充-1</td>
-</tr>
-<tr>
-<td>12</td>
-<td>$\text{€}$</td>
-<td>欧元符号</td>
-<td>$\text{20AC}$</td>
-<td>$\mathbf{20AC} + \text{Alt}+\text{X}$</td>
-<td>货币符号</td>
-</tr>
-<tr>
-<td>13</td>
-<td>$\text{→}$</td>
-<td>右箭头</td>
-<td>$\text{2192}$</td>
-<td>$\mathbf{2192} + \text{Alt}+\text{X}$</td>
-<td>箭头</td>
-</tr>
-<tr>
-<td>14</td>
-<td>$\text{★}$</td>
-<td>黑色五角星</td>
-<td>$\text{2605}$</td>
-<td>$\mathbf{2605} + \text{Alt}+\text{X}$</td>
-<td>杂项符号</td>
-</tr>
-<tr>
-<td>15</td>
-<td>$\text{§}$</td>
-<td>节号</td>
-<td>$\text{00A7}$</td>
-<td>$\mathbf{00A7} + \text{Alt}+\text{X}$</td>
-<td>拉丁语补充-1</td>
-</tr>
-<tr>
-<td>16</td>
-<td>$\text{℃}$</td>
-<td>摄氏度符号</td>
-<td>$\text{2103}$</td>
-<td>$\mathbf{2103} + \text{Alt}+\text{X}$</td>
-<td>字母类似符号</td>
-</tr>
-</tbody></table>
-<p>系统中不仅仅有公共的字符表，还有私有字符表。私有字符表由字体提供方维护，比如之前提到的<code>iPhone</code>可以打出自家的苹果图标，发送至<code>Android</code>手机后便无法正常渲染，这就是私有字符的渲染标准不同导致的显示问题。<code>Android</code>设备也可以通过安装苹方以及相关字体来获得对<code>iPhone</code>特殊字符的支持。</p>
-<hr>
-<h1 id="ASCII"><a href="#ASCII" class="headerlink" title="ASCII"></a>ASCII</h1><p>在计算机中，所有的数据在存储和运算时都要使用<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E4%BA%8C%E8%BF%9B%E5%88%B6">二进制数</a>表示。例如，像a、b、c、d这样的52个字母（包括大写）以及0、1等数字还有一些常用的符号（例如*、#、@等）在计算机中存储时也要使用二进制数来表示，而具体用哪些二进制数字表示哪个符号，这就是<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%BC%96%E7%A0%81">编码</a>。如果不同的计算机要想互相通信而不造成混乱，那么每台计算机就必须使用相同的编码规则，于是美国有关的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%A8%99%E6%BA%96%E7%B5%84%E7%B9%94">标准化组织</a>就推出了ASCII编码。</p>
-<p>ASCII是由<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%BE%8E%E5%9C%8B%E5%9C%8B%E5%AE%B6%E6%A8%99%E6%BA%96%E5%8D%94%E6%9C%83">美国国家标准学会</a>（American National Standard Institute，ANSI）制定的，使用标准的单字节字符编码方案，用于基于文本的数据。方案起始于50年代后期，在1967年定案。它最初是美国的标准，供不同计算机在相互通信时需共同遵守的西文字符编码标准。现已被<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%9C%8B%E9%9A%9B%E6%A8%99%E6%BA%96%E5%8C%96%E7%B5%84%E7%B9%94">国际标准化组织</a>（International Organization for Standardization，ISO）定为国际标准（<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/ISO/IEC_646">ISO&#x2F;IEC 646</a>），适用于所有拉丁字母。</p>
-<p><strong>ASCII控制字符（共33个）</strong></p>
-<table>
-<thead>
-<tr>
-<th align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E4%BA%8C%E8%BF%9B%E5%88%B6">二进制</a></th>
-<th align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%8D%81%E8%BF%9B%E5%88%B6">十进制</a></th>
-<th align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6">十六进制</a></th>
-<th align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%BC%A9%E5%86%99">缩写</a></th>
-<th align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Unicode">Unicode</a> 表示法</th>
-<th align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E8%84%AB%E5%87%BA%E5%AD%97%E5%85%83">脱出字符</a> 表示法</th>
-<th align="center">名称／意义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">0000 0000</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/0">0</a></td>
-<td align="center">00</td>
-<td align="center">NUL</td>
-<td align="center">␀</td>
-<td align="center">^@</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%A9%BA%E5%AD%97%E7%AC%A6">空字符</a>（Null）</td>
-</tr>
-<tr>
-<td align="center">0000 0001</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/1">1</a></td>
-<td align="center">01</td>
-<td align="center">SOH</td>
-<td align="center">␁</td>
-<td align="center">^A</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=%E6%A0%87%E9%A2%98%E5%BC%80%E5%A7%8B&action=edit&redlink=1">标题开始</a></td>
-</tr>
-<tr>
-<td align="center">0000 0010</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/2">2</a></td>
-<td align="center">02</td>
-<td align="center">STX</td>
-<td align="center">␂</td>
-<td align="center">^B</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=%E6%9C%AC%E6%96%87%E5%BC%80%E5%A7%8B&action=edit&redlink=1">本文开始</a></td>
-</tr>
-<tr>
-<td align="center">0000 0011</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/3">3</a></td>
-<td align="center">03</td>
-<td align="center">ETX</td>
-<td align="center">␃</td>
-<td align="center">^C</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=%E6%9C%AC%E6%96%87%E7%BB%93%E6%9D%9F&action=edit&redlink=1">本文结束</a></td>
-</tr>
-<tr>
-<td align="center">0000 0100</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/4">4</a></td>
-<td align="center">04</td>
-<td align="center">EOT</td>
-<td align="center">␄</td>
-<td align="center">^D</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=%E5%82%B3%E8%BC%B8%E7%BB%93%E6%9D%9F&action=edit&redlink=1">传输结束</a></td>
-</tr>
-<tr>
-<td align="center">0000 0101</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/5">5</a></td>
-<td align="center">05</td>
-<td align="center">ENQ</td>
-<td align="center">␅</td>
-<td align="center">^E</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=%E8%AF%B7%E6%B1%82&action=edit&redlink=1">请求</a></td>
-</tr>
-<tr>
-<td align="center">0000 0110</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/6">6</a></td>
-<td align="center">06</td>
-<td align="center">ACK</td>
-<td align="center">␆</td>
-<td align="center">^F</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%A2%BA%E8%AA%8D%E5%9B%9E%E6%87%89">确认回应</a></td>
-</tr>
-<tr>
-<td align="center">0000 0111</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/7">7</a></td>
-<td align="center">07</td>
-<td align="center">BEL</td>
-<td align="center">␇</td>
-<td align="center">^G</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=%E5%93%8D%E9%93%83%E5%AD%97%E7%AC%A6&action=edit&redlink=1">响铃</a></td>
-</tr>
-<tr>
-<td align="center">0000 1000</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/8">8</a></td>
-<td align="center">08</td>
-<td align="center">BS</td>
-<td align="center">␈</td>
-<td align="center">^H</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E9%80%80%E6%A0%BC%E9%8D%B5">退格</a></td>
-</tr>
-<tr>
-<td align="center">0000 1001</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/9">9</a></td>
-<td align="center">09</td>
-<td align="center">HT</td>
-<td align="center">␉</td>
-<td align="center">^I</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%88%B6%E8%A1%A8%E9%94%AE#%E5%AE%9A%E4%BD%8D%E7%AC%A6%E5%8F%B7">水平定位符号</a></td>
-</tr>
-<tr>
-<td align="center">0000 1010</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/10">10</a></td>
-<td align="center">0A</td>
-<td align="center">LF</td>
-<td align="center">␊</td>
-<td align="center">^J</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%8F%9B%E8%A1%8C">换行键</a></td>
-</tr>
-<tr>
-<td align="center">0000 1011</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/11">11</a></td>
-<td align="center">0B</td>
-<td align="center">VT</td>
-<td align="center">␋</td>
-<td align="center">^K</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=%E5%9E%82%E7%9B%B4%E5%AE%9A%E4%BD%8D%E7%AC%A6%E8%99%9F&action=edit&redlink=1">垂直定位符号</a></td>
-</tr>
-<tr>
-<td align="center">0000 1100</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/12">12</a></td>
-<td align="center">0C</td>
-<td align="center">FF</td>
-<td align="center">␌</td>
-<td align="center">^L</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=%E6%8F%9B%E9%A0%81%E9%8D%B5&action=edit&redlink=1">换页键</a></td>
-</tr>
-<tr>
-<td align="center">0000 1101</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/13">13</a></td>
-<td align="center">0D</td>
-<td align="center">CR</td>
-<td align="center">␍</td>
-<td align="center">^M</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/CR_(%E5%AD%97%E5%85%83)">CR (字符)</a></td>
-</tr>
-<tr>
-<td align="center">0000 1110</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/14">14</a></td>
-<td align="center">0E</td>
-<td align="center">SO</td>
-<td align="center">␎</td>
-<td align="center">^N</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%8F%96%E6%B6%88%E8%AE%8A%E6%8F%9B">取消变换</a>（Shift out）</td>
-</tr>
-<tr>
-<td align="center">0000 1111</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/15">15</a></td>
-<td align="center">0F</td>
-<td align="center">SI</td>
-<td align="center">␏</td>
-<td align="center">^O</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%95%9F%E7%94%A8%E8%AE%8A%E6%8F%9B">激活变换</a>（Shift in）</td>
-</tr>
-<tr>
-<td align="center">0001 0000</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/16">16</a></td>
-<td align="center">10</td>
-<td align="center">DLE</td>
-<td align="center">␐</td>
-<td align="center">^P</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=%E8%B7%B3%E5%87%BA%E6%95%B0%E6%8D%AE%E9%80%9A%E8%AE%AF&action=edit&redlink=1">跳出数据通讯</a></td>
-</tr>
-<tr>
-<td align="center">0001 0001</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/17">17</a></td>
-<td align="center">11</td>
-<td align="center">DC1</td>
-<td align="center">␑</td>
-<td align="center">^Q</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=%E8%A8%AD%E5%82%99%E6%8E%A7%E5%88%B6&action=edit&redlink=1">设备控制</a>一（<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=XON&action=edit&redlink=1">XON</a> <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=%E5%95%9F%E7%94%A8%E8%BB%9F%E9%AB%94%E9%80%9F%E5%BA%A6%E6%8E%A7%E5%88%B6&action=edit&redlink=1">激活软件速度控制</a>）</td>
-</tr>
-<tr>
-<td align="center">0001 0010</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/18">18</a></td>
-<td align="center">12</td>
-<td align="center">DC2</td>
-<td align="center">␒</td>
-<td align="center">^R</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=%E8%A8%AD%E5%82%99%E6%8E%A7%E5%88%B6&action=edit&redlink=1">设备控制</a>二</td>
-</tr>
-<tr>
-<td align="center">0001 0011</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/19">19</a></td>
-<td align="center">13</td>
-<td align="center">DC3</td>
-<td align="center">␓</td>
-<td align="center">^S</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=%E8%A8%AD%E5%82%99%E6%8E%A7%E5%88%B6&action=edit&redlink=1">设备控制</a>三（<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=XOFF&action=edit&redlink=1">XOFF</a> <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=%E5%81%9C%E7%94%A8%E8%BB%9F%E9%AB%94%E9%80%9F%E5%BA%A6%E6%8E%A7%E5%88%B6&action=edit&redlink=1">停用软件速度控制</a>）</td>
-</tr>
-<tr>
-<td align="center">0001 0100</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/20">20</a></td>
-<td align="center">14</td>
-<td align="center">DC4</td>
-<td align="center">␔</td>
-<td align="center">^T</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=%E8%A8%AD%E5%82%99%E6%8E%A7%E5%88%B6&action=edit&redlink=1">设备控制</a>四</td>
-</tr>
-<tr>
-<td align="center">0001 0101</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/21">21</a></td>
-<td align="center">15</td>
-<td align="center">NAK</td>
-<td align="center">␕</td>
-<td align="center">^U</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%A2%BA%E8%AA%8D%E5%A4%B1%E6%95%97%E5%9B%9E%E6%87%89">确认失败回应</a></td>
-</tr>
-<tr>
-<td align="center">0001 0110</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/22">22</a></td>
-<td align="center">16</td>
-<td align="center">SYN</td>
-<td align="center">␖</td>
-<td align="center">^V</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=%E5%90%8C%E6%AD%A5%E7%94%A8%E6%9A%AB%E5%81%9C&action=edit&redlink=1">同步用暂停</a></td>
-</tr>
-<tr>
-<td align="center">0001 0111</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/23">23</a></td>
-<td align="center">17</td>
-<td align="center">ETB</td>
-<td align="center">␗</td>
-<td align="center">^W</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=%E5%8D%80%E5%A1%8A%E5%82%B3%E8%BC%B8%E7%BB%93%E6%9D%9F&action=edit&redlink=1">区块传输结束</a></td>
-</tr>
-<tr>
-<td align="center">0001 1000</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/24">24</a></td>
-<td align="center">18</td>
-<td align="center">CAN</td>
-<td align="center">␘</td>
-<td align="center">^X</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=%E5%8F%96%E6%B6%88&action=edit&redlink=1">取消</a></td>
-</tr>
-<tr>
-<td align="center">0001 1001</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/25">25</a></td>
-<td align="center">19</td>
-<td align="center">EM</td>
-<td align="center">␙</td>
-<td align="center">^Y</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=%E9%80%A3%E7%B7%9A%E4%BB%8B%E8%B4%A8%E4%B8%AD%E6%96%AD&action=edit&redlink=1">连线介质中断</a></td>
-</tr>
-<tr>
-<td align="center">0001 1010</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/26">26</a></td>
-<td align="center">1A</td>
-<td align="center">SUB</td>
-<td align="center">␚</td>
-<td align="center">^Z</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%9B%BF%E4%BB%A3%E5%AD%97%E7%AC%A6">替换</a></td>
-</tr>
-<tr>
-<td align="center">0001 1011</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/27">27</a></td>
-<td align="center">1B</td>
-<td align="center">ESC</td>
-<td align="center">␛</td>
-<td align="center">^[</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E9%80%80%E5%87%BA%E9%94%AE">退出键</a></td>
-</tr>
-<tr>
-<td align="center">0001 1100</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/28">28</a></td>
-<td align="center">1C</td>
-<td align="center">FS</td>
-<td align="center">␜</td>
-<td align="center">^\</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=%E6%96%87%E4%BB%B6%E5%88%86%E5%89%B2%E7%AC%A6&action=edit&redlink=1">文件分割符</a></td>
-</tr>
-<tr>
-<td align="center">0001 1101</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/29">29</a></td>
-<td align="center">1D</td>
-<td align="center">GS</td>
-<td align="center">␝</td>
-<td align="center">^]</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=%E7%BE%A4%E7%B5%84%E5%88%86%E9%9A%94%E7%AC%A6&action=edit&redlink=1">组群分隔符</a></td>
-</tr>
-<tr>
-<td align="center">0001 1110</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/30">30</a></td>
-<td align="center">1E</td>
-<td align="center">RS</td>
-<td align="center">␞</td>
-<td align="center">^^</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=%E8%AE%B0%E5%BD%95%E5%88%86%E9%9A%94%E7%AC%A6&action=edit&redlink=1">记录分隔符</a></td>
-</tr>
-<tr>
-<td align="center">0001 1111</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/31">31</a></td>
-<td align="center">1F</td>
-<td align="center">US</td>
-<td align="center">␟</td>
-<td align="center">^_</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=%E5%8D%95%E5%85%83%E5%88%86%E9%9A%94%E7%AC%A6&action=edit&redlink=1">单元分隔符</a></td>
-</tr>
-<tr>
-<td align="center">0111 1111</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/127">127</a></td>
-<td align="center">7F</td>
-<td align="center">DEL</td>
-<td align="center">␡</td>
-<td align="center">^?</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Delete%E5%AD%97%E7%AC%A6">Delete字符</a></td>
-</tr>
-</tbody></table>
-<h1 id="UTF-8"><a href="#UTF-8" class="headerlink" title="UTF-8"></a>UTF-8</h1><p><strong>UTF-8</strong>（<strong>8-bit Unicode Transformation Format</strong>）是一种针对<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Unicode">Unicode</a>的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%8F%AF%E5%8F%98%E5%AE%BD%E5%BA%A6%E7%BC%96%E7%A0%81">可变长度</a><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%AD%97%E5%85%83%E7%B7%A8%E7%A2%BC">字符编码</a>，也是一种<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%89%8D%E7%BC%80%E7%A0%81">前缀码</a>。它可以用一至四个字节对Unicode字符集中的所有有效编码点进行编码，属于<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Unicode">Unicode</a>标准的一部分，最初由<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E8%82%AF%C2%B7%E6%B1%A4%E6%99%AE%E9%80%8A">肯·汤普逊</a>和<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=%E7%BD%97%E5%B8%83%C2%B7%E6%B4%BE%E5%85%8B&action=edit&redlink=1">罗布·派克</a>提出。[<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/UTF-8#cite_note-:0-2">2]</a>[<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/UTF-8#cite_note-3">3]</a>由于较小值的编码点一般使用频率较高，直接使用Unicode编码效率低下，大量浪费内存空间。UTF-8就是为了解决向后兼容ASCII码而设计，Unicode中前128个字符，使用与ASCII码相同的二进制值的单个<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%AD%97%E8%8A%82">字节</a>进行编码，而且字面与ASCII码的字面一一对应，这使得原来处理ASCII字符的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E8%BB%9F%E9%AB%94">软件</a>无须或只须做少部分修改，即可继续使用。因此，它逐渐成为<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E9%9B%BB%E5%AD%90%E9%83%B5%E4%BB%B6">电子邮件</a>、<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%B6%B2%E9%A0%81">网页</a>及其他<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%84%B2%E5%AD%98%E8%A3%9D%E7%BD%AE">存储</a>或发送文字优先采用的编码方式。</p>
-<p>自2009年以来，UTF-8一直是<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E4%B8%87%E7%BB%B4%E7%BD%91">万维网</a>的最主要的编码形式（对所有，而不仅是Unicode范围内的编码）（并由WHATWG宣布为强制性的“适用于所有事物(for all things)”，[<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/UTF-8#cite_note-mandatory-4">4]</a>截止到2019年11月， 在所有网页中，UTF-8编码应用率高达94.3%（其中一些仅是ASCII编码，因为它是UTF-8的子集），而在排名最高的1000个网页中占96％。[<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/UTF-8#cite_note-5">5]</a> 其它的多字节编码方式如Shift JIS和GB 2312仅有0.3％和0.2％的占有率。[<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/UTF-8#cite_note-W3Techs-6">6]</a>[<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/UTF-8#cite_note-BuiltWith-7">7]</a>[<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/UTF-8#cite_note-MarkDavis2012-1">1]</a>Internet邮件联盟（Internet Mail Consortium, IMC）建议所有电子邮件程序都能够使用UTF-8展示和创建邮件，[<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/UTF-8#cite_note-IMC-8">8]</a> W3C建议UTF-8作为XML文件和HTML文件的默认编码方式。[<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/UTF-8#cite_note-html5charset-9">9]</a><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%B6%B2%E9%9A%9B%E7%B6%B2%E8%B7%AF%E5%B7%A5%E7%A8%8B%E5%B7%A5%E4%BD%9C%E5%B0%8F%E7%B5%84">互联网工程工作小组</a>（IETF）要求所有<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%B6%B2%E9%9A%9B%E7%B6%B2%E8%B7%AF">互联网</a><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE">协议</a>都必须支持UTF-8编码[<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/UTF-8#cite_note-10">10]</a>。<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=%E4%BA%92%E8%81%AF%E7%B6%B2%E9%83%B5%E4%BB%B6%E8%81%AF%E7%9B%9F&action=edit&redlink=1">互联网邮件联盟</a>（IMC）建议所有电子邮件软件都支持UTF-8编码。[<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/UTF-8#cite_note-11">11]</a></p>
-<hr>
-<p>Unicode<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/UCS">字符</a>的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E4%BD%8D%E5%85%83">比特</a>被分割为数个部分，并分配到UTF-8的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E4%BD%8D%E5%85%83%E7%BB%84">字节</a>串中较低的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E4%BD%8D%E5%85%83">比特</a>的位置。在U+0080的以下<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/UCS">字符</a>都使用内含其字符的单<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E4%BD%8D%E5%85%83%E7%BB%84">字节</a>编码。这些编码正好对应7比特的ASCII字符。在其他情况，有可能需要多达4个字符组来表示一个字符。这些多字节的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%9C%80%E9%AB%98%E6%9C%89%E6%95%88%E4%BD%8D%E5%85%83">最高有效比特</a>会设置成1，以防止与7比特的ASCII字符混淆，并保持标准的字节主导字符串运作顺利。</p>
-<h2 id="UTF-8的编码方式"><a href="#UTF-8的编码方式" class="headerlink" title="UTF-8的编码方式"></a>UTF-8的编码方式</h2><p>UTF-8是UNICODE的一种变长度的编码表达方式《一般UNICODE为双字节（指UCS2）》，它由<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E8%82%AF%C2%B7%E6%B1%A4%E6%99%AE%E9%80%8A">肯·汤普逊</a>（Ken Thompson）于1992年建立，现在已经标准化为RFC 3629。UTF-8就是以8位为单元对UCS进行编码，而UTF-8不使用大尾序和小尾序的形式，每个使用UTF-8存储的字符，除了第一个字节外，其余字节的头两个比特都是以”10”开始，使文字处理器能够较快地找出每个字符的开始位置。</p>
-<p>但为了与以前的ASCII码兼容（ASCII为一个字节），因此UTF-8选择了使用可变长度<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%AD%97%E8%8A%82">字节</a>来存储Unicode：</p>
-<p>（注意：不论是Unicode (Table 3.7) [<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/UTF-8#cite_note-12">12]</a>，还是ISO 10646 (10.2 UTF-8) [<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/UTF-8#cite_note-13">13]</a>，目前都只规定了最高码位是0x10FFFF的字符的编码。下表中表示大于0x10FFFF的UTF-8编码是不符合标准的。）</p>
-<table>
-<thead>
-<tr>
-<th align="center">码点的位数</th>
-<th align="center">码点起值</th>
-<th align="center">码点终值</th>
-<th align="center">字节序列</th>
-<th align="center">Byte 1</th>
-<th align="center">Byte 2</th>
-<th align="center">Byte 3</th>
-<th align="center">Byte 4</th>
-<th align="center">Byte 5</th>
-<th align="center">Byte 6</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">7</td>
-<td align="center">U+0000</td>
-<td align="center">U+007F</td>
-<td align="center">1</td>
-<td align="center"><code>0xxxxxxx</code></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">11</td>
-<td align="center">U+0080</td>
-<td align="center">U+07FF</td>
-<td align="center">2</td>
-<td align="center"><code>110xxxxx</code></td>
-<td align="center"><code>10xxxxxx</code></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">16</td>
-<td align="center">U+0800</td>
-<td align="center">U+FFFF</td>
-<td align="center">3</td>
-<td align="center"><code>1110xxxx</code></td>
-<td align="center"><code>10xxxxxx</code></td>
-<td align="center"><code>10xxxxxx</code></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">21</td>
-<td align="center">U+10000</td>
-<td align="center">U+1FFFFF</td>
-<td align="center">4</td>
-<td align="center"><code>11110xxx</code></td>
-<td align="center"><code>10xxxxxx</code></td>
-<td align="center"><code>10xxxxxx</code></td>
-<td align="center"><code>10xxxxxx</code></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">26</td>
-<td align="center">U+200000</td>
-<td align="center">U+3FFFFFF</td>
-<td align="center">5</td>
-<td align="center"><code>111110xx</code></td>
-<td align="center"><code>10xxxxxx</code></td>
-<td align="center"><code>10xxxxxx</code></td>
-<td align="center"><code>10xxxxxx</code></td>
-<td align="center"><code>10xxxxxx</code></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">31</td>
-<td align="center">U+4000000</td>
-<td align="center">U+7FFFFFFF</td>
-<td align="center">6</td>
-<td align="center"><code>1111110x</code></td>
-<td align="center"><code>10xxxxxx</code></td>
-<td align="center"><code>10xxxxxx</code></td>
-<td align="center"><code>10xxxxxx</code></td>
-<td align="center"><code>10xxxxxx</code></td>
-<td align="center"><code>10xxxxxx</code></td>
-</tr>
-</tbody></table>
-<hr>
-<h1 id="Unicode编码和UTF-8以及ASCII等有何区别"><a href="#Unicode编码和UTF-8以及ASCII等有何区别" class="headerlink" title="Unicode编码和UTF-8以及ASCII等有何区别"></a>Unicode编码和UTF-8以及ASCII等有何区别</h1><h2 id="1-Unicode：抽象字符集和标准"><a href="#1-Unicode：抽象字符集和标准" class="headerlink" title="1. Unicode：抽象字符集和标准"></a>1. Unicode：抽象字符集和标准</h2><p>Unicode (统一码) 是一个国际标准，它回答了<strong>“哪个字符对应哪个数字”</strong>的问题。</p>
-<ul>
-<li><strong>定义：</strong> 它定义了一个庞大的字符集合，并为集合中的每个字符分配了一个唯一的、不可变的数字，称为**代码点 (Code Point)**，格式通常是<code>U+XXXX </code>(十六进制)。<ul>
-<li>例如：符号<code>π</code> 的 <code>Unicode</code> 代码点是 <code>U+03C0</code>。</li>
-</ul>
-</li>
-<li><strong>覆盖范围：</strong> 它旨在覆盖全球所有已知的书写系统、标点符号、技术符号和表情符号 Emoji。</li>
-<li><strong>与字节无关：</strong> <code>Unicode</code> 本身只是一个<strong>索引表</strong>。它不关心这些数字最终在计算机中占用多少字节，那是编码方式 <code>UTF-s</code> 的任务。</li>
-</ul>
-<h2 id="2-UTF-8：Unicode-的具体编码实现"><a href="#2-UTF-8：Unicode-的具体编码实现" class="headerlink" title="2. UTF-8：Unicode 的具体编码实现"></a>2. UTF-8：Unicode 的具体编码实现</h2><p><code>UTF-8</code> Unicode Transformation Format - 8-bit) 是一种<strong>变长</strong>的编码方案，它回答了<strong>“如何将 Unicode 代码点存进计算机”</strong>的问题。</p>
-<ul>
-<li><strong>设计原则：</strong> <strong>效率与兼容性。</strong><ul>
-<li>它将 <code>Unicode</code> 代码点转换为 1 到 4 个字节的序列。</li>
-<li><strong>兼容 ASCII：</strong> 它是 <code>Unicode</code> 编码方式中最独特的一点。对于 ASCII 范围内的字符 (如英文字母)，<code>UTF-8</code> 编码后只占用 <strong>1 个字节</strong>，且与 <code>ASCII </code>编码完全相同。</li>
-<li><strong>变长优势：</strong> 常用字符（英文）占用空间小，生僻字符占用空间大，实现了存储空间的最优化。</li>
-</ul>
-</li>
-<li><strong>关系：</strong> <strong>UTF-8 是实现 Unicode 标准的一种方式。</strong> 所有的 UTF 格式 <code>UTF-8</code>、<code>UTF-16</code>、<code>UTF-32</code> 都是为了将 <code>Unicode</code> 字符集的内容以字节形式表现出来。</li>
-</ul>
-<h2 id="3-text-ASCII-：历史悠久的字符集和编码"><a href="#3-text-ASCII-：历史悠久的字符集和编码" class="headerlink" title="3. $\text{ASCII}$：历史悠久的字符集和编码"></a>3. $\text{ASCII}$：历史悠久的字符集和编码</h2><p><code>ASCII</code>(American Standard Code for Information Interchange) 是计算机发展早期的标准，它既是字符集，也是一种固定长度的编码。</p>
-<ul>
-<li><strong>定义：</strong> 仅定义了 <strong>128 个</strong> 字符（使用 7 位二进制，即 1 字节中的低 7 位）。<ul>
-<li>包括大小写英文字母、数字 0-9、基本的标点符号和控制字符。</li>
-</ul>
-</li>
-<li><strong>局限性：</strong> 无法表示任何其他语言的字符（如中文、希腊文、带重音的欧洲字母等）。这是导致后来出现 <code>Unicode</code> 的主要原因。</li>
-<li><strong>关系：</strong><ul>
-<li><strong>ASCII 是 Unicode 的子集。</strong> <code>ASCII</code> 的 128 个字符在 <code>Unicode </code>中有完全相同的代码点 (<code>U+0000</code> 到<code> U+007F</code>)。</li>
-<li><strong>ASCII 字符在 UTF}-8 编码下与原 ASCII 编码完全相同</strong>（都是 1 字节）。这保证了 <code>UTF-8</code> 能够向后兼容旧的英文文本文件。</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="总结图示"><a href="#总结图示" class="headerlink" title="总结图示"></a>总结图示</h2><p>您可以将它们的关系理解为：</p>
-<p><code>ASCII</code> ∈ <code>Unicode</code></p>
-<p><strong>Unicode</strong> 是一个包含所有字符的超大宇宙。</p>
-<p><strong>UTF-8</strong> 是一种将这个宇宙中的所有星球（字符）打包运输（编码）的规则。</p>
-<p><strong>ASCII</strong> 只是这个宇宙中最早、最小的一个角落（基础英文和符号），但它的规则被 <code>Unicode </code>和 <code>UTF-8</code>完整继承了下来。</p>
-<table>
-<thead>
-<tr>
-<th><strong>名称</strong></th>
-<th><strong>类型</strong></th>
-<th><strong>核心作用</strong></th>
-<th><strong>编码大小</strong></th>
-<th><strong>关系总结</strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>Unicode</strong></td>
-<td><strong>抽象字符集 &#x2F; 标准</strong></td>
-<td>为世界上每个字符分配一个<strong>唯一的数字身份</strong>（代码点 Code Point）。</td>
-<td>无关（它只定义身份）。</td>
-<td><strong>目标和蓝图</strong>。</td>
-</tr>
-<tr>
-<td><strong>UTF-8</strong></td>
-<td><strong>具体编码方式</strong></td>
-<td>定义如何将 Unicode 代码点转换成<strong>实际的字节序列</strong>存储或传输。</td>
-<td>1 到 4 个字节（可变长）。</td>
-<td><strong>实现 Unicode 的最流行方式</strong>。</td>
-</tr>
-<tr>
-<td><strong>ASCII</strong></td>
-<td><strong>过时字符集 &#x2F; 编码</strong></td>
-<td>为 <strong>128 个</strong> 基本英文字符和控制符分配代码。</td>
-<td>固定 1 个字节（7 位）。</td>
-<td><strong>Unicode 和 UTF-8 的子集和基础</strong>。</td>
-</tr>
-</tbody></table>
-<p style="color: red; font-weight: bold">我们可以这么理解计算机是如何呈现字符与表情的：</br>
-    用户通过输入法输入一个字符或者表情（输入法也有自己的编码规范）你的系统会根据目前的编码规范去查询Unicode码表，找到对应编码后通过自己的UTF-8或其它规范将其转换为操作系统可以理解的字节序列。</p>
-
+          <p>在深入讨论这个问题之前，我们需要提前明确什么是宗教什么是主义，什么是信仰。我们先援引维基百科的解释：</p>
+<p><strong>百度百科</strong></p>
+<p><strong>主义</strong>，是<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%B1%89%E8%AF%AD/22488993?fromModule=lemma_inlink">汉语</a>古典词，本义谓谨守道义、<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E4%B8%BB%E5%BC%A0/9263787?fromModule=lemma_inlink">主张</a>等，近代对译英语的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/principle/3170689?fromModule=lemma_inlink">principle</a>、～<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/ism/23279733?fromModule=lemma_inlink">ism</a> 及 doctrine，专指某种<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%90%86%E5%BF%B5/1189315?fromModule=lemma_inlink">理念</a>或<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%80%9D%E6%83%B3%E4%BD%93%E7%B3%BB/7636061?fromModule=lemma_inlink">思想体系</a>及<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E4%BF%A1%E5%BF%B5/2620159?fromModule=lemma_inlink">信念</a>，也指为实现一定目标而采取的特定方式或方法。 </p>
+<p>今之所谓「主义」，是近代翻译英语 <a target="_blank" rel="noopener" href="https://baike.baidu.com/item/principle/3170689?fromModule=lemma_inlink">principle</a>、～<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/ism/23279733?fromModule=lemma_inlink">ism</a> 及 doctrine 概念并被进一步阐释过程中发生的。</p>
+<p>宋代，<strong>“宗教”</strong>一词已经成为固定词组，指佛教宗派及教法。道教后来也使用这个词汇，指其宗派。19世纪后期，日本人将英语中的”Religion（泛指基督教、伊斯兰教、犹太教）”译作“宗教”，现代意义上的“宗教（包括佛教、道教）”进入汉语体系。</p>
+<p>马克思主义宗教观认为 [13]：“宗教 [13]（Religion，下同）作为一种意识形态，是对社会存在的反映，这种反映采取了幻想的方式。宗教以超自然、超人间力量的形式反映支配着人们日常生活的外部力量，并把这种力量神圣化，使之成为主宰人们日常生活的支配力量，这是宗教之为宗教的根本，是一切宗教的基本特征和本质规定。宗教作为远离经济基础的意识形态，相对独立性较大，经济基础对它的决定性作用以及它对社会生活的影响，往往同政治、<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%B3%95%E5%BE%8B/84813?fromModule=lemma_inlink">法律</a>、道德等因素相交织，使宗教问题的复杂性凸现.</p>
+<p><strong>信仰</strong>（拼音：xìn yǎng，外文名：Faith），指对某种思想、宗教或人物的极度信任与敬仰，表现为对其主张的信奉与尊敬，近义词包括信念、信奉，反义词为背弃 [1] [9]。该词最早见于唐代<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E4%BD%9B%E6%95%99/163332?fromModule=lemma_inlink">佛教</a>文献，《法苑珠林》直接使用”信仰心”作为宗教术语。</p>
+<p>信仰内涵包含政治理念坚守与宗教学说传播，<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%91%A8%E6%81%A9%E6%9D%A5/114814?fromModule=lemma_inlink">周恩来</a>强调通过说服争取政治信仰，<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E9%B2%81%E8%BF%85/36231?fromModule=lemma_inlink">鲁迅</a>描述对传统医学信仰的消退过程，<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E9%A9%AC%E5%85%8B%E6%80%9D%E4%B8%BB%E4%B9%89/239051?fromModule=lemma_inlink">马克思主义</a>信仰教育以理论维度与实践维度为核心，要求实现”学””信””行”统一 [5-6]。中国宗教政策规定公民享有信仰自由，现有佛教、<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E9%81%93%E6%95%99/196718?fromModule=lemma_inlink">道教</a>等宗教信徒一亿多人，开放宗教活动场所近13.9万处</p>
+<p><strong>Wikipedia</strong></p>
+<p><em><strong>-ism</strong></em> (<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Help:IPA/English">&#x2F;-ˌɪzəm&#x2F;</a>) is a <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Suffix">suffix</a> in many <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/English_grammar">English words</a>, originally derived from the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Ancient_Greek">Ancient Greek</a> suffix <a target="_blank" rel="noopener" href="https://en.wiktionary.org/wiki/-%CE%B9%CF%83%CE%BC%CF%8C%CF%82#Ancient_Greek">-ισμός</a> (<strong>-ismós</strong>), and reached <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/English_language">English</a> through the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Latin">Latin</a> <em>-ismus</em>, and the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/French_language">French</a> <em>-isme</em>.[<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/-ism#cite_note-suffix-1">1]</a> It is used to create abstract nouns of action, state, condition, or doctrine, and is often used to describe <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Philosophy">philosophies</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Theories">theories</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Religion">religions</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Social_movement">social movements</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Artistic_movements">artistic movements</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Lifestyle_(social_sciences)">lifestyles</a>,[<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/-ism#cite_note-2">2]</a> <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Behavior">behaviors</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Science">scientific phenomena</a>,[<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/-ism#cite_note-3">3]</a> or <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Medicine">medical conditions</a>.</p>
 <blockquote>
-<ol>
-<li><strong>用户输入&#x2F;程序使用字符</strong> → 比如输入“😊”</li>
-<li><strong>系统查 Unicode 表</strong> → 找到它的码点：U+1F60A</li>
-<li><strong>用 UTF-8 编码</strong> → 转成字节序列：<code>F0 9F 98 8A</code>，存入文件或发送到网络</li>
-<li><strong>另一台设备收到字节</strong> → 用 UTF-8 解码，还原出 U+1F60A</li>
-<li><strong>操作系统&#x2F;浏览器查字体</strong> → 找到“U+1F60A 对应的字形”，渲染出 😊</li>
-</ol>
+<p><em><strong>-主义</strong></em> (<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Help:IPA/English">&#x2F;-ˌɪ锌əm&#x2F;</a>) 是 a <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Suffix">后缀</a> 在很多方面 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/English_grammar">英语单词</a>, 最初源自 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Ancient_Greek">古希腊</a> 后缀 <a target="_blank" rel="noopener" href="https://en.wiktionary.org/wiki/-%CE%B9%CF%83%CE%BC%CF%8C%CF%82#Ancient_Greek">-ισμός</a> (<strong>-伊斯莫斯</strong>),并达到 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/English_language">英语</a> 通过 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Latin">拉丁</a> <em>-主义</em>, 以及 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/French_language">法语</a> <em>-主义</em>。[<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/-ism#cite_note-suffix-1">1]</a> 它用于创建动作、状态、条件或教义的抽象名词,通常用于描述 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Philosophy">哲学</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Theories">理论</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Religion">宗教</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Social_movement">社会运动</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Artistic_movements">艺术运动</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Lifestyle_(social_sciences)">生活方式</a>,[<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/-ism#cite_note-2">2]</a> <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Behavior">行为</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Science">科学现象</a>,[<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/-ism#cite_note-3">3]</a> 或者 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Medicine">医疗状况</a>。</p>
 </blockquote>
+<p><strong>Religion</strong> is a range of <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Social_system">social</a>-<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Cultural_system">cultural systems</a>, including designated <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Religious_behaviour">behaviors</a> and practices, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Ethics_in_religion">ethics</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Morals">morals</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Belief">beliefs</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Worldview">worldviews</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Religious_text">texts</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Sanctified_places">sanctified places</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Prophecies">prophecies</a>, or <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Religious_organization">organizations</a>, that generally relate humanity to <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Supernatural">supernatural</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Transcendence_(religion)">transcendental</a>, and <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Spirituality">spiritual</a> elements[<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Religion#cite_note-1">1]</a>—although there is no scholarly consensus over what precisely constitutes a religion.[<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Religion#cite_note-2">2]</a>[<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Religion#cite_note-Nongbri-3">3]</a> It is an <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Essentially_contested_concept">essentially contested concept</a>.[<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Religion#cite_note-4">4]</a> Different religions may or may not contain various elements ranging from the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Divine">divine</a>,[<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Religion#cite_note-FOOTNOTEJames190231-5">5]</a> <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Sacredness">sacredness</a>,[<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Religion#cite_note-FOOTNOTEDurkheim1915-6">6]</a> <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Faith">faith</a>,[<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Religion#cite_note-Tillich,_P._1957_p.1-7">7]</a> and a supernatural being or beings.[<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Religion#cite_note-vergote-8">8]</a></p>
+<p>The origin of religious belief is an open question, with possible explanations including awareness of individual death, a sense of community, and dreams.[<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Religion#cite_note-Zeigler-9">9]</a> Religions have <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Sacred_histories">sacred histories</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Narrative">narratives</a>, and <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Mythologies">mythologies</a>, preserved in oral traditions, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Sacred_texts">sacred texts</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Religious_symbol">symbols</a>, and <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Holy_places">holy places</a>, that may attempt to explain the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Origin_of_life">origin of life</a>, the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Religious_cosmology">universe</a>, and other phenomena. Religious practice may include <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Ritual">rituals</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Sermon">sermons</a>, commemoration or veneration (of <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Deities">deities</a> or <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Saint">saints</a>), <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Sacrifice">sacrifices</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Religious_festival">festivals</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Feast">feasts</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Trance">trances</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Initiation">initiations</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Matrimonial">matrimonial</a> and <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Funerary">funerary</a> services, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Meditation">meditation</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Prayer">prayer</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Religious_music">music</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Religious_art">art</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Religious_dance">dance</a>, or <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Public_service">public service</a>.</p>
+<blockquote>
+<p><strong>宗教</strong> 是一个范围 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Social_system">社会的</a>-<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Cultural_system">文化体系</a>, 包括指定的 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Religious_behaviour">行为</a> 和实践, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Ethics_in_religion">伦理</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Morals">道德</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Belief">信仰</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Worldview">世界观</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Religious_text">文本</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Sanctified_places">圣化之地</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Prophecies">预言</a>, 或 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Religious_organization">组织</a>, 这通常与人类有关 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Supernatural">超自然</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Transcendence_(religion)">超验的</a>, 和 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Spirituality">精神</a> 元素[<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Religion#cite_note-1">1]</a>—尽管学术界对于宗教的确切构成尚未达成共识。[<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Religion#cite_note-2">2]</a>[<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Religion#cite_note-Nongbri-3">3]</a> 这是一个 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Essentially_contested_concept">本质上有争议的概念</a>。[<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Religion#cite_note-4">4]</a> 不同的宗教可能包含或不包含各种元素,包括 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Divine">神圣的</a>,[<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Religion#cite_note-FOOTNOTEJames190231-5">5]</a> <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Sacredness">神圣性</a>,[<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Religion#cite_note-FOOTNOTEDurkheim1915-6">6]</a> <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Faith">信仰</a>,[<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Religion#cite_note-Tillich,_P._1957_p.1-7">7]</a> 以及一个或多个超自然的存在。[<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Religion#cite_note-vergote-8">8]</a></p>
+<p>宗教信仰的起源是一个悬而未决的问题,可能的解释包括对个人死亡的认识、社区意识和梦想。[<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Religion#cite_note-Zeigler-9">9]</a> 宗教有 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Sacred_histories">神圣的历史</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Narrative">叙述</a>, 和 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Mythologies">神话</a>, 保留在口头传统中, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Sacred_texts">神圣的经文</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Religious_symbol">符号</a>, 和 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Holy_places">圣地</a>, 这可能会试图解释 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Origin_of_life">生命起源</a>, 的 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Religious_cosmology">宇宙</a>以及其他现象。宗教习俗可能包括 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Ritual">仪式</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Sermon">布道</a>, 纪念或崇敬( <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Deities">神祇</a> 或者 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Saint">圣徒</a>), <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Sacrifice">牺牲</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Religious_festival">节日</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Feast">盛宴</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Trance">恍惚状态</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Initiation">发起</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Matrimonial">婚姻</a> 和 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Funerary">丧葬</a> 服务, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Meditation">冥想</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Prayer">祷告</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Religious_music">音乐</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Religious_art">艺术</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Religious_dance">舞蹈</a>, 或 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Public_service">公共服务</a>。</p>
+</blockquote>
+<p>A <strong>belief</strong> is a subjective <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Attitude_(psychology)">attitude</a> that something is <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Truth">true</a> or a <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/State_of_affairs_(philosophy)">state of affairs</a> is the case. A subjective attitude is a <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Mental_state">mental state</a> of having some <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Life_stance">stance</a>, take, or <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Opinion">opinion</a> about something.[<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Belief#cite_note-1">1]</a> In <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Epistemology">epistemology</a>, philosophers use the term <em>belief</em> to refer to attitudes about the world which can be either <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Truth_value">true or false</a>.[<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Belief#cite_note-SEP_Belief-2">2]</a> To believe something is to take it to be true; for instance, to believe that snow is white is comparable to accepting the truth of the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Proposition">proposition</a> “snow is white”. However, holding a belief does not require active <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Introspection">introspection</a>. For example, few individuals carefully consider whether or not the sun will rise the next morning, simply assuming that it will. Moreover, beliefs need not be <em>occurrent</em> (e.g., a person actively thinking “snow is white”), but can instead be <em>dispositional</em> (e.g., a person who if asked about the color of snow would assert “snow is white”).</p>
+<blockquote>
+<p>一个 <strong>信仰</strong> 是一个主观的 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Attitude_(psychology)">态度</a> 那东西是 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Truth">真实的</a> 或a <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/State_of_affairs_(philosophy)">事态</a> 确实如此。主观态度是一种 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Mental_state">精神状态</a> 拥有一些 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Life_stance">姿态</a>, 拿,或者 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Opinion">观点</a> 关于某事。[<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Belief#cite_note-1">1]</a> 在 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Epistemology">认识论</a>, 哲学家们使用这个词 <em>信仰</em> 指对世界的态度,可以是其中之一 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Truth_value">真或假</a>。[<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Belief#cite_note-SEP_Belief-2">2]</a> 相信某件事就是认为它是真的;例如,相信雪是白色的就相当于接受真相 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Proposition">主张</a> “雪是白色的”。然而,持有信念并不需要积极 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Introspection">内省</a>。例如,很少有人会仔细考虑第二天早上太阳是否会升起,只是假设它会升起。此外,信仰不必如此 <em>发生的</em>（例如,一个人积极思考“雪是白色的”),但也可以 <em>性格</em>（例如,如果有人问雪的颜色,他会断言“雪是白色的”)。</p>
+</blockquote>
+<p><strong><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Belief">Belief</a></strong> is a psychological state in which an individual holds a proposition or premise to be true.</p>
+<blockquote>
+<p><strong><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Belief">信仰</a></strong> 是一种心理状态,其中个人认为某个命题或前提为真。</p>
+</blockquote>
+<hr>
+<p>好，在讨论宗教、百度百科 主义主义与信仰之前我们先看一遍大众或部分人对该语义的解释。重中我们可以看出其之间的关系复杂，在众多释义中三者有相互重叠的部分。</p>
+<p>宗教的存在由来已久，由我们所熟知的佛教，基督教、道教、伊斯兰教以及东正教等大小教派。主义有我们熟知的社会主义、xx特色社会主义、资本主义、马克思主义、法西斯主义、共产主义等近现代主义。以上宗教以及主义都是多人参与的，而信仰是有个人为主体而存在，是独立的、随时可变的、不可被详细定义(指概括其可见行为)的。</p>
+<hr>
+<p>在我的理解中，我认为，宗教和主义都在讲一个东西，都是多人参与的用于维护一个共有信仰的形式。这也就是多数有类似信仰的个体的集合。但是至少我们有提到信仰是随时可变的不可被详细定义的，也就是说一个人的信仰包含多种宗教或者主义，个人几乎很难察觉自己到底是什么主义什么宗教，只能在那些典型事件或语境下才能对典型的事件或语境进行定义，而不能对个人的整体进行定义。<br>我们举个例子：你上司在工作上对你们及其严厉，有问题就要惩罚你们或者要求你们无偿加班；在家对老婆孩子尽心尽力，为孩子提供良好的教育，为老婆提供足够的情绪价值，给家里人做饭，添置需要的生活用品；出门谈生意态度极好且能争取到足够的利益；上学期间取悦老师排斥或针对一部分同学，对一部分同学也是有问题就认真讨论解答。在武汉开车不管红绿灯直接走人行道不让行人，在北京开车大老远看到行人就减速停车礼让，在没有高速摄像机的道路行驶超速或随意变道，在有高速摄像机的道路不违规变道不危险驾驶；遇见了你直接骂你傻逼没脑子，遇见了其它人则说人家能干、领导有方、未来必成大器……….</p>
+<p>那么你该如何对自己的这位领导进行评价？你对他人的评价够全面吗？你能真实了解他的全部性格或什么特点吗？与他相处你们之间到底是什么关系？你想的是什么？他想的是什么？你是员工还是领导还是其平级同事还是其同学？关系要好的同学还是关系一般的同学还是不好的同学？还是说你什么都不知道？</p>
+<p>好的，以上我们提到的问题，都统统指向了一个方向，那就是关系,人际关系，你们之间需要以一种什么样的关系进行，这就是根本。这也就是设计我们所讨论的信仰，一个基于个人的选择。</p>
+<hr>
+<p>我们接下来看一下什么是宗教与主义，我们这里讲的宗教指的是以上提到的宗教，主义是我们之前提到的主义。</p>
+<p>我们先来讲宗教：</p>
+<p>关于宗教，我们日常接触的比较多的就是以上提到的一些本土或者外来的各种有具体形式与指导规范的“宗教”。佛家慈悲（少林寺释永信为代表的伟大宗教），道家道法自然（具体不清楚），儒家教化百姓（孔老二的女人不得上桌吃饭）基督教（救赎罪恶）伊斯兰教（造物者，天启四骑士）等，具体我也不清楚，但总体的行动上是指示参与者行善。</p>
+<p>主义：</p>
+<p>什么是主义？主义在近现代出现，往往是由某个主要人物提出的某个可被接受的建议或可被接受且自圆其说体系。可以是针对未来的、针对金钱的、针对幻想的、针对暴力的、针对懒惰的、针对责任的、针对付出与收获的、针对责任与收获、针对权力与责任的、针对权力与义务的各种各样的组合。这些内容都是由一个第一人发出，其他人或多或少认可并实行的，无论是为了钱、为了暴力、为了吃饭、为了拉屎、为了吃屎或是什么的，总之是为了满足需求或幻想（也可能是嗑药过多出现幻觉）而存在。</p>
+<p>我们问一下，资本主义真的够资本吗？社会主义真的能达成社会公有的实际形式吗？共产主义真的能共产吗？利己主义真的能利己吗？</p>
+<hr>
+<p>实际上你现在可能也许也不知道，可能有时候你知道有时候你不知道，现在知道或者过去知道，或者两秒前知道三秒前不知道，或者你根本不知道。或者你的主义告诉你别人说的好的就是坏的，别人说的坏的就是坏的，别人说的黑的就是白的，别人说的绿的就是黄的，鄙人说的紫的就是紫的。人不是一个极端的具有单一认知的机器，你可以有很多选择，你可以在这次做公益活动可以在上次或下次抢劫(无损获利)也可以在办公室拉屎在厕所吃饭或者光着身子说自己穿的是最华丽的衣服且只有聪明人能看得见。这都是可以的。这都是语言可以表述的。你就是在随机选择，根据自己的社会经验进行选择。社会经验是不同的，你可能从没有听说过社会主义从没听说过资本主义，这时的你就不会被权力让你在两方站队，或者说让你在吃米饭和吃馒头之间站队。你的社会学历塑造了你的思想塑造了你的信仰，你可以在一堆的垃圾里挑选你爱吃的，也可以在食堂里挑选你爱吃的，也可以自己做些自己爱吃的，这一切都是由你的社会阅历和经验影响的。哑巴为什么是哑巴？是他不爱说话吗？聋子是聋子是他不想听到我在这里狗叫刻意给自己弄聋了吗？那谁知道呢？</p>
+<p>为什么政府和权力的所有者说有些事你能干，有些事你不能干，你就按他说的做，而我说自己是皇帝让你下跪拜我时你说我傻逼说我狗叫？因为我没有权力，没有让你受到酷刑受到折磨的能力，所以你欺负我反抗我。他们说啥你就认为啥是真的，是因为你怕了，你怕他们报复你，压迫你，所以你听他们的，他们说黑的就是白的，这你也信，因为你不知道什么是黑白，也没有相关概念，说啥你信啥。或者是因为服从对你有好处，可以免受皮肉之苦或者安逸的生活，又或者许你的有金山银山或者权力等你欲望中渴望的东西。</p>
+<hr>
+<p>你的社会经验会塑造你的认知，就像是做题，经常做你就会做，换了新题你就不会做。做题为了考试获取高分或者允许你进入体制享受红利时你做，就是单纯的让你做题然后把你做的题扔了，这你可能做可能不做，那谁知道下一步该干嘛？你的社会阅历会告诉你该怎么做，你受到的教育也会教你该怎么做，它们一直在训练你，让你接受一个具有因果关系的逻辑以实现自洽。于是你摆脱了虚无。</p>
+<p>在肉体的存在感知中你不冷不热，不饥饿，满足了基本的需求。于是你发现或创造或贪婪于其它需求，然后继续学习与感知，找到逻辑自洽的方式去实现它，这时你的存在就有了意义。</p>
+<hr>
+<p>所以最后我要说的是，任何主义和宗教都在讲述一个东西，某个人的期望或愿望，其中有你所期望的，也有你不喜欢的。这是个选择题，选的不是主义或宗教，选的是你信仰中（受社会环境与阅历影响）所认可的。主义和宗教都是某个人或某一类人想法的集合，你的信仰不必全部包含于他人的集合中，只取你所需（受社会环境与阅历影响）的部分。</p>
+<p style="color: red; font-weight: bold">你所做的选择就是在受社会阅历与约束的情况下做出的局部随机选择，主要受制于社会阅历与家庭背景(权力)。你的脑子就是一个瓶子，里面有水、有百事可乐可口可乐、有石头、有土、有尿、有屎、有咖啡还有放射性元素等论其八糟的东西。有的人脑子里水多，有的人脑子里屎多，有的人脑子里可乐多。</p>
 
       
     </div>
@@ -920,7 +290,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/84/">84</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/86/">86</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1007,7 +377,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">84</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1056,12 +426,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">351k</span>
+    <span title="站点总字数">356k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">9:45</span>
+    <span title="站点阅读时长">9:53</span>
 </div>
 <!-- 网站运行时间的设置 -->
 <span id="timeDate">载入天数...</span>

@@ -169,7 +169,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/07/21/%E9%80%9A%E7%94%A8Ai%E9%80%89%E5%88%99%E6%8C%87%E5%8D%97/">
+    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/07/29/Ubuntu%E6%96%B0%E6%89%8B%E9%85%8D%E7%BD%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
@@ -183,7 +183,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2025/07/21/%E9%80%9A%E7%94%A8Ai%E9%80%89%E5%88%99%E6%8C%87%E5%8D%97/" class="post-title-link" itemprop="url">通用Ai选择指南</a>
+            <a href="/2025/07/29/Ubuntu%E6%96%B0%E6%89%8B%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">Ubuntu新手配置</a>
         </h2>
 
         <div class="post-meta">
@@ -192,23 +192,21 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2025-07-21 21:28:18" itemprop="dateCreated datePublished" datetime="2025-07-21T21:28:18+08:00">2025-07-21</time>
+              <time title="创建时间：2025-07-29 14:41:37 / 修改时间：20:53:52" itemprop="dateCreated datePublished" datetime="2025-07-29T14:41:37+08:00">2025-07-29</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-07-22 16:23:23" itemprop="dateModified" datetime="2025-07-22T16:23:23+08:00">2025-07-22</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Ai/" itemprop="url" rel="index"><span itemprop="name">Ai</span></a>
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/Ubuntu/" itemprop="url" rel="index"><span itemprop="name">Ubuntu</span></a>
                 </span>
             </span>
 
@@ -237,214 +235,69 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>截至目前，我们能够接触或听说的Ai指的大概都是<code>ChatGPT</code>、<code>Claude</code>、<code>Gemini</code>、<code>Copilot</code>、<code>DeepSeek</code>、<code>Grok</code>、<code>Perplexity</code>、<code>Le Chat</code>、<code>Qwen</code>、<code>豆包</code>、<code>Coze</code>等。对于中国国内的Ai，除了DeepSeek，别的我几乎都没怎么用过，暂不进行评价。本次的Ai选择我们主要以国外的模型作为主要测评对象，国内的Ai请根据自身情况选择。在文章中，我将会以上提到的部分主流Ai进行功能上的评价和总结，主要关注于其强项与弱项和各种限制。希望这份指南能够作为各位读者选取合适Ai进行使用的参考。</p>
-<hr>
-<table>
-<thead>
-<tr>
-<th align="center">Warnning</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><code>Ai can also make mistakes, Please double-check the responses.</code></td>
-</tr>
-</tbody></table>
-<hr>
-<p style="color: red; font-size: 18px">
-更新：我已经尝试过使用Qwen3，在使用过程中我尝试让它读取网页内容“这个需要打开网页搜索功能”，它的确能够读取网页内容，但是有出现文字错误。在解答数学题的时候，它的回答很正确，就是生成速度慢了一些。至于对话次数限制，这个还未测试。总体感觉Qwen3的表现是要好于DeepSeek的，推荐使用。
-</p>
+          <p>在你已经安装好系统之后，需要做的第一件事就是先给系统装上SSH server，SSH server是Linux进行远程的重要工具。SSH会在Linux中作为一个服务端出现，为用户提供远程访问的服务。</p>
+<p>在装系统时你可能没有勾选Openssh-server服务，此时的Linux只能通过键盘链接实体机器进行命令输入，在安装openssh-server之后便可以从远程来访问终端了。</p>
+<h2 id="初始化apt"><a href="#初始化apt" class="headerlink" title="初始化apt"></a>初始化apt</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt update                     # 初始化apt</span><br></pre></td></tr></table></figure>
 
-<hr>
-<h3 id="🤖ChatGPT-推荐指数：❤❤❤❤❤"><a href="#🤖ChatGPT-推荐指数：❤❤❤❤❤" class="headerlink" title="🤖ChatGPT         推荐指数：❤❤❤❤❤"></a>🤖ChatGPT         推荐指数：❤❤❤❤❤</h3><blockquote>
-<p>✅适合生活常识的问答</p>
-</blockquote>
-<blockquote>
-<p>✅✅✅✅✅适合篇幅较长的文字编写，比如报告和总结</p>
-</blockquote>
-<blockquote>
-<p>✅可以联网</p>
-</blockquote>
-<blockquote>
-<p>使用次数限制：较少</p>
-</blockquote>
-<blockquote>
-<p>国内是否可以直连：否</p>
-</blockquote>
-<blockquote>
-<p>生成图片：是</p>
-</blockquote>
-<h3 id="🤖Claude-推荐指数：❤❤❤❤"><a href="#🤖Claude-推荐指数：❤❤❤❤" class="headerlink" title="🤖Claude         推荐指数：❤❤❤❤"></a>🤖Claude         推荐指数：❤❤❤❤</h3><blockquote>
-<p>✅✅✅✅✅适合代码编写与修改</p>
-</blockquote>
-<blockquote>
-<p>✅✅✅✅适合解决技术性问题</p>
-</blockquote>
-<blockquote>
-<p>可以联网</p>
-</blockquote>
-<blockquote>
-<p>提问次数限制：较为宽裕</p>
-</blockquote>
-<blockquote>
-<p>国内是否可以直连：否</p>
-</blockquote>
-<h3 id="🤖Gemini-推荐指数：❤❤❤❤"><a href="#🤖Gemini-推荐指数：❤❤❤❤" class="headerlink" title="🤖Gemini         推荐指数：❤❤❤❤"></a>🤖Gemini         推荐指数：❤❤❤❤</h3><blockquote>
-<p>✅✅✅✅✅适合进行数学问题的解答</p>
-</blockquote>
-<blockquote>
-<p>✅✅✅可以解决较为简单的编程问题</p>
-</blockquote>
-<blockquote>
-<p>✅✅✅✅✅不限制图片上传数量(目前我在使用中未发现数量限制)</p>
-</blockquote>
-<blockquote>
-<p>❌❌❌数学公式渲染有问题(需要编写合适的Prompt)</p>
-</blockquote>
-<blockquote>
-<p>✅✅✅✅✅数学题目解题精准度：超高</p>
-</blockquote>
-<blockquote>
-<p>可以联网</p>
-</blockquote>
-<blockquote>
-<p>国内是否可以直连：否</p>
-</blockquote>
-<h3 id="🤖Grok-推荐指数：❤❤❤"><a href="#🤖Grok-推荐指数：❤❤❤" class="headerlink" title="🤖Grok         推荐指数：❤❤❤"></a>🤖Grok         推荐指数：❤❤❤</h3><blockquote>
-<p>✅✅✅各项指标都接近于平均值，建设作为其他模型的备选</p>
-</blockquote>
-<blockquote>
-<p>✅✅提问次数限制：一般</p>
-</blockquote>
-<blockquote>
-<p>可以联网</p>
-</blockquote>
-<blockquote>
-<p>国内是否可以直连：否</p>
-</blockquote>
-<h3 id="🤖Perplexity-推荐指数：❤❤❤"><a href="#🤖Perplexity-推荐指数：❤❤❤" class="headerlink" title="🤖Perplexity         推荐指数：❤❤❤"></a>🤖Perplexity         推荐指数：❤❤❤</h3><blockquote>
-<p>✅✅✅✅综合各家模型，可随时切换</p>
-</blockquote>
-<blockquote>
-<p>可以联网</p>
-</blockquote>
-<blockquote>
-<p>提问次数限制：较严格</p>
-</blockquote>
-<blockquote>
-<p>国内是否可以直连：否</p>
-</blockquote>
-<h3 id="🤖DeepSeek-推荐指数：❤❤"><a href="#🤖DeepSeek-推荐指数：❤❤" class="headerlink" title="🤖DeepSeek         推荐指数：❤❤"></a>🤖DeepSeek         推荐指数：❤❤</h3><blockquote>
-<p>❌❌数据较旧</p>
-</blockquote>
-<blockquote>
-<p>❌❌无法联网</p>
-</blockquote>
-<blockquote>
-<p>可解答一般常识性问题</p>
-</blockquote>
-<blockquote>
-<p>✅✅国内是否可以直连：是</p>
-</blockquote>
-<h3 id="🤖-Le-Chat-推荐指数：❤"><a href="#🤖-Le-Chat-推荐指数：❤" class="headerlink" title="🤖 Le Chat         推荐指数：❤"></a>🤖 Le Chat         推荐指数：❤</h3><blockquote>
-<p>❌❌OCR识图能力较差</p>
-</blockquote>
-<blockquote>
-<p>❌❌中文支持较差</p>
-</blockquote>
-<blockquote>
-<p>✅✅数学解题能力较差，不如Gemini</p>
-</blockquote>
-<blockquote>
-<p>✅✅可以联网，但只能浏览单一网页</p>
-</blockquote>
-<blockquote>
-<p>国内是否可以直连：否</p>
-</blockquote>
-<p>综合各家模型的优点，下面将推荐各个模型的优势应用场景：</p>
-<p><strong>所有的模型在使用中都推荐编写合适的提示词，提示词影响整个模型的使用效果！</strong></p>
-<table>
-<thead>
-<tr>
-<th align="center">🤖🤖Model🤖🤖</th>
-<th align="center">所属公司</th>
-<th align="left">💪Recommended Projects</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"></td>
-<td align="center"></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="center"><strong><a target="_blank" rel="noopener" href="https://openai.com/">ChatGPT</a></strong></td>
-<td align="center">OpenAi</td>
-<td align="left"><strong>日常及综合使用</strong></td>
-</tr>
-<tr>
-<td align="center"></td>
-<td align="center"></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="center"><strong><a target="_blank" rel="noopener" href="https://claude.ai/login?from=logout">Claude</a></strong></td>
-<td align="center">Anthropic</td>
-<td align="left"><em>代码编写</em></td>
-</tr>
-<tr>
-<td align="center"></td>
-<td align="center"></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="center"><strong><a target="_blank" rel="noopener" href="https://gemini.google.com/app">Gemini</a></strong></td>
-<td align="center">Google</td>
-<td align="left"><strong>解答数学题</strong></td>
-</tr>
-<tr>
-<td align="center"></td>
-<td align="center"></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="center"><strong><a target="_blank" rel="noopener" href="https://x.ai/">Grok</a></strong></td>
-<td align="center">X Ai</td>
-<td align="left"><em>获取X平台消息及互联网即时消息</em></td>
-</tr>
-<tr>
-<td align="center"></td>
-<td align="center"></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="center"><strong><a target="_blank" rel="noopener" href="https://www.perplexity.ai/">Perplexity</a></strong></td>
-<td align="center">Perplexity</td>
-<td align="left"><strong>多模型，更适合解决综合问题</strong></td>
-</tr>
-<tr>
-<td align="center"></td>
-<td align="center"></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="center"><strong><a target="_blank" rel="noopener" href="https://chat.mistral.ai/chat">Le Chat</a></strong></td>
-<td align="center">Mistral</td>
-<td align="left"><em>中文支持较差，不推荐</em></td>
-</tr>
-</tbody></table>
-<hr>
-<h3 id="数学解题"><a href="#数学解题" class="headerlink" title="数学解题"></a>数学解题</h3><p>题目：</p>
-<p><img src="https://s2.loli.net/2025/07/22/4JrI53dpqSbOsYE.png" alt="image.png"><br><img src="https://s2.loli.net/2025/07/22/57kZsOf9yHbXCp6.png" alt="image.png"></p>
-<p><img src="https://s2.loli.net/2025/07/22/hPv7VKmtryOkzqp.png" alt="image.png"><br><img src="https://s2.loli.net/2025/07/22/juAhdEzw3GReo8f.png" alt="image.png"></p>
-<hr>
-<p>以上为各家Ai给出的解答。</p>
-<blockquote>
-<p>我已尽量保证所有的Ai使用相同的提示词，且只发送题目并未做特殊说明。由图中的结果可以看到，Gemini和Perplexity的解答最为标准，Le Chat解答错误，Grok解答结果有计算结果但后续的计算有问题，ChatGPT由于图片上传次数限制，本次无法进行测试。Claude的解答未贴出，但是在我测试的时候是没有问题的，答案正确，就是Latex的公式渲染有问题。</p>
-</blockquote>
-<p>所以在数学解题方面，推荐使用Gemini和Perplexity。日常使用可以在ChatGPT和Grok以及Gemini、Perplexity之间随意切换。在编程方面，推荐使用Claude。</p>
-<hr>
-<p style="color: red; font-size: 18px">
-注意：Ai模型的使用效果因人而异，主要取决于提示词的编写和模型的挑选。建议自己在使用中根据实际情况选择合适的模型和编写合适的提示词。
-</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt upgrade                    # 更新软件</span><br></pre></td></tr></table></figure>
+
+<h3 id="SSH-server-服务"><a href="#SSH-server-服务" class="headerlink" title="SSH server 服务"></a>SSH server 服务</h3><p>使用以下命令安装SSH Server服务器</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install openssh-server -y                          #安装ssh服务端</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="xrdp远程桌面"><a href="#xrdp远程桌面" class="headerlink" title="xrdp远程桌面"></a>xrdp远程桌面</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install xrdp                                       #安装xrdp</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start xrdp                                   # 启动xrdp服务</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reboot                                                 # 测试不可连接的话就重启以生效</span><br></pre></td></tr></table></figure>
+
+
+<p>远程桌面在安装后无法连接使用或者在来凝结后出现桌面异常没有Dock栏的话请按以下流程修改xrdp的配置文件</p>
+<ol>
+<li><p>找到位于<code>/etc/xrdp/</code>目录下名叫<code>startwm.sh</code>的文件</p>
+</li>
+<li><p>使用<code>vim</code>编辑器或其他编辑器在</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">if test -r /etc/profile; then</span><br><span class="line">        . /etc/profile</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">test -x /etc/X11/Xsession &amp;&amp; exec /etc/X11/Xsession</span><br><span class="line">exec /bin/sh /etc/X11/Xsession</span><br></pre></td></tr></table></figure>
+
+<p>之前加上配置文件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export GNOME_SHELL_SESSION_MODE=ubuntu</span><br><span class="line">export XDG_CURRENT_DESKTOP=ubuntu:GNOME</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>在第一个if循环之后加上</p>
+</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export $(dbus-launch)</span><br></pre></td></tr></table></figure>
+
+
+<p>   完整的配置文件如下所示：</p>
+   <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">   #</span><span class="language-bash">!/bin/sh</span></span><br><span class="line"><span class="meta prompt_">   # </span><span class="language-bash">xrdp X session start script (c) 2015, 2017, 2021 mirabilos</span></span><br><span class="line"><span class="meta prompt_">   # </span><span class="language-bash">published under The MirOS Licence</span></span><br><span class="line">   </span><br><span class="line"><span class="meta prompt_">   # </span><span class="language-bash">Rely on /etc/pam.d/xrdp-sesman using pam_env to load both</span></span><br><span class="line"><span class="meta prompt_">   # </span><span class="language-bash">/etc/environment and /etc/default/locale to initialise the</span></span><br><span class="line"><span class="meta prompt_">   # </span><span class="language-bash">locale and the user environment properly.</span></span><br><span class="line">   </span><br><span class="line">   </span><br><span class="line">   export GNOME_SHELL_SESSION_MODE=ubuntu                # 修改点1</span><br><span class="line">   export XDG_CURRENT_DESKTOP=ubuntu:GNOME               # 修改点1</span><br><span class="line"></span><br><span class="line">   </span><br><span class="line">   </span><br><span class="line">   </span><br><span class="line">   if test -r /etc/profile; then</span><br><span class="line">           . /etc/profile</span><br><span class="line">   fi</span><br><span class="line">   </span><br><span class="line">export $(dbus-launch)                                    # 修改点2</span><br><span class="line"></span><br><span class="line">   test -x /etc/X11/Xsession &amp;&amp; exec /etc/X11/Xsession</span><br><span class="line">   exec /bin/sh /etc/X11/Xsession</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装dbus-launch"><a href="#安装dbus-launch" class="headerlink" title="安装dbus-launch"></a>安装dbus-launch</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt install dbus-launch               #安装dbus-launch</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dbus-launch                            #然后启动dbus-launch</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart xrdp                #重启xrdp</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dbus-launch                            # 启动dbus-launch</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart xrdp                 # 重启xrdp服务</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="远程桌面连接"><a href="#远程桌面连接" class="headerlink" title="远程桌面连接"></a>远程桌面连接</h2><p>这里说的远程桌面连接指的是Windows的功能<code>远程桌面</code>，使用该服务即可连接到局域网的Ubuntu服务器，假如你的服务器在海外或者国内云服务运营商的机房，同时你又安装了桌面版的Ubuntu，这时捏也可以使用这个服务器来远程连接你的服务器。</p>
+<h4 id="账密配置"><a href="#账密配置" class="headerlink" title="账密配置"></a>账密配置</h4><p>账号就是Ubuntu的ip地址，你可以使用下面的命令获取本机的IP地址</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip addr</span><br></pre></td></tr></table></figure>
+
+
+<p>找到eth0或eth1对应的IP地址，这就是你的登录目标</p>
+<p>账号和密码都是你在装系统时自己设置的。</p>
+<p><img src="https://s2.loli.net/2025/07/29/kcdG3Tv2WJqLKMA.png" alt="image.png"></p>
+<p><img src="https://s2.loli.net/2025/07/29/IT5tQAgO1wR39db.png" alt="image.png"></p>
+<p><img src="https://s2.loli.net/2025/07/29/WGLO5hsxdDoteTl.png" alt="712f43ebfe3f2a66a46b6fbd2c6d0fc.png"></p>
+
       
     </div>
 
@@ -462,7 +315,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/52/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/52/">52</a><span class="page-number current">53</span><a class="page-number" href="/page/54/">54</a><span class="space">&hellip;</span><a class="page-number" href="/page/84/">84</a><a class="extend next" rel="next" href="/page/54/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/52/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/52/">52</a><span class="page-number current">53</span><a class="page-number" href="/page/54/">54</a><span class="space">&hellip;</span><a class="page-number" href="/page/86/">86</a><a class="extend next" rel="next" href="/page/54/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -549,7 +402,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">84</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -598,12 +451,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">351k</span>
+    <span title="站点总字数">356k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">9:45</span>
+    <span title="站点阅读时长">9:53</span>
 </div>
 <!-- 网站运行时间的设置 -->
 <span id="timeDate">载入天数...</span>
