@@ -28,7 +28,7 @@
 <meta property="og:description" content="基础操作命令 ls -l  以列表的形式列出当前文件夹下的文件目录 -a 列出有关文件的详细信息，包括文件的大小和权限 -R 列出某一文件夹下所有文件以及递归文件夹 -F 额外使用颜色区分文件夹和文件 ll 相当于使用 ls -la    mv 重命名文件 1mv [file1] [file2]     # 修改文件file1的名字为file2    cp 复制并移动文件 -i 		提醒是否覆盖原">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-01-22T11:31:20.000Z">
-<meta property="article:modified_time" content="2026-01-25T13:32:21.211Z">
+<meta property="article:modified_time" content="2026-01-26T07:02:00.559Z">
 <meta property="article:author" content="Shangjhih Jhao">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
@@ -197,7 +197,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-01-25 21:32:21" itemprop="dateModified" datetime="2026-01-25T21:32:21+08:00">2026-01-25</time>
+                <time title="修改时间：2026-01-26 15:02:00" itemprop="dateModified" datetime="2026-01-26T15:02:00+08:00">2026-01-26</time>
               </span>
 
           <br>
@@ -206,14 +206,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>5.6k</span>
+              <span>5.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>9 分钟</span>
+              <span>10 分钟</span>
             </span>
 
         </div>
@@ -888,6 +888,45 @@
 </blockquote>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;12.4 + 3.533&quot; | bc				# 基础的运算,不设保留几位小数</span><br><span class="line"></span><br><span class="line">echo &quot;scale=3; 12 / 5&quot; | bc				# 使用scale提前告知保留几位小数</span><br></pre></td></tr></table></figure>
 
+<h2 id="test-和-表达式评估"><a href="#test-和-表达式评估" class="headerlink" title="test 和[] 表达式评估"></a><code>test</code> 和<code>[]</code> 表达式评估</h2><p>test 与[]用法一致，是[]的单词写法。主要作用为传输执行结果<code>True</code>,<code>False</code>,常在if判断和while以及管道符的信息传递中使用</p>
+<ul>
+<li>表达式成立——True</li>
+<li>表达式不成立——False</li>
+</ul>
+<p><strong>参数</strong></p>
+<p><code>-e</code>  		文件存在         </p>
+<p> <code>-s</code> 		文件非空（大小 &gt; 0）   </p>
+<p> <code>-z</code>  		字符串长度为 0（为空） </p>
+<p> <code>-n</code>  		字符串长度非 0（非空）</p>
+<p> <code>-f</code>  		是普通文件   </p>
+<p> <code>-d</code> 		       是目录                 </p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-r</code></td>
+<td>可读</td>
+</tr>
+<tr>
+<td><code>-w</code></td>
+<td>可写</td>
+</tr>
+<tr>
+<td><code>-x</code></td>
+<td>可执行</td>
+</tr>
+</tbody></table>
+<p><strong>整数比较</strong></p>
+<p> <code>-eq</code>   	相等（equal）        </p>
+<p> <code> -ne</code>  	不等（not equal）   </p>
+<p> <code>-lt</code>  	 小于（less than）    </p>
+<p> <code>-le</code>  	 小于等于            </p>
+<p> <code>-gt</code>   	大于（greater than） </p>
+<p> <code>-ge</code>   	大于等于            </p>
 
     </div>
 
@@ -971,7 +1010,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4"><span class="nav-number">1.</span> <span class="nav-text">基础操作命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A7%A3%E5%8E%8B%E7%BC%A9%E5%91%BD%E4%BB%A4"><span class="nav-number">2.</span> <span class="nav-text">解压缩命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4"><span class="nav-number">3.</span> <span class="nav-text">进程相关命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IP%E5%9C%B0%E5%9D%80%E6%9F%A5%E7%9C%8B%E5%91%BD%E4%BB%A4"><span class="nav-number">4.</span> <span class="nav-text">IP地址查看命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%87%8D%E5%AE%9A%E5%90%91%E7%AC%A6%E5%8F%B7"><span class="nav-number">5.</span> <span class="nav-text">重定向符号</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%89%93%E5%8D%B0%E5%91%BD%E4%BB%A4"><span class="nav-number">6.</span> <span class="nav-text">打印命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A3%81%E7%9B%98%E5%86%85%E5%AD%98%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4"><span class="nav-number">7.</span> <span class="nav-text">磁盘内存相关命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E6%9F%A5%E7%9C%8B%E5%91%BD%E4%BB%A4"><span class="nav-number">8.</span> <span class="nav-text">文件查看命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E9%97%B4%E5%91%BD%E4%BB%A4"><span class="nav-number">9.</span> <span class="nav-text">日期和时间命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#grep%E7%94%A8%E6%B3%95"><span class="nav-number">9.1.</span> <span class="nav-text">grep用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sort%E7%94%A8%E6%B3%95"><span class="nav-number">9.2.</span> <span class="nav-text">sort用法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86"><span class="nav-number">10.</span> <span class="nav-text">用户管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E5%AD%A6%E8%BF%90%E7%AE%97"><span class="nav-number">10.1.</span> <span class="nav-text">数学运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%AE%E7%82%B9%E8%BF%90%E7%AE%97"><span class="nav-number">10.2.</span> <span class="nav-text">浮点运算</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4"><span class="nav-number">1.</span> <span class="nav-text">基础操作命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A7%A3%E5%8E%8B%E7%BC%A9%E5%91%BD%E4%BB%A4"><span class="nav-number">2.</span> <span class="nav-text">解压缩命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4"><span class="nav-number">3.</span> <span class="nav-text">进程相关命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IP%E5%9C%B0%E5%9D%80%E6%9F%A5%E7%9C%8B%E5%91%BD%E4%BB%A4"><span class="nav-number">4.</span> <span class="nav-text">IP地址查看命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%87%8D%E5%AE%9A%E5%90%91%E7%AC%A6%E5%8F%B7"><span class="nav-number">5.</span> <span class="nav-text">重定向符号</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%89%93%E5%8D%B0%E5%91%BD%E4%BB%A4"><span class="nav-number">6.</span> <span class="nav-text">打印命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A3%81%E7%9B%98%E5%86%85%E5%AD%98%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4"><span class="nav-number">7.</span> <span class="nav-text">磁盘内存相关命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E6%9F%A5%E7%9C%8B%E5%91%BD%E4%BB%A4"><span class="nav-number">8.</span> <span class="nav-text">文件查看命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E9%97%B4%E5%91%BD%E4%BB%A4"><span class="nav-number">9.</span> <span class="nav-text">日期和时间命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#grep%E7%94%A8%E6%B3%95"><span class="nav-number">9.1.</span> <span class="nav-text">grep用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sort%E7%94%A8%E6%B3%95"><span class="nav-number">9.2.</span> <span class="nav-text">sort用法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86"><span class="nav-number">10.</span> <span class="nav-text">用户管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E5%AD%A6%E8%BF%90%E7%AE%97"><span class="nav-number">10.1.</span> <span class="nav-text">数学运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%AE%E7%82%B9%E8%BF%90%E7%AE%97"><span class="nav-number">10.2.</span> <span class="nav-text">浮点运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#test-%E5%92%8C-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AF%84%E4%BC%B0"><span class="nav-number">10.3.</span> <span class="nav-text">test 和[] 表达式评估</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -1006,7 +1045,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">86</span>
+          <span class="site-state-item-count">87</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1055,12 +1094,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">356k</span>
+    <span title="站点总字数">359k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">9:53</span>
+    <span title="站点阅读时长">9:59</span>
 </div>
 <!-- 网站运行时间的设置 -->
 <span id="timeDate">载入天数...</span>

@@ -169,7 +169,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2026/01/22/Linux-%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/">
+    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2026/01/24/Linux-Vim-%E7%BC%96%E8%BE%91%E5%99%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
@@ -183,7 +183,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2026/01/22/Linux-%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">Linux 基本命令</a>
+            <a href="/2026/01/24/Linux-Vim-%E7%BC%96%E8%BE%91%E5%99%A8/" class="post-title-link" itemprop="url">Linux Vim 编辑器</a>
         </h2>
 
         <div class="post-meta">
@@ -192,16 +192,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2026-01-22 19:31:20" itemprop="dateCreated datePublished" datetime="2026-01-22T19:31:20+08:00">2026-01-22</time>
+              <time title="创建时间：2026-01-24 12:42:22 / 修改时间：13:37:38" itemprop="dateCreated datePublished" datetime="2026-01-24T12:42:22+08:00">2026-01-24</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-01-25 21:32:21" itemprop="dateModified" datetime="2026-01-25T21:32:21+08:00">2026-01-25</time>
-              </span>
 
           <br>
             <span class="post-meta-item" title="本文字数">
@@ -209,14 +203,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>5.6k</span>
+              <span>1.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>9 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -228,277 +222,231 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="基础操作命令"><a href="#基础操作命令" class="headerlink" title="基础操作命令"></a>基础操作命令</h1><p><br><br></p>
-<p><strong>ls</strong></p>
-<p><code>-l </code> 以列表的形式列出当前文件夹下的文件目录</p>
-<p><code>-a </code>列出有关文件的详细信息，包括文件的大小和权限</p>
-<p><code>-R</code> 列出某一文件夹下所有文件以及递归文件夹</p>
-<p><code>-F</code> 额外使用颜色区分文件夹和文件</p>
-<p><code>ll </code>相当于使用 ls -la </p>
-<br>
+          <hr>
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1><p>官方使用标准参见：</p>
+<p><a target="_blank" rel="noopener" href="https://vim.rtorr.com/">https://vim.rtorr.com/</a></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install vim</span><br></pre></td></tr></table></figure>
 
-<p><strong>mv</strong></p>
-<p>重命名文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv [file1] [file2]     # 修改文件file1的名字为file2</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>cp</strong></p>
-<p>复制并移动文件</p>
-<p><code>-i</code> 		提醒是否覆盖原文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cp [file] [path]  			# 将文件file复制到目录path</span><br><span class="line"></span><br><span class="line">cp [path1] [path2]			# 将文件夹1复制到文件夹2</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>touch</strong></p>
-<p><code>touch file.conf</code>   创建一个叫做file.conf的文件</p>
-<br>
-
-<p><strong>mkdir</strong></p>
-<p><code>mkdir -p [folder1/folder2]</code>		 创建多级目录</p>
-<p><code>mkdir [foler1] [folder2] [folder3]</code> 	创建多个目录</p>
-<br>
-
-<p><strong>file</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">file [file]</span><br></pre></td></tr></table></figure>
-
-<p>用于查看文件类型</p>
-<br>
-
-<p><strong>rm</strong></p>
-<p><code>rm  [foler(file)]</code>  删除文件夹或文件</p>
-<p><code>-r</code> 递归删除文件夹</p>
-<p><code>-f </code>强制删除，无提示</p>
-<p><code>-rf </code>强制删除多级目录</p>
-<p><br><br></p>
-<h1 id="解压缩命令"><a href="#解压缩命令" class="headerlink" title="解压缩命令"></a>解压缩命令</h1><br>
-
-<p><strong>gzip</strong>      压缩文件，压缩后会把原始文件删除</p>
-<p><code>gzip [file1] </code>   压缩某一个文件为。gz格式的压缩包</p>
-<p><code>gzip [file1] [file2] ... </code>   将多个文件分别压缩为单个.gz的压缩包</p>
-<p><code>gzip -d [file.gz] </code>    使用-d参数解压缩已经被压缩的gz格式文件</p>
-<p><code>gzip -d [file2.gz] [file3.gz] </code>   使用-d参数解压多个压缩包</p>
-<br>
-
-<p><strong>gunzip</strong></p>
-<p><code>guzip [file.gz]</code>    解压gz格式的压缩包，作用通zip -d 用法</p>
-<p><code>gunzip [file1.gz] [file2.gz] [file3.gz]</code>     解压多个gz格式的压缩包</p>
-<br>
-
-<p><strong>bzip2</strong>   可加参数通gzip</p>
-<br>
-
-<p><strong>tar</strong>    压缩多个文件或多个目录为一个文件</p>
-<p><code>-c</code>  创建打包文件</p>
-<p><code>-x</code> 解包文件，解压缩</p>
-<p><code>-v </code>可视化压缩和解压缩过程（跑码过程）</p>
-<p><code>-f </code><strong>必写参数</strong> 后面跟的是file ，压缩包的名字，f要放到参数的最后一位</p>
-<p><code>-r </code>向已经压缩后的文件追加新的文件</p>
+<h2 id="前情提要"><a href="#前情提要" class="headerlink" title="前情提要"></a>前情提要</h2><p>Vim编辑器是Linux运维中重要的非图形化编辑器，该编辑器几乎承担着运维中大部分的配置文件修改任务，类似于Windows中功能更加强大的记事本。修改文件时可使用该工具进行辅助编辑。</p>
+<h2 id="模式"><a href="#模式" class="headerlink" title="模式"></a>模式</h2><p>Vim编辑器一共有三种模式，分别是命令模式、编辑模式和末行模式。</p>
+<p>命令模式：对每行的文本进行复制粘贴和删除操作</p>
 <blockquote>
-<p>用法： tar -rf mytart.tar readme.txt</p>
+<p>进入编辑器即为命令模式，输入的命令将在左下角显示，可以控制光标所在行并对该行或多行内容进行复制粘贴和删除</p>
 </blockquote>
-<p>-C 解压时指定文件解压的目标路径</p>
-<p>用法： <code>tar -xvf [mytar.tar] -C [/root/file/path]</code></p>
-<p><code>-cvf </code></p>
+<p>编辑模式：添加修改文本文件内容</p>
 <blockquote>
-<p>创建一个压缩包并指定压缩包名字</p>
+<p>进入编辑器后按下<code>i</code>键进入编辑模式（insert插入），移动光标控制内容位置，按下<code>ESC</code>退出编辑模式回到命令模式</p>
 </blockquote>
-<p><code>-rf [mytar.tar] [newfile.txt]</code></p>
+<p>末行模式：文本录入</p>
 <blockquote>
-<p>向压缩包mytar.tar 添加新文件 newfile.txt</p>
-</blockquote>
-<p><strong>打包并压缩</strong></p>
+<p>以英文冒号<code>:</code>开头，输入指定的字母来保存内容和退出编辑模式</p>
 <blockquote>
-<p>用法： tar -cvzf mytar.tar file1 file2 file3     将文件打包并压缩为gz文件</p>
+<p><code>:w</code>  	写入文件不退出</p>
+<p><code>:q</code> 	退出编辑且不保存</p>
+<p><code>:wq</code>       将写入文件保存并退出</p>
 </blockquote>
-<p><code>-z</code>   	压缩为gz格式</p>
-<p><code>-j</code>	   压缩为bz2格式</p>
-<p><code>-J</code> 	  压缩为xy格式</p>
-<p><strong>解压文件</strong></p>
-<p><code>tar -xvzf &lt;tar.gz&gt;  -C File_path</code>    解压文件到指定地址</p>
-<p><br><br></p>
-<h1 id="进程相关命令"><a href="#进程相关命令" class="headerlink" title="进程相关命令"></a>进程相关命令</h1><br>
-
-<p><strong>ps</strong></p>
-<p><code>ps aux </code>  显示全部的系统进程信息</p>
-<p><code>-e</code>		  显示所有进程</p>
-<p><code>-f</code>		  全格式，包括PPID</p>
-<p><code>-ef</code>		显示所有进程并显示PPID</p>
-<p><code>-u</code>		</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -u root  			# 指定某用户，只显示该用户相关的进程</span><br></pre></td></tr></table></figure>
-
-<p><code>-p</code>	</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -p &lt;PID&gt;				# 显示某个PID对用的进程</span><br></pre></td></tr></table></figure>
-
-
-
-<p><code>-C</code>		</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -C sshd				# 显示指定名的进程</span><br></pre></td></tr></table></figure>
-
-
-
-<p><code>--deselect</code>		</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -C &lt;sshd&gt; --deselect			# 排除sshd进程相关内容</span><br></pre></td></tr></table></figure>
-
-
-
-<p><code>-o</code>		</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -o pid,user,cmd			# 只列出pid、user、cmd相关的信息</span><br></pre></td></tr></table></figure>
-
-
-
-<p><code>--sort</code>		</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps --sort=-%cpu			# 按CPU消耗排序（降序）</span><br></pre></td></tr></table></figure>
-
-
-
-<p><code>--forest</code>		</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef --foreset		# 以树状结构排序</span><br></pre></td></tr></table></figure>
-
-<br>
-
-<p><strong>kill</strong>              </p>
-<blockquote>
-<p>kill命令只会杀死指定的单个进程 ， 不会杀死守护进程（守护进程独立于主进程）</p>
 </blockquote>
-<p><code>kill &lt;PID&gt;  </code>  杀死指定PID 参数对应的程序   （PID在ps命令中对应的为第一列的数字）</p>
-<p><code>kill -9</code> 强制杀死进程</p>
-<br>
-
-<p><strong>killall</strong></p>
-<p><code>killall &lt;name&gt; </code>   杀死叫此名称的进程</p>
-<h1 id="IP地址查看命令"><a href="#IP地址查看命令" class="headerlink" title="IP地址查看命令"></a>IP地址查看命令</h1><br>
-
-<p><strong>ifconfig</strong></p>
-<p>查看网络接口相关的信息，包括IP地址和网卡信息</p>
-<blockquote>
-<p>eth0 对应的是网卡信息</p>
-</blockquote>
-<blockquote>
-<p>lo对应的是本地回环地址</p>
-</blockquote>
-<br>
-
-<p><strong>ip addr</strong></p>
-<p>查看当前系统的IP地址</p>
-<blockquote>
-<p>eth0 对应的是网卡信息</p>
-</blockquote>
-<blockquote>
-<p>lo对应的是本地回环地址</p>
-</blockquote>
-<p><br><br></p>
-<h1 id="重定向符号"><a href="#重定向符号" class="headerlink" title="重定向符号"></a>重定向符号</h1><br>
-
-<p><strong>输出重定向</strong></p>
-<p>符号<code>&gt;</code> 和 <code>&gt;&gt;</code></p>
-<p><code>&gt;</code> 将内容输出到某个文件中</p>
-<p><code>&gt;&gt;</code>  将内容追加到某个文件中</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span> -la &gt; list.txt         <span class="comment"># 将ls -la的输出添加至文件list.txt</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">ls</span> -la &gt;&gt; list.txt        <span class="comment"># 将ls -la的输出追加至文件list.txt</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="打印命令"><a href="#打印命令" class="headerlink" title="打印命令"></a>打印命令</h1><br>
-
-<p><strong>echo</strong></p>
-<p>打印命令，后跟需要打印的文字内容。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> hello world &gt; list.txt       <span class="comment"># 打印内容  hello world 将其输出至list.txt</span></span><br></pre></td></tr></table></figure>
-
-<table>
+<h2 id="打开文件的方式"><a href="#打开文件的方式" class="headerlink" title="打开文件的方式"></a>打开文件的方式</h2><p><code>vim &lt;filename&gt;</code> </p>
+<p>打开文件filename，并将光标放在第一行第一个字母</p>
+<p><code>vim +n &lt;filename&gt;</code>  </p>
+<p>打开文件filename并将光标跳转到第N行第一个字母</p>
+<p><code>vim +/word &lt;filename&gt;</code> </p>
+<p>打开文件filename并高亮显示文件中的单词”word”</p>
+<h2 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h2><table>
 <thead>
 <tr>
-<th>选项</th>
-<th>作用</th>
-<th>示例</th>
+<th>命令</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody><tr>
-<td><code>-n</code></td>
-<td><strong>不输出末尾换行符</strong></td>
-<td><code>echo -n &quot;Loading...&quot;</code></td>
+<td><code>h</code> &#x2F; <code>j</code> &#x2F; <code>k</code> &#x2F; <code>l</code></td>
+<td>左 &#x2F; 下 &#x2F; 上 &#x2F; 右 移动光标</td>
 </tr>
 <tr>
-<td><code>-e</code></td>
-<td><strong>启用转义字符解释</strong>（如 <code>\n</code>, <code>\t</code>）</td>
-<td><code>echo -e &quot;Line1\nLine2&quot;</code></td>
+<td><code>w</code></td>
+<td>跳到下一个单词开头</td>
 </tr>
 <tr>
-<td><code>-E</code></td>
-<td>禁用转义（默认行为，通常省略）</td>
-<td><code>echo -E &quot;Price: \$10&quot;</code></td>
+<td><code>b</code></td>
+<td>跳到上一个单词开头</td>
+</tr>
+<tr>
+<td><code>e</code></td>
+<td>跳到当前或下一个单词结尾</td>
+</tr>
+<tr>
+<td><code>0</code>（数字零）</td>
+<td>移动到行首</td>
+</tr>
+<tr>
+<td><code>^</code></td>
+<td>移动到行首第一个非空白字符</td>
+</tr>
+<tr>
+<td><code>$</code></td>
+<td>移动到行尾</td>
+</tr>
+<tr>
+<td><code>gg</code></td>
+<td>跳到文件第一行</td>
+</tr>
+<tr>
+<td><code>G</code></td>
+<td>跳到文件最后一行</td>
+</tr>
+<tr>
+<td><code>nG</code> 或 <code>:n</code></td>
+<td>跳到第 n 行（例如 <code>5G</code> 或 <code>:5</code>）</td>
+</tr>
+<tr>
+<td><code>x</code></td>
+<td>删除光标所在字符</td>
+</tr>
+<tr>
+<td><code>dw</code></td>
+<td>删除从光标到单词结尾（含）</td>
+</tr>
+<tr>
+<td><code>dd</code></td>
+<td>删除整行</td>
+</tr>
+<tr>
+<td><code>d$</code></td>
+<td>删除从光标到行尾</td>
+</tr>
+<tr>
+<td><code>d0</code></td>
+<td>删除从光标到行首</td>
+</tr>
+<tr>
+<td><code>yy</code></td>
+<td>复制（yank）当前行</td>
+</tr>
+<tr>
+<td><code>yw</code></td>
+<td>复制一个单词</td>
+</tr>
+<tr>
+<td><code>P</code></td>
+<td>在光标前粘贴</td>
+</tr>
+<tr>
+<td><code>p</code></td>
+<td>在光标后粘贴</td>
+</tr>
+<tr>
+<td><code>u</code></td>
+<td>撤销上一次操作</td>
+</tr>
+<tr>
+<td><code>Ctrl + r</code></td>
+<td>重做（redo）</td>
+</tr>
+<tr>
+<td><code>i</code></td>
+<td>在光标前插入</td>
+</tr>
+<tr>
+<td><code>a</code></td>
+<td>在光标后插入</td>
+</tr>
+<tr>
+<td><code>I</code></td>
+<td>在行首插入</td>
+</tr>
+<tr>
+<td><code>A</code></td>
+<td>在行尾插入</td>
+</tr>
+<tr>
+<td><code>o</code></td>
+<td>在当前行下方插入新行并进入插入模式</td>
+</tr>
+<tr>
+<td><code>O</code></td>
+<td>在当前行上方插入新行并进入插入模式</td>
+</tr>
+<tr>
+<td><code>/pattern</code></td>
+<td>向下搜索 pattern</td>
+</tr>
+<tr>
+<td><code>?pattern</code></td>
+<td>向上搜索 pattern</td>
+</tr>
+<tr>
+<td><code>n</code></td>
+<td>跳转到下一个匹配项</td>
+</tr>
+<tr>
+<td><code>N</code></td>
+<td>跳转到上一个匹配项</td>
+</tr>
+<tr>
+<td><code>:%s/old/new/g</code></td>
+<td>全文替换所有 old 为 new（需在命令行模式输入，但由命令模式触发）</td>
 </tr>
 </tbody></table>
+<p><strong>文件操作模式</strong></p>
 <table>
 <thead>
 <tr>
-<th>转义符</th>
-<th>含义</th>
-<th>示例</th>
+<th>命令</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody><tr>
-<td><code>\n</code></td>
-<td>换行</td>
-<td><code>echo -e &quot;A\nB&quot;</code> → A 换行 B</td>
+<td><code>:w</code></td>
+<td>保存文件</td>
 </tr>
 <tr>
-<td><code>\t</code></td>
-<td>制表符（Tab）</td>
-<td><code>echo -e &quot;Name:\tAlice&quot;</code></td>
+<td><code>:q</code></td>
+<td>退出（若未修改）</td>
 </tr>
 <tr>
-<td><code>\r</code></td>
-<td>回车（常用于进度条覆盖）</td>
-<td><code>echo -ne &quot;Progress: 50%\r&quot;</code></td>
+<td><code>:wq</code> 或 <code>:x</code></td>
+<td>保存并退出</td>
 </tr>
 <tr>
-<td><code>\\</code></td>
-<td>反斜杠字面量</td>
-<td><code>echo &quot;\\&quot;</code> → <code>\</code></td>
-</tr>
-<tr>
-<td><code>\&quot;</code></td>
-<td>双引号</td>
-<td><code>echo &quot;\&quot;quoted\&quot;&quot;</code> → “quoted”</td>
-</tr>
-<tr>
-<td><code>\$</code></td>
-<td>美元符号（避免变量展开）</td>
-<td><code>echo &#39;\$HOME&#39;</code> → <code>$HOME</code></td>
+<td><code>:q!</code></td>
+<td>强制退出，不保存更改</td>
 </tr>
 </tbody></table>
-<br>
-
-<p><strong>cat</strong></p>
-<p>将文件内容打印至屏幕输出（从前往后）</p>
-<p><code>cat file.txt</code>   打印file.txt内容至屏幕</p>
-<p>额外用法：</p>
-<p><code>-n</code>		显示行号</p>
-<p><code>-b</code>		只显示有内容的行号</p>
-<p><code>-T</code>		去除制表符</p>
-<p>将多个文件重写或追加进某新的文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat file1.txt file2.txt &gt; file3.txt         # 将file1.txt file2.txt文件内容输出至file3.txt</span><br><span class="line"></span><br><span class="line">cat file1.txt file2.txt &gt;&gt; file3.txt         # 将file1.txt file2.txt文件内容追加至file3.txt</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>tac</strong></p>
-<p>将文件内容输出至屏幕（从后往前）</p>
-<p>用法通cat</p>
-<br>
-
-<p><strong>–help</strong></p>
-<p>添加在某个命令后，用于查看该命令的用法</p>
-<h1 id="磁盘内存相关命令"><a href="#磁盘内存相关命令" class="headerlink" title="磁盘内存相关命令"></a>磁盘内存相关命令</h1><p><br><strong>df</strong></p>
-<p> 查看设备各分区所占用的空间</p>
-<p><code>df -h</code>  以更加清晰的表格形式查看磁盘占用情况，磁盘的空间单位以Mb表示</p>
-<br>
-
-<p><strong>free</strong></p>
-<p>查看系统内存占用情况</p>
-<p><code>free -h</code>   以更加人性化的形式查看内存的占用情况</p>
-<p><code>free -m</code>   将原始的Kb单位转换为Mb单位查看内存占用</p>
-<br>
-
-<p><strong>wc</strong></p>
-<p>统计文件的行数、单词数和字节数</p>
+<p><strong>额外补充</strong></p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>.</code></td>
+<td>重复上一次编辑操作</td>
+</tr>
+<tr>
+<td><code>~</code></td>
+<td>切换光标处字符大小写</td>
+</tr>
+<tr>
+<td><code>&gt;&gt;</code></td>
+<td>当前行右缩进（增加 tab）</td>
+</tr>
+<tr>
+<td><code>&lt;&lt;</code></td>
+<td>当前行左缩进（减少 tab）</td>
+</tr>
+<tr>
+<td><code>:set number</code></td>
+<td>显示行号</td>
+</tr>
+<tr>
+<td><code>:set nonumber</code></td>
+<td>取消显示行号</td>
+</tr>
+</tbody></table>
+<p><strong>常用命令</strong></p>
 <table>
 <thead>
 <tr>
@@ -507,390 +455,54 @@
 </tr>
 </thead>
 <tbody><tr>
-<td>-l</td>
-<td>仅统计文件行数</td>
+<td><code>$</code></td>
+<td>移动到行尾</td>
 </tr>
 <tr>
-<td>-w</td>
-<td>仅统计文件单词数</td>
+<td><code>gg</code></td>
+<td>跳到文件第一行</td>
 </tr>
 <tr>
-<td>-c</td>
-<td>仅统计文件字节数</td>
+<td><code>G</code></td>
+<td>跳到文件最后一行</td>
+</tr>
+<tr>
+<td><code>nG</code> 或 <code>:n</code></td>
+<td>跳到第 n 行（例如 <code>5G</code> 或 <code>:5</code>）</td>
+</tr>
+<tr>
+<td><code>dd</code></td>
+<td>删除整行</td>
+</tr>
+<tr>
+<td><code>yy</code></td>
+<td>复制（yank）当前行</td>
+</tr>
+<tr>
+<td><code>P</code></td>
+<td>在光标前粘贴</td>
+</tr>
+<tr>
+<td><code>p</code></td>
+<td>在光标后粘贴</td>
+</tr>
+<tr>
+<td><code>u</code></td>
+<td>撤销上一次操作</td>
+</tr>
+<tr>
+<td><code>Ctrl + r</code></td>
+<td>重做（redo）</td>
+</tr>
+<tr>
+<td><code>n</code></td>
+<td>跳转到下一个匹配项</td>
+</tr>
+<tr>
+<td><code>N</code></td>
+<td>跳转到上一个匹配项</td>
 </tr>
 </tbody></table>
-<p><code>wc</code> 通<code>wc -lwc</code>  一起统计文件的行数、单词数、字节数</p>
-<br>
-
-<p><strong>du</strong></p>
-<p>查看某目录下的目录所占磁盘大小</p>
-<p><code>-s</code>			查看该目录所占磁盘大小</p>
-<p><code>-h</code>			以更加可读的形式展示目录所占磁盘大小</p>
-<p><code>du -sh</code> 		以更加刻度得形式查看某文件夹所占磁盘大小</p>
-<br>
-
-<p><strong>mount</strong></p>
-<p>挂载磁盘到某一文件夹</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mout -t ntfs [磁盘标识] [分区（挂载点）]			# 将某磁盘挂载至某分区</span><br></pre></td></tr></table></figure>
-
-<br>
-
-<p><strong>umount</strong></p>
-<p>取消挂载某分区</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">umount /var  					# 取消挂载var分区</span><br></pre></td></tr></table></figure>
-
-
-
-<br>
-
-<br>
-
-<h1 id="文件查看命令"><a href="#文件查看命令" class="headerlink" title="文件查看命令"></a>文件查看命令</h1><p><br><strong>head</strong></p>
-<p>查看文件的前N行，默认查看文件的前10行</p>
-<p><code>head -n</code> 查看文件的前n行</p>
-<br>
-
-<p><strong>tail</strong></p>
-<p>查看文件的末尾n行，默认显示后10行</p>
-<p><code>tail -n </code>			 查看文件的后n行</p>
-<p><code>tail -f &lt;path&gt;</code>  	   查看某位置的动态文件，一般用于查看日志</p>
-<br>
-
-<p><strong>less</strong></p>
-<p>查看大文件，需要使用方向键翻页以查看更多内容，不会将所有内容都打印至屏幕</p>
-<br>
-
-<p><strong>more</strong></p>
-<p>查看大文件，功能与less类似，往上翻页Ctrl +b, 往下翻页Ctrl + f (空格键也可以)</p>
-<br>
-
-<p><strong>find</strong></p>
-<p>查找文档,可以使用<code>* </code>通配符扩大查找范围</p>
-<p><code>-name</code>	以文档名的形式查找文档</p>
-<p>**<code>-type</code>	**</p>
-<blockquote>
-<p><code>-type f  </code>	以文档类型查找文档</p>
-</blockquote>
-<blockquote>
-<p><code>-type d</code>	查找文件夹</p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find &lt;path&gt; -name &lt;file&gt;  -type f   	使用名称查找的方式在目录&lt;path&gt;下查找文件 &lt;file&gt;</span><br></pre></td></tr></table></figure>
-
-<h1 id="日期和时间命令"><a href="#日期和时间命令" class="headerlink" title="日期和时间命令"></a>日期和时间命令</h1><br>
-
-<p><strong>date</strong></p>
-<p>获取系统时间</p>
-<p><code>date </code></p>
-<blockquote>
-<p>Fri Jan 23 02:45:25 PM UTC 20</p>
-</blockquote>
-<p><code>date +%F</code></p>
-<blockquote>
-<p>2026-01-23</p>
-</blockquote>
-<p><code>date +%F%T</code></p>
-<blockquote>
-<p>2026-01-2314:47:20</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>%F</td>
-<td>打印完整的年月日</td>
-</tr>
-<tr>
-<td>%T</td>
-<td>打印完整的时分秒</td>
-</tr>
-<tr>
-<td>%Y</td>
-<td>打印四位的年份</td>
-</tr>
-<tr>
-<td>%m</td>
-<td>打印两位的月份</td>
-</tr>
-<tr>
-<td>%d</td>
-<td>打印日</td>
-</tr>
-<tr>
-<td>%H</td>
-<td>打印小时</td>
-</tr>
-<tr>
-<td>%M</td>
-<td>打印分钟</td>
-</tr>
-<tr>
-<td>%S</td>
-<td>打印秒</td>
-</tr>
-</tbody></table>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">date -s &quot;2026-01-23 12:34:45&quot;             #设置系统时间为具体的时间日期，注意格式</span><br></pre></td></tr></table></figure>
-
-<p><br><strong>timedatectl</strong></p>
-<p>列出系统时间和硬件时间，可设置时区</p>
-<p><code>list-timezones</code>	列出时区列表<br><code>set-timezone</code>	    设定为指定时区<br><code>set-time</code>		    设定具体的时间</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">timedatectl set-time &quot;2026-01-10 12:21&quot;        #将时间设置为：2026-01-10 12:21   注意时间格式</span><br></pre></td></tr></table></figure>
-
-<p><br><strong>ntpdate</strong></p>
-<p>手动网络校时，修正时间为网络时间(需要添加ntp服务器地址)</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ntpdate ntp.ntsc.ac.cn	使用ntp.ntsc.ac.cn的授时信息修正时间</span><br></pre></td></tr></table></figure>
-
-
-
-<p><br><strong>cal</strong></p>
-<p>查看系统日历</p>
-<p><code>cal -n</code>	输出当前前一个月后一个月以及本月的日历</p>
-<h2 id="grep用法"><a href="#grep用法" class="headerlink" title="grep用法"></a><code>grep</code>用法</h2><p>grep是用于文档数据筛选的指令，用于查询与获取排除指定数据。常与管道符|联合使用，此处的管道符指的是传参，将符号前处理狗的数据交由后面的进行二次筛选。</p>
-<p><code>-E</code>	启用<strong>扩展正则表达式</strong>（支持 <code>+</code>, <code>?</code>, &#96;）</p>
-<p><code>-i</code>	<strong>忽略大小写</strong></p>
-<p><code>-v</code>	<strong>反向匹配</strong>：显示<strong>不包含</strong>模式的行</p>
-<p><code>-r</code>	<strong>递归搜索目录</strong>（<code>-R</code> 会跟踪符号链接）</p>
-<p><code>-n</code>	显示<strong>匹配行的行号</strong></p>
-<p><code>-l</code>	只输出<strong>包含匹配项的文件名</strong>（不显示内容）</p>
-<p><code>-o</code>	<strong>只输出匹配的部分</strong>（非整行）</p>
-<p><code>-w</code>	<strong>整词匹配</strong>（避免部分匹配）</p>
-<p><code>-q</code>	<strong>只输出匹配行数</strong>（不显示内容）</p>
-<hr>
-<h2 id="sort用法"><a href="#sort用法" class="headerlink" title="sort用法"></a><code>sort</code>用法</h2><p><code>sort</code>常用在管道符后买你用以继续处理数据（排序），单独的<code>sort</code> 默认启用以字典排序。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sort -n  				# 按数值大小排序   小的在上大的在下</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sort -nr			   # 按数值排序，从大到小</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-u 					# 去重后排序</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-V  				# 按自然版本号排序   比如ip地址、软件版本、带编号的文件</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-<p><code>hystory</code></p>
-<p>列出本轮启动中所执行的所有命令</p>
-<h1 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h1><p><code>useradd</code></p>
-<table>
-<thead>
-<tr>
-<th>选项</th>
-<th>作用</th>
-<th>示例</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>-m</code></td>
-<td>创建用户家目录（默认不创建！）</td>
-<td><code>useradd -m alice</code></td>
-</tr>
-<tr>
-<td><code>-s</code></td>
-<td>指定登录 shell</td>
-<td><code>useradd -s /bin/bash bob</code></td>
-</tr>
-<tr>
-<td><code>-G</code></td>
-<td>指定附加组（可多个）</td>
-<td><code>useradd -G sudo,developers charlie</code></td>
-</tr>
-<tr>
-<td><code>-g</code></td>
-<td>指定主组（默认新建同名组）</td>
-<td><code>useradd -g staff dave</code></td>
-</tr>
-<tr>
-<td><code>-c</code></td>
-<td>添加注释&#x2F;描述（如全名）</td>
-<td><code>useradd -c &quot;Alice Smith&quot; alice</code></td>
-</tr>
-<tr>
-<td><code>-d</code></td>
-<td>指定自定义家目录路径</td>
-<td><code>useradd -d /opt/alice alice</code></td>
-</tr>
-<tr>
-<td><code>-e</code></td>
-<td>设置账户过期日期（YYYY-MM-DD）</td>
-<td><code>useradd -e 2026-12-31 guest</code></td>
-</tr>
-<tr>
-<td><code>-p</code></td>
-<td>设置加密后的密码（不推荐明文）</td>
-<td>见下文安全说明</td>
-</tr>
-</tbody></table>
-<p><code>usermod</code></p>
-<table>
-<thead>
-<tr>
-<th>选项</th>
-<th>作用</th>
-<th>示例</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>-l</code></td>
-<td>修改用户名</td>
-<td><code>usermod -l newname oldname</code></td>
-</tr>
-<tr>
-<td><code>-g</code></td>
-<td>修改主组</td>
-<td><code>usermod -g newgroup username</code></td>
-</tr>
-<tr>
-<td><code>-G</code></td>
-<td><strong>覆盖</strong>附加组（用 <code>-aG</code> 追加！）</td>
-<td><code>usermod -aG docker username</code></td>
-</tr>
-<tr>
-<td><code>-s</code></td>
-<td>修改 shell</td>
-<td><code>usermod -s /bin/zsh alice</code></td>
-</tr>
-<tr>
-<td><code>-d</code></td>
-<td>修改家目录（需手动迁移文件）</td>
-<td><code>usermod -d /new/home/dir username</code></td>
-</tr>
-<tr>
-<td><code>-L</code></td>
-<td>锁定账户（禁止登录）</td>
-<td><code>usermod -L username</code></td>
-</tr>
-<tr>
-<td><code>-U</code></td>
-<td>解锁账户</td>
-<td><code>usermod -U username</code></td>
-</tr>
-<tr>
-<td><code>-e</code></td>
-<td>修改账户过期时间</td>
-<td><code>usermod -e 2027-01-01 username</code></td>
-</tr>
-</tbody></table>
-<p><code>passwd</code></p>
-<table>
-<thead>
-<tr>
-<th>命令</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>passwd username</code></td>
-<td>root 为用户设密码</td>
-</tr>
-<tr>
-<td><code>passwd</code></td>
-<td>普通用户修改自己密码</td>
-</tr>
-<tr>
-<td><code>passwd -l username</code></td>
-<td>锁定密码（等价于 <code>usermod -L</code>）</td>
-</tr>
-<tr>
-<td><code>passwd -u username</code></td>
-<td>解锁密码</td>
-</tr>
-<tr>
-<td><code>passwd -e username</code></td>
-<td>强制用户下次登录改密码</td>
-</tr>
-<tr>
-<td><code>passwd -d username</code></td>
-<td><strong>删除密码</strong>（危险！允许空密码登录）</td>
-</tr>
-</tbody></table>
-<table>
-<thead>
-<tr>
-<th>命令</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>id username</code></td>
-<td>查看 UID&#x2F;GID&#x2F;所属组</td>
-</tr>
-<tr>
-<td><code>groups username</code></td>
-<td>查看用户所属组</td>
-</tr>
-<tr>
-<td><code>getent passwd username</code></td>
-<td>查询用户详细信息（支持 LDAP&#x2F;NIS）</td>
-</tr>
-<tr>
-<td><code>cat /etc/passwd</code></td>
-<td>查看所有用户（不含密码）</td>
-</tr>
-<tr>
-<td><code>sudo cat /etc/shadow</code></td>
-<td>查看密码哈希（仅 root）</td>
-</tr>
-</tbody></table>
-<table>
-<thead>
-<tr>
-<th>操作</th>
-<th>命令</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>创建用户</td>
-<td><code>useradd -m -s /bin/bash username</code></td>
-</tr>
-<tr>
-<td>修改用户组</td>
-<td><code>usermod -aG groupname username</code></td>
-</tr>
-<tr>
-<td>删除用户</td>
-<td><code>userdel -r username</code></td>
-</tr>
-<tr>
-<td>创建组</td>
-<td><code>groupadd groupname</code></td>
-</tr>
-<tr>
-<td>设密码</td>
-<td><code>passwd username</code></td>
-</tr>
-<tr>
-<td>查看用户信息</td>
-<td><code>id username</code></td>
-</tr>
-</tbody></table>
-<h2 id="数学运算"><a href="#数学运算" class="headerlink" title="数学运算"></a>数学运算</h2><p><code>expr</code>  </p>
-<blockquote>
-<p>进行简单数学运算</p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">expr 2 + 12				# 简单的加减运算   运算符号两侧要有空格</span><br><span class="line">root@ubuntu:~# 14</span><br><span class="line">expr 12 \* 24				# linux中的✳需要使用反斜杠特殊处理以转义</span><br><span class="line">root@ubuntu:~# 288</span><br><span class="line">expr 12 / 3				# 除法运算使用左斜杠</span><br><span class="line">root@ubuntu:~# 4</span><br></pre></td></tr></table></figure>
-
-<p><code>$[]</code>  </p>
-<blockquote>
-<p>进行数学运算且无须对字符进行转义，但是不能独立输出，必须作为变量并添加接收方（赋值或echo输出）</p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var1=$[25 * 3]</span><br><span class="line">echo $var1</span><br><span class="line"></span><br><span class="line">echo $[25 * 3]</span><br></pre></td></tr></table></figure>
-
-<p><code>$(())</code></p>
-<blockquote>
-<p>是$[]语法的现代版，更加推荐使用该语法，支持字符串的比较（<code>|</code> <code>&amp;</code>  <code>&lt;&lt;</code> <code>&gt;&gt;</code>）</p>
-</blockquote>
-<h2 id="浮点运算"><a href="#浮点运算" class="headerlink" title="浮点运算"></a>浮点运算</h2><p><code>bc</code> 	</p>
-<blockquote>
-<p>使用该语法结合其他特殊用法进行浮点运算</p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;12.4 + 3.533&quot; | bc				# 基础的运算,不设保留几位小数</span><br><span class="line"></span><br><span class="line">echo &quot;scale=3; 12 / 5&quot; | bc				# 使用scale提前告知保留几位小数</span><br></pre></td></tr></table></figure>
-
 
       
     </div>
@@ -909,7 +521,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/86/">86</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/87/">87</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -996,7 +608,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">86</span>
+          <span class="site-state-item-count">87</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1045,12 +657,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">356k</span>
+    <span title="站点总字数">359k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">9:53</span>
+    <span title="站点阅读时长">9:59</span>
 </div>
 <!-- 网站运行时间的设置 -->
 <span id="timeDate">载入天数...</span>
