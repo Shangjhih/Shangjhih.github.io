@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"lvshuqi.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":300,"display":"hide","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null,"line_number":false},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":0},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="本次我们将会以文章的方式向各位读者提供一些有关Ai的内容，且本次内容主要面向的人群为部份公司的技术员和管理人员(对Ai的使用不太熟悉且期望通过Ai改善工作质量或效率以及其它期待的职工)。内容涉及各种Ai的安装和提示词逻辑等主要的使用方法和技巧。 Ai列表   Windows 链接    Qwen https:&#x2F;&#x2F;qwen.ai&#x2F;download   ChatGPT https:&#x2F;&#x2F;apps.mic">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ai提示词">
+<meta property="og:url" content="https://lvshuqi.top/2026/05/26/Prompt-lists/index.html">
+<meta property="og:site_name" content="就这样&amp;巴">
+<meta property="og:description" content="本次我们将会以文章的方式向各位读者提供一些有关Ai的内容，且本次内容主要面向的人群为部份公司的技术员和管理人员(对Ai的使用不太熟悉且期望通过Ai改善工作质量或效率以及其它期待的职工)。内容涉及各种Ai的安装和提示词逻辑等主要的使用方法和技巧。 Ai列表   Windows 链接    Qwen https:&#x2F;&#x2F;qwen.ai&#x2F;download   ChatGPT https:&#x2F;&#x2F;apps.mic">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-05-26T12:56:46.000Z">
+<meta property="article:modified_time" content="2026-05-26T15:36:14.548Z">
+<meta property="article:author" content="Shangjhih Jhao">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="博客">
+<meta property="article:tag" content="技术">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="随想">
+<meta property="article:tag" content="编程">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://lvshuqi.top/2026/05/26/Prompt-lists/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Ai提示词 | 就这样&巴</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">就这样&巴</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">个人网志</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2026/05/26/Prompt-lists/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
+      <meta itemprop="name" content="Shangjhih Jhao">
+      <meta itemprop="description" content="该博客在作者读大学本科期间创建，通过Hexo搭建，部署于Github Action。博客建立之初是为了防止作者遗忘已经学过的东西，将一些可以被记录的东西写下来一定程度上会减少遗忘。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="就这样&巴">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Ai提示词
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2026-05-26 20:56:46 / 修改时间：23:36:14" itemprop="dateCreated datePublished" datetime="2026-05-26T20:56:46+08:00">2026-05-26</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>8 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>本次我们将会以文章的方式向各位读者提供一些有关Ai的内容，且本次内容主要面向的人群为部份公司的技术员和管理人员(对Ai的使用不太熟悉且期望通过Ai改善工作质量或效率以及其它期待的职工)。内容涉及各种Ai的安装和提示词逻辑等主要的使用方法和技巧。</p>
+<h1 id="Ai列表"><a href="#Ai列表" class="headerlink" title="Ai列表"></a>Ai列表</h1><table>
+<thead>
+<tr>
+<th>Windows</th>
+<th>链接</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Qwen</td>
+<td><a target="_blank" rel="noopener" href="https://qwen.ai/download">https://qwen.ai/download</a></td>
+</tr>
+<tr>
+<td>ChatGPT</td>
+<td><a target="_blank" rel="noopener" href="https://apps.microsoft.com/detail/9nt1r1c2hh7j?hl=en-US&gl=US">https://apps.microsoft.com/detail/9nt1r1c2hh7j?hl=en-US&gl=US</a></td>
+</tr>
+<tr>
+<td>Claude</td>
+<td><a target="_blank" rel="noopener" href="https://claude.ai/api/desktop/win32/x64/exe/latest/redirect">https://claude.ai/api/desktop/win32/x64/exe/latest/redirect</a></td>
+</tr>
+<tr>
+<td>Gemini</td>
+<td><a target="_blank" rel="noopener" href="https://gemini.google.com/">https://gemini.google.com/</a></td>
+</tr>
+<tr>
+<td>Grok</td>
+<td><a target="_blank" rel="noopener" href="https://grok.com/">https://grok.com/</a></td>
+</tr>
+</tbody></table>
+<p><code>安卓端的ChatGPT、Claude、Gemini、Grok、Mistria、Perplexity等都需要在Google Play中下载，因google的软件分发政策发生改变，无法在此处提供通用安装包，所以请自行想办法安装Google play，华为手机的harmony os 版本高于4.2则无法使用以上提到的几乎所有程序，仅可以使用网页端。</code></p>
+<table>
+<thead>
+<tr>
+<th>安卓</th>
+<th>链接</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Qwen</td>
+<td><a target="_blank" rel="noopener" href="https://qwen.ai/download">https://qwen.ai/download</a></td>
+</tr>
+</tbody></table>
+<p style="color:red; font-weight:bold; font-size: 20px" >
+！！！iPhone用户需要使用海外iPhone账号登录appstore获取下载资格！！！
+</p>
+
+
+<h1 id="提示词"><a href="#提示词" class="headerlink" title="提示词"></a>提示词</h1><h2 id="会议纪要"><a href="#会议纪要" class="headerlink" title="会议纪要"></a>会议纪要</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">我现在需要你帮助我整理会议纪要，要求整个会议的纪要详实专业，重点突出重要事件和存在的问题。我们的宗旨是要求听起来非常专业，所以你可以参考央视新闻和国内一些主要媒体的叙述形式来整理会议纪要，文章风格必须听起来很专业，可以适当使用行业内的专有名词替换简单词汇以让内容听起来更专业，你也可以使用无聊的废话将会议纪要包装的更加符合那种形式化的风格。例如使用词语：转化、跟进、跟踪、贯通等无用的废话。以下是主要会议内容：</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 演讲稿</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>我现在需要编写一篇演讲稿，现要求演讲稿的用词专业，风格类似于央视和各家主流正式报道的语言风格，尽量正式且使用高级词汇以显得水平较高，中间可以加入精美的听起来很高大上的废话来丰富演讲格调。我的演讲将要面对公司的各级领导，我希望在汇报中能够让领导看出我的专业性。语言需要特别针对性调整。我们公司文化迂腐且领导的水平不高，也许哪些看似高大上实际上用处不大的“高级语言”“专业词汇”是比较好的选择。这次我要汇报的内容是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 工作汇报</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>我现在需要你帮我撰写一份面向公司管理层的工作汇报。整体要求事实详实、重点突出，同时语言风格必须高度正式、专业，参考央视新闻及国内主流政务&#x2F;企业报道的叙事逻辑与表达范式。</p>
+<p>具体要求如下：</p>
+<ol>
+<li>语言包装：全程使用规范化、体制化&#x2F;企业级行政话语体系。请将日常表述替换为行业或管理类专有名词（例如：将“做了”改为“推进落地&#x2F;深化践行”，将“问题”改为“阶段性瓶颈&#x2F;优化空间”，将“计划”改为“下一步战略部署&#x2F;实施路径”等）。</li>
+<li>风格定调：保持“高位视角”与“全局思维”的叙述基调，适当融入结构化、形式化但不失逻辑张力的行政表达（如：赋能、协同、闭环、沉淀、矩阵、链路、抓手、贯通、转化、迭代、对齐、反哺等），以符合正式汇报的公文语境，提升文本的权威感与专业度。</li>
+<li>内容框架：需严格包含以下四大模块：<br>▸ 工作回顾与核心成果（突出关键节点、可量化产出与战略对齐）<br>▸ 关键数据&#x2F;里程碑复盘（用结构化语言呈现进展与效能）<br>▸ 现存挑战与归因分析（以“建设性、前瞻性”口吻呈现，避免直白负面表述）<br>▸ 下一阶段规划与实施路径（强调闭环管理、资源统筹与预期价值转化）</li>
+<li>受众适配：面向公司各级领导汇报，行文需体现对组织战略的承接意识与执行层面的专业素养，整体格调需庄重、克制、具备公文质感。请在事实准确的前提下，通过语言升维强化“专业汇报”的视听观感。</li>
+</ol>
+<p>请基于以下我提供的工作素材进行结构化重组与语言升维：<br>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 阶段性/年终工作总结</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>我现在需要你帮我撰写一份面向公司管理层的阶段性工作总结。整体行文需严格遵循央视新闻及主流政务&#x2F;企业公文的叙事范式，基调庄重、专业、具备战略纵深感。请将日常业务表述全面升维为规范化行政话语体系（如将“完成”替换为“圆满收官&#x2F;高效交付”，将“改进”替换为“迭代优化&#x2F;机制重塑”，将“计划”替换为“顶层设计&#x2F;实施路径”等）。内容需严格包含四大模块：<br>①核心指标达成与关键成果复盘（突出数据赋能与战略对齐）；<br>②重点专项工作推进情况（强调闭环管理与链路贯通）；<br>③阶段性瓶颈与归因剖析（以建设性、前瞻性视角阐述，采用“优化空间&#x2F;机制性堵点”等表述替代直白负面）；<br>④下一阶段规划与价值转化路径（突出资源统筹、效能反哺与常态化机制建设）。<br>行文需适当融入“抓手、沉淀、矩阵、赋能、贯通、纵深推进、提质增效、对齐拉通”等结构化表述，以契合正式汇报的公文语境，强化专业质感与管理视野。请基于以下素材进行重组与语言包装：<br>【在此输入具体工作内容、核心数据、项目进展、遇到的困难及下一步规划】</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>我现在需要你帮我撰写一份面向公司管理层的阶段性工作总结。整体行文需严格遵循央视新闻及主流政务&#x2F;大型车企公文的叙事范式，基调庄重、专业、具备产业纵深感。请将日常业务表述全面升维为规范化、体系化的汽车制造与工程管理话语（如将“完成”替换为“顺利爬坡&#x2F;按期SOP”，将“改进”替换为“工艺迭代&#x2F;质量一致性管控强化”，将“计划”替换为“平台化架构部署&#x2F;全生命周期实施路径”等）。内容需严格包含四大模块：①核心指标达成与关键成果复盘（突出产能释放、BOM成本优化、三电&#x2F;智驾技术突破与集团战略对齐）；②重点专项工作推进情况（强调四大工艺精益协同、柔性制造线体改造与数字化车间闭环管理）；③阶段性瓶颈与归因剖析（以建设性视角阐述供应链韧性、标定验证周期、零缺陷目标达成等机制性堵点）；④下一阶段规划与价值转化路径（突出平台通用率提升、产能效能反哺与电动化&#x2F;智能化战略纵深推进）。行文需适当融入“抓手、沉淀、矩阵、赋能、贯通、精益化、节拍优化、全链路打通、提质增效、对标拉通”等结构化表述，契合大型车企正式汇报的公文语境。请基于以下素材进行重组与语言包装：【在此输入具体工作内容、核心数据、项目进展、遇到的困难及下一步规划】</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 跨部门/专项普通会议</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>我现在需要你整理一份普通工作会议的纪要与决议摘要。要求整体风格高度正式、逻辑严密，参考国内主流媒体及大型企业标准化会议通报的叙述形式。请将会议中的口语化讨论转化为规范化、机制化的行政表述，重点突出“议定事项、责任分工、节点要求与跟踪机制”。文中需策略性使用“对齐、拉通、协同、跟进、督办、转化、闭环、贯通、动态校准”等流程性词汇进行专业包装，确保内容听起来具备高度的执行力与组织规范性。纪要结构需严格划分为：<br>①会议核心议题与战略背景；<br>②各方观点凝练与共识达成（采用高位视角提炼）；<br>③决议事项与责任矩阵（明确牵头部门、配合单位与交付节点）；<br>④后续跟进机制与风险预警（强调链路监控与节点攻坚）。请依据以下会议原始记录进行提炼与升维：<br>【在此粘贴会议讨论要点、决策结果、待办事项及相关人员分工】</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>我现在需要你整理一份汽车制造相关专项工作会议的纪要与决议摘要。要求整体风格高度正式、逻辑严密，参考国内主流媒体及头部车企标准化会议通报的叙述形式。请将会议中的口语化讨论转化为规范化、机制化的工程与制造管理表述，重点突出“技术对齐、供应链拉通、生产节拍协同与质量跟踪机制”。文中需策略性使用“平台化部署、四大工艺贯通、BOM数据锁定、DV&#x2F;PV验证闭环、供应商协同赋能、动态校准、SOP节点攻坚、零缺陷管控”等行业与管理融合词汇进行专业包装，确保内容具备高度的工程严谨性与组织执行力。纪要结构需严格划分为：①会议核心议题与车型&#x2F;平台战略背景；②各方观点凝练与工程共识达成（采用研发-制造-质量高位视角提炼）；③决议事项与责任矩阵（明确牵头科室、配套厂、交付节点与样车试制要求）；④后续跟进机制与风险预警（强调APQP流程管控、变更管理与节点督办）。请依据以下会议原始记录进行提炼与升维：【在此粘贴会议讨论要点、决策结果、待办事项及相关人员分工】</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 团队周会</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>我现在需要你基于本周工作进展编写一份周会汇报&#x2F;纪要材料。行文需保持央视新闻及主流企业管理通报的严肃基调，突出“短周期复盘、高敏捷迭代、强目标导向”的汇报逻辑。请将日常进度描述升维为专业化、结构化的管理语言，重点呈现本周核心交付、关键链路贯通情况及资源调配效能。适当融入“滚动推进、动态调优、颗粒度细化、效能转化、常态化跟踪、节点攻坚、短平快闭环”等词汇进行形式化包装，以体现严谨的执行纪律与前瞻性的管理意识。内容框架需包含：<br>①本周核心产出与里程碑复盘（数据支撑+成果定性）；<br>②跨线协同与流程优化进展；<br>③当前堵点与资源调配诉求（以机制化、建设性视角提出）；<br>④下周攻坚计划与预期价值转化（强调目标对齐与动作拆解）。请根据以下本周工作流水进行结构化重组：<br>【在此输入本周完成事项、关键数据、协作情况、未决问题及下周计划】</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<p>我现在需要你基于本周工作进展编写一份周会汇报&#x2F;纪要材料。行文需保持央视新闻及主流车企生产运营通报的严肃基调，突出“短周期复盘、高敏捷迭代、强目标导向与产线节拍管理”的汇报逻辑。请将日常进度描述升维为专业化、结构化的汽车工程与精益制造语言，重点呈现本周核心交付、关键工艺链路贯通情况及产能&#x2F;质量指标动态。适当融入“节拍优化、动态调优、颗粒度细化、效能转化、常态化跟踪、SOP节点攻坚、短平快闭环、三电&#x2F;智驾标定贯通”等词汇进行形式化包装，以体现严谨的制造纪律与前瞻性的工程意识。内容框架需包含：①本周核心产出与里程碑复盘（数据支撑+OEE&#x2F;一次交验合格率等指标定性）；②跨线协同与工艺流程优化进展；③当前堵点与资源调配诉求（以机制化、建设性视角提出零部件保供、设备维保或工艺验证瓶颈）；④下周攻坚计划与预期价值转化（强调目标对齐、动作拆解与产线爬坡规划）。请根据以下本周工作流水进行结构化重组：【在此输入本周完成事项、关键数据、协作情况、未决问题及下周计划】</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">### 部门内部例会</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>我现在需要你撰写一份部门内部例会的汇报与纪要文档。整体风格需延续主流政务&#x2F;央企公文的庄重范式，语言高度凝练且具备管理纵深感。请将部门日常运营与团队建设内容转化为规范化、体系化的行政表述，突出“机制建设、能力沉淀、标准对齐与效能反哺”。文中可策略性使用“内化于心、外化于行、体系化赋能、全链路打磨、梯队建设、知识资产沉淀、常态化复盘、管理抓手”等表述进行格调提升，以契合管理层对部门规范化运作的期待。结构需严格遵循：<br>①部门阶段性战略对齐与指标达成概览；<br>②核心业务链路优化与标准化建设进展；<br>③团队能力矩阵搭建与内部协同复盘；<br>④下阶段管理部署与常态化运营机制。请基于以下部门工作素材进行语言升维与逻辑重构：【在此输入部门工作重点、流程优化、人员管理、内部培训、存在短板及改进计划】</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<p>我现在需要你撰写一份汽车制造相关部门内部例会的汇报与纪要文档。整体风格需延续主流政务&#x2F;大型车企公文的庄重范式，语言高度凝练且具备制造体系纵深感。请将部门日常运营与团队建设内容转化为规范化、体系化的汽车工程与精益管理表述，突出“机制建设、工艺沉淀、标准对齐与效能反哺”。文中可策略性使用“内化于心、外化于行、体系化赋能、全链路打磨、梯队建设、工艺知识库沉淀、常态化复盘、APQP&#x2F;TS16949标准对标、管理抓手”等表述进行格调提升，以契合管理层对部门规范化、标准化运作的期待。结构需严格遵循：①部门阶段性战略对齐与核心KPI（如产能、质量、成本、交付）达成概览；②核心工艺链路优化与标准化&#x2F;数字化建设进展；③团队能力矩阵搭建与跨工位协同复盘；④下阶段管理部署与常态化精益运营机制。请基于以下部门工作素材进行语言升维与逻辑重构：【在此输入部门工作重点、流程优化、人员管理、内部培训、存在短板及改进计划】<br>&#96;&#96;&#96;</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2026/05/23/RootHide/" rel="prev" title="RootHide">
+      <i class="fa fa-chevron-left"></i> RootHide
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Ai%E5%88%97%E8%A1%A8"><span class="nav-number">1.</span> <span class="nav-text">Ai列表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8F%90%E7%A4%BA%E8%AF%8D"><span class="nav-number">2.</span> <span class="nav-text">提示词</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%9A%E8%AE%AE%E7%BA%AA%E8%A6%81"><span class="nav-number">2.1.</span> <span class="nav-text">会议纪要</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Shangjhih Jhao"
+      src="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
+  <p class="site-author-name" itemprop="name">Shangjhih Jhao</p>
+  <div class="site-description" itemprop="description">该博客在作者读大学本科期间创建，通过Hexo搭建，部署于Github Action。博客建立之初是为了防止作者遗忘已经学过的东西，将一些可以被记录的东西写下来一定程度上会减少遗忘。</div>
+</div>
+
+
+<div class="spotify-player-independent motion-element">
+  <div class="spotify-player-header">
+    <i class="fab fa-spotify"></i>
+    <span>音乐推荐</span>
+  </div>
+  <div class="spotify-player-content">
+    <iframe style="border-radius:8px" 
+            src="https://open.spotify.com/embed/track/1TUpKepASZ9fQbcG2v9kOy?utm_source=generator" 
+            width="100%" 
+            height="152" 
+            frameBorder="0" 
+            allowfullscreen="" 
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+            loading="lazy">
+    </iframe>
+  </div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">95</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">90</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">81</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shangjhih Jhao</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">397k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">11:02</span>
+</div>
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("09/29/2024 11:04:00"); //此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已建立 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒.";
+    }
+setInterval("createtime()",250);
+</script>
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
