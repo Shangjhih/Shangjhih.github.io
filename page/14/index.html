@@ -169,7 +169,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2026/01/24/Linux-%E5%85%B6%E4%BB%96%E5%91%BD%E4%BB%A4/">
+    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2026/01/29/Microsoft-Office-CVE-2026-21509%E9%9B%B6%E6%97%A5%E6%BC%8F%E6%B4%9E%E4%BF%AE%E5%A4%8D%E7%9A%84%E5%90%84%E7%89%88%E6%9C%AC%E5%88%97%E8%A1%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
@@ -183,7 +183,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2026/01/24/Linux-%E5%85%B6%E4%BB%96%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">Linux 其他命令</a>
+            <a href="/2026/01/29/Microsoft-Office-CVE-2026-21509%E9%9B%B6%E6%97%A5%E6%BC%8F%E6%B4%9E%E4%BF%AE%E5%A4%8D%E7%9A%84%E5%90%84%E7%89%88%E6%9C%AC%E5%88%97%E8%A1%A8/" class="post-title-link" itemprop="url">Microsoft Office CVE-2026-21509零日漏洞修复的各版本列表</a>
         </h2>
 
         <div class="post-meta">
@@ -192,16 +192,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2026-01-24 13:38:14" itemprop="dateCreated datePublished" datetime="2026-01-24T13:38:14+08:00">2026-01-24</time>
+              <time title="创建时间：2026-01-29 12:45:05 / 修改时间：13:14:15" itemprop="dateCreated datePublished" datetime="2026-01-29T12:45:05+08:00">2026-01-29</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-01-28 19:50:39" itemprop="dateModified" datetime="2026-01-28T19:50:39+08:00">2026-01-28</time>
-              </span>
 
           <br>
             <span class="post-meta-item" title="本文字数">
@@ -209,14 +203,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>906</span>
+              <span>5.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>8 分钟</span>
             </span>
 
         </div>
@@ -228,46 +222,197 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <hr>
-<h1 id="图形化与命令行显示切换"><a href="#图形化与命令行显示切换" class="headerlink" title="图形化与命令行显示切换"></a>图形化与命令行显示切换</h1><p><strong>查看当前模式</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl get-default</span><br></pre></td></tr></table></figure>
-
-<p><strong>切换为图形模式</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl isolate graphical.terget                   # 临时切换</span><br><span class="line"></span><br><span class="line">systemctl set-default graphical.terget				 # 永久切换</span><br></pre></td></tr></table></figure>
-
-<p><strong>切换为命令行模式</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl isolate multi-user.terget                   # 临时切换</span><br><span class="line"></span><br><span class="line">systemctl set-default multi-user.terget			      # 永久切换</span><br></pre></td></tr></table></figure>
+          <p style="color: red; font-weight: bold">
+    注意：该报告由Perplexity阅读微软官方信息后撰写，非人工撰写。<br><br>微软官方报告参见：
+    https://learn.microsoft.com/en-us/officeupdates/
+    <br>
+    本报告生成于2026-1-29，由于该信息具有时效性，请读者根据实际情况自行获取信息以针对性解决问题。
+</p>
 
 
 
-<h1 id="计划任务"><a href="#计划任务" class="headerlink" title="计划任务"></a>计划任务</h1><ul>
-<li>一次性计划任务(系统重启后失效)<code>at</code></li>
-<li>持久性计划任务<code>crontab</code></li>
+<h2 id="一、漏洞概述（CVE‑2026‑21509）"><a href="#一、漏洞概述（CVE‑2026‑21509）" class="headerlink" title="一、漏洞概述（CVE‑2026‑21509）"></a>一、漏洞概述（CVE‑2026‑21509）</h2><ul>
+<li>漏洞类型：Microsoft Office <strong>安全特性绕过</strong>（Security Feature Bypass），本质为“在安全决策中信任不可信输入”（CWE‑807）。<a target="_blank" rel="noopener" href="https://www.esentire.com/security-advisories/microsoft-office-emergency-out-of-band-update-cve-2026-21509">esentire+4</a></li>
+<li>CVSS 评分：7.8，高危。<a target="_blank" rel="noopener" href="https://xmcyber.com/blog/microsoft-office-zero-day-vulnerability-cve-2026-21509/">xmcyber+4</a></li>
+<li>影响产品：<ul>
+<li>Microsoft Office 2016、Office 2019。<a target="_blank" rel="noopener" href="https://socprime.com/blog/latest-threats/cve-2026-21509-vulnerability/">socprime+3</a></li>
+<li>Office LTSC 2021、Office LTSC 2024。<a target="_blank" rel="noopener" href="https://www.sophos.com/blog/microsoft-office-vulnerability-cve-2026-21509-in-active-exploitation">sophos+3</a></li>
+<li>Microsoft 365 Apps for Enterprise 等订阅版 Office。<a target="_blank" rel="noopener" href="https://thehackernews.com/2026/01/microsoft-issues-emergency-patch-for.html">thehackernews+3</a></li>
 </ul>
-<p><strong><code>at</code></strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">at 14:12 [command]                   # 在14:12执行一次命令[command]</span><br><span class="line">at 13:45 free -h						# 在13:45 执行命令`free -h`</span><br></pre></td></tr></table></figure>
-
-<p><strong>具体案例</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">at now + 34 minutes [command]			# 在34分钟后执行命令</span><br><span class="line"></span><br><span class="line">at now + 3 hour [command]				# 在3小时后执行命令</span><br><span class="line"></span><br><span class="line">at now + 2 day [command]			# 在两天后执行命令</span><br></pre></td></tr></table></figure>
-
-<p><strong><code>at</code>参数管理</strong></p>
-<p><code>at -l</code>				列出记录的所有任务</p>
-<p><code>at -d [job_id]</code>		删除某个任务</p>
-<p><code>at -c [job_id]</code>		查看某任务的具体内容</p>
-<hr>
-<p><strong><code>cron</code></strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">crontab 25 1 * * * [command]</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">#############################</span></span></span><br><span class="line">	   分 时 日 月 周</span><br><span class="line">	   *  *  * *  * [command]</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">   ✳代表具体时间，指定哪个时间就修改哪个位置的数</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">################################</span></span></span><br><span class="line"><span class="meta prompt_">		# </span><span class="language-bash">特殊标记方法：</span></span><br><span class="line">32 1,3,5 1 * *        # 一天后的一小时32分、三小时32分、五小时32分各执行一次</span><br><span class="line">42 1-5 1 * *			# 一天后的1-5小时的42分后各执行一次</span><br></pre></td></tr></table></figure>
-
-<p><strong><code>crontab</code>参数管理</strong></p>
-<p><code>crontab -e</code>			编辑当前用户的任务</p>
-<p><code>crontab -l</code>			列出当前用户的任务</p>
-<p><code>crontab -r</code>			删除当前用户所有的任务</p>
-<h2 id="文件测试操作符"><a href="#文件测试操作符" class="headerlink" title="文件测试操作符"></a>文件测试操作符</h2><p><code>-f</code>	<code>[ -f /etc/passwd ]</code>	是否为普通文件</p>
-<p><code>-d</code>	<code>[ -d /home ]</code>	是否为目录</p>
-<p><code>-z</code>	<code>[ -z str ]</code>	字符串是否为<strong>空</strong></p>
-<p><code>-n</code>	<code>[ -n str ]</code>	字符串是否为<strong>非空</strong></p>
-<p><code>-e</code>	<code>[ -e /tmp/log.txt ]</code>	文件或目录是否存在</p>
-<p><code>-s</code>	<code>[ -s report.log ]</code>	文件是否存在且非空</p>
+</li>
+<li>利用状态：<ul>
+<li>已被攻击者在野利用，Microsoft 及多家安全厂商确认为 <strong>零日</strong>，CISA 已将其加入 KEV 目录，并要求美联邦机构在 2026‑02‑16 前完成修复。</li>
+</ul>
+</li>
+</ul>
+<h2 id="二、技术细节与攻击机理"><a href="#二、技术细节与攻击机理" class="headerlink" title="二、技术细节与攻击机理"></a>二、技术细节与攻击机理</h2><h2 id="1-根本原因与触发条件"><a href="#1-根本原因与触发条件" class="headerlink" title="1. 根本原因与触发条件"></a>1. 根本原因与触发条件</h2><ul>
+<li>根本原因：Office 在执行 OLE&#x2F;COM 安全决策时错误依赖可被篡改的文档内容或元数据，导致安全检查被绕过。<a target="_blank" rel="noopener" href="https://www.esentire.com/security-advisories/microsoft-office-emergency-out-of-band-update-cve-2026-21509">esentire+4</a></li>
+<li>攻击前提：<ul>
+<li>攻击者构造特制 Office 文档（Word、Excel 等），嵌入或引用恶意 COM&#x2F;OLE 控件，同时伪造相关元数据。</li>
+<li>通过钓鱼邮件、聊天工具或下载链接诱导受害者打开该文档。预览窗格（Preview Pane）<strong>不是</strong> 攻击向量，必须实际打开文档才会触发漏洞。<a target="_blank" rel="noopener" href="https://xmcyber.com/blog/microsoft-office-zero-day-vulnerability-cve-2026-21509/">xmcyber+3</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="2-安全特性绕过的影响"><a href="#2-安全特性绕过的影响" class="headerlink" title="2. 安全特性绕过的影响"></a>2. 安全特性绕过的影响</h2><ul>
+<li>该漏洞可以绕过 Office 中针对 COM&#x2F;OLE 控件的 <strong>OLE 缓解机制</strong>，允许加载本应被阻止的易被滥用控件。<a target="_blank" rel="noopener" href="https://socprime.com/blog/latest-threats/cve-2026-21509-vulnerability/">socprime+3</a></li>
+<li>直接后果包括：<ul>
+<li>为凭据窃取、进程注入等攻击提供入口，例如通过恶意控件弹出仿真认证界面或发起隐蔽网络请求。<a target="_blank" rel="noopener" href="https://www.esentire.com/security-advisories/microsoft-office-emergency-out-of-band-update-cve-2026-21509">esentire+2</a></li>
+<li>为后续 RCE&#x2F;横向移动链条提供支点（即便本漏洞本身是“安全特性绕过”，而非独立 RCE）。<a target="_blank" rel="noopener" href="https://xmcyber.com/blog/microsoft-office-zero-day-vulnerability-cve-2026-21509/">xmcyber+2</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="三、官方修复思路与各产品线情况"><a href="#三、官方修复思路与各产品线情况" class="headerlink" title="三、官方修复思路与各产品线情况"></a>三、官方修复思路与各产品线情况</h2><h2 id="1-Microsoft-修复策略"><a href="#1-Microsoft-修复策略" class="headerlink" title="1. Microsoft 修复策略"></a>1. Microsoft 修复策略</h2><ul>
+<li><p>2026‑01‑26，Microsoft 发布 <strong>紧急 out‑of‑band 更新</strong>，针对 Windows 端 Office 修复该漏洞中的 OLE 缓解绕过问题。<a target="_blank" rel="noopener" href="https://thehackernews.com/2026/01/microsoft-issues-emergency-patch-for.html">thehackernews+3</a></p>
+</li>
+<li><p>对于 <strong>Office 2021 及后续版本（包含部分订阅版&#x2F;M365）</strong>：</p>
+<ul>
+<li>Microsoft 通过 <strong>服务器端配置变更</strong>（service‑side change）增强 OLE 缓解，客户端需要 <strong>重启 Office 应用</strong> 以使新策略生效。<a target="_blank" rel="noopener" href="https://thehackernews.com/2026/01/microsoft-issues-emergency-patch-for.html">thehackernews+2</a></li>
+</ul>
+</li>
+<li><p>对于 <strong>Office 2016 &#x2F; 2019</strong>：</p>
+<ul>
+<li>需要安装特定的 out‑of‑band 安全更新（按不同版本、渠道有对应 KB 或 C2R 更新）；在暂时不能打补丁的情况下，可按 Microsoft 建议配置注册表临时阻止相关组件（见下）。</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-Office-2024-LTSC-2024-当前更新信息"><a href="#2-Office-2024-LTSC-2024-当前更新信息" class="headerlink" title="2. Office 2024 &#x2F; LTSC 2024 当前更新信息"></a>2. Office 2024 &#x2F; LTSC 2024 当前更新信息</h2><p>在你给出的官方页面中，Microsoft 为 <strong>Office LTSC 2024 和 Office 2024（零售）</strong> 提供了更新历史表格，并明确说明每个新版本 <strong>包含此前所有安全修复</strong>。<a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/officeupdates/update-history-office-2024">learn.microsoft</a></p>
+<ul>
+<li>Office LTSC 2024（批量授权版）当前公开最新记录为：<ul>
+<li>2025‑10‑14：Version 2408（Build 17932.20574）。<a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/officeupdates/update-history-office-2024">learn.microsoft</a></li>
+</ul>
+</li>
+<li>Office 2024（零售版）当前公开最新记录为：<ul>
+<li>2025‑10‑21：Version 2509（Build 19231.20216）。<a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/officeupdates/update-history-office-2024">learn.microsoft</a></li>
+</ul>
+</li>
+</ul>
+<p>CVE‑2026‑21509 的紧急补丁发布时间为 2026‑01‑26，因此 <strong>真正包含此漏洞修复的 Office 2024 &#x2F; LTSC 2024 版本会出现在 2026 年 1 月以后的新版本行中</strong>，但目前该页面最新记录仍停在 2025 年 10 月。<a target="_blank" rel="noopener" href="https://www.esentire.com/security-advisories/microsoft-office-emergency-out-of-band-update-cve-2026-21509">esentire+3</a><br>在运维策略上，你应遵循 Microsoft 一贯规则：</p>
+<ul>
+<li>始终以该页面最新一行的版本号作为“已包含全部已知安全修复”的基线，后续一旦 Microsoft 更新 2026‑01 或之后的版本行，即可认为该行及之后版本已包含 CVE‑2026‑21509 修复。<a target="_blank" rel="noopener" href="https://xmcyber.com/blog/microsoft-office-zero-day-vulnerability-cve-2026-21509/">xmcyber+3</a></li>
+</ul>
+<h2 id="3-其它在维护-Office-分支（Windows）"><a href="#3-其它在维护-Office-分支（Windows）" class="headerlink" title="3. 其它在维护 Office 分支（Windows）"></a>3. 其它在维护 Office 分支（Windows）</h2><table>
+<thead>
+<tr>
+<th align="left">产品线</th>
+<th align="left">发布&#x2F;授权形态</th>
+<th align="left">最新修复版本（安全基线）示例</th>
+<th align="left">官方来源说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Microsoft 365 应用版（当前频道）</td>
+<td align="left">订阅</td>
+<td align="left">Version <strong>2512</strong>（Build <strong>19530.20184</strong>），2026‑01‑21 发布。<a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/officeupdates/update-history-microsoft365-apps-by-date">learn.microsoft</a></td>
+<td align="left">在“Microsoft 365 应用版更新历史（按日期）”中，当前频道最新一行为 2512&#x2F;19530.20184，可作为当前频道的安全基线；高于该版本的设备视为已安装最新 Office 安全修复。<a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/officeupdates/update-history-microsoft365-apps-by-date">learn.microsoft</a></td>
+</tr>
+<tr>
+<td align="left">Microsoft 365 应用版（每月企业频道）</td>
+<td align="left">订阅</td>
+<td align="left">Version <strong>2511</strong>（Build 19507.x，示例），2026‑01 前后作为每月企业频道最新一行。<a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/officeupdates/microsoft365-apps-security-updates">learn.microsoft+1</a></td>
+<td align="left">安全更新发布说明中列出每月企业频道版本；在补丁窗口内，列表顶部版本可视为该频道安全基线，对应已纳入当月所有 Office 安全修复。<a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/officeupdates/microsoft365-apps-security-updates">learn.microsoft+1</a></td>
+</tr>
+<tr>
+<td align="left">Microsoft 365 应用版（半年企业频道 &#x2F; 预览）</td>
+<td align="left">订阅</td>
+<td align="left">Version <strong>2502</strong>（Build <strong>18526.20264</strong>）（预览），Version <strong>2408</strong>（Build 17928.20512）（半年企业频道）。<a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/officeupdates/update-history-microsoft365-apps-by-date">learn.microsoft</a></td>
+<td align="left">半年频道的最新版本行（如 2502&#x2F;18526.20264 预览、2408&#x2F;17928.20512 正式）为各自渠道的安全基线。<a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/officeupdates/update-history-microsoft365-apps-by-date">learn.microsoft</a></td>
+</tr>
+<tr>
+<td align="left">Office LTSC 2024</td>
+<td align="left">批量授权（VL）</td>
+<td align="left">Version <strong>2408</strong>（Build <strong>17932.20638</strong>）（2026‑01，示例）。<a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/officeupdates/update-history-office-2024">learn.microsoft+1</a></td>
+<td align="left">在 LTSC 2024 更新历史中，最新一行（如 2408&#x2F;17932.20638）为当前安全基线，本版本及以上累积包含包括 CVE‑2026‑21509 在内的所有已知安全修复。<a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/officeupdates/update-history-office-2024">learn.microsoft+1</a></td>
+</tr>
+<tr>
+<td align="left">Office 2024</td>
+<td align="left">零售</td>
+<td align="left">Version <strong>2509</strong>（Build <strong>19231.20216</strong>）（2025‑10‑21）。<a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/officeupdates/update-history-office-2024">learn.microsoft</a></td>
+<td align="left">官方更新历史中零售版最新一行为 2509&#x2F;19231.20216；当后续出现 2026‑01 及以后的版本行时，该新行及以上版本即为含 CVE‑2026‑21509 修复的最新安全基线。<a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/officeupdates/update-history-office-2024">learn.microsoft</a></td>
+</tr>
+<tr>
+<td align="left">Office LTSC 2021</td>
+<td align="left">批量授权（VL）</td>
+<td align="left">Version <strong>2108</strong>（Build <strong>14334.20468</strong>）（2026‑01‑13，示例）；安全更新说明中列为最新一行 LTSC 2021 VL 版本。<a target="_blank" rel="noopener" href="https://sysin.cn/blog/office-2021/">sysin+1</a></td>
+<td align="left">“Microsoft Office 安全更新发布说明”中对 Office LTSC 2021 批量许可给出了最新版本号（如 2108&#x2F;14334.20468），该版本及以上视为当前 LTSC 2021 的安全基线。<a target="_blank" rel="noopener" href="https://sysin.cn/blog/office-2021/">sysin+1</a></td>
+</tr>
+<tr>
+<td align="left">Office 2019</td>
+<td align="left">批量授权（VL）</td>
+<td align="left">Version <strong>1808</strong>（Build <strong>10416.20058</strong> 等最新行，2025‑后期&#x2F;2026‑初）。<a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/officeupdates/microsoft365-apps-security-updates">learn.microsoft</a></td>
+<td align="left">在安全更新发布说明里，Office 2019 批量许可多次出现，最新一行（如 1808&#x2F;10416.20058）可作为当前 VL 渠道安全基线；高于该内部版本的补丁同样累积包含已知安全修复。<a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/officeupdates/microsoft365-apps-security-updates">learn.microsoft</a></td>
+</tr>
+<tr>
+<td align="left">Office 2019</td>
+<td align="left">零售</td>
+<td align="left">Version <strong>2501</strong>（Build <strong>18429.20158</strong>）（示例最新行）。<a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/officeupdates/microsoft365-apps-security-updates">learn.microsoft</a></td>
+<td align="left">安全更新发布说明中列出“Office 2019 零售版：版本 2501（内部版本 18429.20158）”等记录，最新版一行可被视为零售版 2019 的安全基线，包含最新 Office 安全修复。<a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/officeupdates/microsoft365-apps-security-updates">learn.microsoft</a></td>
+</tr>
+<tr>
+<td align="left">Office 2016</td>
+<td align="left">零售</td>
+<td align="left">Version <strong>2501</strong>（Build <strong>18429.20158</strong>）（示例最新行）。<a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/officeupdates/microsoft365-apps-security-updates">learn.microsoft</a></td>
+<td align="left">文档中同一日期下列出“Office 2016 零售版：版本 2501（内部版本 18429.20158）”；这一行可作为 2016 零售版当前安全基线，以上版本均累积集成该日期及以前发布的所有安全补丁。<a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/officeupdates/microsoft365-apps-security-updates">learn.microsoft</a></td>
+</tr>
+<tr>
+<td align="left">Office 2019</td>
+<td align="left">批量授权（旧基线示例）</td>
+<td align="left">Version <strong>1808</strong>（Build <strong>10372.20060</strong>）等早期基线。<a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/officeupdates/microsoft365-apps-security-updates">learn.microsoft</a></td>
+<td align="left">在较早时间点（如 2021‑01 等记录中）列出 Office 2019 批量许可：1808&#x2F;10372.20060 等；这些只是历史基线，实际运维中应以文档顶部最新一行为准，旧基线仅在历史回溯时使用。<a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/officeupdates/microsoft365-apps-security-updates">learn.microsoft</a></td>
+</tr>
+</tbody></table>
+<h2 id="四、修复方案与安全加固建议"><a href="#四、修复方案与安全加固建议" class="headerlink" title="四、修复方案与安全加固建议"></a>四、修复方案与安全加固建议</h2><h2 id="1-官方补丁与版本更新（优先）"><a href="#1-官方补丁与版本更新（优先）" class="headerlink" title="1. 官方补丁与版本更新（优先）"></a>1. 官方补丁与版本更新（优先）</h2><ol>
+<li><strong>统一资产盘点</strong><ul>
+<li>列出所有 Windows &#x2F; Mac 终端上安装的 Office 版本（特别标注：2016、2019、LTSC 2021、LTSC 2024、Office 2024、M365 Apps）。<a target="_blank" rel="noopener" href="https://socprime.com/blog/latest-threats/cve-2026-21509-vulnerability/">socprime+2</a></li>
+</ul>
+</li>
+<li><strong>Windows 端补丁策略</strong><ul>
+<li>使用 WSUS&#x2F;SCCM&#x2F;Intune 或其他补丁管理平台，将 2026‑01 发布的 Office OOB 安全更新标记为“强制&#x2F;高优先级”，要求尽快完成安装。<a target="_blank" rel="noopener" href="https://socprime.com/blog/latest-threats/cve-2026-21509-vulnerability/">socprime+3</a></li>
+<li>对 Office 2016&#x2F;2019 如因兼容性暂缓补丁，必须同时按 Microsoft 的注册表缓解措施阻断相关 COM&#x2F;OLE 控件（见下一小节），并在测试完成后尽快恢复补丁更新。<a target="_blank" rel="noopener" href="https://www.askwoody.com/forums/topic/ms-office-2016-and-2019-included-in-patch-for-cve-2026-21509-zero-day/">askwoody+2</a></li>
+</ul>
+</li>
+<li><strong>Office 2024 &#x2F; LTSC 2024 版本验证方式</strong><ul>
+<li>终端用户操作步骤：<ul>
+<li>打开任一 Office 应用 → 文件 → 帐户 → “关于” → 记录版本号与内部版本（Build）。<a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/officeupdates/update-history-office-2024">learn.microsoft</a></li>
+</ul>
+</li>
+<li>运维判断原则：<ul>
+<li>若版本号低于 Learn 页最新一行（目前为 LTSC：2408 17932.20574；零售：2509 19231.20216），首先升级至该基线版本以上。<a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/officeupdates/update-history-office-2024">learn.microsoft</a></li>
+<li>待 Microsoft 更新 2026‑01 以后的版本行时，统一要求所有终端版本号 <strong>不低于</strong> 新行；该新行及其之后版本可视为“已包含 CVE‑2026‑21509 修复”。<a target="_blank" rel="noopener" href="https://thehackernews.com/2026/01/microsoft-issues-emergency-patch-for.html">thehackernews+3</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Microsoft 365 Apps（含 Office 2021+）</strong><ul>
+<li>确保客户端使用受支持的更新通道（如月度企业通道），并完成最新更新后重启所有 Office 应用，使服务端策略生效。<a target="_blank" rel="noopener" href="https://www.esentire.com/security-advisories/microsoft-office-emergency-out-of-band-update-cve-2026-21509">esentire+2</a></li>
+</ul>
+</li>
+</ol>
+<h2 id="2-临时缓解措施（主要针对-Office-2016-2019）"><a href="#2-临时缓解措施（主要针对-Office-2016-2019）" class="headerlink" title="2. 临时缓解措施（主要针对 Office 2016&#x2F;2019）"></a>2. 临时缓解措施（主要针对 Office 2016&#x2F;2019）</h2><ul>
+<li>若因业务原因无法立即安装补丁，Microsoft 建议通过 <strong>注册表屏蔽相关 COM&#x2F;OLE 控件</strong>：<ul>
+<li>在修改前备份注册表并关闭所有 Office 进程。<a target="_blank" rel="noopener" href="https://www.askwoody.com/forums/topic/ms-office-2016-and-2019-included-in-patch-for-cve-2026-21509-zero-day/">askwoody+1</a></li>
+<li>在 Office COM Compatibility 路径下创建指定子键与配置值，以阻止漏洞利用所需的组件加载，具体路径与 CLSID 由官方安全通告中给出。<a target="_blank" rel="noopener" href="https://www.theregister.com/2026/01/27/office_zeroday_exploited_in_the/">theregister+2</a></li>
+</ul>
+</li>
+<li>该方法仅为“风险削减”，不能替代正式补丁，且可能对部分依赖特定 OLE 控件的业务带来功能影响，建议事先在测试环境验证。<a target="_blank" rel="noopener" href="https://www.theregister.com/2026/01/27/office_zeroday_exploited_in_the/">theregister+2</a></li>
+</ul>
+<h2 id="3-安全策略与检测加固"><a href="#3-安全策略与检测加固" class="headerlink" title="3. 安全策略与检测加固"></a>3. 安全策略与检测加固</h2><ul>
+<li><strong>邮件与文档网关</strong>：<ul>
+<li>在邮件安全网关、EDR&#x2F;XDR、Web 代理中加强对 Office 文档的沙箱检测，重点分析包含 OLE&#x2F;COM 对象的文档行为。<a target="_blank" rel="noopener" href="https://xmcyber.com/blog/microsoft-office-zero-day-vulnerability-cve-2026-21509/">xmcyber+2</a></li>
+</ul>
+</li>
+<li><strong>宏与活动内容策略</strong>：<ul>
+<li>通过组策略限制来自互联网位置的宏执行，仅允许签名宏，关闭不必要的“启用所有宏”设定。</li>
+</ul>
+</li>
+<li><strong>终端行为监控</strong>：<ul>
+<li>在 EDR 中重点监控 Office 进程（winword.exe、excel.exe 等）异常启动 powershell.exe、cmd.exe、wscript.exe、rundll32.exe 等行为，并配置告警与自动响应。</li>
+</ul>
+</li>
+<li><strong>日志与事件响应</strong>：<ul>
+<li>回看近期邮件日志、代理日志与 EDR 告警，重点排查可疑 Office 文档附件与相关进程链，如发现异常应按应急预案隔离终端并取证。</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
@@ -286,7 +431,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/13/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/102/">102</a><a class="extend next" rel="next" href="/page/15/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/13/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/104/">104</a><a class="extend next" rel="next" href="/page/15/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -373,7 +518,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">102</span>
+          <span class="site-state-item-count">104</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -422,12 +567,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">507k</span>
+    <span title="站点总字数">519k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">14:04</span>
+    <span title="站点阅读时长">14:25</span>
 </div>
 <!-- 网站运行时间的设置 -->
 <span id="timeDate">载入天数...</span>
