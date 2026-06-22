@@ -169,7 +169,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/07/11/Word%E5%A4%9A%E7%BA%A7%E5%88%97%E8%A1%A8/">
+    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/07/29/Ubuntu%E6%96%B0%E6%89%8B%E9%85%8D%E7%BD%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
@@ -183,7 +183,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2025/07/11/Word%E5%A4%9A%E7%BA%A7%E5%88%97%E8%A1%A8/" class="post-title-link" itemprop="url">Word多级列表</a>
+            <a href="/2025/07/29/Ubuntu%E6%96%B0%E6%89%8B%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">Ubuntu新手配置</a>
         </h2>
 
         <div class="post-meta">
@@ -194,7 +194,20 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2025-07-11 09:55:26 / 修改时间：10:38:25" itemprop="dateCreated datePublished" datetime="2025-07-11T09:55:26+08:00">2025-07-11</time>
+              <time title="创建时间：2025-07-29 14:41:37 / 修改时间：20:53:52" itemprop="dateCreated datePublished" datetime="2025-07-29T14:41:37+08:00">2025-07-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/Ubuntu/" itemprop="url" rel="index"><span itemprop="name">Ubuntu</span></a>
+                </span>
             </span>
 
           <br>
@@ -203,14 +216,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>436</span>
+              <span>1.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -222,32 +235,68 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Word中的多级列表主要用于创建有结构的目录或分级内容。通过多级列表的分级与标题等级的绑定，在文章进行大量改动仍旧能保证标题级别的连贯性。<br>以下是具体的操作和逻辑：</p>
-<h3 id="打开多级列表功能"><a href="#打开多级列表功能" class="headerlink" title="打开多级列表功能"></a>打开多级列表功能</h3><p><img src="https://s2.loli.net/2025/07/11/ixGv3ZoTM2l8dWN.png" alt="image.png"></p>
-<img src="https://s2.loli.net/2025/07/11/jAaP3msRNVixf2S.png" alt="image.png" style="zoom:50%;" />
+          <p>在你已经安装好系统之后，需要做的第一件事就是先给系统装上SSH server，SSH server是Linux进行远程的重要工具。SSH会在Linux中作为一个服务端出现，为用户提供远程访问的服务。</p>
+<p>在装系统时你可能没有勾选Openssh-server服务，此时的Linux只能通过键盘链接实体机器进行命令输入，在安装openssh-server之后便可以从远程来访问终端了。</p>
+<h2 id="初始化apt"><a href="#初始化apt" class="headerlink" title="初始化apt"></a>初始化apt</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt update                     # 初始化apt</span><br></pre></td></tr></table></figure>
 
-<img src="https://s2.loli.net/2025/07/11/XfT52tW79ADRKOr.png" alt="image.png" style="zoom:67%;" />
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt upgrade                    # 更新软件</span><br></pre></td></tr></table></figure>
 
+<h3 id="SSH-server-服务"><a href="#SSH-server-服务" class="headerlink" title="SSH server 服务"></a>SSH server 服务</h3><p>使用以下命令安装SSH Server服务器</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install openssh-server -y                          #安装ssh服务端</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="xrdp远程桌面"><a href="#xrdp远程桌面" class="headerlink" title="xrdp远程桌面"></a>xrdp远程桌面</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install xrdp                                       #安装xrdp</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start xrdp                                   # 启动xrdp服务</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reboot                                                 # 测试不可连接的话就重启以生效</span><br></pre></td></tr></table></figure>
+
+
+<p>远程桌面在安装后无法连接使用或者在来凝结后出现桌面异常没有Dock栏的话请按以下流程修改xrdp的配置文件</p>
 <ol>
-<li>该区域可以选择将当前级别链接至已经设置的样式中</li>
-<li>该区域可以在编号中添加特定的符号</li>
-<li>该区域可以设置当前最后一个级别的数字显示方式（比如罗马形式或者数字形式等）</li>
-<li>设置标号2中的级别顺序</li>
-<li>设置标号与题目之间隔开的符号</li>
+<li><p>找到位于<code>/etc/xrdp/</code>目录下名叫<code>startwm.sh</code>的文件</p>
+</li>
+<li><p>使用<code>vim</code>编辑器或其他编辑器在</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">if test -r /etc/profile; then</span><br><span class="line">        . /etc/profile</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">test -x /etc/X11/Xsession &amp;&amp; exec /etc/X11/Xsession</span><br><span class="line">exec /bin/sh /etc/X11/Xsession</span><br></pre></td></tr></table></figure>
+
+<p>之前加上配置文件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export GNOME_SHELL_SESSION_MODE=ubuntu</span><br><span class="line">export XDG_CURRENT_DESKTOP=ubuntu:GNOME</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>在第一个if循环之后加上</p>
+</li>
 </ol>
-<hr>
-<h3 id="第一级"><a href="#第一级" class="headerlink" title="第一级"></a>第一级</h3><img src="https://s2.loli.net/2025/07/11/WkvUG6NifbVs4qS.png" alt="image.png" style="zoom:67%;" />
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export $(dbus-launch)</span><br></pre></td></tr></table></figure>
 
-<p>将修改的级别选为1</p>
-<p>将级别链接到样式选择标题一（一般会提前对标题进行设置，根据自己设置的来）</p>
-<p>指定编号的格式为罗马体还是数字等字形</p>
-<p><strong>正规形式编号会将编号默认回数字1.2.3.4.5.6等，固定格式为罗马数字</strong></p>
-<hr>
-<h3 id="第二级"><a href="#第二级" class="headerlink" title="第二级"></a>第二级</h3><img src="https://s2.loli.net/2025/07/11/PLFepO5XuGJWImg.png" alt="image.png" style="zoom:67%;" />
 
-<p>指定当前编辑的为二级标题</p>
-<p>将级别链接到你所设置的二级标题（字形字号匹配要求）</p>
-<p>包含的级别编号来自级别一，然后在【输入编号的格式】中敲一个英文句号，随后在【此级别的编号样式】选择你需要的格式,这会直接将二级序号添加入内，例如会出现<code>1.1</code>  ，       <code>一.1</code> ，&#96;&#96;&#96;&#96;</p>
+<p>   完整的配置文件如下所示：</p>
+   <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">   #</span><span class="language-bash">!/bin/sh</span></span><br><span class="line"><span class="meta prompt_">   # </span><span class="language-bash">xrdp X session start script (c) 2015, 2017, 2021 mirabilos</span></span><br><span class="line"><span class="meta prompt_">   # </span><span class="language-bash">published under The MirOS Licence</span></span><br><span class="line">   </span><br><span class="line"><span class="meta prompt_">   # </span><span class="language-bash">Rely on /etc/pam.d/xrdp-sesman using pam_env to load both</span></span><br><span class="line"><span class="meta prompt_">   # </span><span class="language-bash">/etc/environment and /etc/default/locale to initialise the</span></span><br><span class="line"><span class="meta prompt_">   # </span><span class="language-bash">locale and the user environment properly.</span></span><br><span class="line">   </span><br><span class="line">   </span><br><span class="line">   export GNOME_SHELL_SESSION_MODE=ubuntu                # 修改点1</span><br><span class="line">   export XDG_CURRENT_DESKTOP=ubuntu:GNOME               # 修改点1</span><br><span class="line"></span><br><span class="line">   </span><br><span class="line">   </span><br><span class="line">   </span><br><span class="line">   if test -r /etc/profile; then</span><br><span class="line">           . /etc/profile</span><br><span class="line">   fi</span><br><span class="line">   </span><br><span class="line">export $(dbus-launch)                                    # 修改点2</span><br><span class="line"></span><br><span class="line">   test -x /etc/X11/Xsession &amp;&amp; exec /etc/X11/Xsession</span><br><span class="line">   exec /bin/sh /etc/X11/Xsession</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装dbus-launch"><a href="#安装dbus-launch" class="headerlink" title="安装dbus-launch"></a>安装dbus-launch</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt install dbus-launch               #安装dbus-launch</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dbus-launch                            #然后启动dbus-launch</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart xrdp                #重启xrdp</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dbus-launch                            # 启动dbus-launch</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart xrdp                 # 重启xrdp服务</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="远程桌面连接"><a href="#远程桌面连接" class="headerlink" title="远程桌面连接"></a>远程桌面连接</h2><p>这里说的远程桌面连接指的是Windows的功能<code>远程桌面</code>，使用该服务即可连接到局域网的Ubuntu服务器，假如你的服务器在海外或者国内云服务运营商的机房，同时你又安装了桌面版的Ubuntu，这时捏也可以使用这个服务器来远程连接你的服务器。</p>
+<h4 id="账密配置"><a href="#账密配置" class="headerlink" title="账密配置"></a>账密配置</h4><p>账号就是Ubuntu的ip地址，你可以使用下面的命令获取本机的IP地址</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip addr</span><br></pre></td></tr></table></figure>
+
+
+<p>找到eth0或eth1对应的IP地址，这就是你的登录目标</p>
+<p>账号和密码都是你在装系统时自己设置的。</p>
+<p><img src="https://s2.loli.net/2025/07/29/kcdG3Tv2WJqLKMA.png" alt="image.png"></p>
+<p><img src="https://s2.loli.net/2025/07/29/IT5tQAgO1wR39db.png" alt="image.png"></p>
+<p><img src="https://s2.loli.net/2025/07/29/WGLO5hsxdDoteTl.png" alt="712f43ebfe3f2a66a46b6fbd2c6d0fc.png"></p>
 
       
     </div>
@@ -266,7 +315,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/63/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/63/">63</a><span class="page-number current">64</span><a class="page-number" href="/page/65/">65</a><span class="space">&hellip;</span><a class="page-number" href="/page/95/">95</a><a class="extend next" rel="next" href="/page/65/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/63/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/63/">63</a><span class="page-number current">64</span><a class="page-number" href="/page/65/">65</a><span class="space">&hellip;</span><a class="page-number" href="/page/100/">100</a><a class="extend next" rel="next" href="/page/65/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -353,7 +402,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">95</span>
+          <span class="site-state-item-count">100</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -402,12 +451,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">401k</span>
+    <span title="站点总字数">478k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">11:09</span>
+    <span title="站点阅读时长">13:17</span>
 </div>
 <!-- 网站运行时间的设置 -->
 <span id="timeDate">载入天数...</span>

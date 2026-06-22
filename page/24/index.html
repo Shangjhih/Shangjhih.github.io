@@ -169,7 +169,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/10/19/TUNsystemgvisormixed/">
+    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2025/11/05/Play-Integrity%E4%BF%AE%E5%A4%8D-Root/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
@@ -183,7 +183,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2025/10/19/TUNsystemgvisormixed/" class="post-title-link" itemprop="url">TUN中三种路由区别</a>
+            <a href="/2025/11/05/Play-Integrity%E4%BF%AE%E5%A4%8D-Root/" class="post-title-link" itemprop="url">Play Integrity修复(Root)</a>
         </h2>
 
         <div class="post-meta">
@@ -194,7 +194,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2025-10-19 13:59:23 / 修改时间：14:42:56" itemprop="dateCreated datePublished" datetime="2025-10-19T13:59:23+08:00">2025-10-19</time>
+              <time title="创建时间：2025-11-05 10:50:10 / 修改时间：11:29:27" itemprop="dateCreated datePublished" datetime="2025-11-05T10:50:10+08:00">2025-11-05</time>
             </span>
 
           <br>
@@ -203,14 +203,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.2k</span>
+              <span>3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
+              <span>5 分钟</span>
             </span>
 
         </div>
@@ -222,66 +222,162 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="TUN-虚拟网络栈"><a href="#TUN-虚拟网络栈" class="headerlink" title="TUN (虚拟网络栈)"></a>TUN (虚拟网络栈)</h1><p><strong>定义：</strong><code>TUN</code> 是一种虚拟网路介面，工作在 <code>OSI </code>模型的第三层（<code>IP 层</code>）。它不是一个实体硬体，而是一个软体驱动程式，允许使用者空间的程式像处理普通网路介面一样读取和写入 IP 封包。<br><strong>用途：</strong>当一个应用程式（例如 VPN 客户端）需要拦截或处理所有网路流量时，它会建立一个 <code>TUN</code> 栈。作业系统会将所有指定路由的流量发送到这个介面，然后应用程式从介面读取这些封包进行处理（例如加密）。处理完成后，应用程式再将封包写回介面，由作业系统发送到网路。</p>
-<h2 id="TUN-的L3→L4-转换"><a href="#TUN-的L3→L4-转换" class="headerlink" title="TUN 的L3→L4 转换"></a>TUN 的L3→L4 转换</h2><p>用户空间的代理收到来自 TUN 的原始 IP 包（例如一个目标 IP&#x2F;端口的 <code>TCP SYN</code>），需要把这个 IP 包“翻译&#x2F;组装”成一个用户空间的 <code>TCP/UDP socket</code>（或把它交给系统内核栈）去建立连接并转发。这个过程叫 L3→L4 assemble（把 <code>IP</code> 包组装为<code> TCP/UDP</code> 连接）。不同实现选择把这项工作用<strong>系统内核栈</strong>来做，或用<strong>用户态的网络栈</strong>（如<code> gVisor</code> 风格实现）来做。<code>sing-box/sing-tun </code>就实现了这几种策略。</p>
-<h1 id="system-gvisor-mixed三种stack的区别与应用"><a href="#system-gvisor-mixed三种stack的区别与应用" class="headerlink" title="system gvisor mixed三种stack的区别与应用"></a>system gvisor mixed三种stack的区别与应用</h1><h2 id="system"><a href="#system" class="headerlink" title="system"></a>system</h2><p>把接收到的 L3 包交由操作系统内核网络栈去处理（即在内核&#x2F;系统层面建立&#x2F;转发 <code>TCP/UDP </code>连接）。代理做的工作是路由与转发决策，但不重新实现<code> TCP/UDP</code>。</p>
-<p><strong>优点：</strong>与系统兼容性最好、对 OS 现有防火墙 &#x2F; 路由规则亲和（通常延迟和 CPU 负载较低）。</p>
-<p><strong>缺点：</strong>需要对系统防火墙与路由做更多配置（比如在 Linux 上可能需要 <code>nftables/iproute2 </code>的配合），在一些平台（或 sandbox 环境）无法轻易修改内核路由规则时不方便。<br><strong>实现方式</strong>： - 完全依赖操作系统的<code>TCP/IP</code>协议栈</p>
+          <h1 id="你需要知道的"><a href="#你需要知道的" class="headerlink" title="你需要知道的"></a>你需要知道的</h1><p>在使用<code>Sora</code>或者很多需要依赖<code>Google play integrity</code>的软件时，你的<code>第三方ROM</code>可能会导致Playintegrity检测无法通过，关于<code>playintegrity</code>是什么，请参见网页：</p>
 <ul>
-<li><p>代理程序直接从TUN设备读取完整的IP数据包 </p>
+<li><p><a target="_blank" rel="noopener" href="http://zhuanlan.zhihu.com/p/4116874534">谷歌突然出手，Android刷机又被戴上了紧箍咒—–知乎</a></p>
 </li>
-<li><p>由系统内核完成TCP连接管理、拥塞控制、重传等<br><strong>特点</strong>：</p>
+<li><p><a target="_blank" rel="noopener" href="https://support.google.com/googleplay/android-developer/answer/11395166?hl=zh-Hans">使用 Play Integrity API 检测存在风险的互动并防范滥用行为—-Google play管理帮助中心</a></p>
 </li>
-<li><p>✅ 性能最高（内核态处理，零拷贝优化） </p>
-</li>
-<li><p>✅ 兼容性最好（完全符合RFC标准）</p>
-</li>
-<li><p>❌ 需要内核级别权限 </p>
-</li>
-<li><p>❌ 在某些平台（如Android）可能受限</p>
+<li><p><a target="_blank" rel="noopener" href="https://developer.android.com/google/play/integrity?hl=zh-cn">Play 完整性和签名服务—–Android Developer</a></p>
 </li>
 </ul>
-<p><strong>System模式问题</strong>：</p>
+<blockquote>
+<p>总结:<code>play integrity</code>检测不通过会影响部分软件的运行，必须将设备的<code>play integrity</code>安全等级提升到<code>DEVICE</code>及以上才能保证设备的完整性。</p>
+</blockquote>
+<blockquote>
+<p>playintegrity的安全等级分为<code>BASIC</code>,<code>DEVICE </code>,<code>STRONG</code> , 等级依次升高。<code>DEVICE</code>及以上即可获得Google Play的设备认证。</p>
+</blockquote>
+<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><blockquote>
+<p>注意：内容引用自xdaforums论坛的<a target="_blank" rel="noopener" href="https://xdaforums.com/m/rajarshi-khatua.11285333/">Rajarshi Khatua</a>（原内容为英文），[原文章点此](<a target="_blank" rel="noopener" href="https://xdaforums.com/m/rajarshi-khatua.11285333/">Rajarshi Khatua</a>)</p>
+</blockquote>
+<p>本教程将帮助您成功通过<strong>传统</strong>和<strong>新版</strong>游戏完整性响应中的<strong>基本</strong>完整性检查、<strong>设备</strong>完整性检查和<strong>强完整性检查</strong>。请务必仔细按照每个步骤操作。</p>
+<h2 id="第一步：移除旧模块"><a href="#第一步：移除旧模块" class="headerlink" title="第一步：移除旧模块"></a><img src="https://cdn.jsdelivr.net/joypixels/assets/6.6/png/unicode/64/1f527.png" alt="🔧" style="zoom: 33%;" />第一步：移除旧模块</h2><p>开始之前，<strong>请移除之前安装的与 Play Integrity Fix 相关的任何模块，</strong>以避免冲突。</p>
+<h2 id="步骤二：下载所需组件"><a href="#步骤二：下载所需组件" class="headerlink" title="步骤二：下载所需组件"></a><img src="https://cdn.jsdelivr.net/joypixels/assets/6.6/png/unicode/64/1f4e5.png" alt="📥" style="zoom:33%;" />步骤二：下载所需组件</h2><p>下载以下工具和模块：</p>
 <ul>
-<li>系统内核的TCP栈可能有一些”优化”行为（如窗口缩放、时间戳选项、快速打开）</li>
-<li>经过Hysteria2的UDP封装后，这些特性的时序可能被打乱</li>
-<li>某些网站的防火墙&#x2F;负载均衡器可能误判为异常流量</li>
-</ul>
-<h2 id="gVisor"><a href="#gVisor" class="headerlink" title="gVisor"></a>gVisor</h2><p>在用户空间实现一个虚拟的网络协议栈（受 gVisor 启发），代理在用户态模拟&#x2F;处理 TCP 与 UDP；换言之代理重建并管理传输层。</p>
-<p><strong>优点：</strong>更强的隔离性（不需要改内核路由或防火墙），在受限环境或需要“捕获全部流量而不改系统设置”的场景下更可靠；某些情况下还能避免内核&#x2F;用户态切换带来的成本。</p>
-<p><strong>缺点：</strong>实现复杂、CPU 占用可能更高（尤其是高并发下用户态处理多连接），对某些低层网络行为（如某些 NAT 行为、路径 MTU、特定 ICMP&#x2F;非标准包）表现不同。文档也说明 gvisor 栈可提供 endpoint-independent NAT 等可选行为。<br><strong>实现方式</strong>： </p>
+<li><p><strong>Zygisk Module</strong>(choose one)</p>
 <ul>
-<li>使用Google开源的gVisor项目中的<strong>netstack</strong>组件</li>
-<li>在<strong>用户空间</strong>完整实现<code>TCP/IP</code>协议栈（Go语言编写）</li>
-<li>不依赖系统内核的网络功能 </li>
-<li><strong>技术细节</strong>： </li>
-<li>自己处理TCP状态机、滑动窗口、快速重传、拥塞控制（如<code>Cubic/BBR</code>）</li>
-<li>完整的NAT转换和连接跟踪 </li>
-<li>独立的路由表和防火墙规则<br> <strong>特点</strong>：</li>
-<li>✅ 无需特殊权限（相对<code>system</code>模式）</li>
-<li>✅ 跨平台一致性好 </li>
-<li>✅ 更强的隔离性和安全性</li>
-<li>❌ 性能略低于<code>system</code>（用户态 vs 内核态）</li>
-<li>✅ <strong>协议实现更严格</strong>（这是你问题的关键）</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/PerformanC/ReZygisk">ReZygisk (Recommended)</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/JingMatrix/NeoZygisk">NeoZygisk</a></li>
 </ul>
-<h2 id="mixed"><a href="#mixed" class="headerlink" title="mixed"></a>mixed</h2><p>混合策略：<code>TCP</code> 用 <code>system</code>（系统栈）处理，UDP 用 <code>gvisor</code>（用户态）处理。设计上的折衷是利用系统对 TCP 的成熟处理，同时用<code> gvisor</code> 捕获 UDP（例如<code> QUIC/HTTP/3/</code>或其他 <code>UDP-based </code>协议）。<br>设计意图：兼顾兼容性与对<code>UDP</code>的更好捕获&#x2F;隔离。<br><strong>实现方式</strong>：</p>
+</li>
+<li><p><strong>Play Integrity Module (choose one)</strong>:</p>
 <ul>
-<li>通常默认使用system模式</li>
-<li>遇到特定情况时切换到<code>gVisor</code>（如需要更精细控制）</li>
-<li>或者按连接类型分流（<code>TCP</code>用<code>system</code>，<code>UDP</code>用<code>gVisor</code>）</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/chiteroman/PlayIntegrityFix">PlayIntegrityFix (Recommended)</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/osm0sis/PlayIntegrityFork">PlayIntegrityFork</a></li>
 </ul>
-<p><strong>特点</strong>：</p>
+</li>
+<li><p><strong>Tricky Tools</strong></p>
 <ul>
-<li>✅ 试图平衡性能和兼容性</li>
-<li>❌ 切换逻辑可能引入bug</li>
-<li>❌ 状态管理更复杂</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/5ec1cff/TrickyStore">TrickyStore</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/KOWX712/Tricky-Addon-Update-Target-List">Tricky Addon – Update Target List</a></li>
 </ul>
-<h1 id="节点协议"><a href="#节点协议" class="headerlink" title="节点协议"></a>节点协议</h1><p>在推荐的使用协议中，vless和hysteria2都是极为推荐的协议，其中vless主要使用tcp协议的流量进行通信，儿Hysteria2使用的则是TUIC&#x2F;UDP流量。</p>
-<h2 id="协议栈推荐"><a href="#协议栈推荐" class="headerlink" title="协议栈推荐"></a>协议栈推荐</h2><p>在使用任何协议的节点时都要注意使用合适的TUN模式来对流量进行路由，由于安卓设备和Windows设备的路由中都有可能出现某些流量不遵循系统路由规范的情况，所以在未进行针对设置的情况下有些服务是无法正常使用的，也就是软件会绕过代理进行直连。这个时候你可能会遇到部分网站无法访问的情况（比如Claude），假如你使用xray和sing-box系列的代理工具，很多默认使用mixed路由规范的工具就会无法正确路由该网站的流量，导致访问失败。</p>
-<p>假如流量出现异常，请尝试使用gVisor模式作为路由规范，此时将会新建一个虚拟网卡，所有的流量都会交由虚拟网卡处理，阻止一些不遵守规范的服务绕过路由规则。此时所有的流量都会跟随预先设计的路由规则分发流量与连接。</p>
-<p style="color:red; font-weight:bold">
-如连接出现问题，请将您的TUN模式修改为gVisor。
-</p>
+</li>
+</ul>
+<h2 id="步骤-3：（可选）安装-KSU-Web-UI"><a href="#步骤-3：（可选）安装-KSU-Web-UI" class="headerlink" title="步骤 3：（可选）安装 KSU Web UI"></a><img src="https://cdn.jsdelivr.net/joypixels/assets/6.6/png/unicode/64/2699.png" alt="⚙️" style="zoom:33%;" />步骤 3：（可选）安装 KSU Web UI</h2><p>仅当您<strong>使用 Magisk</strong>时才需要安装以下组件之一：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/adivenxnataly/KsuWebUI">肯特州立大学网页用户界面</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/MMRLApp/WebUI-X-Portable">WebUI X（替代方案）</a></li>
+</ul>
+<h2 id="第四步：重启设备"><a href="#第四步：重启设备" class="headerlink" title="第四步：重启设备"></a><img src="https://cdn.jsdelivr.net/joypixels/assets/6.6/png/unicode/64/1f504.png" alt="🔄" style="zoom:33%;" />第四步：重启设备</h2><p>所有组件安装完毕后，<strong>重启</strong>手机以使更改生效。</p>
+<h2 id="步骤-5：配置-PlayIntegrityFix"><a href="#步骤-5：配置-PlayIntegrityFix" class="headerlink" title="步骤 5：配置 PlayIntegrityFix"></a><img src="https://cdn.jsdelivr.net/joypixels/assets/6.6/png/unicode/64/1f6e0.png" alt="🛠️" style="zoom:33%;" />步骤 5：配置 PlayIntegrityFix</h2><ol>
+<li>打开<strong>PlayIntegrityFix</strong>。</li>
+<li>关闭“*<em>向 Play 商店伪装 SDK 版本”</em> <strong>选项</strong>。</li>
+<li>点击<strong>“获取 pif.json”</strong>以检索配置文件。</li>
+</ol>
+<h2 id="步骤-6：配置-TrickyStore"><a href="#步骤-6：配置-TrickyStore" class="headerlink" title="步骤 6：配置 TrickyStore"></a><img src="https://cdn.jsdelivr.net/joypixels/assets/6.6/png/unicode/64/1f9e9.png" alt="🧩" style="zoom:33%;" />步骤 6：配置 TrickyStore</h2><ol>
+<li><p>打开<strong>TrickyStore</strong>。</p>
+</li>
+<li><p>点击<strong>操作</strong>按钮（右下角）。</p>
+</li>
+<li><p>点击菜单（⋮）并选择：</p>
+<ul>
+<li><strong>全选</strong></li>
+<li><strong>取消选择不必要的</strong></li>
+<li><strong>设置有效密钥盒</strong></li>
+</ul>
+</li>
+</ol>
+<h2 id="步骤-7：设置安全补丁日期"><a href="#步骤-7：设置安全补丁日期" class="headerlink" title="步骤 7：设置安全补丁日期"></a><img src="https://cdn.jsdelivr.net/joypixels/assets/6.6/png/unicode/64/1f4c5.png" alt="📅" style="zoom:33%;" />步骤 7：设置安全补丁日期</h2><ol>
+<li>再次点击<strong>菜单</strong>。</li>
+<li>选择<strong>“设置安全补丁”</strong>。</li>
+<li>点击“<strong>获取安全补丁日期”</strong>。</li>
+<li>然后点击<strong>“保存”</strong>。</li>
+</ol>
+<h2 id="步骤-8：禁用-ROM-欺骗（重要）"><a href="#步骤-8：禁用-ROM-欺骗（重要）" class="headerlink" title="步骤 8：禁用 ROM 欺骗（重要）"></a><img src="https://cdn.jsdelivr.net/joypixels/assets/6.6/png/unicode/64/1f6ab.png" alt="🚫" style="zoom:33%;" />步骤 8：禁用 ROM 欺骗（重要）</h2><p>如果您使用的是<strong>自定义 ROM</strong>，请务必<strong>禁用任何 ROM&#x2F;GMS 欺骗选项</strong>，因为它们可能会干扰 Play Integrity 的结果。</p>
+<h2 id="步骤-9：验证强完整性"><a href="#步骤-9：验证强完整性" class="headerlink" title="步骤 9：验证强完整性"></a><img src="https://cdn.jsdelivr.net/joypixels/assets/6.6/png/unicode/64/2705.png" alt="✅" style="zoom:33%;" />步骤 9：验证强完整性</h2><p>请使用以下应用程序检查您的完整性状态：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=gr.nikolasspyr.integritycheck">游戏完整性 API 检查器</a></li>
+</ul>
+<p>如果一切操作正确，你应该已经通过了：</p>
+<ul>
+<li><strong>基本诚信</strong></li>
+<li><strong>设备完整性</strong></li>
+<li><strong>强大的诚信</strong></li>
+</ul>
+<p>适用于<strong>传统和新型响应格式</strong>。</p>
+<h2 id="重要提示"><a href="#重要提示" class="headerlink" title="重要提示"></a><img src="https://cdn.jsdelivr.net/joypixels/assets/6.6/png/unicode/64/26a0.png" alt="⚠️" style="zoom:33%;" />重要提示</h2><p><strong>避免过于频繁地检查 Play 完整性。</strong><br>仅在绝对必要时才进行检查。检查次数过多可能会引起 Google 的怀疑，并可能导致您的设备即使之前通过了完整性验证，现在也开始无法通过。</p>
+<hr>
+<p>#############################################################################################</p>
+<hr>
+<h1 id="英文原文"><a href="#英文原文" class="headerlink" title="英文原文"></a>英文原文</h1><p>This tutorial will help you successfully pass <strong>Basic</strong>, <strong>Device</strong>, and <strong>Strong Integrity</strong> checks in both <strong>Legacy</strong> and <strong>New</strong> Play Integrity responses. Make sure to follow each step carefully.</p>
+<h2 id="Step-1-Remove-Old-Modules"><a href="#Step-1-Remove-Old-Modules" class="headerlink" title=" Step 1: Remove Old Modules"></a><img src="https://cdn.jsdelivr.net/joypixels/assets/6.6/png/unicode/64/1f527.png" alt="🔧" style="zoom:33%;" /> Step 1: Remove Old Modules</h2><p>Before starting, <strong>remove any previously installed modules related to Play Integrity Fix</strong> to avoid conflicts.</p>
+<h2 id="Step-2-Download-Required-Components"><a href="#Step-2-Download-Required-Components" class="headerlink" title=" Step 2: Download Required Components"></a><img src="https://cdn.jsdelivr.net/joypixels/assets/6.6/png/unicode/64/1f4e5.png" alt="📥" style="zoom:33%;" /> Step 2: Download Required Components</h2><p>Download the following tools and modules:</p>
+<ul>
+<li><p>Zygisk Module</p>
+<p>(choose one):</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/PerformanC/ReZygisk">ReZygisk (Recommended)</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/JingMatrix/NeoZygisk">NeoZygisk</a></li>
+</ul>
+</li>
+<li><p>Play Integrity Module (choose one):</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/chiteroman/PlayIntegrityFix">PlayIntegrityFix (Recommended)</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/osm0sis/PlayIntegrityFork">PlayIntegrityFork</a></li>
+</ul>
+</li>
+<li><p>Tricky Tools:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/5ec1cff/TrickyStore">TrickyStore</a></li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/KOWX712/Tricky-Addon-Update-Target-List">Tricky Addon – Update Target List</a></p>
+</li>
+</ul>
+<h2 id="Step-3-Optional-Install-KSU-Web-UI"><a href="#Step-3-Optional-Install-KSU-Web-UI" class="headerlink" title=" Step 3: (Optional) Install KSU Web UI"></a><img src="https://cdn.jsdelivr.net/joypixels/assets/6.6/png/unicode/64/2699.png" alt="⚙️" style="zoom:33%;" /> Step 3: (Optional) Install KSU Web UI</h2><p>Only if you’re <strong>using Magisk</strong> install one of the following:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/adivenxnataly/KsuWebUI">KSU Web UI</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/MMRLApp/WebUI-X-Portable">WebUI X (alternative)</a></li>
+</ul>
+<h2 id="Step-4-Reboot-Your-Device"><a href="#Step-4-Reboot-Your-Device" class="headerlink" title=" Step 4: Reboot Your Device"></a><img src="https://cdn.jsdelivr.net/joypixels/assets/6.6/png/unicode/64/1f504.png" alt="🔄" style="zoom:33%;" /> Step 4: Reboot Your Device</h2><p>Once all components are installed, <strong>reboot</strong> your phone to apply the changes.</p>
+<h2 id="Step-5-Configure-PlayIntegrityFix"><a href="#Step-5-Configure-PlayIntegrityFix" class="headerlink" title=" Step 5: Configure PlayIntegrityFix"></a><img src="https://cdn.jsdelivr.net/joypixels/assets/6.6/png/unicode/64/1f6e0.png" alt="🛠️" style="zoom:33%;" /> Step 5: Configure PlayIntegrityFix</h2><ol>
+<li>Open <strong>PlayIntegrityFix</strong>.</li>
+<li>Turn <strong>off</strong> the option <strong>“Spoof SDK version to Play Store”</strong>.</li>
+<li>Tap <strong>Fetch pif.json</strong> to retrieve the config file.</li>
+</ol>
+<h2 id="Step-6-Configure-TrickyStore"><a href="#Step-6-Configure-TrickyStore" class="headerlink" title=" Step 6: Configure TrickyStore"></a><img src="https://cdn.jsdelivr.net/joypixels/assets/6.6/png/unicode/64/1f9e9.png" alt="🧩" style="zoom: 33%;" /> Step 6: Configure TrickyStore</h2><ol>
+<li><p>Open <strong>TrickyStore</strong>.</p>
+</li>
+<li><p>Tap the <strong>Action</strong> button (bottom right).</p>
+</li>
+<li><p>Tap the menu (⋮)and select:</p>
+<ul>
+<li><strong>Select All</strong></li>
+<li><strong>Deselect Unnecessary</strong></li>
+<li><strong>Set Valid Keybox</strong></li>
+</ul>
+</li>
+</ol>
+<h2 id="Step-7-Set-Security-Patch-Date"><a href="#Step-7-Set-Security-Patch-Date" class="headerlink" title=" Step 7: Set Security Patch Date"></a><img src="https://cdn.jsdelivr.net/joypixels/assets/6.6/png/unicode/64/1f4c5.png" alt="📅" style="zoom:33%;" /> Step 7: Set Security Patch Date</h2><ol>
+<li>Tap the <strong>menu</strong> again.</li>
+<li>Select <strong>Set Security Patch</strong>.</li>
+<li>Tap <strong>Get Security Patch Date</strong>.</li>
+<li>Then tap <strong>Save</strong>.</li>
+</ol>
+<h2 id="Step-8-Disable-ROM-Spoofing-Important"><a href="#Step-8-Disable-ROM-Spoofing-Important" class="headerlink" title=" Step 8: Disable ROM Spoofing (Important)"></a><img src="https://cdn.jsdelivr.net/joypixels/assets/6.6/png/unicode/64/1f6ab.png" alt="🚫" style="zoom:33%;" /> Step 8: Disable ROM Spoofing (Important)</h2><p>If you’re using a <strong>custom ROM</strong>, make sure to <strong>disable any ROM&#x2F;GMS spoofing options</strong>, as they can interfere with the Play Integrity results.</p>
+<h2 id="Step-9-Verify-Strong-Integrity"><a href="#Step-9-Verify-Strong-Integrity" class="headerlink" title=" Step 9: Verify Strong Integrity"></a><img src="https://cdn.jsdelivr.net/joypixels/assets/6.6/png/unicode/64/2705.png" alt="✅" style="zoom:33%;" /> Step 9: Verify Strong Integrity</h2><p>Use the following app to check your integrity status:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=gr.nikolasspyr.integritycheck">Play Integrity API Checker</a></li>
+</ul>
+<p>If everything was done correctly, you should now pass:</p>
+<ul>
+<li><strong>Basic Integrity</strong></li>
+<li><strong>Device Integrity</strong></li>
+<li><strong>Strong Integrity</strong></li>
+</ul>
+<p>For <strong>both legacy and new response formats</strong>.</p>
+<h2 id="Important-Note"><a href="#Important-Note" class="headerlink" title=" Important Note"></a><img src="https://cdn.jsdelivr.net/joypixels/assets/6.6/png/unicode/64/26a0.png" alt="⚠️" style="zoom:33%;" /> Important Note</h2><p><strong>Avoid checking Play Integrity too often.</strong><br>Only do it when absolutely necessary. Too many checks can make Google suspicious and may cause your device to start failing integrity even if it was previously passing.</p>
+
       
     </div>
 
@@ -299,7 +395,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/23/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><span class="page-number current">24</span><a class="page-number" href="/page/25/">25</a><span class="space">&hellip;</span><a class="page-number" href="/page/95/">95</a><a class="extend next" rel="next" href="/page/25/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/23/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><span class="page-number current">24</span><a class="page-number" href="/page/25/">25</a><span class="space">&hellip;</span><a class="page-number" href="/page/100/">100</a><a class="extend next" rel="next" href="/page/25/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -386,7 +482,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">95</span>
+          <span class="site-state-item-count">100</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -435,12 +531,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">401k</span>
+    <span title="站点总字数">478k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">11:09</span>
+    <span title="站点阅读时长">13:17</span>
 </div>
 <!-- 网站运行时间的设置 -->
 <span id="timeDate">载入天数...</span>
