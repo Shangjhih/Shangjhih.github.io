@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"lvshuqi.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":330,"display":"hide","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null,"line_number":false},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":0},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="注意：该文章所有信息均来源于微信公账号     黑鸟   直达链接（该链接已去除微信追踪参数，你的信息不会被进行关联）覆盖12大技术栈类别的93款开源情报工具  概览早在多年前，开源情报就早已不再是收藏夹里的一堆书签。到 2026 年，它已经发展为一个分层化的产业，相关工具分化为不同的细分品类，很少有测评能同时覆盖所有类别。 市场数据印证了这一增长态势。不同研究机构的数据显示，2025 年全球">
+<meta property="og:type" content="article">
+<meta property="og:title" content="覆盖12大技术栈类别的93款开源情报工具">
+<meta property="og:url" content="https://lvshuqi.top/2026/06/28/blackbird-osint/index.html">
+<meta property="og:site_name" content="就这样&amp;巴">
+<meta property="og:description" content="注意：该文章所有信息均来源于微信公账号     黑鸟   直达链接（该链接已去除微信追踪参数，你的信息不会被进行关联）覆盖12大技术栈类别的93款开源情报工具  概览早在多年前，开源情报就早已不再是收藏夹里的一堆书签。到 2026 年，它已经发展为一个分层化的产业，相关工具分化为不同的细分品类，很少有测评能同时覆盖所有类别。 市场数据印证了这一增长态势。不同研究机构的数据显示，2025 年全球">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-06-28T01:35:12.000Z">
+<meta property="article:modified_time" content="2026-06-28T02:14:08.461Z">
+<meta property="article:author" content="Shangjhih Jhao">
+<meta property="article:tag" content="安全">
+<meta property="article:tag" content="情报搜集">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://lvshuqi.top/2026/06/28/blackbird-osint/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>覆盖12大技术栈类别的93款开源情报工具 | 就这样&巴</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">就这样&巴</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">个人网志</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2026/06/28/blackbird-osint/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
+      <meta itemprop="name" content="Shangjhih Jhao">
+      <meta itemprop="description" content="该博客在作者读大学本科期间创建，通过Hexo搭建，部署于Github Action。博客建立之初是为了防止作者遗忘已经学过的东西，将一些可以被记录的东西写下来一定程度上会减少遗忘。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="就这样&巴">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          覆盖12大技术栈类别的93款开源情报工具
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2026-06-28 09:35:12 / 修改时间：10:14:08" itemprop="dateCreated datePublished" datetime="2026-06-28T09:35:12+08:00">2026-06-28</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>10 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>注意：该文章所有信息均来源于微信公账号     <strong>黑鸟</strong></p>
+</blockquote>
+<ul>
+<li>直达链接（该链接已去除微信追踪参数，你的信息不会被进行关联）<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzAxOTM1MDQ1NA==&mid=2451187441&idx=1&sn=86bc4296a5c582b30712030cc3b05fa2&chksm=8d44215898262f94545d695fd361a7014ce1f8efcca9aff5649b3f2851bc0156b89396c332a5">覆盖12大技术栈类别的93款开源情报工具</a></li>
+</ul>
+<h1 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h1><p>早在多年前，开源情报就早已不再是收藏夹里的一堆书签。到 2026 年，它已经发展为一个分层化的产业，相关工具分化为不同的细分品类，很少有测评能同时覆盖所有类别。</p>
+<p>市场数据印证了这一增长态势。不同研究机构的数据显示，2025 年全球 OSINT 市场规模约在 116 亿至 127 亿美元之间，五年期年复合增长率预测集中在 20% 至 28% 区间（环球市场洞察《2025 年开源情报市场报告》）。</p>
+<p>2026 年的 OSINT 技术栈涵盖 12 大类别、93 家商业厂商，远非区区 10 款工具的榜单所能概括。</p>
+<p>最具价值的情报信号存在于付费数据层：暗网泄露数据、加密货币取证、地理空间情报，而非免费的用户名查询工具。</p>
+<p>SpyCloud 数据显示，2024 年其重新捕获的身份记录达 533 亿条，同比增长 22%，足见当前调查人员需要处理的泄露数据规模之庞大（SpyCloud《2025 年度身份暴露报告》，2025 年）。<br>所有类别都依赖同一个底层支撑：规模化、安全地采集公开网络数据，且不暴露调查行动。<br>以下 12 个类别分别对应不同的调查问题：谁与谁存在关联、哪些信息发生了泄露、网络上暴露了哪些内容、物理位置在哪里，以及如何安全地完成所有数据采集。现实中一款工具可能同时适用于多个类别，我们均按其核心用途归类。<br>最终呈现的是一套技术栈，而非排名榜单。反诈团队与国家安全分析师会从同一体系中选取不同的工具组合。接下来将从上至下完整介绍这套技术体系。</p>
+<h1 id="12-大类别一览"><a href="#12-大类别一览" class="headerlink" title="12 大类别一览"></a>12 大类别一览</h1><ul>
+<li><strong>调查平台与关联分析</strong></li>
+<li><strong>社交媒体与叙事情报</strong></li>
+<li><strong>暗网与数据泄露监测</strong></li>
+<li><strong>威胁情报平台</strong></li>
+<li><strong>人员搜索、档案与背景筛查</strong></li>
+<li><strong>企业、制裁与金融犯罪调查</strong></li>
+<li><strong>加密货币与区块链取证</strong></li>
+<li><strong>攻击面与网络侦察</strong></li>
+<li><strong>地理空间情报与卫星影像</strong></li>
+<li><strong>媒体监测与态势感知</strong></li>
+<li><strong>研究基础设施与操作安全</strong></li>
+<li><strong>数字取证与证据固化</strong></li>
+</ul>
+<h1 id="调查平台与关联分析"><a href="#调查平台与关联分析" class="headerlink" title="调查平台与关联分析"></a>调查平台与关联分析</h1><p>关联分析平台是 OSINT 工作的核心工作台：它们导入各类实体（人员、账号、企业、基础设施），并在同一画布上绘制实体间的关联关系。绝大多数深度调查都在此类平台上完成，这也是市场整合速度最快的领域。2025 年 5 月，Maltego 收购了证据采集工具 Hunchly，这是众多单点工具被整合进一体化套件的案例之一（Maltego《Maltego 宣布收购 Hunchly，拓展 OSINT 能力》，2025 年）。<br>这类工具属于行业重量级产品，通常具备图谱可视化、多数据源转换 &#x2F; 连接器、案件管理等核心功能。</p>
+<ul>
+<li><strong>Maltego</strong>：实体关联分析领域的标杆型图谱工具</li>
+<li><strong>Palantir</strong>：面向政府与企业的大规模数据整合分析平台</li>
+<li><strong>DataWalk</strong>：打通孤立数据集的调查分析工具</li>
+<li><strong>Penlink</strong>：调查与通信分析平台</li>
+<li><strong>Cognyte</strong>：面向安全与情报团队的调查分析工具</li>
+<li><strong>ShadowDragon</strong>：具备深度社交与历史数据连接器的关联分析工具</li>
+<li><strong>Falkor</strong>：原生图谱架构的调查平台</li>
+<li><strong>IBM i2</strong>：历史悠久的分析师关联图表分析工具</li>
+</ul>
+<p>社交媒体与叙事情报<br>社交与叙事情报工具可监测多平台的公开言论，识别协同行为、虚假信息与新兴威胁。该品类已从简单的关键词监测转向内容操纵与合成内容检测，部分原因是生成式 AI 大幅降低了大规模制造虚假叙事的成本。<br>这类工具可用于追踪账号、绘制影响力网络，并在叙事发酵扩散前提前预警。</p>
+<ul>
+<li><strong>Babel Street</strong>：多语言数据与位置分析工具</li>
+<li><strong>Fivecast</strong>：基于公开数据的定向发现与风险检测工具</li>
+<li><strong>Blackbird.AI</strong>：叙事与虚假信息风险情报工具</li>
+<li><strong>Social Links</strong>：覆盖 500 + 数据源的 OSINT 数据融合工具</li>
+<li><strong>Cobwebs Technologies</strong>：网络情报与威胁检测工具</li>
+<li><strong>Voyager Labs</strong>：基于 AI 的网络活动调查工具</li>
+<li><strong>Pyrra</strong>：小众与边缘平台监测工具</li>
+<li><strong>Media Sonar</strong>：数字风险与社交监测工具</li>
+</ul>
+<h1 id="暗网与数据泄露监测"><a href="#暗网与数据泄露监测" class="headerlink" title="暗网与数据泄露监测"></a>暗网与数据泄露监测</h1><p>调查目标已泄露的信息往往是最具价值的调查起点：包括凭证、会话 Cookie、信息窃取木马日志、论坛讨论内容等。这是整个技术栈中信号价值最高的层级之一。SpyCloud 数据显示，2024 年其重新捕获的独立身份记录达 533 亿条，同比激增 22%；同时报告指出，当前近 80% 的数据泄露事件都涉及被盗凭证（SpyCloud《2025 年度身份暴露报告》，2025 年）。<br>其规模之大难以估量。Hudson Rock 已分析了超过 3000 万台被信息窃取木马感染的设备数据，这类遥测数据能将模糊的线索转化为确凿的入侵证据（Hudson Rock，2025 年）。</p>
+<ul>
+<li><strong>DarkOwl</strong>：规模最大的商业暗网内容数据库之一</li>
+<li><strong>SpyCloud</strong>：泄露数据与木马外溢身份数据重捕获服务</li>
+<li><strong>Flare</strong>：持续外部威胁与泄露监测工具</li>
+<li><strong>Searchlight Cyber</strong>：暗网调查与攻击前情报工具</li>
+<li><strong>Hudson Rock</strong>：信息窃取木马感染与凭证泄露情报服务</li>
+<li><strong>Intelligence X</strong>：面向泄露数据、暗网与历史数据的搜索引擎</li>
+<li><strong>Constella Intelligence</strong>：以身份为核心的泄露暴露数据服务</li>
+<li><strong>Breachsense</strong>：实时泄露监测工具</li>
+</ul>
+<h1 id="威胁情报平台"><a href="#威胁情报平台" class="headerlink" title="威胁情报平台"></a>威胁情报平台</h1><p>威胁情报平台将外部风险信号打包为安全运营团队可落地的内容：威胁指标、攻击者画像、预警信息。据估算，2025 年该市场规模约为 115 亿美元，预计到 2030 年将增长至 230 亿美元（MarketsandMarkets《威胁情报市场报告》，2025 年）。其商业价值十分直白：IBM 数据显示，2025 年全球数据泄露的平均成本为 444 万美元，美国地区更是高达 1022 万美元（IBM《2025 年数据泄露成本报告》，2025 年）。<br>这类平台将 OSINT 数据与自研采集能力、分析师研判相结合。</p>
+<ul>
+<li><strong>Recorded Future</strong>：大规模威胁情报图谱平台</li>
+<li><strong>Flashpoint</strong>：非法社群与威胁情报服务</li>
+<li><strong>Cybersixgill</strong>：自动化深网与暗网采集工具</li>
+<li><strong>KELA</strong>：网络犯罪威胁情报服务</li>
+<li><strong>Cyble</strong>：AI 驱动的威胁情报与攻击面监测工具</li>
+<li><strong>SOCRadar</strong>：扩展威胁情报与数字风险防护工具</li>
+<li><strong>Group-IB</strong>：威胁情报与欺诈调查服务</li>
+<li><strong>Hunt.io</strong>：全网威胁基础设施追踪工具</li>
+</ul>
+<h1 id="人员搜索、档案与背景筛查"><a href="#人员搜索、档案与背景筛查" class="headerlink" title="人员搜索、档案与背景筛查"></a>人员搜索、档案与背景筛查</h1><p>人员搜索与档案工具可用于身份解析，调取公开及授权的档案数据：包括地址、亲属关系、企业、法庭文件等。该品类是欺诈调查、尽职调查、背景筛查的核心支撑，除公开来源外，还大量依托授权数据商的数据。<br>这类工具的核心是身份解析：将姓名或账号转化为经过验证的档案，再对筛查结果进行风险研判。</p>
+<ul>
+<li><strong>Skopenow</strong>：自动化社交与公开档案调查工具</li>
+<li><strong>OSINT Industries</strong>：实时账号与身份信息增强工具</li>
+<li><strong>LexisNexis</strong>：大规模公开档案与风险数据服务</li>
+<li><strong>Thomson Reuters CLEAR</strong>：调查级公开档案搜索工具</li>
+<li><strong>Tracers</strong>：面向调查人员的数据与行踪追踪工具</li>
+<li><strong>TransUnion TLOxp</strong>：调查数据与身份验证服务</li>
+<li><strong>Checkr</strong>：现代化背景筛查服务</li>
+<li><strong>IDI</strong>：身份情报与档案数据服务</li>
+</ul>
+<h1 id="企业、制裁与金融犯罪调查"><a href="#企业、制裁与金融犯罪调查" class="headerlink" title="企业、制裁与金融犯罪调查"></a>企业、制裁与金融犯罪调查</h1><p>这类平台可梳理企业所有权、实益拥有人及制裁风险，是尽职调查与反金融犯罪工作的核心纽带。随着制裁政策的频繁变动，其核心价值在于查明实体的实际控制人，以及是否存在与受限主体的关联。<br>可用于客户身份核验、供应链风险排查、空壳公司架构调查等场景。</p>
+<ul>
+<li><strong>Sayari</strong>：企业所有权与贸易网络情报工具</li>
+<li><strong>Kharon</strong>：制裁与安全威胁研究服务</li>
+<li><strong>ComplyAdvantage</strong>：AI 驱动的金融犯罪风险数据服务</li>
+<li><strong>Castellum.AI</strong>：实时制裁与风险筛查工具</li>
+<li><strong>Dow Jones Risk and Compliance</strong>：负面新闻与制裁数据服务</li>
+<li><strong>Quantifind</strong>：面向金融犯罪的风险情报服务</li>
+<li><strong>Sigma360</strong>：风险决策与筛查工具</li>
+<li><strong>Linkurious</strong>：图谱化金融犯罪调查工具</li>
+</ul>
+<h1 id="加密货币与区块链取证"><a href="#加密货币与区块链取证" class="headerlink" title="加密货币与区块链取证"></a>加密货币与区块链取证</h1><p>区块链取证工具可追踪钱包与公链上的资金流向，将链上地址与现实实体相关联。这一品类的存在基础是链上的资金流转。Chainalysis 数据显示，2024 年非法加密货币交易量的下限估算为 409 亿美元，其中 63% 的资金通过稳定币流转（Chainalysis《2025 年加密货币犯罪报告》，2025 年）。<br>随着更多地址被溯源标记，这一下限数值通常会持续上调，而这正是这类工具的核心工作。<br><strong>2024 年非法加密资金流向（按资产类型划分）</strong><br>稳定币：63%<br>其他资产：37%<br>来源：Chainalysis，2025 年加密货币犯罪报告</p>
+<ul>
+<li><strong>Chainalysis</strong> 数据显示，2024 年链上非法交易的大部分价值通过稳定币流转。</li>
+<li><strong>Chainalysis</strong>：面向调查与合规的区块链分析工具</li>
+<li><strong>TRM Labs</strong>：链上风险与取证工具</li>
+<li><strong>Elliptic</strong>：加密货币合规与调查工具</li>
+<li><strong>Crystal Intelligence</strong>：面向金融机构的区块链分析工具</li>
+<li><strong>Arkham</strong>：链上实体情报工具</li>
+<li><strong>Merkle Science</strong>：预测性加密货币风险监测工具</li>
+<li><strong>AnChain.AI</strong>：AI 驱动的区块链安全与取证工具</li>
+<li><strong>Nansen</strong>：钱包标记与链上分析工具</li>
+</ul>
+<h1 id="攻击面与网络侦察"><a href="#攻击面与网络侦察" class="headerlink" title="攻击面与网络侦察"></a>攻击面与网络侦察</h1><p>这类工具对全网进行索引：开放端口、服务、证书、暴露设备等。它们可以回答「从外部视角看，该机构的网络面貌是什么样」，这既是攻击者的切入点，也是防御者的排查起点。这是技术栈中技术属性最强、发展也最成熟的层级之一。<br>分析师利用这类工具绘制攻击面、通过共享基础设施进行线索拓展、发现目标暴露的资产。</p>
+<ul>
+<li><strong>Censys</strong>：全网扫描与攻击面数据服务</li>
+<li><strong>Shodan</strong>：老牌联网设备搜索引擎</li>
+<li><strong>GreyNoise</strong>：全网背景扫描噪声上下文分析工具</li>
+<li><ul>
+<li><strong>SecurityTrails</strong>：DNS、域名与 IP 历史数据服务</li>
+</ul>
+</li>
+<li><strong>BinaryEdge</strong>：网络暴露与威胁数据服务</li>
+<li><strong>Netlas</strong>：互联网资产发现与搜索工具</li>
+<li><strong>ZoomEye</strong>：面向暴露资产的网络空间搜索引擎</li>
+<li><strong>ONYPHE</strong>：面向网络防御的互联网数据搜索引擎</li>
+</ul>
+<h1 id="地理空间情报与卫星影像"><a href="#地理空间情报与卫星影像" class="headerlink" title="地理空间情报与卫星影像"></a>地理空间情报与卫星影像</h1><p>地理空间情报工具通过轨道影像与信号解答「位置」问题，目前越来越多数据来自商业卫星星座而非政府卫星。2025 年商业卫星影像市场规模约为 66 亿美元，政府与国防客户贡献了近一半的份额（Precedence Research《商业卫星影像市场报告》，2025 年）。<br>合成孔径雷达与射频测绘技术的发展，让这类工具可在云层遮挡与夜间环境下正常工作，彻底改变了开源分析师独立核实信息的能力边界。</p>
+<ul>
+<li><strong>Maxar</strong>：高分辨率光学卫星影像服务</li>
+<li><strong>Planet Labs</strong>：每日更新的地球影像服务</li>
+<li><strong>BlackSky</strong>：实时地理空间监测服务</li>
+<li><strong>HawkEye 360</strong>：射频地理空间分析服务</li>
+<li><strong>ICEYE</strong>：合成孔径雷达卫星星座</li>
+<li><strong>Umbra</strong>：高分辨率商业合成孔径雷达服务</li>
+<li><strong>Satellogic</strong>：高重访频率光学影像服务</li>
+</ul>
+<h1 id="媒体监测与态势感知"><a href="#媒体监测与态势感知" class="headerlink" title="媒体监测与态势感知"></a>媒体监测与态势感知</h1><p>态势感知工具将海量新闻、社交帖子、传感器数据流转化为物理与声誉事件的早期预警。企业安全团队、新闻编辑部、政府运营中心均使用这类工具，能在数分钟内获知事件，而非等待数小时。<br>速度是核心价值：发现事件、预警团队，在事件发酵前提供防护情报支撑。</p>
+<ul>
+<li><strong>Dataminr</strong>：基于公开信号的实时事件检测工具</li>
+<li><strong>Zignal Labs</strong>：实时媒体与叙事情报工具</li>
+<li><strong>Janes</strong>：防务与开源情报分析服务</li>
+<li><strong>Meltwater</strong>：媒体监测与社交分析服务</li>
+<li><strong>Samdesk</strong>：全球危机事件检测工具</li>
+<li><strong>Ontic</strong>：一体化防护情报平台</li>
+<li><strong>Everbridge</strong>：关键事件管理与预警工具</li>
+</ul>
+<h1 id="研究基础设施与操作安全"><a href="#研究基础设施与操作安全" class="headerlink" title="研究基础设施与操作安全"></a>研究基础设施与操作安全</h1><p>基础设施与操作安全工具是调查人员的运行底座，而非直接查询的分析工具。这一层涵盖数据采集管道、托管归因浏览、案件采集规范，保障调查既高效又安全。这是最不显眼、却堪称核心支撑的类别：榜单上其他所有工具的表现，都取决于它们能安全获取到多少数据。<br>操作安全的重要性绝非空谈。一旦目标发现来自企业或数据中心 IP 的探测，调查行动便会暴露。因此越来越多的调查人员开始使用专用的托管归因方案来规避这类风险（SANS《OSINT 中的马甲账号是什么》，2025 年）。<br>Massive：住宅代理网络与网页渲染 API，可在 195 + 国家通过真实消费级设备 IP 采集公开网络数据</p>
+<ul>
+<li><strong>Authentic8 Silo</strong>：隔离式托管归因浏览工具</li>
+<li><strong>Ntrepid</strong>：托管归因与伪归因平台</li>
+<li><strong>Bright Data</strong>：网络数据采集基础设施</li>
+<li><strong>Hunch.ly</strong>：面向调查的自动化网页证据采集工具</li>
+<li><strong>SpiderFoot</strong>：自动化 OSINT 采集与关联工具</li>
+<li><strong>Lampyre</strong>：数据分析与 OSINT 自动化工具</li>
+</ul>
+<h1 id="数字取证与证据固化"><a href="#数字取证与证据固化" class="headerlink" title="数字取证与证据固化"></a>数字取证与证据固化</h1><p>数字取证工具以可追溯、符合法庭要求的方式，从设备与数据源中恢复并固化证据。调查到这一步便正式转化为案件。主流研究机构数据显示，2025 年数字取证市场规模在 130 亿至 150 亿美元区间，年增长率为百分之十几（Precedence Research《数字取证市场报告》，2025 年）。<br>证据监管链与可复现性是该类别的核心标准，输出结果必须能经受法庭质证。</p>
+<ul>
+<li><p><strong>Cellebrite</strong>：移动设备取证提取工具</p>
+</li>
+<li><p><strong>Magnet Forensics</strong>：数字调查与证据分析工具</p>
+</li>
+<li><p><strong>Oxygen Forensics</strong>：移动与云端取证工具</p>
+</li>
+<li><p><strong>MSAB</strong>：面向执法部门的移动取证工具</p>
+</li>
+<li><p><strong>Exterro</strong>：电子发现与取证调查工具</p>
+</li>
+<li><p><strong>OpenText EnCase</strong>：老牌数字取证套件</p>
+</li>
+<li><p><strong>Nuix</strong>：面向海量数据的调查分析工具</p>
+</li>
+<li><p><strong>Belkasoft</strong>：数字取证与应急响应工具</p>
+</li>
+</ul>
+<p>上述所有类别都共享一个极少被单独提及的底层依赖：规模化、安全地采集实时公开网络数据，且不被封禁、不暴露身份。<br>调查平台本质上是它成功采集到的数据构成的图谱；暗网监测工具的时效性，取决于它上一次成功采集的时间；人员搜索工具如果被限流，返回的就只会是过期数据。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>2026 年的 OSINT 领域广度与深度兼具，绝非任何一份 10 款工具的榜单所能涵盖。12 大类别、93 家厂商，且随着 AI 重塑分析师的工作方式与核查内容，行业边界仍在不断拓展。<br>未来一年，两大趋势将主导行业发展：一是持续整合，一体化套件将不断吸纳单点工具；二是安全可靠的采集能力价值持续提升，因为目标方识别、拦截非预期访问的能力也在增强。</p>
+<p>无论你使用技术栈中的哪类工具，底层都绕不开同一个问题：你能否获取到所需的数据，能否以需要的身份、从需要的位置访问，同时不暴露行动？把这一层做对，其余的技术栈才能发挥应有价值。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%AE%89%E5%85%A8/" rel="tag"># 安全</a>
+              <a href="/tags/%E6%83%85%E6%8A%A5%E6%90%9C%E9%9B%86/" rel="tag"># 情报搜集</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2026/06/22/wpbashc/" rel="prev" title="Facts Won't Save Us: Why Political Beliefs Are So Hard to Change（为何政治信念如此难以改变）">
+      <i class="fa fa-chevron-left"></i> Facts Won't Save Us: Why Political Beliefs Are So Hard to Change（为何政治信念如此难以改变）
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A6%82%E8%A7%88"><span class="nav-number">1.</span> <span class="nav-text">概览</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#12-%E5%A4%A7%E7%B1%BB%E5%88%AB%E4%B8%80%E8%A7%88"><span class="nav-number">2.</span> <span class="nav-text">12 大类别一览</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B0%83%E6%9F%A5%E5%B9%B3%E5%8F%B0%E4%B8%8E%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90"><span class="nav-number">3.</span> <span class="nav-text">调查平台与关联分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9A%97%E7%BD%91%E4%B8%8E%E6%95%B0%E6%8D%AE%E6%B3%84%E9%9C%B2%E7%9B%91%E6%B5%8B"><span class="nav-number">4.</span> <span class="nav-text">暗网与数据泄露监测</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A8%81%E8%83%81%E6%83%85%E6%8A%A5%E5%B9%B3%E5%8F%B0"><span class="nav-number">5.</span> <span class="nav-text">威胁情报平台</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%BA%E5%91%98%E6%90%9C%E7%B4%A2%E3%80%81%E6%A1%A3%E6%A1%88%E4%B8%8E%E8%83%8C%E6%99%AF%E7%AD%9B%E6%9F%A5"><span class="nav-number">6.</span> <span class="nav-text">人员搜索、档案与背景筛查</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BC%81%E4%B8%9A%E3%80%81%E5%88%B6%E8%A3%81%E4%B8%8E%E9%87%91%E8%9E%8D%E7%8A%AF%E7%BD%AA%E8%B0%83%E6%9F%A5"><span class="nav-number">7.</span> <span class="nav-text">企业、制裁与金融犯罪调查</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8A%A0%E5%AF%86%E8%B4%A7%E5%B8%81%E4%B8%8E%E5%8C%BA%E5%9D%97%E9%93%BE%E5%8F%96%E8%AF%81"><span class="nav-number">8.</span> <span class="nav-text">加密货币与区块链取证</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%94%BB%E5%87%BB%E9%9D%A2%E4%B8%8E%E7%BD%91%E7%BB%9C%E4%BE%A6%E5%AF%9F"><span class="nav-number">9.</span> <span class="nav-text">攻击面与网络侦察</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9C%B0%E7%90%86%E7%A9%BA%E9%97%B4%E6%83%85%E6%8A%A5%E4%B8%8E%E5%8D%AB%E6%98%9F%E5%BD%B1%E5%83%8F"><span class="nav-number">10.</span> <span class="nav-text">地理空间情报与卫星影像</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AA%92%E4%BD%93%E7%9B%91%E6%B5%8B%E4%B8%8E%E6%80%81%E5%8A%BF%E6%84%9F%E7%9F%A5"><span class="nav-number">11.</span> <span class="nav-text">媒体监测与态势感知</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A0%94%E7%A9%B6%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BD%E4%B8%8E%E6%93%8D%E4%BD%9C%E5%AE%89%E5%85%A8"><span class="nav-number">12.</span> <span class="nav-text">研究基础设施与操作安全</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E5%AD%97%E5%8F%96%E8%AF%81%E4%B8%8E%E8%AF%81%E6%8D%AE%E5%9B%BA%E5%8C%96"><span class="nav-number">13.</span> <span class="nav-text">数字取证与证据固化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">14.</span> <span class="nav-text">总结</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Shangjhih Jhao"
+      src="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
+  <p class="site-author-name" itemprop="name">Shangjhih Jhao</p>
+  <div class="site-description" itemprop="description">该博客在作者读大学本科期间创建，通过Hexo搭建，部署于Github Action。博客建立之初是为了防止作者遗忘已经学过的东西，将一些可以被记录的东西写下来一定程度上会减少遗忘。</div>
+</div>
+
+
+<div class="spotify-player-independent motion-element">
+  <div class="spotify-player-header">
+    <i class="fab fa-spotify"></i>
+    <span>音乐推荐</span>
+  </div>
+  <div class="spotify-player-content">
+    <iframe style="border-radius:8px" 
+            src="https://open.spotify.com/embed/track/1TUpKepASZ9fQbcG2v9kOy?utm_source=generator" 
+            width="100%" 
+            height="152" 
+            frameBorder="0" 
+            allowfullscreen="" 
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+            loading="lazy">
+    </iframe>
+  </div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">107</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">90</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">83</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shangjhih Jhao</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">534k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">14:50</span>
+</div>
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("09/29/2024 11:04:00"); //此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已建立 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒.";
+    }
+setInterval("createtime()",250);
+</script>
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"lvshuqi.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":300,"display":"hide","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null,"line_number":false},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":0},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"lvshuqi.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":330,"display":"hide","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null,"line_number":false},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":0},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="该博客在作者读大学本科期间创建，通过Hexo搭建，部署于Github Action。博客建立之初是为了防止作者遗忘已经学过的东西，将一些可以被记录的东西写下来一定程度上会减少遗忘。">
@@ -169,7 +169,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2026/06/22/wpbashc/">
+    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2026/06/28/blackbird-osint/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
@@ -183,7 +183,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2026/06/22/wpbashc/" class="post-title-link" itemprop="url">Facts Won't Save Us: Why Political Beliefs Are So Hard to Change（为何政治信念如此难以改变）</a>
+            <a href="/2026/06/28/blackbird-osint/" class="post-title-link" itemprop="url">覆盖12大技术栈类别的93款开源情报工具</a>
         </h2>
 
         <div class="post-meta">
@@ -192,16 +192,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2026-06-22 21:30:30" itemprop="dateCreated datePublished" datetime="2026-06-22T21:30:30+08:00">2026-06-22</time>
+              <time title="创建时间：2026-06-28 09:35:12 / 修改时间：10:14:08" itemprop="dateCreated datePublished" datetime="2026-06-28T09:35:12+08:00">2026-06-28</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-06-23 20:48:17" itemprop="dateModified" datetime="2026-06-23T20:48:17+08:00">2026-06-23</time>
-              </span>
 
           <br>
             <span class="post-meta-item" title="本文字数">
@@ -209,14 +203,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>5.6k</span>
+              <span>5.7k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>9 分钟</span>
+              <span>10 分钟</span>
             </span>
 
         </div>
@@ -228,40 +222,174 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <ul>
-<li>Malgorzata Kossowska &amp; Anna Knorr, 雅盖隆大学。2026年3月1日。</li>
+          <blockquote>
+<p>注意：该文章所有信息均来源于微信公账号     <strong>黑鸟</strong></p>
+</blockquote>
+<ul>
+<li>直达链接（该链接已去除微信追踪参数，你的信息不会被进行关联）<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzAxOTM1MDQ1NA==&mid=2451187441&idx=1&sn=86bc4296a5c582b30712030cc3b05fa2&chksm=8d44215898262f94545d695fd361a7014ce1f8efcca9aff5649b3f2851bc0156b89396c332a5">覆盖12大技术栈类别的93款开源情报工具</a></li>
 </ul>
-<p>在当今两极分化的世界里，人们常常觉得没有人真正改变过自己的想法。浏览一下关于气候变化、移民或性别认同的网络辩论，你经常会看到人们固执己见，而不是敞开心扉。是什么让我们如此难以修正自己的信念，即使反面论点清晰、证据充分且逻辑严密？</p>
-<p>事实证明，答案比我们预期的要复杂得多，但也更有希望。</p>
-<h3 id="超越左右对立的刻板印象"><a href="#超越左右对立的刻板印象" class="headerlink" title="超越左右对立的刻板印象"></a>超越左右对立的刻板印象</h3><p>几十年来，许多研究人员认为政治保守派在思维上特别僵化（例如，Adorno 等人，1950；Jost 等人，2003；Tetlock，1983；Wilson，1973）。按照这种观点，保守派对威胁更敏感，更强烈地倾向于稳定和传统，这使得他们不太愿意接受新的或相互冲突的想法。相比之下，自由派通常被描绘为思想更开放、认知更灵活。这种“右翼僵化”的解释符合直觉，被广泛引用，并得到了大量经验证据的支持。然而，最近的研究提出了一幅更细致的图景，这幅图景与左与右的对立关系不大，而更多与意识形态的极端派与温和派有关（例如，Costello 等人，2021；Ditto 等人，2019；Zmigrod 等人，2020）。这些发现与我们的研究结果非常吻合。</p>
-<p>在波兰进行的一系列实验中，我们研究了当人们的信念受到直接挑战时他们会如何反应。一组研究关注具有强烈右翼和左翼观点的个体（Kossowska 等人，2023b）；另一组则包括跨越整个意识形态光谱的参与者（Kossowska 等人，2025）。这两种情况下的实验程序是相同的。被随机分配到“信念挑战”条件的参与者阅读了强有力的论点，这些论点与他们关于堕胎、移民和 LGBTQ+ 权利等具有政治争议话题的立场相矛盾，同时也包括一些更中立的非政治议题。然后，他们评估了自己对先前陈述的信念的认同程度。在控制条件下，参与者在评估信念之前完成了一项时间匹配的填充任务，这使我们能够在没有反态度信息的情况下捕捉基线的信念改变。这种研究设计使我们能够提出一个简单但核心的问题：当人们遇到证据充分的反对意见时，谁更愿意重新考虑自己的观点——是意识形态极端派的人，还是靠近政治中心的人？“右翼僵化”的解释会预测保守派对改变具有独特的抵抗力。相反，我们的结果讲述了一个不同的故事。</p>
-<h3 id="意识形态很重要，但不是我们想象的那样"><a href="#意识形态很重要，但不是我们想象的那样" class="headerlink" title="意识形态很重要，但不是我们想象的那样"></a>意识形态很重要，但不是我们想象的那样</h3><p>在整个意识形态光谱中，与温和立场相比，更大的极端性——无论是在右翼还是左翼——都与更强烈的信念改变抗拒相关（见图1；Kossowska 等人，2025）。预测信念改变的不是某人认同自由派还是保守派，而是他们的观点最初有多么极端。换句话说，光谱两端的人在面临反面证据时表现出同样程度的抗拒。这种模式符合我们可以称之为“极端僵化”的观点：预测不灵活的不是信念偏向左还是右，而是它有多极端。简而言之，一个立场变得越根深蒂固，就越难松动，无论它在政治光谱上处于什么位置。</p>
-<h3 id="另一个模式的出现"><a href="#另一个模式的出现" class="headerlink" title="另一个模式的出现"></a>另一个模式的出现</h3><p>另一个模式也出现了。无论政治取向如何，参与者在更新非政治信念时比更新政治信念时更愿意改变（见图2，Kossowska 等人，2023b）。原因在于，政治信念很少仅仅是理智上的立场。它们作为身份认同的标志，与我们的自我意识、所属群体以及我们视为不可妥协的价值观紧密相连。当这些信念受到挑战时，这种经历不仅在认知上令人不适；它还可能感觉像是一种生存威胁——对赋予生活连贯性和目的的认识论结构的干扰。从这个角度来看，我们更容易理解为什么意识形态极端派特别抗拒改变。当一种信念与身份紧密融合时，修正它感觉就像是在拉扯维系自我的线头。但这仅仅是一个比喻，还是大脑实际上将政治分歧视为与自我相关的事物？</p>
-<h3 id="左派并非免疫：当政治信念深入大脑"><a href="#左派并非免疫：当政治信念深入大脑" class="headerlink" title="左派并非免疫：当政治信念深入大脑"></a>左派并非免疫：当政治信念深入大脑</h3><p>为了探索这个问题，我们转向了神经影像学。在最近的一项神经影像学研究（Kossowska 等人，2026）中，我们使用功能性磁共振成像（fMRI）记录了大脑活动，让具有强烈左翼观点的个体阅读挑战其政治信念和更中立的非政治信念的论点。与我们早期的研究一样，参与者对修正政治信念比非政治信念更抗拒。然而，更具启发性的故事在于大脑中发生的事情。当政治观点受到挑战时，参与者在与自我反思和身份认同相关的大脑区域表现出活动增加，特别是在默认模式网络（DMN；见图3B）中。</p>
-<p>最值得注意的是，那些最抗拒改变的人在背内侧前额叶皮层（dmPFC）表现出更强的激活，该区域与代表和维持自我密切相关。dmPFC 参与得越多，参与者修正其政治信念的可能性就越小。至关重要的是，当反面论点针对非政治信念时，dmPFC 的参与明显较弱，这表明政治态度受到了与自我相关的心理过程的特殊保护。同时，对信念改变的更大抗拒伴随着眶额皮层（OFC）激活的减少，该区域与奖励学习、信念更新和认知灵活性有关。</p>
-<p>这些神经模式共同表明，当政治信念受到挑战时，大脑可能会从灵活的更新转向保护自我。这也与这样一种观点一致：即自己的信念得到肯定本身就具有内在的奖励性，从而强化了现有的信念而不是松动它们。因此，修正政治信念很少仅仅是关于证据。它可能感觉与自我相关且充满情绪，更像是对身份认同的威胁，而不是中立的论点交换。如果抗拒根源于感知到的威胁，那么它应该根据这些信念在特定政治背景中感觉有多安全而有所不同。</p>
-<h3 id="深入观察：波兰案例研究"><a href="#深入观察：波兰案例研究" class="headerlink" title="深入观察：波兰案例研究"></a>深入观察：波兰案例研究</h3><p>在一组研究中（Kossowska 等人，2025），右翼参与者比左翼参与者稍微更有可能修正他们的观点（见图1）。这一发现与传统的“右翼僵化”解释相悖，后者预测保守派会有更大的抗拒。然而，这并不意味着某一方天生更灵活。相反，它指出了背景的重要性。</p>
-<p>波兰的政治故事是复杂的。在20世纪，其社会政治格局经历了数十年的共产主义统治以及天主教会的持久影响。最近，该国出现了右翼民粹主义治理的激增、民主倒退以及高度两极分化的媒体环境。在这样的背景下，右倾信念可能感到在社会和制度上是安全的。当信念感到安全而不是受到围攻时，可能就不需要僵化地捍卫它们，从而使信念更新更有可能发生。这可能有助于解释为什么在波兰背景下，右倾参与者似乎比早期工作报告的模式更开放于改变。</p>
-<p>至关重要的是，那些早期的发现通常取自自由主义思想在文化上占主导地位的背景，因此不应被视为左倾个体天生更灵活的证据。相反，当信念感觉受到的威胁较小时，灵活性往往会出现。综上所述，这些发现表明信念灵活性不是一种固定的特质。它受文化历史、政治权力和更广泛的社会气候的影响。当核心信念感到受到威胁时会出现僵化，当它们感到安全时则会放松。</p>
-<h3 id="对信念改变的背景敏感视角：四个更广泛的证据线"><a href="#对信念改变的背景敏感视角：四个更广泛的证据线" class="headerlink" title="对信念改变的背景敏感视角：四个更广泛的证据线"></a>对信念改变的背景敏感视角：四个更广泛的证据线</h3><p>信念僵化是背景敏感的这一观点不仅仅是理论上的。它在人们努力应对高风险问题的任何地方都变得可见。当我们就气候变化、公共卫生危机或是否信任科学家等关键问题形成意见时，这些信念不仅仅是记录一种偏好——它们可以成为认知滤镜，塑造我们如何阅读证据、评估来源和理解事件。因为风险感觉如此之高，这些领域揭示了信念何时变得僵化，何时仍然对修正保持开放。</p>
-<h4 id="全球气候变化与教育"><a href="#全球气候变化与教育" class="headerlink" title="全球气候变化与教育"></a>全球气候变化与教育</h4><p>在美国，教育与气候变化信念之间有着复杂且往往两极分化的关系（Drummond &amp; Fischhoff, 2017; Hornsey 等人, 2016）。一个人受教育程度越高，他们对气候变化的观点就越紧密地追随其政治身份。在自由派中，高等教育通常会强化亲气候的态度，而在保守派中，它可能几乎没有影响——甚至将观点转向相反的方向。在这种环境下，额外的教育可能会扩大意识形态分歧，而不是弥合它。乍一看，这种模式似乎符合“右翼僵化”的解释。但全球图景更为复杂。</p>
-<p>然而，这种模式并非普遍存在。在一项跨越64个国家的大规模研究（Czarnek 等人，2021）中，我们发现在欠发达和中等收入国家，教育通常会增加整个政治光谱中对气候变化的信念。在那里，教育扮演着许多人期望的角色：无论党派倾向如何，它都能拓宽认知。相比之下，在高度发达的国家，则会出现不同的动态。在右倾个体中，意识形态过滤似乎产生了更强大的影响，削弱了——或者在某些情况下逆转了——教育对气候变化信念的影响。在这些背景下，政治身份对教育信息如何被解释和接受施加了过大的影响。图4报告了欧洲国家的影响，而图5显示了总共25个国家（包括欧洲和非欧洲案例）的结果。更广泛的观点并不是僵化天生就是右翼的。相反，政治身份在某些文化环境中变得更加根深蒂固。在这些环境中，更强的身份投资，特别是在意识形态极端，可以超越教育的通常影响。教育并不能自动产生开放性。它的影响取决于信念在特定社会中与身份融合得有多紧密。</p>
-<h4 id="随着国家变得更富裕，气候变化态度变得更加政治两极分化"><a href="#随着国家变得更富裕，气候变化态度变得更加政治两极分化" class="headerlink" title="随着国家变得更富裕，气候变化态度变得更加政治两极分化"></a>随着国家变得更富裕，气候变化态度变得更加政治两极分化</h4><p>文献中一个一致的发现是，政治保守派往往比其他人对气候变化表现出较少的关注。但是，这种分歧在不同国家之间有多稳定，并且随着时间的推移是否在发生变化？为了找出答案，我们分析了过去30年间来自54个国家近285,000人的调查回复（Czarnek 等人，2025）。</p>
-<p>出现了一个清晰的模式：保守派与其他人之间在气候变化关注方面的差距随着时间的推移而扩大，并且这种分歧在较富裕的国家尤为明显。在高收入国家，保守主义与较低的气候变化关注之间的关联更强。即使在考虑了二氧化碳排放、教育水平和收入不平等等因素之后，这种模式依然成立（图6）。我们还发现，在人均排放量较高的国家，围绕气候变化的政治两极分化更为激烈，这表明对化石燃料的严重依赖可能会加剧政治分歧。然而，在各个国家内部，随着时间的推移，排放量增加并不能一致地预测两极分化的加剧。</p>
-<p>综上所述，这些发现表明，有时看起来像是“右翼僵化”的现象，实际上可能反映了气候变化在特定文化背景下与政治身份绑定的紧密程度。在问题被高度政治化的富裕社会中，抗拒更尖锐地沿着意识形态界线聚集。但这种模式并非普遍存在。它出现在身份投资高且风险感觉具有政治色彩的地方。</p>
-<p>以下是为您翻译的文章最后一部分，包括对科学家信任的研究、开放思维的作用、结论以及致谢。</p>
-<hr>
-<h3 id="危机期间对科学家的信任"><a href="#危机期间对科学家的信任" class="headerlink" title="危机期间对科学家的信任"></a>危机期间对科学家的信任</h3><p>在全球大流行病之前和期间进行的三项研究（Kossowska 等人，2021）中，我们观察到一个一致的模式：政治意识形态强烈预测了对科学家的信任。左倾个体通常更倾向于信任科学权威，而右倾个体则更持怀疑态度，特别是在保守派叙事质疑科学机构的背景下。这种怀疑态度产生了行为后果。它与较低的疫苗接种意愿以及较弱地遵守公共卫生指南相关。在这些环境中，政治身份塑造了人们是否接受关于健康和安全的基本信息。更广泛的观点不仅仅是存在政治分歧。而是，在某些条件下，与身份相关的信念甚至可以塑造人们对看似相对客观的主张的反应。与气候变化一样，看似意识形态僵化的现象，实际上反映了问题在特定背景下与政治身份交织的深度。</p>
-<h3 id="开放思维与信念准确性"><a href="#开放思维与信念准确性" class="headerlink" title="开放思维与信念准确性"></a>开放思维与信念准确性</h3><p>第四条研究线索确定了一种抵御意识形态偏见的潜在缓冲剂（Kossowska 等人，2023a）：开放思维——一种优先考虑基于证据的推理而非直接直觉反应的认知风格。</p>
-<p>尽管政治右翼的参与者在平均上更容易出现事实不准确，但那些在开放思维上得分高的人表现出显著更高的信念准确性，即使事实与他们自己的意识形态相冲突。在左倾个体中，信念准确性较少依赖于认知风格；无论他们思想开放还是封闭，事实正确性保持相对稳定。相比之下，对于右倾参与者，认知开放性产生了深远的影响。</p>
-<p>证据的分量表明，信念准确性并非仅由意识形态决定；它取决于人们如何处理信息。当个体愿意且能够容忍不确定性并公开参与证据时，意识形态偏见就会放松其控制。在适当的条件下，思想可以敞开。但在人们感到安全地重新审视帮助组织自我意识的意义框架的环境中，这种开放性更有可能出现。</p>
-<h3 id="重新思考我们如何重新思考"><a href="#重新思考我们如何重新思考" class="headerlink" title="重新思考我们如何重新思考"></a>重新思考我们如何重新思考</h3><p>信念改变确实会发生，特别是当人们遇到清晰、可信且值得认真对待的高质量反面论点时。当情绪温度降低，当身份认同不在防御状态，当人们被邀请以诚意真正参与证据时，思想就会敞开。但有一个重要的警告：政治背景很重要。信念不是在真空中自我维持的。它们不断被文化叙事、媒体生态系统、更广泛的社会背景和集体记忆所塑造和重塑。这就是为什么对背景敏感的研究很重要，以及为什么“一刀切”的解决方案经常令人失望。这些见解现在比以往任何时候都更重要。随着社会沿着意识形态路线分裂，加强我们集体改变信念的能力可能是保护民主生活的更实用工具之一。</p>
-<h3 id="究竟是什么打开了思想？"><a href="#究竟是什么打开了思想？" class="headerlink" title="究竟是什么打开了思想？"></a>究竟是什么打开了思想？</h3><p>这项工作传递出一个一致的信息：当分歧不会威胁到我们的身份认同、连贯性或生存稳定性时，信念改变更有可能发生。那么，我们能做些什么呢？</p>
-<p><strong>以理解为先导。</strong> 抗拒通常反映了人们害怕失去什么。从“证明别人错了”转向理解一种信念对他们有什么作用，可以创造信念修正成为可能的条件。</p>
-<p><strong>设计支持开放思维参与的环境。</strong> 创造这样的环境很困难，但潜在的回报是巨大的，值得探索。这意味着创造线上和线下的空间，让思想可以在没有羞耻、嘲笑或表演性群体压力的情况下被探索，并且分歧被更多地视为认知成长的机会，而不是威胁。在这样的环境中，原本可能引发防御的经历反而能邀请反思和学习。</p>
-<p><strong>重新学习如何倾听。</strong> 暂停评判和自我保护的倾听是至关重要的第一步，允许在没有立即动员身份防御反应的情况下遇到分歧。</p>
-<p>保持对自身信念修正的开放绝非易事。它需要好奇心、谦逊，以及质疑锚定我们自我意识的意义框架的准备。正如苏格拉底对话的传统所提醒我们的，当分歧被视为共同寻求理解而不是需要赢得的比赛时，它的作用最好。然而，在一个努力应对两极分化、错误信息和社会裂痕的世界里，这种较少争议的参与不同观点的方式，可能是我们能实践的民主韧性的最重要行为之一。</p>
-<h3 id="致谢"><a href="#致谢" class="headerlink" title="致谢"></a>致谢</h3><p>我们引用的研究由 Riksbankens Jubileumsfond (#M18-0310:1; 2019–2024) 资助。该项目的摘要已发表在由 Åsa M. Wikforss 编辑、Riksbankens Jubileumsfond 基金会出版的《Kunskapsresistens: Orsaker, konsekvenser och motmedel》（知识抵抗：原因、后果与对策）项目手册中。</p>
+<h1 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h1><p>早在多年前，开源情报就早已不再是收藏夹里的一堆书签。到 2026 年，它已经发展为一个分层化的产业，相关工具分化为不同的细分品类，很少有测评能同时覆盖所有类别。</p>
+<p>市场数据印证了这一增长态势。不同研究机构的数据显示，2025 年全球 OSINT 市场规模约在 116 亿至 127 亿美元之间，五年期年复合增长率预测集中在 20% 至 28% 区间（环球市场洞察《2025 年开源情报市场报告》）。</p>
+<p>2026 年的 OSINT 技术栈涵盖 12 大类别、93 家商业厂商，远非区区 10 款工具的榜单所能概括。</p>
+<p>最具价值的情报信号存在于付费数据层：暗网泄露数据、加密货币取证、地理空间情报，而非免费的用户名查询工具。</p>
+<p>SpyCloud 数据显示，2024 年其重新捕获的身份记录达 533 亿条，同比增长 22%，足见当前调查人员需要处理的泄露数据规模之庞大（SpyCloud《2025 年度身份暴露报告》，2025 年）。<br>所有类别都依赖同一个底层支撑：规模化、安全地采集公开网络数据，且不暴露调查行动。<br>以下 12 个类别分别对应不同的调查问题：谁与谁存在关联、哪些信息发生了泄露、网络上暴露了哪些内容、物理位置在哪里，以及如何安全地完成所有数据采集。现实中一款工具可能同时适用于多个类别，我们均按其核心用途归类。<br>最终呈现的是一套技术栈，而非排名榜单。反诈团队与国家安全分析师会从同一体系中选取不同的工具组合。接下来将从上至下完整介绍这套技术体系。</p>
+<h1 id="12-大类别一览"><a href="#12-大类别一览" class="headerlink" title="12 大类别一览"></a>12 大类别一览</h1><ul>
+<li><strong>调查平台与关联分析</strong></li>
+<li><strong>社交媒体与叙事情报</strong></li>
+<li><strong>暗网与数据泄露监测</strong></li>
+<li><strong>威胁情报平台</strong></li>
+<li><strong>人员搜索、档案与背景筛查</strong></li>
+<li><strong>企业、制裁与金融犯罪调查</strong></li>
+<li><strong>加密货币与区块链取证</strong></li>
+<li><strong>攻击面与网络侦察</strong></li>
+<li><strong>地理空间情报与卫星影像</strong></li>
+<li><strong>媒体监测与态势感知</strong></li>
+<li><strong>研究基础设施与操作安全</strong></li>
+<li><strong>数字取证与证据固化</strong></li>
+</ul>
+<h1 id="调查平台与关联分析"><a href="#调查平台与关联分析" class="headerlink" title="调查平台与关联分析"></a>调查平台与关联分析</h1><p>关联分析平台是 OSINT 工作的核心工作台：它们导入各类实体（人员、账号、企业、基础设施），并在同一画布上绘制实体间的关联关系。绝大多数深度调查都在此类平台上完成，这也是市场整合速度最快的领域。2025 年 5 月，Maltego 收购了证据采集工具 Hunchly，这是众多单点工具被整合进一体化套件的案例之一（Maltego《Maltego 宣布收购 Hunchly，拓展 OSINT 能力》，2025 年）。<br>这类工具属于行业重量级产品，通常具备图谱可视化、多数据源转换 &#x2F; 连接器、案件管理等核心功能。</p>
+<ul>
+<li><strong>Maltego</strong>：实体关联分析领域的标杆型图谱工具</li>
+<li><strong>Palantir</strong>：面向政府与企业的大规模数据整合分析平台</li>
+<li><strong>DataWalk</strong>：打通孤立数据集的调查分析工具</li>
+<li><strong>Penlink</strong>：调查与通信分析平台</li>
+<li><strong>Cognyte</strong>：面向安全与情报团队的调查分析工具</li>
+<li><strong>ShadowDragon</strong>：具备深度社交与历史数据连接器的关联分析工具</li>
+<li><strong>Falkor</strong>：原生图谱架构的调查平台</li>
+<li><strong>IBM i2</strong>：历史悠久的分析师关联图表分析工具</li>
+</ul>
+<p>社交媒体与叙事情报<br>社交与叙事情报工具可监测多平台的公开言论，识别协同行为、虚假信息与新兴威胁。该品类已从简单的关键词监测转向内容操纵与合成内容检测，部分原因是生成式 AI 大幅降低了大规模制造虚假叙事的成本。<br>这类工具可用于追踪账号、绘制影响力网络，并在叙事发酵扩散前提前预警。</p>
+<ul>
+<li><strong>Babel Street</strong>：多语言数据与位置分析工具</li>
+<li><strong>Fivecast</strong>：基于公开数据的定向发现与风险检测工具</li>
+<li><strong>Blackbird.AI</strong>：叙事与虚假信息风险情报工具</li>
+<li><strong>Social Links</strong>：覆盖 500 + 数据源的 OSINT 数据融合工具</li>
+<li><strong>Cobwebs Technologies</strong>：网络情报与威胁检测工具</li>
+<li><strong>Voyager Labs</strong>：基于 AI 的网络活动调查工具</li>
+<li><strong>Pyrra</strong>：小众与边缘平台监测工具</li>
+<li><strong>Media Sonar</strong>：数字风险与社交监测工具</li>
+</ul>
+<h1 id="暗网与数据泄露监测"><a href="#暗网与数据泄露监测" class="headerlink" title="暗网与数据泄露监测"></a>暗网与数据泄露监测</h1><p>调查目标已泄露的信息往往是最具价值的调查起点：包括凭证、会话 Cookie、信息窃取木马日志、论坛讨论内容等。这是整个技术栈中信号价值最高的层级之一。SpyCloud 数据显示，2024 年其重新捕获的独立身份记录达 533 亿条，同比激增 22%；同时报告指出，当前近 80% 的数据泄露事件都涉及被盗凭证（SpyCloud《2025 年度身份暴露报告》，2025 年）。<br>其规模之大难以估量。Hudson Rock 已分析了超过 3000 万台被信息窃取木马感染的设备数据，这类遥测数据能将模糊的线索转化为确凿的入侵证据（Hudson Rock，2025 年）。</p>
+<ul>
+<li><strong>DarkOwl</strong>：规模最大的商业暗网内容数据库之一</li>
+<li><strong>SpyCloud</strong>：泄露数据与木马外溢身份数据重捕获服务</li>
+<li><strong>Flare</strong>：持续外部威胁与泄露监测工具</li>
+<li><strong>Searchlight Cyber</strong>：暗网调查与攻击前情报工具</li>
+<li><strong>Hudson Rock</strong>：信息窃取木马感染与凭证泄露情报服务</li>
+<li><strong>Intelligence X</strong>：面向泄露数据、暗网与历史数据的搜索引擎</li>
+<li><strong>Constella Intelligence</strong>：以身份为核心的泄露暴露数据服务</li>
+<li><strong>Breachsense</strong>：实时泄露监测工具</li>
+</ul>
+<h1 id="威胁情报平台"><a href="#威胁情报平台" class="headerlink" title="威胁情报平台"></a>威胁情报平台</h1><p>威胁情报平台将外部风险信号打包为安全运营团队可落地的内容：威胁指标、攻击者画像、预警信息。据估算，2025 年该市场规模约为 115 亿美元，预计到 2030 年将增长至 230 亿美元（MarketsandMarkets《威胁情报市场报告》，2025 年）。其商业价值十分直白：IBM 数据显示，2025 年全球数据泄露的平均成本为 444 万美元，美国地区更是高达 1022 万美元（IBM《2025 年数据泄露成本报告》，2025 年）。<br>这类平台将 OSINT 数据与自研采集能力、分析师研判相结合。</p>
+<ul>
+<li><strong>Recorded Future</strong>：大规模威胁情报图谱平台</li>
+<li><strong>Flashpoint</strong>：非法社群与威胁情报服务</li>
+<li><strong>Cybersixgill</strong>：自动化深网与暗网采集工具</li>
+<li><strong>KELA</strong>：网络犯罪威胁情报服务</li>
+<li><strong>Cyble</strong>：AI 驱动的威胁情报与攻击面监测工具</li>
+<li><strong>SOCRadar</strong>：扩展威胁情报与数字风险防护工具</li>
+<li><strong>Group-IB</strong>：威胁情报与欺诈调查服务</li>
+<li><strong>Hunt.io</strong>：全网威胁基础设施追踪工具</li>
+</ul>
+<h1 id="人员搜索、档案与背景筛查"><a href="#人员搜索、档案与背景筛查" class="headerlink" title="人员搜索、档案与背景筛查"></a>人员搜索、档案与背景筛查</h1><p>人员搜索与档案工具可用于身份解析，调取公开及授权的档案数据：包括地址、亲属关系、企业、法庭文件等。该品类是欺诈调查、尽职调查、背景筛查的核心支撑，除公开来源外，还大量依托授权数据商的数据。<br>这类工具的核心是身份解析：将姓名或账号转化为经过验证的档案，再对筛查结果进行风险研判。</p>
+<ul>
+<li><strong>Skopenow</strong>：自动化社交与公开档案调查工具</li>
+<li><strong>OSINT Industries</strong>：实时账号与身份信息增强工具</li>
+<li><strong>LexisNexis</strong>：大规模公开档案与风险数据服务</li>
+<li><strong>Thomson Reuters CLEAR</strong>：调查级公开档案搜索工具</li>
+<li><strong>Tracers</strong>：面向调查人员的数据与行踪追踪工具</li>
+<li><strong>TransUnion TLOxp</strong>：调查数据与身份验证服务</li>
+<li><strong>Checkr</strong>：现代化背景筛查服务</li>
+<li><strong>IDI</strong>：身份情报与档案数据服务</li>
+</ul>
+<h1 id="企业、制裁与金融犯罪调查"><a href="#企业、制裁与金融犯罪调查" class="headerlink" title="企业、制裁与金融犯罪调查"></a>企业、制裁与金融犯罪调查</h1><p>这类平台可梳理企业所有权、实益拥有人及制裁风险，是尽职调查与反金融犯罪工作的核心纽带。随着制裁政策的频繁变动，其核心价值在于查明实体的实际控制人，以及是否存在与受限主体的关联。<br>可用于客户身份核验、供应链风险排查、空壳公司架构调查等场景。</p>
+<ul>
+<li><strong>Sayari</strong>：企业所有权与贸易网络情报工具</li>
+<li><strong>Kharon</strong>：制裁与安全威胁研究服务</li>
+<li><strong>ComplyAdvantage</strong>：AI 驱动的金融犯罪风险数据服务</li>
+<li><strong>Castellum.AI</strong>：实时制裁与风险筛查工具</li>
+<li><strong>Dow Jones Risk and Compliance</strong>：负面新闻与制裁数据服务</li>
+<li><strong>Quantifind</strong>：面向金融犯罪的风险情报服务</li>
+<li><strong>Sigma360</strong>：风险决策与筛查工具</li>
+<li><strong>Linkurious</strong>：图谱化金融犯罪调查工具</li>
+</ul>
+<h1 id="加密货币与区块链取证"><a href="#加密货币与区块链取证" class="headerlink" title="加密货币与区块链取证"></a>加密货币与区块链取证</h1><p>区块链取证工具可追踪钱包与公链上的资金流向，将链上地址与现实实体相关联。这一品类的存在基础是链上的资金流转。Chainalysis 数据显示，2024 年非法加密货币交易量的下限估算为 409 亿美元，其中 63% 的资金通过稳定币流转（Chainalysis《2025 年加密货币犯罪报告》，2025 年）。<br>随着更多地址被溯源标记，这一下限数值通常会持续上调，而这正是这类工具的核心工作。<br><strong>2024 年非法加密资金流向（按资产类型划分）</strong><br>稳定币：63%<br>其他资产：37%<br>来源：Chainalysis，2025 年加密货币犯罪报告</p>
+<ul>
+<li><strong>Chainalysis</strong> 数据显示，2024 年链上非法交易的大部分价值通过稳定币流转。</li>
+<li><strong>Chainalysis</strong>：面向调查与合规的区块链分析工具</li>
+<li><strong>TRM Labs</strong>：链上风险与取证工具</li>
+<li><strong>Elliptic</strong>：加密货币合规与调查工具</li>
+<li><strong>Crystal Intelligence</strong>：面向金融机构的区块链分析工具</li>
+<li><strong>Arkham</strong>：链上实体情报工具</li>
+<li><strong>Merkle Science</strong>：预测性加密货币风险监测工具</li>
+<li><strong>AnChain.AI</strong>：AI 驱动的区块链安全与取证工具</li>
+<li><strong>Nansen</strong>：钱包标记与链上分析工具</li>
+</ul>
+<h1 id="攻击面与网络侦察"><a href="#攻击面与网络侦察" class="headerlink" title="攻击面与网络侦察"></a>攻击面与网络侦察</h1><p>这类工具对全网进行索引：开放端口、服务、证书、暴露设备等。它们可以回答「从外部视角看，该机构的网络面貌是什么样」，这既是攻击者的切入点，也是防御者的排查起点。这是技术栈中技术属性最强、发展也最成熟的层级之一。<br>分析师利用这类工具绘制攻击面、通过共享基础设施进行线索拓展、发现目标暴露的资产。</p>
+<ul>
+<li><strong>Censys</strong>：全网扫描与攻击面数据服务</li>
+<li><strong>Shodan</strong>：老牌联网设备搜索引擎</li>
+<li><strong>GreyNoise</strong>：全网背景扫描噪声上下文分析工具</li>
+<li><ul>
+<li><strong>SecurityTrails</strong>：DNS、域名与 IP 历史数据服务</li>
+</ul>
+</li>
+<li><strong>BinaryEdge</strong>：网络暴露与威胁数据服务</li>
+<li><strong>Netlas</strong>：互联网资产发现与搜索工具</li>
+<li><strong>ZoomEye</strong>：面向暴露资产的网络空间搜索引擎</li>
+<li><strong>ONYPHE</strong>：面向网络防御的互联网数据搜索引擎</li>
+</ul>
+<h1 id="地理空间情报与卫星影像"><a href="#地理空间情报与卫星影像" class="headerlink" title="地理空间情报与卫星影像"></a>地理空间情报与卫星影像</h1><p>地理空间情报工具通过轨道影像与信号解答「位置」问题，目前越来越多数据来自商业卫星星座而非政府卫星。2025 年商业卫星影像市场规模约为 66 亿美元，政府与国防客户贡献了近一半的份额（Precedence Research《商业卫星影像市场报告》，2025 年）。<br>合成孔径雷达与射频测绘技术的发展，让这类工具可在云层遮挡与夜间环境下正常工作，彻底改变了开源分析师独立核实信息的能力边界。</p>
+<ul>
+<li><strong>Maxar</strong>：高分辨率光学卫星影像服务</li>
+<li><strong>Planet Labs</strong>：每日更新的地球影像服务</li>
+<li><strong>BlackSky</strong>：实时地理空间监测服务</li>
+<li><strong>HawkEye 360</strong>：射频地理空间分析服务</li>
+<li><strong>ICEYE</strong>：合成孔径雷达卫星星座</li>
+<li><strong>Umbra</strong>：高分辨率商业合成孔径雷达服务</li>
+<li><strong>Satellogic</strong>：高重访频率光学影像服务</li>
+</ul>
+<h1 id="媒体监测与态势感知"><a href="#媒体监测与态势感知" class="headerlink" title="媒体监测与态势感知"></a>媒体监测与态势感知</h1><p>态势感知工具将海量新闻、社交帖子、传感器数据流转化为物理与声誉事件的早期预警。企业安全团队、新闻编辑部、政府运营中心均使用这类工具，能在数分钟内获知事件，而非等待数小时。<br>速度是核心价值：发现事件、预警团队，在事件发酵前提供防护情报支撑。</p>
+<ul>
+<li><strong>Dataminr</strong>：基于公开信号的实时事件检测工具</li>
+<li><strong>Zignal Labs</strong>：实时媒体与叙事情报工具</li>
+<li><strong>Janes</strong>：防务与开源情报分析服务</li>
+<li><strong>Meltwater</strong>：媒体监测与社交分析服务</li>
+<li><strong>Samdesk</strong>：全球危机事件检测工具</li>
+<li><strong>Ontic</strong>：一体化防护情报平台</li>
+<li><strong>Everbridge</strong>：关键事件管理与预警工具</li>
+</ul>
+<h1 id="研究基础设施与操作安全"><a href="#研究基础设施与操作安全" class="headerlink" title="研究基础设施与操作安全"></a>研究基础设施与操作安全</h1><p>基础设施与操作安全工具是调查人员的运行底座，而非直接查询的分析工具。这一层涵盖数据采集管道、托管归因浏览、案件采集规范，保障调查既高效又安全。这是最不显眼、却堪称核心支撑的类别：榜单上其他所有工具的表现，都取决于它们能安全获取到多少数据。<br>操作安全的重要性绝非空谈。一旦目标发现来自企业或数据中心 IP 的探测，调查行动便会暴露。因此越来越多的调查人员开始使用专用的托管归因方案来规避这类风险（SANS《OSINT 中的马甲账号是什么》，2025 年）。<br>Massive：住宅代理网络与网页渲染 API，可在 195 + 国家通过真实消费级设备 IP 采集公开网络数据</p>
+<ul>
+<li><strong>Authentic8 Silo</strong>：隔离式托管归因浏览工具</li>
+<li><strong>Ntrepid</strong>：托管归因与伪归因平台</li>
+<li><strong>Bright Data</strong>：网络数据采集基础设施</li>
+<li><strong>Hunch.ly</strong>：面向调查的自动化网页证据采集工具</li>
+<li><strong>SpiderFoot</strong>：自动化 OSINT 采集与关联工具</li>
+<li><strong>Lampyre</strong>：数据分析与 OSINT 自动化工具</li>
+</ul>
+<h1 id="数字取证与证据固化"><a href="#数字取证与证据固化" class="headerlink" title="数字取证与证据固化"></a>数字取证与证据固化</h1><p>数字取证工具以可追溯、符合法庭要求的方式，从设备与数据源中恢复并固化证据。调查到这一步便正式转化为案件。主流研究机构数据显示，2025 年数字取证市场规模在 130 亿至 150 亿美元区间，年增长率为百分之十几（Precedence Research《数字取证市场报告》，2025 年）。<br>证据监管链与可复现性是该类别的核心标准，输出结果必须能经受法庭质证。</p>
+<ul>
+<li><p><strong>Cellebrite</strong>：移动设备取证提取工具</p>
+</li>
+<li><p><strong>Magnet Forensics</strong>：数字调查与证据分析工具</p>
+</li>
+<li><p><strong>Oxygen Forensics</strong>：移动与云端取证工具</p>
+</li>
+<li><p><strong>MSAB</strong>：面向执法部门的移动取证工具</p>
+</li>
+<li><p><strong>Exterro</strong>：电子发现与取证调查工具</p>
+</li>
+<li><p><strong>OpenText EnCase</strong>：老牌数字取证套件</p>
+</li>
+<li><p><strong>Nuix</strong>：面向海量数据的调查分析工具</p>
+</li>
+<li><p><strong>Belkasoft</strong>：数字取证与应急响应工具</p>
+</li>
+</ul>
+<p>上述所有类别都共享一个极少被单独提及的底层依赖：规模化、安全地采集实时公开网络数据，且不被封禁、不暴露身份。<br>调查平台本质上是它成功采集到的数据构成的图谱；暗网监测工具的时效性，取决于它上一次成功采集的时间；人员搜索工具如果被限流，返回的就只会是过期数据。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>2026 年的 OSINT 领域广度与深度兼具，绝非任何一份 10 款工具的榜单所能涵盖。12 大类别、93 家厂商，且随着 AI 重塑分析师的工作方式与核查内容，行业边界仍在不断拓展。<br>未来一年，两大趋势将主导行业发展：一是持续整合，一体化套件将不断吸纳单点工具；二是安全可靠的采集能力价值持续提升，因为目标方识别、拦截非预期访问的能力也在增强。</p>
+<p>无论你使用技术栈中的哪类工具，底层都绕不开同一个问题：你能否获取到所需的数据，能否以需要的身份、从需要的位置访问，同时不暴露行动？把这一层做对，其余的技术栈才能发挥应有价值。</p>
 
       
     </div>
@@ -280,7 +408,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/106/">106</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/107/">107</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -367,7 +495,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">106</span>
+          <span class="site-state-item-count">107</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -380,7 +508,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">81</span>
+        <span class="site-state-item-count">83</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -416,12 +544,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">528k</span>
+    <span title="站点总字数">534k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">14:41</span>
+    <span title="站点阅读时长">14:50</span>
 </div>
 <!-- 网站运行时间的设置 -->
 <span id="timeDate">载入天数...</span>
