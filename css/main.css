@@ -1191,7 +1191,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #1dc670;
+  background: #81ff3e;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2584,196 +2584,93 @@ ul.breadcrumb li + li:last-child {
 body,
 .site,
 .post-body {
-  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", "Helvetica Neue", Arial, sans-serif;
   color: #333;
   letter-spacing: 0.01em;
 }
+body.os-windows {
+  font-family: "Microsoft YaHei UI", "Microsoft YaHei", "微软雅黑", Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
 .post-body {
   font-size: 16px;
-  line-height: 1.65;
-  margin: 0;
-  padding: 0;
-  word-break: break-word;
+  line-height: 1.7;
   overflow-wrap: break-word;
   word-wrap: break-word;
+  word-break: normal;
 }
-.post-body p {
-  margin: 0 0 1em 0;
+.post-body p,
+.post-body li {
+  line-height: 1.7;
 }
 .post-body h1,
 .post-body h2,
 .post-body h3,
-.post-body h4 {
-  font-family: "PingFang SC", "Lato", "Microsoft YaHei", "Helvetica Neue", "Arial", "sans-serif";
-  font-weight: 700;
+.post-body h4,
+.post-body h5,
+.post-body h6 {
+  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 600;
   color: #222;
-  margin: 0 0 0.8em 0;
-  padding: 0;
-  letter-spacing: -0.01em;
-  line-height: 1.2;
+  line-height: 1.4;
 }
 .post-body h1 {
   font-size: 1.6em;
-  margin-top: 0.6em;
-  margin-bottom: 0.6em;
 }
 .post-body h2 {
   font-size: 1.4em;
-  margin-top: 1.2em;
-  margin-bottom: 0.8em;
-  border-bottom: 1px dashed rgba(0,0,0,0.06);
-  padding-bottom: 0em;
 }
 .post-body h3 {
-  font-size: 1.15em;
-  margin-top: 1em;
-  margin-bottom: 0.6em;
-  color: #2a3d4a;
+  font-size: 1.2em;
 }
 .post-body h4 {
-  font-size: 1em;
-  margin-top: 0.9em;
-  margin-bottom: 0.5em;
-  color: #3b4b57;
-  font-weight: 600;
+  font-size: 1.05em;
 }
-.sidebar,
-.sidebar-inner {
-  background: #fff !important;
-  padding: 12px 16px;
-  box-shadow: none;
-  border-left: none;
+.post-body a {
+  color: #0593d3;
 }
-.site-state-item {
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  padding: 10px 12px;
-  margin: 6px;
-  text-align: center;
-  color: #666;
+.post-body a:hover {
+  color: #fc6423;
 }
-/* --- 调整代码块显示：去除外部空隙、取消竖向滚动，保留横向可滚动用于复制 --- */
+.post-body :not(pre) > code {
+  font-family: Consolas, "SFMono-Regular", Menlo, "Liberation Mono", monospace;
+  color: #df5aa4;
+  background: #f3f3f3;
+  border-radius: 2px;
+}
 .post-body pre,
 .post-body .highlight,
-.post-body .hljs,
-figure.highlight,
-figure.highlight.plaintext {
-  font-family: "Lato", "Consolas", "Monaco", "Menlo", "Courier New", monospace;
+figure.highlight {
+  font-family: Consolas, "SFMono-Regular", Menlo, "Liberation Mono", monospace;
   font-size: 13px;
   line-height: 1.6;
-/* 去掉外部间距/边框/阴影，保持与正文间隔一致 */
-  margin: 0;
-  padding: 4px 4px;
-  background: #f7f7f7;
   color: #333;
-  border: none;
+  background: #f7f7f7;
+  border-color: #e8e8e8;
   box-shadow: none;
-  border-radius: 0;
-/* 显示所有行（不限制高度），长行横向滚动 */
-  max-height: none;
-  overflow-y: visible;
-  overflow-x: auto;
-  white-space: pre;
-  word-break: normal;
-  box-sizing: border-box;
 }
-/* 去掉表格式高亮器的行号列，避免造成左右错位或额外宽度 */
-figure.highlight table,
-.post-body .highlight table {
-  border-collapse: collapse;
-}
-figure.highlight table td.gutter,
-.post-body .highlight table td.gutter,
-figure.highlight .gutter,
-.post-body .gutter {
-  display: none !important;
-  width: 0 !important;
-  padding: 0 !important;
-  margin: 0 !important;
-}
-/* 代码内容本身不再带额外背景或内边距（由 pre 统一控制） */
 .post-body pre code,
-.post-body .highlight pre code,
-figure.highlight pre code {
-  display: block;
-  padding: 0;
-  margin: 0;
-  background: none;
-  color: inherit;
+.post-body .highlight pre code {
+  font-family: inherit;
   font-size: inherit;
   line-height: inherit;
-  white-space: inherit;
 }
-/* 行内 code 风格保持，仅影响非 pre 的 <code> */
-.post-body :not(pre) > code {
-  background: #f3f3f3;
-  padding: 2px 2px;
-  border-radius: 2px;
-  font-size: 0.68em;
-  color: #df5aa4;
-  border: 1px solid rgba(0,0,0,0.04);
+.site-title,
+.site-subtitle,
+.menu-item a,
+.sidebar {
+  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
 }
-/* 移动端：允许换行以避免横向溢出，保持紧凑内边距 */
+.site-title,
+.site-subtitle {
+  text-shadow: none;
+}
 @media (max-width: 767px) {
+  .post-body {
+    font-size: 15px;
+  }
   .post-body pre,
   .post-body .highlight,
-  .post-body .hljs,
   figure.highlight {
-    white-space: pre-wrap;
-    overflow-x: auto;
-    padding: 8px 10px;
     font-size: 12px;
-  }
-}
-/* -------------------------
-   侧边栏统一宽度与对齐修正
-   说明：
-   - 将蓝框（侧边栏顶部菜单）和橘框（作者/统计模块）统一为同一宽度控制变量 $sidebar-width。
-   - 建议修改范围：把下面代码加入 newfile.styl 中靠近 sidebar/style 部分（或替换现有 .sidebar / .sidebar-inner 样式）。
-   - 如果你在 themes/next/_config.yml 中已设置 sidebar.width，请把 $sidebar-width 与该值保持一致（默认示例使用 330px）。
-   ------------------------- */
-.sidebar,
-.sidebar-inner {
-  width: 300px;
-  max-width: 100%;
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-/* Spotify 嵌入：保证不出现外部滚动条、内容自适应、保持在侧栏内完整显示 */
-.spotify-player-independent,
-.spotify-player-independent .spotify-player-content {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 0;
-  margin: 12px 0;
-  background: transparent;
-  overflow: hidden;
-  display: block;
-}
-/* 使 iframe 占满容器宽度并限制高度为 Spotify 推荐值，避免内部出现滚动条 */
-.spotify-player-independent iframe {
-  display: block;
-  width: 94%;
-  height: 152px;
-  max-height: none;
-  border: none;
-  border-radius: 8px;
-  box-shadow: none;
-  overflow: hidden;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-/* 尝试隐藏 iframe 内部滚动条的常用选择器（对跨域 iframe 不一定生效，但可覆盖某些代理嵌入） */
-/* 若嵌入内容高度确实超出，请增加容器高度以完整显示（桌面端可调整为 200px 等）
-   建议：在主题配置或 site-overview.swig 中使用 theme.spotify.height 来控制高度 */
-/* 移动端：允许高度稍增以避免裁切，仍不显示滚动条 */
-@media (max-width: 767px) {
-  .spotify-player-independent iframe {
-    height: 180px;
-  }
-  .spotify-player-independent .spotify-player-content {
-    min-height: 180px;
   }
 }
