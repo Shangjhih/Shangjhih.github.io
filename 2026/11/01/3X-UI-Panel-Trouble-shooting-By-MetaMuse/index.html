@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3x-ui 面板去除赞助广告与登录页 CPU 占用异常处理记录</title>
+<meta name="description" content="记录 3x-ui 面板赞助广告的检查结果、使用 nginx 反向代理屏蔽广告的做法，以及登录页浏览器 CPU 占用偏高问题的排查与处理。">
+<style>
+  :root{
+    --bg:#f6f6f4; --paper:#ffffff; --ink:#222; --ink-soft:#555; --ink-faint:#888;
+    --line:#e4e4e0; --accent:#2f5d8a;
+    --code-bg:#1e1f22; --code-ink:#e6e6e6; --code-dim:#9a9a9a; --code-com:#7f8c7a;
+    --note-bg:#eef3f8; --note-line:#c9d8e8; --warn-bg:#fbf5e6; --warn-line:#e8d9a8;
+    --font:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC",sans-serif;
+    --mono:"JetBrains Mono","SF Mono",Menlo,Consolas,"Courier New",monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);font-family:var(--font);font-size:16.5px;line-height:1.8;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:780px;margin:0 auto;padding:48px 22px 80px}
+  header{margin-bottom:28px}
+  h1{font-size:30px;line-height:1.4;font-weight:700}
+  .meta{margin-top:14px;font-size:14px;color:var(--ink-faint);line-height:1.9}
+  .meta b{color:var(--ink-soft);font-weight:600}
+  section{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:30px 36px;margin-top:20px}
+  h2{font-size:22px;font-weight:700;line-height:1.45;padding-bottom:10px;border-bottom:1px solid var(--line);margin-bottom:16px}
+  h3{font-size:17.5px;font-weight:700;margin:24px 0 8px}
+  h3:first-of-type{margin-top:4px}
+  p{margin:10px 0}
+  ul,ol{margin:8px 0 8px 24px}
+  li{margin:4px 0}
+  strong{font-weight:700}
+  code{font-family:var(--mono);font-size:.87em;background:#f1f1ee;border:1px solid #e3e3de;padding:1px 5px;border-radius:4px;word-break:break-all}
+  .codeblock{background:var(--code-bg);border-radius:6px;margin:14px 0;overflow:hidden}
+  .codeblock .cap{padding:7px 14px;font-family:var(--mono);font-size:12px;color:var(--code-dim);border-bottom:1px solid #34353a}
+  .codeblock pre{padding:14px 16px;overflow-x:auto}
+  .codeblock pre code{background:none;border:none;padding:0;color:var(--code-ink);font-size:13px;line-height:1.7;word-break:normal}
+  .cm{color:var(--code-com)}
+  .callout{border-radius:6px;padding:12px 16px;margin:16px 0;font-size:15.5px;line-height:1.75;background:var(--note-bg);border:1px solid var(--note-line)}
+  .callout.warn{background:var(--warn-bg);border-color:var(--warn-line)}
+  .callout .ct{font-weight:700;margin-bottom:3px}
+  .table-wrap{overflow-x:auto;margin:14px 0}
+  table{width:100%;border-collapse:collapse;font-size:15px}
+  th{background:#f2f2ee;text-align:left;padding:8px 12px;border:1px solid var(--line);font-weight:700}
+  td{padding:8px 12px;border:1px solid var(--line);vertical-align:top}
+  .flow{font-family:var(--mono);font-size:13.5px;line-height:1.9;background:#f6f6f4;border:1px solid var(--line);border-radius:6px;padding:14px 18px;margin:14px 0;overflow-x:auto;white-space:pre}
+  .result{font-weight:700}
+  footer{margin-top:28px;text-align:center;color:var(--ink-faint);font-size:13.5px;line-height:1.9}
+  @media (max-width:640px){h1{font-size:24px}section{padding:22px 18px}body{font-size:16px}.codeblock pre code{font-size:12px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>3x-ui 面板去除赞助广告与登录页 CPU 占用异常处理记录</h1>
+  <div class="meta">
+    <div><b>环境</b>：Ubuntu 22.04 · 3x-ui v3.11.0 · nginx</div>
+    <div><b>内容</b>：赞助广告的检查结果 · nginx 反向代理屏蔽方案 · 暴露面收口 · 登录页 CPU 占用排查</div>
+    <div><b>说明</b>：文中域名与面板路径均为化名，配置结构与实测结果保持一致。</div>
+  </div>
+</header>
+
+<section>
+  <h2>摘要</h2>
+  <ul>
+    <li>3x-ui 面板内置一套付费赞助位系统，用于在登录页、仪表盘等位置展示第三方推广内容。面板没有提供关闭该功能的设置项。</li>
+    <li>处理方式为在面板前增加 nginx 反向代理，拦截赞助清单的两个接口并返回一份格式合法的空清单。面板本体未做任何修改，官方升级不会覆盖该处理。</li>
+    <li>处理过程中同步完成了暴露面收口：面板改为只监听本机，nginx 成为唯一对外入口，并关闭了 nginx 默认站点。</li>
+    <li>之后发现登录页停留时本地浏览器 CPU 占用偏高。排查确认原因是登录页背景的模糊光斑动画，与广告请求无关。同样通过 nginx 注入样式隐藏光斑，问题得到解决。</li>
+  </ul>
+</section>
+
+<section>
+  <h2>1. 背景与现象</h2>
+  <p>使用官方一键脚本在 VPS 上部署 3x-ui 后，登录页和仪表盘中出现了第三方服务的推广卡片，具体包括：</p>
+  <ul>
+    <li>登录页的推广卡片；</li>
+    <li>仪表盘中的推广横幅和独立的「赞助商」菜单页；</li>
+    <li>侧边栏的 Donate 按钮。</li>
+  </ul>
+  <p>其中登录页的内容无需登录即可看到，也就是说，任何人知道面板地址都能访问到这些内容。由于面板属于自用的管理后台，决定将这部分内容去除。</p>
+  <p>处理前先对 3x-ui 源码做了检查：克隆仓库、全仓检索并阅读相关实现，同时拉取线上的实际投放清单作为参照。目的是先确认广告系统的实现方式，再决定在哪一层处理。</p>
+</section>
+
+<section>
+  <h2>2. 代码检查结果</h2>
+  <ul>
+    <li><strong>只有一套广告系统，即付费赞助位。</strong>后端 <code>internal/web/service/panel/sponsor.go</code> 中写死了远程清单地址。每次有人打开面板，面板会向 GitHub 请求一份 <code>sponsors.json</code>。请求成功后缓存 1 小时，失败后 10 分钟重试；刷新失败时保留旧清单继续展示，源码注释说明这样做是为了避免付费赞助位闪烁消失。</li>
+    <li><strong>相关接口无需登录即可访问。</strong><code>GET /sponsors</code> 与 <code>GET /sponsors/logo/:name</code> 是公开路由，目的是让登录页也能展示内容。实际地址位于面板自定义路径之下，形式为 <code>/&lt;webBasePath&gt;/sponsors</code>。</li>
+    <li><strong>展示位共 5 处：</strong>登录页、仪表盘横幅、独立的赞助商菜单页、侧边栏 Donate 按钮（固定的外部捐赠链接）、赞助卡片组件本身。检查期间投放的是一家 eSIM 服务，文案按语言本地化，链接带有推广追踪参数，观察到约两周轮换一次。</li>
+    <li><strong>没有关闭开关。</strong>设置表、配置项和数据库中均未发现相关选项。卡片上的 × 按钮只是在浏览器 localStorage 中写入一条延后记录，24 小时后卡片会重新出现。</li>
+    <li><strong>已排除的其他可疑项：</strong>Telegram 机器人是管理员自用功能且默认关闭；版本检查只查询 GitHub 上是否有新版本；MTProto 的 <code>adTag</code> 是节点所有者给自己频道使用的字段。检查中未发现第二套推送系统，也未发现遥测。</li>
+  </ul>
+  <div class="callout">
+    <div class="ct">关于前端文件</div>
+    面板前端是打包嵌入二进制文件的，服务器磁盘上没有可直接修改的网页文件。因此直接改前端文件这条路不可行。
+  </div>
+</section>
+
+<section>
+  <h2>3. 方案选择</h2>
+  <p>按对面板的侵入程度，将可行做法分为五层：</p>
+  <div class="table-wrap">
+  <table>
+    <tr><th style="width:17%">层级</th><th style="width:40%">做法</th><th>评估</th></tr>
+    <tr><td>L1 设置层</td><td>通过面板设置关闭赞助功能</td><td>没有该选项，不可行。</td></tr>
+    <tr><td>L2 网络层</td><td>屏蔽清单所在的 GitHub 域名</td><td>面板的自升级脚本使用同一域名，会影响升级。面板如果通过代理出站，也可能绕过 DNS 屏蔽。</td></tr>
+    <tr><td><strong>L3 反向代理层（采用）</strong></td><td>在面板前部署 nginx，拦截 <code>/sponsors</code> 的两个接口，返回合法的空清单</td><td>不修改面板，升级后仍然有效。缺点是 Donate 按钮和赞助商菜单两处界面仍然保留，但内容为空。</td></tr>
+    <tr><td>L4 源码层</td><td>修改后端代码、删除前端组件，重新编译并替换二进制</td><td>可以连界面外壳一起去除，但官方升级后需要重新处理，维护成本最高。</td></tr>
+    <tr><td>L5 升级策略</td><td>不使用官方升级，或每次升级后复查拦截是否仍然有效</td><td>是 L3 的配套措施，不是独立方案。</td></tr>
+  </table>
+  </div>
+  <p>选择 L3 的原因是处理逻辑位于面板之外：面板如何升级都不会影响 nginx 配置，需要撤销时删除对应配置即可恢复原状。L4 的额外收益只是去掉两个空界面入口，不足以抵消每次升级都要重新编译的成本。</p>
+
+  <h3>拦截方式</h3>
+  <p>前端期望收到固定格式的响应，因此拦截时不能直接返回 404 或断开连接，而是返回一份格式合法、内容为空的清单，使前端认为请求成功，只是当前没有赞助商：</p>
+  <div class="codeblock"><div class="cap">拦截返回体（HTTP 200）</div>
+  <pre><code>&#123;"success":true,"msg":"","obj":&#123;"contact":"","sponsors":[]&#125;&#125;</code></pre></div>
+  <p>logo 接口直接返回 404。清单为空时前端不会请求 logo，这一条仅作兜底。</p>
+</section>
+
+<section>
+  <h2>4. 部署过程</h2>
+
+  <h3>4.1 服务器现状与约束</h3>
+  <ul>
+    <li><strong>443 端口已被占用。</strong>Xray 节点使用 TCP 443，不能改动，因此 nginx 不能使用标准的 443 端口，需要另选端口。</li>
+    <li><strong>面板监听 443 并已启用 SSL</strong>，此前直接对公网开放（<code>*:443</code>）。</li>
+    <li><strong>域名在 Cloudflare 中为 DNS-only（灰云）。</strong>此时流量不经过 Cloudflare，后台的 SSL 模式（当时为 Flexible）不起作用。如果之后改为橙云，需要先将 SSL 模式改为 Full (Strict)。</li>
+    <li>服务器上已有可用证书，nginx 复用同一套证书路径。</li>
+  </ul>
+
+  <h3>4.2 端口选择</h3>
+  <p>最初计划使用 8443，因为它在 Cloudflare 支持的 HTTPS 代理端口之列，方便以后开启橙云。实际操作中先尝试了 443，用 <code>curl</code> 测试时返回内容为空：服务在运行，配置也没有问题，但请求没有到达，推测是该端口在入站路径上不通，未做进一步确认。随后改用 <strong>8443</strong>，一次验证通过：</p>
+  <div class="codeblock"><div class="cap">验收命令与结果</div>
+  <pre><code>$ curl -sk -o /tmp/resp.txt -w "code=%&#123;http_code&#125; size=%&#123;size_download&#125;\n" \
+    "https://panel.example.com:8443/panel-path/sponsors"
+code=200 size=60
+$ cat /tmp/resp.txt
+&#123;"success":true,"msg":"","obj":&#123;"contact":"","sponsors":[]&#125;&#125;</code></pre></div>
+  <p>返回 200、60 字节，内容为预期的空清单，说明拦截生效。随后在浏览器中确认广告消失，登录功能正常。</p>
+  <p>补充一点：在服务器本机用公网域名访问自己，请求会先出站再入站，如果入站路径不通同样会失败。遇到返回为空时，需要先区分是服务本身的问题还是网络路径的问题。</p>
+  <div class="callout warn">
+    <div class="ct">使用 8443 的注意事项</div>
+    <ul>
+      <li>8443 不在 Cloudflare 的 HTTPS 代理端口名单中（它属于 HTTP 名单）。将来开启橙云时，需要把 nginx 监听端口换成 8443 等名单内的端口，并同时将 SSL 模式改为 Full (Strict)。</li>
+      <li>访问面板必须写明 <code>https://</code>。使用 http 访问会收到 nginx 的 400 报错，这是明文请求发到 HTTPS 端口的正常提示，不是故障。</li>
+    </ul>
+  </div>
+
+  <h3>4.3 暴露面收口</h3>
+  <ol>
+    <li><strong>面板改为只监听本机。</strong>将 3x-ui 的监听地址改为 <code>127.0.0.1</code>，443 不再对公网开放。此后外部只能通过 nginx 访问面板，直连 443 失败属于预期结果。如果 nginx 出现问题，仍可通过 SSH 隧道临时访问面板。</li>
+    <li><strong>关闭 nginx 默认站点。</strong>nginx 安装后默认在 80 端口提供欢迎页，并持续收到扫描流量。该站点来自 <code>sites-enabled/default</code> 软链接，删除软链接并 reload 即可关闭，源文件保留，可随时恢复。面板自己的配置里没有 80 端口。完成后 nginx 只在 8443 对外监听。</li>
+  </ol>
+
+  <h3>4.4 最终架构</h3>
+  <div class="flow">浏览器  https://panel.example.com:443
+   │
+   ▼
+nginx :443（唯一对外入口）
+  · /sponsors      返回空清单
+  · /sponsors/...  返回 404
+  · 其余请求       反向代理
+   │  仅回环 127.0.0.1
+   ▼
+3x-ui 面板 :443（公网不可直达，本体未修改）
+
+<p>Xray 节点 :443（未改动）</div><br>  <p>至此，对外暴露的端口由 443、80、8843 减少为只有 443，节点业务未受影响。</p></p>
+</section>
+
+<section>
+  <h2>5. 登录页浏览器 CPU 占用偏高</h2>
+
+  <h3>5.1 现象</h3>
+  <p>完成上述处理的第二天，在登录页确认广告效果时发现：浏览器窗口停留在登录页期间，本地电脑 CPU 占用明显升高且不下降，服务器 CPU 正常。</p>
+  <p>由于问题是在刚改过广告接口之后发现的，最初的怀疑是：赞助请求被拦截后返回异常，前端循环重试，导致 CPU 升高。为避免凭印象下结论，先为这个假设设定了证伪条件，即看到什么结果就说明假设不成立，再逐项验证。</p>
+
+  <h3>5.2 假设一：赞助请求失败后循环重试（已排除）</h3>
+  <ul>
+    <li><strong>代码：</strong>前端的赞助请求封装为 <code>useSponsorsQuery.ts</code>，配置为 <code>retry: false</code>（失败不重试）、<code>staleTime</code> 为一小时（一小时内重新聚焦窗口也不会再次请求），且没有轮询间隔。此外 nginx 返回的是「200 成功 + 空清单」，前端走成功分支，列表为空时赞助组件不渲染，不存在触发失败重试的路径。</li>
+    <li><strong>流量：</strong>在 DevTools 网络面板中筛选 <code>sponsors</code>，在登录页停留数分钟，请求只有 1 条。如果是请求循环造成的，这里应当有大量请求。</li>
+  </ul>
+  <p>结论：与广告请求无关。服务器 CPU 正常、网络请求只有 1 条，说明持续消耗发生在本地浏览器的渲染环节。</p>
+
+  <h3>5.3 定位：登录页背景动画</h3>
+  <p>检查登录页样式后发现，页面背景有 5 个大尺寸光斑持续运动：</p>
+  <ul>
+    <li>最大尺寸为 900×900 像素，使用 <code>filter: blur(90px–100px)</code> 的重度模糊；</li>
+    <li>每个光斑有 24–36 秒一轮的无限位移动画；</li>
+    <li>登录卡片本身带有 <code>backdrop-filter: blur(24px)</code>，光斑每移动一帧，卡片区域就要对背景重新采样并模糊一次。</li>
+  </ul>
+  <p>大面积模糊叠加持续动画是浏览器中开销较大的渲染组合，页面开着就会持续占用 CPU/GPU。这与现象一致：只在登录页停留时出现，与广告无关。</p>
+
+  <h3>5.4 验证过程</h3>
+  <p>前两次验证没有得到有效结论，原因是测试本身没有生效：</p>
+  <ol>
+    <li>用 DevTools 的 prefers-reduced-motion 模拟来关闭动画，CPU 没有下降。复盘后发现该选项是取值选择而非开关，默认值为「不模拟」，当时的操作实际上没有改变任何设置。</li>
+    <li>在控制台注入样式来关闭或隐藏光斑，CPU 仍未下降。但当时无法确认注入的样式是否真正生效。</li>
+  </ol>
+  <p>之后给验证加上了确认步骤：注入样式后，用 <code>getComputedStyle</code> 读取光斑伪元素的计算样式，并目视确认光斑已消失。</p>
+  <div class="codeblock"><div class="cap">带确认步骤的验证片段（浏览器控制台）</div>
+  <pre><code>let st = document.createElement('style');
+st.textContent = '.login-app::before,.login-app::after,.login-content::before,' +
+  '.login-content::after,.login-wrapper::before&#123;display:none!important&#125;';
+document.head.appendChild(st);
+getComputedStyle(document.querySelector('.login-app'), '::before').display;
+<span class="cm">// 控制台输出 "none"，且页面上的彩色光斑消失，测试结果才有效</span></code></pre></div>
+
+  <h3>5.5 对照结果</h3>
+  <p>控制变量后，分别在无痕窗口（无扩展、无历史状态）和普通窗口中，对比光斑开启与关闭两种状态：</p>
+  <div class="table-wrap">
+  <table>
+    <tr><th></th><th>光斑开启</th><th>光斑关闭（计算样式为 none，目视确认消失）</th></tr>
+    <tr><td>无痕窗口</td><td>CPU 高</td><td>CPU 下降</td></tr>
+    <tr><td>普通窗口</td><td>CPU 高</td><td>读数仍高</td></tr>
+  </table>
+  </div>
+  <p>无痕窗口的结果可以说明问题：在没有扩展和历史状态干扰的环境里，页面代码相同，光斑是唯一变量，开启时 CPU 高，关闭后下降。</p>
+  <p>普通窗口中关闭光斑后读数仍然偏高，说明存在其他干扰因素。排查时考虑了浏览器扩展（关闭扩展后需要刷新页面，已注入的脚本不会自动失效）以及其他标签页对总 CPU 读数的影响，但没有单独逐项确认。因此最终以修改落地后的实际效果为准，见下一节。</p>
+
+  <h3>5.6 处理方式</h3>
+  <p>登录页的 HTML 文档由面板在 <code>/&lt;webBasePath&gt;/</code> 下返回。在 nginx 中对这一个文档使用 <code>sub_filter</code> 做字符串替换，在 <code>&lt;/head&gt;</code> 之前注入一段样式，隐藏上述 5 个光斑。这样无论使用哪个浏览器，下发的登录页本身就不包含光斑，不需要再手动操作控制台。</p>
+  <p>实现时有两点需要注意：</p>
+  <ul>
+    <li>必须设置 <code>proxy_set_header Accept-Encoding "";</code>，禁止后端返回 gzip 压缩的 HTML，否则 <code>sub_filter</code> 无法匹配到明文内容。</li>
+    <li>该 location 一旦自己设置了 <code>proxy_set_header</code>，就不会继承上层的转发头，需要把所需的转发头完整重写一遍。</li>
+  </ul>
+  <p>验证方法：reload 后用 <code>curl</code> 请求登录页，能在输出中 grep 到注入的 <code>display:none</code>，说明样式已写入下发的 HTML。</p>
+  <p class="result">结果：加入该配置并 reload 后，在登录页实测 CPU 占用恢复正常，问题解决。</p>
+</section>
+
+<section>
+  <h2>6. 最终 nginx 配置</h2>
+  <p>去除证书等机器相关内容后，站点配置的核心部分如下（路径为化名）：</p>
+  <div class="codeblock"><div class="cap">/etc/nginx/sites-available/xui-panel</div>
+  <pre><code>server &#123;
+    listen 8443 ssl http2;
+    server_name panel.example.com;
+    ssl_certificate     /path/to/fullchain.pem;
+    ssl_certificate_key /path/to/privkey.pem;
+
+<pre><code>&lt;span class=&quot;cm&quot;&gt;# 1. 拦截赞助清单：返回格式合法的空清单&lt;/span&gt;
+location = /panel-path/sponsors &#123;
+    access_log off;
+    default_type application/json;
+    add_header Cache-Control &quot;no-store&quot;;
+    return 200 &#39;&#123;&quot;success&quot;:true,&quot;msg&quot;:&quot;&quot;,&quot;obj&quot;:&#123;&quot;contact&quot;:&quot;&quot;,&quot;sponsors&quot;:[]&#125;&#125;&#39;;
+&#125;
+
+&lt;span class=&quot;cm&quot;&gt;# 2. 赞助 logo 兜底拦截&lt;/span&gt;
+location ^~ /panel-path/sponsors/ &#123;
+    access_log off;
+    return 404;
+&#125;
+
+&lt;span class=&quot;cm&quot;&gt;# 3. 登录页文档：注入样式，隐藏背景光斑（仅匹配根文档）&lt;/span&gt;
+location = /panel-path/ &#123;
+    proxy_pass https://127.0.0.1:443;
+    proxy_ssl_verify off;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_set_header Accept-Encoding &quot;&quot;;  &lt;span class=&quot;cm&quot;&gt;# sub_filter 需要明文 HTML&lt;/span&gt;
+    proxy_http_version 1.1;
+    sub_filter_once on;
+    sub_filter_types text/html;
+    sub_filter &#39;&amp;lt;/head&amp;gt;&#39; &#39;&amp;lt;style&amp;gt;.login-app::before,.login-app::after,.login-content::before,.login-content::after,.login-wrapper::before&#123;display:none!important&#125;&amp;lt;/style&amp;gt;&amp;lt;/head&amp;gt;&#39;;
+&#125;
+
+&lt;span class=&quot;cm&quot;&gt;# 4. 其余请求：反向代理到本机面板&lt;/span&gt;
+location / &#123;
+    proxy_pass https://127.0.0.1:443;
+    proxy_ssl_verify off;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection &quot;upgrade&quot;;
+    proxy_read_timeout 86400;
+    client_max_body_size 50m;  &lt;span class=&quot;cm&quot;&gt;# 默认 1MB，不调整的话面板导入备份时会被 nginx 拦下&lt;/span&gt;
+&#125;
+</code></pre>
+<p>}</code></pre></div><br>  <p>面板侧的配套设置：监听地址改为 <code>127.0.0.1</code>；建议将「可信代理」设置为 <code>127.0.0.1/32</code>，否则面板看到的访客 IP 始终是本机地址，登录限流可能误伤自己。</p></p>
+</section>
+
+<section>
+  <h2>7. 升级后的检查清单</h2>
+  <p>处理逻辑位于面板之外，官方升级不会覆盖它，但升级可能改变接口路径或前端结构。每次升级后建议检查以下几项：</p>
+  <ol>
+    <li>用 <code>curl</code> 请求一次 <code>/&lt;webBasePath&gt;/sponsors</code>，确认仍返回 60 字节的空清单。</li>
+    <li>打开登录页停留约半分钟，确认广告没有重新出现，浏览器 CPU 正常。</li>
+    <li>用 <code>curl</code> 获取登录页 HTML，grep 注入的样式关键字，确认 <code>sub_filter</code> 仍在生效。注入所用的类名（<code>.login-app</code> 等）属于当前版本的前端，如果大版本更新后登录页类名发生变化，注入会静默失效，此时需要更换选择器。</li>
+    <li>确认面板仍只监听 <code>127.0.0.1:443</code>，nginx 仍只对外监听 8443（可用 <code>ss -tunlp</code> 查看）。</li>
+    <li>仅在准备开启 Cloudflare 橙云时：先将 SSL 模式改为 Full (Strict)，并将 nginx 监听端口换到 Cloudflare 支持的 HTTPS 端口（如 8443）。</li>
+  </ol>
+</section>
+
+<section>
+  <h2>8. 总结</h2>
+  <ol>
+    <li><strong>先检查，再动手。</strong>通过代码检查确认了广告系统的实现、没有关闭开关，以及前端是嵌入二进制的，据此选定在 nginx 层处理。</li>
+    <li><strong>处理逻辑放在面板之外。</strong>拦截和样式注入都在 nginx 中完成，面板升级或重装不受影响，撤销时删除对应配置即可。</li>
+    <li><strong>排查先设证伪条件。</strong>对「请求循环重试」这一假设，先确定应当观察到什么，再查代码和网络请求，很快就能排除。</li>
+    <li><strong>验证要有可观察的确认步骤。</strong>排查中有两次测试因为操作没有真正生效而得出了不可靠的结论。之后每一步都增加确认手段，例如打印计算样式、目视确认光斑消失、检查 <code>curl</code> 的返回字节数。</li>
+    <li><strong>用对照实验确定原因。</strong>在无痕窗口中分别测试光斑开启和关闭，得到明确结论。普通窗口中未能完全排除的干扰因素，则以实际落地后的效果作为最终验证。</li>
+    <li><strong>登录页背景动画的开销不小。</strong>全屏大面积模糊加无限动画会持续消耗本地资源，在性能较弱的设备上尤其明显。</li>
+  </ol>
+  <p>整个过程中，节点端口未改动，面板退回只监听本机，nginx 默认站点已关闭，对外只保留 8443 一个入口。</p>
+</section>
+
+<footer>
+  <p>环境版本：3x-ui v3.11.0 · Ubuntu 24.04 · nginx（发行版默认构建，含 http_sub_module）<br>文中域名、面板路径为化名处理。</p>
+</footer>
+
+</div>
+</body>
+</html>
