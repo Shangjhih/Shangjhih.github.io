@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"lvshuqi.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":330,"display":"hide","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null,"line_number":false},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":0},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="我们这里以简单的案例来对Nginx的反向代理实现进行解析，这里的Nginx配置作用为：拦截来自某个路径的信息请求，去除广告请求API。 12345678910111213141516171819202122232425262728293031323334353637server &#123;    # Ubuntu 22.04 的 nginx 是 1.18，http2 只能用这种老写法，新版的 &amp;">
+  <meta name="description" content="我们这里以简单的案例来对Nginx的反向代理实现进行解析，这里的Nginx配置作用为：拦截来自某个路径的信息请求，去除广告请求API。 Nginx的具体配置规范和入门参见：  Nginx 入门  12345678910111213141516171819202122232425262728293031323334353637server &#123;    # Ubuntu 22.04 的 ngi">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Nginx Reverse Proxy">
 <meta property="og:url" content="https://lvshuqi.top/2026/11/03/Nginx-Reverse-Proxy/index.html">
 <meta property="og:site_name" content="就这样&amp;巴">
-<meta property="og:description" content="我们这里以简单的案例来对Nginx的反向代理实现进行解析，这里的Nginx配置作用为：拦截来自某个路径的信息请求，去除广告请求API。 12345678910111213141516171819202122232425262728293031323334353637server &#123;    # Ubuntu 22.04 的 nginx 是 1.18，http2 只能用这种老写法，新版的 &amp;">
+<meta property="og:description" content="我们这里以简单的案例来对Nginx的反向代理实现进行解析，这里的Nginx配置作用为：拦截来自某个路径的信息请求，去除广告请求API。 Nginx的具体配置规范和入门参见：  Nginx 入门  12345678910111213141516171819202122232425262728293031323334353637server &#123;    # Ubuntu 22.04 的 ngi">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-11-03T12:44:36.000Z">
-<meta property="article:modified_time" content="2026-11-07T13:50:11.970Z">
+<meta property="article:modified_time" content="2026-11-07T13:53:34.257Z">
 <meta property="article:author" content="Shangjhih Jhao">
 <meta property="article:tag" content="Hexo">
 <meta property="article:tag" content="博客">
@@ -202,7 +202,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-11-07 21:50:11" itemprop="dateModified" datetime="2026-11-07T21:50:11+08:00">2026-11-07</time>
+                <time title="修改时间：2026-11-07 21:53:34" itemprop="dateModified" datetime="2026-11-07T21:53:34+08:00">2026-11-07</time>
               </span>
 
           <br>
@@ -231,6 +231,10 @@
 
       
         <p>我们这里以简单的案例来对Nginx的反向代理实现进行解析，这里的Nginx配置作用为：拦截来自某个路径的信息请求，去除广告请求API。</p>
+<p>Nginx的具体配置规范和入门参见：</p>
+<ul>
+<li><a href="https://lvshuqi.top/2026/11/01/Nginx-Learning-made-by-Claude/">Nginx 入门</a></li>
+</ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    # Ubuntu 22.04 的 nginx 是 1.18，http2 只能用这种老写法，新版的 &quot;http2 on;&quot; 在你这会报错</span><br><span class="line">    listen [Nginx_port] ssl http2;</span><br><span class="line">    server_name SITE_ADDR;</span><br><span class="line"></span><br><span class="line">    ssl_certificate [/root/cert/SITE_ADDR/fullchain.pem];</span><br><span class="line">    ssl_certificate_key [/root/SITE_ADDR/privkey.pem];</span><br><span class="line"></span><br><span class="line">    # sponsors 拦截：路径带 basePath 前缀，少了拦截不到</span><br><span class="line">    location = [/LOCATION_ADDR/sponsors] &#123;</span><br><span class="line">        access_log off;</span><br><span class="line">        default_type application/json;</span><br><span class="line">        add_header Cache-Control &quot;no-store&quot;;</span><br><span class="line">        return 200 &#x27;&#123;&quot;success&quot;:true,&quot;msg&quot;:&quot;&quot;,&quot;obj&quot;:&#123;&quot;contact&quot;:&quot;&quot;,&quot;sponsors&quot;:[]&#125;&#125;&#x27;;</span><br><span class="line">    &#125;</span><br><span class="line">    # 命中规则后将会返回&#123;&quot;success&quot;:true,&quot;msg&quot;:&quot;&quot;,&quot;obj&quot;:&#123;&quot;contact&quot;:&quot;&quot;,&quot;sponsors&quot;:[]&#125;&#125;&#x27;</span><br><span class="line">    location ^~ [/LOCATION_ADDR/sponsors/] &#123;</span><br><span class="line">        access_log off;</span><br><span class="line">        return 404;</span><br><span class="line">        # 命中规则后将会返回404，被黑洞。假如仅仅是要404某个服务，精准定位可以使用上面的=进行配置，使用正则表达式则使用本</span><br><span class="line">        形式进行匹配。</span><br><span class="line">    &#125;</span><br><span class="line">    location / &#123;</span><br><span class="line">        [proxy_pass https://127.0.0.1:port];   # 面板是 SSL 的，所以是 https；端口后不要加任何路径</span><br><span class="line">        proxy_ssl_verify off;</span><br><span class="line">        proxy_set_header Host $host;</span><br><span class="line">        proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">        proxy_set_header X-Forwarded-Proto $scheme;</span><br><span class="line">        proxy_http_version 1.1;</span><br><span class="line">        proxy_set_header Upgrade $http_upgrade;</span><br><span class="line">        proxy_set_header Connection &quot;upgrade&quot;;</span><br><span class="line">        proxy_read_timeout 86400;</span><br><span class="line">        proxy_ssl_server_name on;</span><br><span class="line">        proxy_ssl_name %host;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>配置中有几个需要用户自行修改的地方：</p>
