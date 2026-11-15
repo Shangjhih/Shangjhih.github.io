@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"lvshuqi.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":330,"display":"hide","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null,"line_number":false},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":0},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="本章我们将会学习有关现代AI Agent以及Skill的知识，本章内容包括对agent以及skill技术扫盲以及入门材料推荐，整体流程如下：  AI模型是什么这里的AI指的就是我们日常在手机安装的AI APP ，比如豆包、deepseek、ChatGPT、Claude和千问等软件。多模态的Ai一般可以上传文件（图片或音频）等，模型会根据你上传的文件信息与你在对话框反馈交流，或者直接通过你的文字输入">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ai Agent Skill Tutorial">
+<meta property="og:url" content="https://lvshuqi.top/2026/11/15/Ai-Agent-Skill-Tutorial/index.html">
+<meta property="og:site_name" content="就这样&amp;巴">
+<meta property="og:description" content="本章我们将会学习有关现代AI Agent以及Skill的知识，本章内容包括对agent以及skill技术扫盲以及入门材料推荐，整体流程如下：  AI模型是什么这里的AI指的就是我们日常在手机安装的AI APP ，比如豆包、deepseek、ChatGPT、Claude和千问等软件。多模态的Ai一般可以上传文件（图片或音频）等，模型会根据你上传的文件信息与你在对话框反馈交流，或者直接通过你的文字输入">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://lvshuqi.top/public/images/Designer.png">
+<meta property="og:image" content="https://github.com/spacering-net/codeg/raw/main/docs/images/workspace-light.png">
+<meta property="og:image" content="https://camo.githubusercontent.com/9b579696d9939f7f9e5132b06819347d79772dab1ff6a908c2259839fcef5983/68747470733a2f2f706173656f2e73682f6865726f2d6d6f636b75702e706e67">
+<meta property="og:image" content="https://github.com/pingdotgg/t3code/raw/main/.github/readme/hero.webp">
+<meta property="og:image" content="https://github.com/stablyai/orca/raw/main/docs/assets/readme-hero.jpg">
+<meta property="og:image" content="https://camo.githubusercontent.com/ddd647b5aee3db38a48f932bc092859422e49d762e906fd11f482ad3a5647ad7/68747470733a2f2f696d672e796f75747562652e636f6d2f76692f7663754647747774486c772f6d617872657364656661756c742e6a7067">
+<meta property="og:image" content="https://github.com/multica-ai/multica/raw/main/docs/assets/readme/team.webp">
+<meta property="article:published_time" content="2026-11-15T12:25:45.000Z">
+<meta property="article:modified_time" content="2026-11-15T14:22:32.445Z">
+<meta property="article:author" content="Shangjhih Jhao">
+<meta property="article:tag" content="Ai">
+<meta property="article:tag" content="Agent">
+<meta property="article:tag" content="Skill">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://lvshuqi.top/public/images/Designer.png">
+
+<link rel="canonical" href="https://lvshuqi.top/2026/11/15/Ai-Agent-Skill-Tutorial/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Ai Agent Skill Tutorial | 就这样&巴</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">就这样&巴</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">个人网志</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2026/11/15/Ai-Agent-Skill-Tutorial/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
+      <meta itemprop="name" content="Shangjhih Jhao">
+      <meta itemprop="description" content="该博客在作者读大学本科期间创建，通过Hexo搭建，部署于Github Action。博客建立之初是为了防止作者遗忘已经学过的东西，将一些可以被记录的东西写下来一定程度上会减少遗忘。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="就这样&巴">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Ai Agent Skill Tutorial
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2026-11-15 20:25:45 / 修改时间：22:22:32" itemprop="dateCreated datePublished" datetime="2026-11-15T20:25:45+08:00">2026-11-15</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Ai/" itemprop="url" rel="index"><span itemprop="name">Ai</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Ai/Agent/" itemprop="url" rel="index"><span itemprop="name">Agent</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Ai/Agent/Skill/" itemprop="url" rel="index"><span itemprop="name">Skill</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>本章我们将会学习有关现代AI Agent以及Skill的知识，本章内容包括对agent以及skill技术扫盲以及入门材料推荐，整体流程如下：</p>
+<p><img src="/public/images/Designer.png" alt="ph"></p>
+<h2 id="AI模型是什么"><a href="#AI模型是什么" class="headerlink" title="AI模型是什么"></a>AI模型是什么</h2><p>这里的AI指的就是我们日常在手机安装的AI APP ，比如豆包、deepseek、ChatGPT、Claude和千问等软件。多模态的Ai一般可以上传文件（图片或音频）等，模型会根据你上传的文件信息与你在对话框反馈交流，或者直接通过你的文字输入或语音输入与你沟通，这就是我们常说的AI。</p>
+<p>这种AI不能操作你手机或电脑的文件，与你交流的方式只有发送图片或发送文字。</p>
+<h2 id="Agent是什么"><a href="#Agent是什么" class="headerlink" title="Agent是什么?"></a>Agent是什么?</h2><p>Agent又被叫做智能体，是使用 AI 来实现目标并代表用户完成任务的软件系统（以软件形式安装在手机或电脑）。智能体可以同时处理文本、语音、视频、音频、代码等多模态信息，还可以对话、推理、学习和做出决策。它们可以随着时间的推移不断学习，并简化事务和业务流程。智能体可以与其他智能体协作，来协调和执行更复杂的工作流。其表现出了推理、规划和记忆能力，并且具有一定的自主性，能够自主学习、适应和做出决定。</p>
+<p>代表：</p>
+<pre><code> - Codex
+ - Claude Code
+ - Workbuddy
+ - OpenClaw
+ - Deepseek Harness
+ - Hermes
+</code></pre>
+<p>Agent可以根据你的要求对文件进行查找和编辑，能够直接使用你的工具来完成你交代的任务。它可以代你进行聊天、可以帮你购物、可以帮你做excel表格、可以帮你写代码改代码以及帮你下载安装软件服务等。</p>
+<h2 id="Skill是什么？"><a href="#Skill是什么？" class="headerlink" title="Skill是什么？"></a>Skill是什么？</h2><p>Skill按中文翻译就是“技巧”的意思，在AI这里，Skill就是一个文件夹，这个文件夹下写的有某一类工作的工作规范。这个工作规范就是ai将要执行的标准。比如说你要Ai去给你做PPT, Ai 恰好有一个ppt-skill， 这个skill中写的有指导ai怎么去做PPT，比如要先找素材，再做动画，内容怎么写，字体什么的调什么型号。有的skill还会包含一些脚本，这些脚本只有一个作用，只能实现某个具体的操作（比如，打开powerpoint并建立一个3页的文档），这种固定行为的任务完全可以写成一个脚本，在需要的时候直接运行。</p>
+<p><strong>总结</strong> ： Skill就是一个经验包(通用流程)，它会告诉Ai干什么事要用什么干。</p>
+<p><strong>Skills仓库：</strong>：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://skills-hub.ai/">SKILLS-HUB</a></li>
+<li><a target="_blank" rel="noopener" href="https://skillhey.com/zh">SKILLHEY</a></li>
+<li><a target="_blank" rel="noopener" href="https://skill.miyucaicai.cn/">Topgo Skills</a></li>
+</ul>
+<h2 id="MCP-是什么？"><a href="#MCP-是什么？" class="headerlink" title="MCP 是什么？"></a>MCP 是什么？</h2><p>MCP(Model Context Protocol)全称：<strong>模型上下文协议</strong></p>
+<p>在AI模型尝试使用工具解决问题的时候，MCP就在AI和工具之间做连接，MCP会告诉AI这个工具是怎么用的，你做这个的时候需要这么做才行，做那个的时候需要那么做才行。</p>
+<p><strong>MCP会告诉模型：</strong></p>
+<ul>
+<li>有哪些工具可用</li>
+<li>每个工具是做什么的</li>
+<li>工具需要什么参数</li>
+<li>调用后会返回什么格式的数据</li>
+</ul>
+<p><strong>MCP仓库：</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.modelscope.cn/mcp">Model Scope</a></li>
+<li><a target="_blank" rel="noopener" href="https://mcpservers.org/zh-CN/">Awesome MCP Servers</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/mcp">Github MCP</a></li>
+<li><a target="_blank" rel="noopener" href="https://mcp.so/servers">MCP SO</a></li>
+</ul>
+<hr>
+<h1 id="开源多Agent客户端"><a href="#开源多Agent客户端" class="headerlink" title="开源多Agent客户端"></a>开源多Agent客户端</h1><p>这里的客户端中可以使用API直接在任意Agent中使用，比如在Codex Agent中使用Deepseek的API,在Claude Code中使用GLM的API.</p>
+<p>你可以让不同的大模型拥有多种身份，可以让Deepseek等套着Codex的外壳去工作，并且不只是套外壳。模型同时还获取了Codex等的思考方式和解决问题使用的办法。</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://github.com/spacering-net/codeg">CodeG</a></li>
+</ol>
+<blockquote>
+<p><strong>The multi-agent coding workspace.</strong><br>Run every AI coding agent in one place — and let them work together.</p>
+</blockquote>
+<p><img src="https://github.com/spacering-net/codeg/raw/main/docs/images/workspace-light.png"></p>
+<ol start="2">
+<li><p><a target="_blank" rel="noopener" href="https://github.com/getpaseo/paseo">Paseo</a></p>
+<blockquote>
+<p>One interface for Claude Code, Codex, Copilot, OpenCode, Pi, Antigravity, and Muse Code agents.</p>
+</blockquote>
+<p><img src="https://camo.githubusercontent.com/9b579696d9939f7f9e5132b06819347d79772dab1ff6a908c2259839fcef5983/68747470733a2f2f706173656f2e73682f6865726f2d6d6f636b75702e706e67"></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/pingdotgg/t3code">T3-code</a></p>
+<blockquote>
+<p>he open-source control plane for coding agents.</p>
+</blockquote>
+<p><img src="https://github.com/pingdotgg/t3code/raw/main/.github/readme/hero.webp"></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/stablyai/orca">Orca</a></p>
+<blockquote>
+<p><strong>The AI Orchestrator for 100x builders.</strong><br>Run Claude Code, Codex, and any other coding agent in parallel, each in its own worktree. Chat or terminal, on your laptop or in the cloud, with diffs, a browser, and a CLI in one app.</p>
+</blockquote>
+<p><img src="https://github.com/stablyai/orca/raw/main/docs/assets/readme-hero.jpg"></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/herdrdev/herdr">Herdr</a></p>
+<blockquote>
+<p><strong>the runtime your coding agents live on.</strong></p>
+</blockquote>
+<p><img src="https://camo.githubusercontent.com/ddd647b5aee3db38a48f932bc092859422e49d762e906fd11f482ad3a5647ad7/68747470733a2f2f696d672e796f75747562652e636f6d2f76692f7663754647747774486c772f6d617872657364656661756c742e6a7067"></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/multica-ai/multica">mulica </a></p>
+<blockquote>
+<p>Multica is a source-available workspace where you assign work to AI coding agents the way you’d assign it to a teammate — they pick up the issue, report progress, raise blockers, and hand it back for review. Self-hostable, works with the agent CLIs you already use, no lock-in.</p>
+</blockquote>
+<p><img src="https://github.com/multica-ai/multica/raw/main/docs/assets/readme/team.webp"></p>
+</li>
+</ol>
+<hr>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Ai/" rel="tag"># Ai</a>
+              <a href="/tags/Agent/" rel="tag"># Agent</a>
+              <a href="/tags/Skill/" rel="tag"># Skill</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2026/11/03/Nginx-Reverse-Proxy/" rel="prev" title="Nginx Reverse Proxy">
+      <i class="fa fa-chevron-left"></i> Nginx Reverse Proxy
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#AI%E6%A8%A1%E5%9E%8B%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">1.</span> <span class="nav-text">AI模型是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Agent%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">2.</span> <span class="nav-text">Agent是什么?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Skill%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">3.</span> <span class="nav-text">Skill是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MCP-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">4.</span> <span class="nav-text">MCP 是什么？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%80%E6%BA%90%E5%A4%9AAgent%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="nav-number"></span> <span class="nav-text">开源多Agent客户端</span></a></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Shangjhih Jhao"
+      src="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
+  <p class="site-author-name" itemprop="name">Shangjhih Jhao</p>
+  <div class="site-description" itemprop="description">该博客在作者读大学本科期间创建，通过Hexo搭建，部署于Github Action。博客建立之初是为了防止作者遗忘已经学过的东西，将一些可以被记录的东西写下来一定程度上会减少遗忘。</div>
+</div>
+
+
+<div class="spotify-player-independent motion-element">
+  <div class="spotify-player-header">
+    <i class="fab fa-spotify"></i>
+    <span>音乐推荐</span>
+  </div>
+  <div class="spotify-player-content">
+    <iframe style="border-radius:8px" 
+            src="https://open.spotify.com/embed/track/1TUpKepASZ9fQbcG2v9kOy?utm_source=generator" 
+            width="100%" 
+            height="152" 
+            frameBorder="0" 
+            allowfullscreen="" 
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+            loading="lazy">
+    </iframe>
+  </div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">115</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">94</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">90</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shangjhih Jhao</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">563k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">15:38</span>
+</div>
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("09/29/2024 11:04:00"); //此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已建立 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒.";
+    }
+setInterval("createtime()",250);
+</script>
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
