@@ -169,7 +169,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2026/11/03/Nginx-Reverse-Proxy/">
+    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2026/11/15/Ai-Agent-Skill-Tutorial/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
@@ -183,7 +183,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2026/11/03/Nginx-Reverse-Proxy/" class="post-title-link" itemprop="url">Nginx Reverse Proxy</a>
+            <a href="/2026/11/15/Ai-Agent-Skill-Tutorial/" class="post-title-link" itemprop="url">Ai Agent Skill Tutorial</a>
         </h2>
 
         <div class="post-meta">
@@ -192,16 +192,27 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2026-11-03 20:44:36" itemprop="dateCreated datePublished" datetime="2026-11-03T20:44:36+08:00">2026-11-03</time>
+              <time title="创建时间：2026-11-15 20:25:45 / 修改时间：23:18:01" itemprop="dateCreated datePublished" datetime="2026-11-15T20:25:45+08:00">2026-11-15</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-11-07 22:13:31" itemprop="dateModified" datetime="2026-11-07T22:13:31+08:00">2026-11-07</time>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
               </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Ai/" itemprop="url" rel="index"><span itemprop="name">Ai</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Ai/Agent/" itemprop="url" rel="index"><span itemprop="name">Agent</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Ai/Agent/Skill/" itemprop="url" rel="index"><span itemprop="name">Skill</span></a>
+                </span>
+            </span>
 
           <br>
             <span class="post-meta-item" title="本文字数">
@@ -209,7 +220,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.6k</span>
+              <span>2.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -228,54 +239,100 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>我们这里以简单的案例来对Nginx的反向代理实现进行解析，这里的Nginx配置作用为：拦截来自某个路径的信息请求，去除广告请求API。</p>
-<p>Nginx的具体配置规范和入门参见：</p>
+          <p>本章我们将会学习有关现代AI Agent以及Skill、MCP的知识，本章内容包括对Agent、Skill、MCP等名词进行解释、给出常见的skill源MCP源，以及提供Multiple集成式开源Agent平台。纵观全局，智能体整体工作流程如下：</p>
+<p><img src="/images/design.png" alt="ph"></p>
+<h2 id="AI模型是什么"><a href="#AI模型是什么" class="headerlink" title="AI模型是什么"></a>AI模型是什么</h2><p>这里的AI指的就是我们日常在手机安装的AI APP ，比如豆包、deepseek、ChatGPT、Claude和千问等软件。多模态的Ai一般可以上传文件（图片或音频）等，模型会根据你上传的文件信息与你在对话框反馈交流，或者直接通过你的文字输入或语音输入与你沟通，这就是我们常说的AI。</p>
+<p>这种AI不能操作你手机或电脑的文件，与你交流的方式只有发送图片或发送文字。</p>
+<h2 id="Agent是什么"><a href="#Agent是什么" class="headerlink" title="Agent是什么?"></a>Agent是什么?</h2><p>Agent又被叫做智能体，是使用 AI 来实现目标并代表用户完成任务的软件系统（以软件形式安装在手机或电脑）。智能体可以同时处理文本、语音、视频、音频、代码等多模态信息，还可以对话、推理、学习和做出决策。它们可以随着时间的推移不断学习，并简化事务和业务流程。智能体可以与其他智能体协作，来协调和执行更复杂的工作流。其表现出了推理、规划和记忆能力，并且具有一定的自主性，能够自主学习、适应和做出决定。</p>
+<p>代表：</p>
+<pre><code> - Codex
+ - Claude Code
+ - Workbuddy
+ - OpenClaw
+ - Deepseek Harness
+ - Hermes
+</code></pre>
+<p>Agent可以根据你的要求对文件进行查找和编辑，能够直接使用你的工具来完成你交代的任务。它可以代你进行聊天、可以帮你购物、可以帮你做excel表格、可以帮你写代码改代码以及帮你下载安装软件服务等。</p>
+<h2 id="Skill是什么？"><a href="#Skill是什么？" class="headerlink" title="Skill是什么？"></a>Skill是什么？</h2><p>Skill按中文翻译就是“技巧”的意思，在AI这里，Skill就是一个文件夹，这个文件夹下写的有某一类工作的工作规范。这个工作规范就是ai将要执行的标准。比如说你要Ai去给你做PPT, Ai 恰好有一个ppt-skill， 这个skill中写的有指导ai怎么去做PPT，比如要先找素材，再做动画，内容怎么写，字体什么的调什么型号。有的skill还会包含一些脚本，这些脚本只有一个作用，只能实现某个具体的操作（比如，打开powerpoint并建立一个3页的文档），这种固定行为的任务完全可以写成一个脚本，在需要的时候直接运行。</p>
+<p><strong>总结</strong> ： Skill就是一个经验包(通用流程)，它会告诉Ai干什么事要用什么干。</p>
+<p><strong>Skills仓库：</strong>：</p>
 <ul>
-<li><a href="https://lvshuqi.top/2026/11/01/Nginx-Learning-made-by-Claude/">Nginx 入门</a></li>
+<li><a target="_blank" rel="noopener" href="https://skills-hub.ai/">SKILLS-HUB</a></li>
+<li><a target="_blank" rel="noopener" href="https://skillhey.com/zh">SKILLHEY</a></li>
+<li><a target="_blank" rel="noopener" href="https://skill.miyucaicai.cn/">Topgo Skills</a></li>
 </ul>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    <span class="comment"># Ubuntu 22.04 的 nginx 是 1.18，http2 只能用这种老写法，新版的 &quot;http2 on;&quot; 在你这会报错</span></span><br><span class="line">    <span class="attribute">listen</span> [Nginx_port] ssl http2;</span><br><span class="line">    <span class="attribute">server_name</span> SITE_ADDR;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">ssl_certificate</span> [/root/cert/SITE_ADDR/fullchain.pem];</span><br><span class="line">    <span class="attribute">ssl_certificate_key</span> [/root/SITE_ADDR/privkey.pem];</span><br><span class="line"></span><br><span class="line">    <span class="comment"># sponsors 拦截：路径带 basePath 前缀，少了拦截不到</span></span><br><span class="line">    <span class="section">location</span> = [/LOCATION_ADDR/sponsors] &#123;</span><br><span class="line">        <span class="attribute">access_log</span> <span class="literal">off</span>;</span><br><span class="line">        <span class="attribute">default_type</span> application/json;</span><br><span class="line">        <span class="attribute">add_header</span> Cache-Control <span class="string">&quot;no-store&quot;</span>;</span><br><span class="line">        <span class="attribute">return</span> <span class="number">200</span> <span class="string">&#x27;&#123;&quot;success&quot;:true,&quot;msg&quot;:&quot;&quot;,&quot;obj&quot;:&#123;&quot;contact&quot;:&quot;&quot;,&quot;sponsors&quot;:[]&#125;&#125;&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment"># 命中规则后将会返回&#123;&quot;success&quot;:true,&quot;msg&quot;:&quot;&quot;,&quot;obj&quot;:&#123;&quot;contact&quot;:&quot;&quot;,&quot;sponsors&quot;:[]&#125;&#125;&#x27;</span></span><br><span class="line">    <span class="section">location</span><span class="regexp"> ^~</span> [/LOCATION_ADDR/sponsors/] &#123;</span><br><span class="line">        <span class="attribute">access_log</span> <span class="literal">off</span>;</span><br><span class="line">        <span class="attribute">return</span> <span class="number">404</span>;</span><br><span class="line">        <span class="comment"># 命中规则后将会返回404，被黑洞。假如仅仅是要404某个服务，精准定位可以使用上面的=进行配置，使用正则表达式则使用本</span></span><br><span class="line">        形式进行匹配。</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="section">location</span> / &#123;</span><br><span class="line">        [<span class="attribute">proxy_pass</span> https://127.0.0.1:port];   <span class="comment"># 面板是 SSL 的，所以是 https；端口后不要加任何路径</span></span><br><span class="line">        <span class="attribute">proxy_ssl_verify</span> <span class="literal">off</span>;</span><br><span class="line">        <span class="attribute">proxy_set_header</span> Host <span class="variable">$host</span>;</span><br><span class="line">        <span class="attribute">proxy_set_header</span> X-Real-IP <span class="variable">$remote_addr</span>;</span><br><span class="line">        <span class="attribute">proxy_set_header</span> X-Forwarded-For <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">        <span class="attribute">proxy_set_header</span> X-Forwarded-Proto <span class="variable">$scheme</span>;</span><br><span class="line">        <span class="attribute">proxy_http_version</span> <span class="number">1</span>.<span class="number">1</span>;</span><br><span class="line">        <span class="attribute">proxy_set_header</span> Upgrade <span class="variable">$http_upgrade</span>;</span><br><span class="line">        <span class="attribute">proxy_set_header</span> Connection <span class="string">&quot;upgrade&quot;</span>;</span><br><span class="line">        <span class="attribute">proxy_read_timeout</span> <span class="number">86400</span>;</span><br><span class="line">        <span class="attribute">proxy_ssl_server_name</span> <span class="literal">on</span>;</span><br><span class="line">        <span class="attribute">proxy_ssl_name</span> %host;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>配置中有几个需要用户自行修改的地方：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">listen [Nginx_port] ssl http2;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>Nginx监听的端口，该端口是Nginx服务工作的端口，和实际服务的端口不能是同一个，也不是能使任何服务已经占用的端口。使用反向代理后，被代理的服务将会在本端口继续提供服务。</p>
-<p>假如需要被反向代理的服务开启了HTTPS服务，那这里就需要使用<code>ssl http2</code> 写法，假如没有域名使用IP:PORT的形式提供服务，则不用写<code>ssl https</code> , 直接写： <code>listen 8080; </code> 即可，其中端口号可以自行设置，不必非要是8080.</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssl_certificate [/root/SITE_ADDR/fullchain.pem];</span><br><span class="line">ssl_certificate_key [/root/SITE_ADDR/privkey.pem];</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>在这两段需要配置ssl证书的路径，包括公钥和私钥，而且全部要使用绝对路径</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">location = [/LOCATION_ADDR/sponsors] &#123;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>这里是使用location确认Nginx需要处理的对象路径，使用<code>=</code> 指的是要精准匹配等于号后面的服务路径。和下面是用头匹配作用范围不同。</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">location ^~ [/LOCATION_ADDR/sponsors/] &#123;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>这里使用正则表达式进行泛匹配，策略性匹配</p>
-</blockquote>
-<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="code">`=`</span>      精确匹配（最高）</span><br><span class="line"><span class="code">`^~`</span>     前缀匹配且阻止正则</span><br><span class="line"><span class="code">`~`</span>      正则（区分大小写）</span><br><span class="line"><span class="code">`~*`</span>     正则（不区分大小写）</span><br><span class="line">普通前缀 location /</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>使用<code>^~</code> 就是匹配任何以<code>/LOCATION_ADDR/sponsors/</code> 开头的服务，比如：</p>
+<h2 id="MCP-是什么？"><a href="#MCP-是什么？" class="headerlink" title="MCP 是什么？"></a>MCP 是什么？</h2><p>MCP(Model Context Protocol)全称：<strong>模型上下文协议</strong></p>
+<p>在AI模型尝试使用工具解决问题的时候，MCP就在AI和工具之间做连接，MCP会告诉AI这个工具是怎么用的，你做这个的时候需要这么做才行，做那个的时候需要那么做才行。</p>
+<p><strong>MCP会告诉模型：</strong></p>
+<ul>
+<li>有哪些工具可用</li>
+<li>每个工具是做什么的</li>
+<li>工具需要什么参数</li>
+<li>调用后会返回什么格式的数据</li>
+</ul>
+<p><strong>MCP仓库：</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.modelscope.cn/mcp">Model Scope</a></li>
+<li><a target="_blank" rel="noopener" href="https://mcpservers.org/zh-CN/">Awesome MCP Servers</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/mcp">Github MCP</a></li>
+<li><a target="_blank" rel="noopener" href="https://mcp.so/servers">MCP SO</a></li>
+</ul>
+<hr>
+<h1 id="开源多Agent客户端"><a href="#开源多Agent客户端" class="headerlink" title="开源多Agent客户端"></a>开源多Agent客户端</h1><p>这里的客户端中可以使用API直接在任意Agent中使用，比如在Codex Agent中使用Deepseek的API,在Claude Code中使用GLM的API.</p>
+<p>你可以让不同的大模型拥有多种身份，可以让Deepseek等套着Codex的外壳去工作，并且不只是套外壳。模型同时还获取了Codex等的思考方式和解决问题使用的办法。</p>
 <ol>
-<li><code>/LOCATION_ADDR/sponsors/index.html</code> </li>
-<li><code>/LOCATION_ADDR/sponsors/service.php</code> </li>
-<li><code>/LOCATION_ADDR/sponsors/site.htnl</code> </li>
-<li><code>/LOCATION_ADDR/sponsors/index/index.html</code></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/spacering-net/codeg">CodeG</a></li>
 </ol>
-</blockquote>
 <blockquote>
-<p>命中该匹配规则的服务按预设的逻辑进行处理。</p>
+<p><strong>The multi-agent coding workspace.</strong><br>Run every AI coding agent in one place — and let them work together.</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[proxy_pass https://127.0.0.1:port];   # 服务是 SSL 的，所以是 https；端口后不要加任何路径</span><br></pre></td></tr></table></figure>
-
+<p><img src="https://github.com/spacering-net/codeg/raw/main/docs/images/workspace-light.png"></p>
+<ol start="2">
+<li><p><a target="_blank" rel="noopener" href="https://github.com/getpaseo/paseo">Paseo</a></p>
 <blockquote>
-<p>原始服务在公网暴漏的地址为：<code>https://127.0.0.1:port</code> 开头， 表示Nginx将要使用<code>https://example.com:Nginx_port</code> 来代替<code>https://127.0.0.1:port</code> 端口所在的服务，在服务器将<code>https://127.0.0.1:port</code>监听的范围从<code>0.0.0.0</code> 改为<code>127.0.0.1</code> 就可以将原始服务的可访问范围从所有设备限制为局域网访问，同时Nginx将对内网提供的服务通过反向代理映射到公网来代替原始服务地址。</p>
+<p>One interface for Claude Code, Codex, Copilot, OpenCode, Pi, Antigravity, and Muse Code agents.</p>
 </blockquote>
+<p><img src="https://camo.githubusercontent.com/9b579696d9939f7f9e5132b06819347d79772dab1ff6a908c2259839fcef5983/68747470733a2f2f706173656f2e73682f6865726f2d6d6f636b75702e706e67"></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/pingdotgg/t3code">T3-code</a></p>
+<blockquote>
+<p>he open-source control plane for coding agents.</p>
+</blockquote>
+<p><img src="https://github.com/pingdotgg/t3code/raw/main/.github/readme/hero.webp"></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/stablyai/orca">Orca</a></p>
+<blockquote>
+<p><strong>The AI Orchestrator for 100x builders.</strong><br>Run Claude Code, Codex, and any other coding agent in parallel, each in its own worktree. Chat or terminal, on your laptop or in the cloud, with diffs, a browser, and a CLI in one app.</p>
+</blockquote>
+<p><img src="https://github.com/stablyai/orca/raw/main/docs/assets/readme-hero.jpg"></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/herdrdev/herdr">Herdr</a></p>
+<blockquote>
+<p><strong>the runtime your coding agents live on.</strong></p>
+</blockquote>
+<p><img src="https://camo.githubusercontent.com/ddd647b5aee3db38a48f932bc092859422e49d762e906fd11f482ad3a5647ad7/68747470733a2f2f696d672e796f75747562652e636f6d2f76692f7663754647747774486c772f6d617872657364656661756c742e6a7067"></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/multica-ai/multica">mulica </a></p>
+<blockquote>
+<p>Multica is a source-available workspace where you assign work to AI coding agents the way you’d assign it to a teammate — they pick up the issue, report progress, raise blockers, and hand it back for review. Self-hostable, works with the agent CLIs you already use, no lock-in.</p>
+</blockquote>
+<p><img src="https://github.com/multica-ai/multica/raw/main/docs/assets/readme/team.webp"></p>
+</li>
+</ol>
+<hr>
+<p>材料参见：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://cloud.google.com/discover/ai-agent-skills?hl=zh-CN">Agent skills: What are they and how do they work?–Google Cloud</a></li>
+<li><a target="_blank" rel="noopener" href="https://help.aliyun.com/zh/skillsportal/understand-agent-skills">了解 Agent Skills–阿里云</a></li>
+<li><a target="_blank" rel="noopener" href="https://code.claude.com/docs/zh-CN/skills">Extend Claude with skills—Claude Code Docs</a></li>
+<li><a target="_blank" rel="noopener" href="https://cloud.google.com/discover/what-are-ai-agents?hl=zh-CN">What Are AI Agents?—Google Cloud</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.oracle.com/cn/artificial-intelligence/ai-agents/">What Are AI Agents?—-Oracle</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ibm.com/think/topics/ai-agents">What are AI agents?—-IBM</a></li>
+<li><a target="_blank" rel="noopener" href="https://cloud.google.com/discover/what-is-model-context-protocol?hl=zh-CN">What is the MCP and how does it work? — Google Cloud</a></li>
+<li><a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/what-is/mcp/">What is Model Context Protocol (MCP)？ – Amazon AWS</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ibm.com/cn-zh/think/topics/model-context-protocol">What is Model Context Protocol (MCP)?  — IBM</a></li>
+<li><a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/what-is/ai-agents/">What are AI Agents?  — Amazon AWS</a></li>
+</ul>
 
       
     </div>
@@ -294,7 +351,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/115/">115</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/116/">116</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -381,7 +438,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">115</span>
+          <span class="site-state-item-count">116</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -430,12 +487,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">563k</span>
+    <span title="站点总字数">569k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">15:39</span>
+    <span title="站点阅读时长">15:49</span>
 </div>
 <!-- 网站运行时间的设置 -->
 <span id="timeDate">载入天数...</span>

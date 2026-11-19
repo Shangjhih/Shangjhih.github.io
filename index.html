@@ -169,7 +169,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2026/11/15/Ai-Agent-Skill-Tutorial/">
+    <link itemprop="mainEntityOfPage" href="https://lvshuqi.top/2026/11/19/Nginx2root-Fix-Upgrade/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://s2.loli.net/2025/05/17/kIwcMmTsEvbpKfe.png">
@@ -183,7 +183,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2026/11/15/Ai-Agent-Skill-Tutorial/" class="post-title-link" itemprop="url">Ai Agent Skill Tutorial</a>
+            <a href="/2026/11/19/Nginx2root-Fix-Upgrade/" class="post-title-link" itemprop="url">Nginx2root Fix(Upgrade)</a>
         </h2>
 
         <div class="post-meta">
@@ -194,24 +194,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2026-11-15 20:25:45 / 修改时间：23:18:01" itemprop="dateCreated datePublished" datetime="2026-11-15T20:25:45+08:00">2026-11-15</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Ai/" itemprop="url" rel="index"><span itemprop="name">Ai</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Ai/Agent/" itemprop="url" rel="index"><span itemprop="name">Agent</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Ai/Agent/Skill/" itemprop="url" rel="index"><span itemprop="name">Skill</span></a>
-                </span>
+              <time title="创建时间：2026-11-19 20:45:58 / 修改时间：21:56:38" itemprop="dateCreated datePublished" datetime="2026-11-19T20:45:58+08:00">2026-11-19</time>
             </span>
 
           <br>
@@ -220,14 +203,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.4k</span>
+              <span>6.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
+              <span>10 分钟</span>
             </span>
 
         </div>
@@ -239,100 +222,149 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>本章我们将会学习有关现代AI Agent以及Skill、MCP的知识，本章内容包括对Agent、Skill、MCP等名词进行解释、给出常见的skill源MCP源，以及提供Multiple集成式开源Agent平台。纵观全局，智能体整体工作流程如下：</p>
-<p><img src="/images/design.png" alt="ph"></p>
-<h2 id="AI模型是什么"><a href="#AI模型是什么" class="headerlink" title="AI模型是什么"></a>AI模型是什么</h2><p>这里的AI指的就是我们日常在手机安装的AI APP ，比如豆包、deepseek、ChatGPT、Claude和千问等软件。多模态的Ai一般可以上传文件（图片或音频）等，模型会根据你上传的文件信息与你在对话框反馈交流，或者直接通过你的文字输入或语音输入与你沟通，这就是我们常说的AI。</p>
-<p>这种AI不能操作你手机或电脑的文件，与你交流的方式只有发送图片或发送文字。</p>
-<h2 id="Agent是什么"><a href="#Agent是什么" class="headerlink" title="Agent是什么?"></a>Agent是什么?</h2><p>Agent又被叫做智能体，是使用 AI 来实现目标并代表用户完成任务的软件系统（以软件形式安装在手机或电脑）。智能体可以同时处理文本、语音、视频、音频、代码等多模态信息，还可以对话、推理、学习和做出决策。它们可以随着时间的推移不断学习，并简化事务和业务流程。智能体可以与其他智能体协作，来协调和执行更复杂的工作流。其表现出了推理、规划和记忆能力，并且具有一定的自主性，能够自主学习、适应和做出决定。</p>
-<p>代表：</p>
-<pre><code> - Codex
- - Claude Code
- - Workbuddy
- - OpenClaw
- - Deepseek Harness
- - Hermes
-</code></pre>
-<p>Agent可以根据你的要求对文件进行查找和编辑，能够直接使用你的工具来完成你交代的任务。它可以代你进行聊天、可以帮你购物、可以帮你做excel表格、可以帮你写代码改代码以及帮你下载安装软件服务等。</p>
-<h2 id="Skill是什么？"><a href="#Skill是什么？" class="headerlink" title="Skill是什么？"></a>Skill是什么？</h2><p>Skill按中文翻译就是“技巧”的意思，在AI这里，Skill就是一个文件夹，这个文件夹下写的有某一类工作的工作规范。这个工作规范就是ai将要执行的标准。比如说你要Ai去给你做PPT, Ai 恰好有一个ppt-skill， 这个skill中写的有指导ai怎么去做PPT，比如要先找素材，再做动画，内容怎么写，字体什么的调什么型号。有的skill还会包含一些脚本，这些脚本只有一个作用，只能实现某个具体的操作（比如，打开powerpoint并建立一个3页的文档），这种固定行为的任务完全可以写成一个脚本，在需要的时候直接运行。</p>
-<p><strong>总结</strong> ： Skill就是一个经验包(通用流程)，它会告诉Ai干什么事要用什么干。</p>
-<p><strong>Skills仓库：</strong>：</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://skills-hub.ai/">SKILLS-HUB</a></li>
-<li><a target="_blank" rel="noopener" href="https://skillhey.com/zh">SKILLHEY</a></li>
-<li><a target="_blank" rel="noopener" href="https://skill.miyucaicai.cn/">Topgo Skills</a></li>
-</ul>
-<h2 id="MCP-是什么？"><a href="#MCP-是什么？" class="headerlink" title="MCP 是什么？"></a>MCP 是什么？</h2><p>MCP(Model Context Protocol)全称：<strong>模型上下文协议</strong></p>
-<p>在AI模型尝试使用工具解决问题的时候，MCP就在AI和工具之间做连接，MCP会告诉AI这个工具是怎么用的，你做这个的时候需要这么做才行，做那个的时候需要那么做才行。</p>
-<p><strong>MCP会告诉模型：</strong></p>
-<ul>
-<li>有哪些工具可用</li>
-<li>每个工具是做什么的</li>
-<li>工具需要什么参数</li>
-<li>调用后会返回什么格式的数据</li>
-</ul>
-<p><strong>MCP仓库：</strong></p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://www.modelscope.cn/mcp">Model Scope</a></li>
-<li><a target="_blank" rel="noopener" href="https://mcpservers.org/zh-CN/">Awesome MCP Servers</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/mcp">Github MCP</a></li>
-<li><a target="_blank" rel="noopener" href="https://mcp.so/servers">MCP SO</a></li>
-</ul>
+          <h1 id=""><a href="#" class="headerlink" title=""></a></h1><h2 id="What-is-NGINX2Root"><a href="#What-is-NGINX2Root" class="headerlink" title="What is NGINX2Root?"></a>What is NGINX2Root?</h2><p>nginx2root is a collection of five distinct nginx vulnerabilities and one Linux kernel vulnerability. Each has a proven exploit. The most severe enables unauthenticated remote code execution; chained with a separate Linux kernel vulnerability, it can lead to host root.</p>
+<blockquote>
+<p>Fixed version: 1.31.9</p>
+</blockquote>
+<p>Five nginx findings and one kernel vulnerability<br>The most severe of the five allows unauthenticated remote code execution on web servers running a common nginx configuration. This remote code execution can be chained with a separate Linux kernel vulnerability to reach host root, remotely and without authentication.</p>
+<blockquote>
+<p>CVE-2026-123007<br>CVE-2026-123634<br>CVE-2026-123633<br>CVE-2026-121810<br>CVE-2026-113425</p>
+</blockquote>
+<blockquote>
+<p>Linux kernel · SCTP</p>
+<blockquote>
+<p>Host root · remote, unauthenticated</p>
+</blockquote>
+</blockquote>
+<h2 id="Who-is-affected"><a href="#Who-is-affected" class="headerlink" title="Who is affected?"></a>Who is affected?</h2><p>The version range below applies to the HTTP&#x2F;2 remote-code-execution finding, the most severe of the five. Official nginx releases from 1.9.5 through 1.31.8 contain the affected code. Exposure requires HTTP&#x2F;2 support in the nginx build and an affected listener that accepts HTTP&#x2F;2 connections.</p>
+<p>Each of the other four CVEs is a distinct vulnerability with its own affected range and exploit. Check its individual advisory rather than applying the HTTP&#x2F;2 finding’s version range to all five.</p>
+<p>Distribution packages, appliances, and container images may backport a security fix while retaining an older version string. Confirm patch status from the relevant vendor advisory instead of relying on <code>nginx -v</code>⁠ alone. The host-root stage uses a separate Linux SCTP kernel vulnerability and must be assessed separately.</p>
+<h2 id="How-do-I-fix-it"><a href="#How-do-I-fix-it" class="headerlink" title="How do I fix it?"></a>How do I fix it?</h2><p>Apply the fixed nginx release or your vendor’s security update as soon as it is available. If you cannot update immediately, disable HTTP&#x2F;2 on every affected nginx listener until the fix is applied. This mitigates the HTTP&#x2F;2 finding. For the other CVEs and the Linux kernel finding, see <a target="_blank" rel="noopener" href="https://xint.io/blog/nginx2root-remote-code-execution#3-response-and-recommended-actions-11">the response guide in our blog post</a>.</p>
 <hr>
-<h1 id="开源多Agent客户端"><a href="#开源多Agent客户端" class="headerlink" title="开源多Agent客户端"></a>开源多Agent客户端</h1><p>这里的客户端中可以使用API直接在任意Agent中使用，比如在Codex Agent中使用Deepseek的API,在Claude Code中使用GLM的API.</p>
-<p>你可以让不同的大模型拥有多种身份，可以让Deepseek等套着Codex的外壳去工作，并且不只是套外壳。模型同时还获取了Codex等的思考方式和解决问题使用的办法。</p>
-<ol>
-<li><a target="_blank" rel="noopener" href="https://github.com/spacering-net/codeg">CodeG</a></li>
-</ol>
-<blockquote>
-<p><strong>The multi-agent coding workspace.</strong><br>Run every AI coding agent in one place — and let them work together.</p>
-</blockquote>
-<p><img src="https://github.com/spacering-net/codeg/raw/main/docs/images/workspace-light.png"></p>
-<ol start="2">
-<li><p><a target="_blank" rel="noopener" href="https://github.com/getpaseo/paseo">Paseo</a></p>
-<blockquote>
-<p>One interface for Claude Code, Codex, Copilot, OpenCode, Pi, Antigravity, and Muse Code agents.</p>
-</blockquote>
-<p><img src="https://camo.githubusercontent.com/9b579696d9939f7f9e5132b06819347d79772dab1ff6a908c2259839fcef5983/68747470733a2f2f706173656f2e73682f6865726f2d6d6f636b75702e706e67"></p>
+<h2 id="How-to-upgrade-Your-Nginx-to-the-latest"><a href="#How-to-upgrade-Your-Nginx-to-the-latest" class="headerlink" title="How to upgrade Your Nginx to the latest?"></a>How to upgrade Your Nginx to the latest?</h2><h3 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a>Ubuntu</h3><ol>
+<li><p><strong>安装<code>curl</code>以及<code>gpg密钥验证工具</code></strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install curl gnupg2 ca-certificates lsb-release ubuntu-keyring</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/pingdotgg/t3code">T3-code</a></p>
-<blockquote>
-<p>he open-source control plane for coding agents.</p>
-</blockquote>
-<p><img src="https://github.com/pingdotgg/t3code/raw/main/.github/readme/hero.webp"></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/stablyai/orca">Orca</a></p>
-<blockquote>
-<p><strong>The AI Orchestrator for 100x builders.</strong><br>Run Claude Code, Codex, and any other coding agent in parallel, each in its own worktree. Chat or terminal, on your laptop or in the cloud, with diffs, a browser, and a CLI in one app.</p>
-</blockquote>
-<p><img src="https://github.com/stablyai/orca/raw/main/docs/assets/readme-hero.jpg"></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/herdrdev/herdr">Herdr</a></p>
-<blockquote>
-<p><strong>the runtime your coding agents live on.</strong></p>
-</blockquote>
-<p><img src="https://camo.githubusercontent.com/ddd647b5aee3db38a48f932bc092859422e49d762e906fd11f482ad3a5647ad7/68747470733a2f2f696d672e796f75747562652e636f6d2f76692f7663754647747774486c772f6d617872657364656661756c742e6a7067"></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/multica-ai/multica">mulica </a></p>
-<blockquote>
-<p>Multica is a source-available workspace where you assign work to AI coding agents the way you’d assign it to a teammate — they pick up the issue, report progress, raise blockers, and hand it back for review. Self-hostable, works with the agent CLIs you already use, no lock-in.</p>
-</blockquote>
-<p><img src="https://github.com/multica-ai/multica/raw/main/docs/assets/readme/team.webp"></p>
+<li><p><strong>导入<code>Nginx</code>官方的验证密钥文件，用来验证<code>Nginx</code>库的合法性</strong></p>
 </li>
 </ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl https://nginx.org/keys/nginx_signing.key | gpg --dearmor \</span><br><span class="line">    | <span class="built_in">sudo</span> <span class="built_in">tee</span> /usr/share/keyrings/nginx-archive-keyring.gpg &gt;/dev/null</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><strong>验证<code>GPG密钥</code>是否正确</strong></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gpg --dry-run --quiet --no-keyring --import --import-options import-show /usr/share/keyrings/nginx-archive-keyring.gpg</span><br></pre></td></tr></table></figure>
+
+<p>运行以上命令后，输出的信息必须包含以下信息:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pub   rsa2048 2011-08-19 [SC] [expires: 2027-05-24]</span><br><span class="line">      573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62</span><br><span class="line">uid                      nginx signing key &lt;signing-key@nginx.com&gt;</span><br></pre></td></tr></table></figure>
+
+<p>指纹信息必须为<code>573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62</code>请注意观察.</p>
+<ol start="4">
+<li><strong>将<code>apt</code> 的仓库设置为稳定版release ( 推荐 )</strong></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] \</span></span><br><span class="line"><span class="string">https://nginx.org/packages/ubuntu `lsb_release -cs` nginx&quot;</span> \</span><br><span class="line">    | <span class="built_in">sudo</span> <span class="built_in">tee</span> /etc/apt/sources.list.d/nginx.list</span><br></pre></td></tr></table></figure>
+
+<p>如果你想使用mainline版本，可以使用以下命令将仓库设置为mainline</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] \</span></span><br><span class="line"><span class="string">https://nginx.org/packages/mainline/ubuntu `lsb_release -cs` nginx&quot;</span> \</span><br><span class="line">    | <span class="built_in">sudo</span> <span class="built_in">tee</span> /etc/apt/sources.list.d/nginx.list</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li><strong>将nginx源仓库设置为<code>Nginx</code>官方而不走Ubuntu官方的<code>apt</code>仓库下载</strong></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;Package: *\nPin: origin nginx.org\nPin: release o=nginx\nPin-Priority: 900\n&quot;</span> \</span><br><span class="line">    | <span class="built_in">sudo</span> <span class="built_in">tee</span> /etc/apt/preferences.d/99nginx</span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li><strong>更新apt库</strong></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt update</span><br></pre></td></tr></table></figure>
+
+<ol start="7">
+<li><strong>查看当前所有的<code>Nginx</code>软件包</strong></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt llist -a nginx</span><br></pre></td></tr></table></figure>
+<p>打印出的内容应该为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">Listing... Done</span><br><span class="line">nginx/stable,now 1.30.7-1~noble amd64 [installed]</span><br><span class="line">nginx/stable 1.30.6-1~noble amd64</span><br><span class="line">nginx/stable 1.30.5-1~noble amd64</span><br><span class="line">nginx/stable 1.30.4-1~noble amd64</span><br><span class="line">nginx/stable 1.30.3-1~noble amd64</span><br><span class="line">nginx/stable 1.30.2-1~noble amd64</span><br><span class="line">nginx/stable 1.30.1-1~noble amd64</span><br><span class="line">nginx/stable 1.30.0-1~noble amd64</span><br><span class="line">nginx/stable 1.28.3-1~noble amd64</span><br><span class="line">nginx/stable 1.28.2-1~noble amd64</span><br><span class="line">nginx/stable 1.28.1-1~noble amd64</span><br><span class="line">nginx/stable 1.28.0-1~noble amd64</span><br><span class="line">nginx/stable 1.26.3-1~noble amd64</span><br><span class="line">nginx/stable 1.26.2-1~noble amd64</span><br><span class="line">nginx/stable 1.26.1-2~noble amd64</span><br><span class="line">nginx/stable 1.26.1-1~noble amd64</span><br><span class="line">nginx/stable 1.26.0-1~noble amd64</span><br><span class="line">nginx/noble-updates,noble-security 1.24.0-2ubuntu7.20 amd64</span><br><span class="line">nginx/noble 1.24.0-2ubuntu7 amd64</span><br></pre></td></tr></table></figure>
+
+<p>假如打印出的信息还是旧版本，请自行排查或参见<a target="_blank" rel="noopener" href="https://nginx.org/en/linux_packages.html#Ubuntu">【Nginx官方安装指南—Ubuntu】</a>.</p>
+<ol start="8">
+<li><strong>安装最新版的<code>Nginx</code></strong></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install nginx</span><br></pre></td></tr></table></figure>
+
+<ol start="9">
+<li><strong>查看更新后的<code>Nginx版本</code></strong></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -v</span><br></pre></td></tr></table></figure>
+
+<p>打印信息</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx version: nginx/1.30.7</span><br></pre></td></tr></table></figure>
+
+<p>到此，Ubuntu的<code>Nginx</code>更新完成。</p>
 <hr>
-<p>材料参见：</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://cloud.google.com/discover/ai-agent-skills?hl=zh-CN">Agent skills: What are they and how do they work?–Google Cloud</a></li>
-<li><a target="_blank" rel="noopener" href="https://help.aliyun.com/zh/skillsportal/understand-agent-skills">了解 Agent Skills–阿里云</a></li>
-<li><a target="_blank" rel="noopener" href="https://code.claude.com/docs/zh-CN/skills">Extend Claude with skills—Claude Code Docs</a></li>
-<li><a target="_blank" rel="noopener" href="https://cloud.google.com/discover/what-are-ai-agents?hl=zh-CN">What Are AI Agents?—Google Cloud</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.oracle.com/cn/artificial-intelligence/ai-agents/">What Are AI Agents?—-Oracle</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.ibm.com/think/topics/ai-agents">What are AI agents?—-IBM</a></li>
-<li><a target="_blank" rel="noopener" href="https://cloud.google.com/discover/what-is-model-context-protocol?hl=zh-CN">What is the MCP and how does it work? — Google Cloud</a></li>
-<li><a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/what-is/mcp/">What is Model Context Protocol (MCP)？ – Amazon AWS</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.ibm.com/cn-zh/think/topics/model-context-protocol">What is Model Context Protocol (MCP)?  — IBM</a></li>
-<li><a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/what-is/ai-agents/">What are AI Agents?  — Amazon AWS</a></li>
-</ul>
+<h3 id="Debian"><a href="#Debian" class="headerlink" title="Debian"></a>Debian</h3><ol>
+<li><p><strong>安装<code>curl</code>以及<code>gpg密钥验证工具</code></strong> <strong>(Debian库)</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install curl gnupg2 ca-certificates lsb-release debian-archive-keyring</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>导入<code>Nginx</code>官方的验证密钥文件，用来验证<code>Nginx</code>库的合法性</strong></p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl https://nginx.org/keys/nginx_signing.key | gpg --dearmor \</span><br><span class="line">    | <span class="built_in">sudo</span> <span class="built_in">tee</span> /usr/share/keyrings/nginx-archive-keyring.gpg &gt;/dev/null</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><strong>验证<code>GPG密钥</code>是否正确</strong></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gpg --dry-run --quiet --no-keyring --import --import-options import-show /usr/share/keyrings/nginx-archive-keyring.gpg</span><br></pre></td></tr></table></figure>
+
+<p>运行以上命令后，输出的信息必须包含以下信息:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pub   rsa2048 2011-08-19 [SC] [expires: 2027-05-24]</span><br><span class="line">      573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62</span><br><span class="line">uid                      nginx signing key &lt;signing-key@nginx.com&gt;</span><br></pre></td></tr></table></figure>
+
+<p>指纹信息必须为<code>573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62</code>请注意观察.(可能会输出多对密钥信息，这是正常的)</p>
+<ol start="4">
+<li><strong>将<code>apt</code> 的仓库设置为稳定版release ( 推荐 )</strong></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] \</span></span><br><span class="line"><span class="string">https://nginx.org/packages/debian `lsb_release -cs` nginx&quot;</span> \</span><br><span class="line">    | <span class="built_in">sudo</span> <span class="built_in">tee</span> /etc/apt/sources.list.d/nginx.list</span><br></pre></td></tr></table></figure>
+
+<p>如果你想使用mainline先行版本，可以使用以下命令将仓库设置为mainline</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] \</span></span><br><span class="line"><span class="string">https://nginx.org/packages/mainline/debian `lsb_release -cs` nginx&quot;</span> \</span><br><span class="line">    | <span class="built_in">sudo</span> <span class="built_in">tee</span> /etc/apt/sources.list.d/nginx.list</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li><strong>将nginx源仓库设置为<code>Nginx</code>官方而不走Debian官方的<code>apt</code>仓库下载</strong></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;Package: *\nPin: origin nginx.org\nPin: release o=nginx\nPin-Priority: 900\n&quot;</span> \</span><br><span class="line">    | <span class="built_in">sudo</span> <span class="built_in">tee</span> /etc/apt/preferences.d/99nginx</span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li><strong>更新apt库</strong></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt update</span><br></pre></td></tr></table></figure>
+
+<ol start="7">
+<li><strong>查看当前所有的<code>Nginx</code>软件包</strong></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt list -a nginx</span><br></pre></td></tr></table></figure>
+
+<p>打印出的内容应该为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">Listing... Done</span><br><span class="line">nginx/stable,now 1.30.7-1~noble amd64 [installed]</span><br><span class="line">nginx/stable 1.30.6-1~noble amd64</span><br><span class="line">nginx/stable 1.30.5-1~noble amd64</span><br><span class="line">nginx/stable 1.30.4-1~noble amd64</span><br><span class="line">nginx/stable 1.30.3-1~noble amd64</span><br><span class="line">nginx/stable 1.30.2-1~noble amd64</span><br><span class="line">nginx/stable 1.30.1-1~noble amd64</span><br><span class="line">nginx/stable 1.30.0-1~noble amd64</span><br><span class="line">nginx/stable 1.28.3-1~noble amd64</span><br><span class="line">nginx/stable 1.28.2-1~noble amd64</span><br><span class="line">nginx/stable 1.28.1-1~noble amd64</span><br><span class="line">nginx/stable 1.28.0-1~noble amd64</span><br><span class="line">nginx/stable 1.26.3-1~noble amd64</span><br><span class="line">nginx/stable 1.26.2-1~noble amd64</span><br><span class="line">nginx/stable 1.26.1-2~noble amd64</span><br><span class="line">nginx/stable 1.26.1-1~noble amd64</span><br><span class="line">nginx/stable 1.26.0-1~noble amd64</span><br><span class="line">nginx/noble-updates,noble-security 1.24.0-2ubuntu7.20 amd64</span><br><span class="line">nginx/noble 1.24.0-2ubuntu7 amd64</span><br></pre></td></tr></table></figure>
+
+<p>假如打印出的信息还是旧版本，请自行排查或参见<a target="_blank" rel="noopener" href="https://nginx.org/en/linux_packages.html#Debian">【Nginx官方安装指南-Debian】</a></p>
+<ol start="8">
+<li><strong>安装最新版的<code>Nginx</code></strong></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install nginx</span><br></pre></td></tr></table></figure>
+
+<ol start="9">
+<li><strong>查看更新后的<code>Nginx版本</code></strong></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -v</span><br></pre></td></tr></table></figure>
+
+<p>打印信息</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx version: nginx/1.30.7</span><br></pre></td></tr></table></figure>
+
+<p>到此，Debian的<code>Nginx</code>更新完成。</p>
+<hr>
+<p>如您的设备不是Ubuntu也不是Debian，请参见：<a target="_blank" rel="noopener" href="https://nginx.org/en/linux_packages.html">【Nginx installation instructions】</a>.</p>
+<p><strong>其它Linux系统参见</strong><br>- <a target="_blank" rel="noopener" href="https://nginx.org/en/linux_packages.html#RHEL">RHEL and derivatives</a><br><a target="_blank" rel="noopener" href="https://nginx.org/en/linux_packages.html#RHEL">https://nginx.org/en/linux_packages.html#RHEL</a></p>
+<p>- <a target="_blank" rel="noopener" href="https://nginx.org/en/linux_packages.html#SLES">SLES</a><br><a target="_blank" rel="noopener" href="https://nginx.org/en/linux_packages.html#SLES">https://nginx.org/en/linux_packages.html#SLES</a></p>
+<p>- <a target="_blank" rel="noopener" href="https://nginx.org/en/linux_packages.html#Alpine">Alpine</a><br><a target="_blank" rel="noopener" href="https://nginx.org/en/linux_packages.html#Alpine">https://nginx.org/en/linux_packages.html#Alpine</a></p>
+<p>- <a target="_blank" rel="noopener" href="https://nginx.org/en/linux_packages.html#Amazon-Linux">Amazon Linux</a><br><a target="_blank" rel="noopener" href="https://nginx.org/en/linux_packages.html#Amazon-Linux">https://nginx.org/en/linux_packages.html#Amazon-Linux</a></p>
 
       
     </div>
@@ -351,7 +383,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/115/">115</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/116/">116</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -438,7 +470,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">115</span>
+          <span class="site-state-item-count">116</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -487,12 +519,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">563k</span>
+    <span title="站点总字数">569k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">15:39</span>
+    <span title="站点阅读时长">15:49</span>
 </div>
 <!-- 网站运行时间的设置 -->
 <span id="timeDate">载入天数...</span>
