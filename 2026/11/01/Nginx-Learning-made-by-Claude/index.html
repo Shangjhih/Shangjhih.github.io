@@ -239,8 +239,13 @@ ls -l /etc/nginx/sites-enabled/  # 看软链接指向</pre></div>
     depends_on: [app]
   app:
     image: my-app:latest   # 监听 3000 端口
-
-<h1 id="conf-d-site-conf-里这样写："><a href="#conf-d-site-conf-里这样写：" class="headerlink" title="conf.d&#x2F;site.conf 里这样写："></a>conf.d&#x2F;site.conf 里这样写：</h1><h1 id="proxy-pass-http-app-3000-用服务名，而不是-localhost"><a href="#proxy-pass-http-app-3000-用服务名，而不是-localhost" class="headerlink" title="proxy_pass http://app:3000;   用服务名，而不是 localhost"></a>proxy_pass <a href="http://app:3000/">http://app:3000</a>;   用服务名，而不是 localhost</pre></div></h1><h3>日常操作</h3>
+</pre></div>
+<div class="scroll">
+<pre>id="conf-d-site-conf">conf.d/site.conf</pre>
+里这样写：
+<pre>id="proxy-pass">proxy_pass http://app:3000; 用服务名，而不是 localhost</pre>
+</div>
+<h3>日常操作</h3>
 <div class="scroll"><pre>docker exec web nginx -t                 # 检查配置
 docker exec web nginx -s reload          # 平滑重载
 docker logs -f web                       # 看访问与错误日志
