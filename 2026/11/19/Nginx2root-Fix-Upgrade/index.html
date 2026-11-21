@@ -28,7 +28,7 @@
 <meta property="og:description" content="What is NGINX2Root?nginx2root is a collection of five distinct nginx vulnerabilities and one Linux kernel vulnerability. Each has a proven exploit. The most severe enables unauthenticated remote code">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-11-19T12:45:58.000Z">
-<meta property="article:modified_time" content="2026-11-19T14:05:57.118Z">
+<meta property="article:modified_time" content="2026-11-21T06:16:12.089Z">
 <meta property="article:author" content="Shangjhih Jhao">
 <meta property="article:tag" content="Nginx">
 <meta name="twitter:card" content="summary">
@@ -189,10 +189,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2026-11-19 20:45:58 / 修改时间：22:05:57" itemprop="dateCreated datePublished" datetime="2026-11-19T20:45:58+08:00">2026-11-19</time>
+              <time title="创建时间：2026-11-19 20:45:58" itemprop="dateCreated datePublished" datetime="2026-11-19T20:45:58+08:00">2026-11-19</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2026-11-21 14:16:12" itemprop="dateModified" datetime="2026-11-21T14:16:12+08:00">2026-11-21</time>
+              </span>
 
           <br>
             <span class="post-meta-item" title="本文字数">
@@ -221,7 +227,11 @@
       
         <h1 id=""><a href="#" class="headerlink" title=""></a></h1><h2 id="What-is-NGINX2Root"><a href="#What-is-NGINX2Root" class="headerlink" title="What is NGINX2Root?"></a>What is NGINX2Root?</h2><p>nginx2root is a collection of five distinct nginx vulnerabilities and one Linux kernel vulnerability. Each has a proven exploit. The most severe enables unauthenticated remote code execution; chained with a separate Linux kernel vulnerability, it can lead to host root.</p>
 <blockquote>
-<p>Fixed version: 1.31.9</p>
+<p>Fixed version:</p>
+<blockquote>
+<p> Stable: </p>
+<p>Mainline: 1.31.9</p>
+</blockquote>
 </blockquote>
 <p>Five nginx findings and one kernel vulnerability<br>The most severe of the five allows unauthenticated remote code execution on web servers running a common nginx configuration. This remote code execution can be chained with a separate Linux kernel vulnerability to reach host root, remotely and without authentication.</p>
 <blockquote>
@@ -239,11 +249,12 @@
 <h2 id="How-do-I-fix-it"><a href="#How-do-I-fix-it" class="headerlink" title="How do I fix it?"></a>How do I fix it?</h2><p>Apply the fixed nginx release or your vendor’s security update as soon as it is available. If you cannot update immediately, disable HTTP&#x2F;2 on every affected nginx listener until the fix is applied. This mitigates the HTTP&#x2F;2 finding. For the other CVEs and the Linux kernel finding, see <a target="_blank" rel="noopener" href="https://xint.io/blog/nginx2root-remote-code-execution#3-response-and-recommended-actions-11">the response guide in our blog post</a>.</p>
 <hr>
 <h2 id="How-to-upgrade-Your-Nginx-to-the-latest"><a href="#How-to-upgrade-Your-Nginx-to-the-latest" class="headerlink" title="How to upgrade Your Nginx to the latest?"></a>How to upgrade Your Nginx to the latest?</h2><h3 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a>Ubuntu</h3><ol>
-<li><p><strong>安装<code>curl</code>以及<code>gpg密钥验证工具</code></strong></p>
+<li><strong>安装<code>curl</code>以及<code>gpg密钥验证工具</code></strong></li>
+</ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install curl gnupg2 ca-certificates lsb-release ubuntu-keyring</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>导入<code>Nginx</code>官方的验证密钥文件，用来验证<code>Nginx</code>库的合法性</strong></p>
-</li>
+
+<ol start="2">
+<li><strong>导入<code>Nginx</code>官方的验证密钥文件，用来验证<code>Nginx</code>库的合法性</strong></li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl https://nginx.org/keys/nginx_signing.key | gpg --dearmor \</span><br><span class="line">    | <span class="built_in">sudo</span> <span class="built_in">tee</span> /usr/share/keyrings/nginx-archive-keyring.gpg &gt;/dev/null</span><br></pre></td></tr></table></figure>
 
@@ -277,7 +288,7 @@
 <ol start="7">
 <li><strong>查看当前所有的<code>Nginx</code>软件包</strong></li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt llist -a nginx</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt list -a nginx</span><br></pre></td></tr></table></figure>
 <p>打印出的内容应该为：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">Listing... Done</span><br><span class="line">nginx/stable,now 1.30.7-1~noble amd64 [installed]</span><br><span class="line">nginx/stable 1.30.6-1~noble amd64</span><br><span class="line">nginx/stable 1.30.5-1~noble amd64</span><br><span class="line">nginx/stable 1.30.4-1~noble amd64</span><br><span class="line">nginx/stable 1.30.3-1~noble amd64</span><br><span class="line">nginx/stable 1.30.2-1~noble amd64</span><br><span class="line">nginx/stable 1.30.1-1~noble amd64</span><br><span class="line">nginx/stable 1.30.0-1~noble amd64</span><br><span class="line">nginx/stable 1.28.3-1~noble amd64</span><br><span class="line">nginx/stable 1.28.2-1~noble amd64</span><br><span class="line">nginx/stable 1.28.1-1~noble amd64</span><br><span class="line">nginx/stable 1.28.0-1~noble amd64</span><br><span class="line">nginx/stable 1.26.3-1~noble amd64</span><br><span class="line">nginx/stable 1.26.2-1~noble amd64</span><br><span class="line">nginx/stable 1.26.1-2~noble amd64</span><br><span class="line">nginx/stable 1.26.1-1~noble amd64</span><br><span class="line">nginx/stable 1.26.0-1~noble amd64</span><br><span class="line">nginx/noble-updates,noble-security 1.24.0-2ubuntu7.20 amd64</span><br><span class="line">nginx/noble 1.24.0-2ubuntu7 amd64</span><br></pre></td></tr></table></figure>
 
@@ -339,7 +350,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt list -a nginx</span><br></pre></td></tr></table></figure>
 
 <p>打印出的内容应该为：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">Listing... Done</span><br><span class="line">nginx/stable,now 1.30.7-1~noble amd64 [installed]</span><br><span class="line">nginx/stable 1.30.6-1~noble amd64</span><br><span class="line">nginx/stable 1.30.5-1~noble amd64</span><br><span class="line">nginx/stable 1.30.4-1~noble amd64</span><br><span class="line">nginx/stable 1.30.3-1~noble amd64</span><br><span class="line">nginx/stable 1.30.2-1~noble amd64</span><br><span class="line">nginx/stable 1.30.1-1~noble amd64</span><br><span class="line">nginx/stable 1.30.0-1~noble amd64</span><br><span class="line">nginx/stable 1.28.3-1~noble amd64</span><br><span class="line">nginx/stable 1.28.2-1~noble amd64</span><br><span class="line">nginx/stable 1.28.1-1~noble amd64</span><br><span class="line">nginx/stable 1.28.0-1~noble amd64</span><br><span class="line">nginx/stable 1.26.3-1~noble amd64</span><br><span class="line">nginx/stable 1.26.2-1~noble amd64</span><br><span class="line">nginx/stable 1.26.1-2~noble amd64</span><br><span class="line">nginx/stable 1.26.1-1~noble amd64</span><br><span class="line">nginx/stable 1.26.0-1~noble amd64</span><br><span class="line">nginx/noble-updates,noble-security 1.24.0-2ubuntu7.20 amd64</span><br><span class="line">nginx/noble 1.24.0-2ubuntu7 amd64</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">Listing... Done</span><br><span class="line">nginx/stable,now 1.30.7-1~noble amd64 [installed]</span><br><span class="line">nginx/stable 1.30.6-1~noble amd64</span><br><span class="line">nginx/stable 1.30.5-1~noble amd64</span><br><span class="line">nginx/stable 1.30.4-1~noble amd64</span><br><span class="line">nginx/stable 1.30.3-1~noble amd64</span><br><span class="line">nginx/stable 1.30.2-1~noble amd64</span><br><span class="line">nginx/stable 1.30.1-1~noble amd64</span><br><span class="line">nginx/stable 1.30.0-1~noble amd64</span><br><span class="line">nginx/stable 1.28.3-1~noble amd64</span><br><span class="line">nginx/stable 1.28.2-1~noble amd64</span><br><span class="line">nginx/stable 1.28.1-1~noble amd64</span><br><span class="line">nginx/stable 1.28.0-1~noble amd64</span><br><span class="line">nginx/stable 1.26.3-1~noble amd64</span><br><span class="line">nginx/stable 1.26.2-1~noble amd64</span><br><span class="line">nginx/stable 1.26.1-2~noble amd64</span><br><span class="line">nginx/stable 1.26.1-1~noble amd64</span><br><span class="line">nginx/stable 1.26.0-1~noble amd64</span><br></pre></td></tr></table></figure>
 
 <p>假如打印出的信息还是旧版本，请自行排查或参见<a target="_blank" rel="noopener" href="https://nginx.org/en/linux_packages.html#Debian">【Nginx官方安装指南-Debian】</a></p>
 <ol start="8">
@@ -357,8 +368,20 @@
 
 <p>到此，Debian的<code>Nginx</code>更新完成。</p>
 <hr>
-<p>如您的设备不是Ubuntu也不是Debian，请参见：<a target="_blank" rel="noopener" href="https://nginx.org/en/linux_packages.html">【Nginx installation instructions】</a>.</p>
-<p><strong>其它Linux系统官方直达</strong><br>- <a target="_blank" rel="noopener" href="https://nginx.org/en/linux_packages.html#RHEL">RHEL and derivatives</a><br><a target="_blank" rel="noopener" href="https://nginx.org/en/linux_packages.html#RHEL">https://nginx.org/en/linux_packages.html#RHEL</a></p>
+<p>如您的服务器系统不是Ubuntu也不是Debian，请参见：<a target="_blank" rel="noopener" href="https://nginx.org/en/linux_packages.html">【Nginx installation instructions】</a>.</p>
+<p><strong>参考文献</strong></p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://linuxize.com/post/how-to-use-apt-command/">apt Command in Linux</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://nginx2root.com/">NGINX2Root</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://nginx.org/en/linux_packages.html">nginx: Linux packages</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://nginx.org/en/docs/switches.html">Nginx Command-line parameters</a></p>
+</li>
+</ul>
+<p><strong>Nginx 官方文档</strong></p>
+<p>- <a target="_blank" rel="noopener" href="https://nginx.org/en/linux_packages.html#RHEL">RHEL and derivatives</a><br><a target="_blank" rel="noopener" href="https://nginx.org/en/linux_packages.html#RHEL">https://nginx.org/en/linux_packages.html#RHEL</a></p>
 <p>- <a target="_blank" rel="noopener" href="https://nginx.org/en/linux_packages.html#SLES">SLES</a><br><a target="_blank" rel="noopener" href="https://nginx.org/en/linux_packages.html#SLES">https://nginx.org/en/linux_packages.html#SLES</a></p>
 <p>- <a target="_blank" rel="noopener" href="https://nginx.org/en/linux_packages.html#Alpine">Alpine</a><br><a target="_blank" rel="noopener" href="https://nginx.org/en/linux_packages.html#Alpine">https://nginx.org/en/linux_packages.html#Alpine</a></p>
 <p>- <a target="_blank" rel="noopener" href="https://nginx.org/en/linux_packages.html#Amazon-Linux">Amazon Linux</a><br><a target="_blank" rel="noopener" href="https://nginx.org/en/linux_packages.html#Amazon-Linux">https://nginx.org/en/linux_packages.html#Amazon-Linux</a></p>
