@@ -241,9 +241,9 @@ ls -l /etc/nginx/sites-enabled/  # 看软链接指向</pre></div>
     image: my-app:latest   # 监听 3000 端口
 </pre></div>
 <div class="scroll">
-<pre>id="conf-d-site-conf">conf.d/site.conf</pre>
+<pre>conf.d/site.conf</pre>
 里这样写：
-<pre>id="proxy-pass">proxy_pass http://app:3000; 用服务名，而不是 localhost</pre>
+<pre>proxy_pass http://app:3000;      #用服务名，而不是 localhost</pre>
 </div>
 <h3>日常操作</h3>
 <div class="scroll"><pre>docker exec web nginx -t                 # 检查配置
